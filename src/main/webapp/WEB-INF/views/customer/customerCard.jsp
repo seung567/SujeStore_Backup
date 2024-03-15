@@ -28,19 +28,7 @@
 	<div class="main">
 	
 		<!-- 좌측 서브 메뉴 버튼 -->
-		<div class="mainContentleft">
-			<div>
-				<img width=120px height=120px alt="" src="./resources/img/basicProfileIcon.png">
-			</div>
-			<div>abc123</div>
-			<div class="subTitle mypagebtn"><a href="">마이페이지</a></div>
-			<div class="subTitle"><a href="">카드 등록/수정</a></div>
-			<div class="subTitle"><a href="">계좌 등록/수정</a></div>
-			<div class="subTitle"><a href="">주문 내역 조회</a></div>
-			<div class="subTitle"><a href="">후기 작성</a></div>
-			<div class="subTitle"><a href="">SUJE 톡톡</a></div>
-			<div class="subTitle"><a href="">Q&A 작성</a></div>
-		</div>
+		<jsp:include page="/WEB-INF/views/customer/customerMenuBar.jsp"></jsp:include>
 		
 		<!-- 화면 메인 Content 부분 -->
 		<div class="mainContentright">

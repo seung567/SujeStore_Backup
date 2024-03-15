@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+	background-color: #ccc;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.contentsWrap {
+	flex-grow: 1;
+	width: 1440px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+footer {
+	width: 100%;
+	height: 200px;
+	background-color: #ADEFD1;
+}

@@ -67,7 +67,7 @@ body {
 	height: auto;
 }
 
-.subtitle {
+.subtitle, .subtitle2{
 	font-weight: bold;
 	font-size: 30px;
 	margin-top: 20px;
@@ -79,12 +79,6 @@ body {
 	height: 5px;
 	background-color: #D9D9D9;
 }
-
-.myPageLine:last-child {
-	margin-top: 40px;
-
-}
-
 
 .mypagebtn {
 	background-color: #ADEFD1;
@@ -102,32 +96,21 @@ body {
 
 table tr td {
 	font-size: 15px;
-	border-collapse : collapse;
-}
-
-.List {
-	width: 1020px;
-	margin-top: 40px;
-	text-align: center;
-	vertical-align: middle;
-	word-break: break-all;
-	height: auto;
 }
 
 td {
 	width: auto;
 	height: 50px;
-	border-bottom: 2px solid #ADEFD1;
 }
 
-tr {
+tr td{
 	width: auto;
 	border-bottom: 2px solid #ADEFD1;
 }
 
 tr:first-child>td{
 	height: 30px;
-	border-bottom: 2px solid #ADEFD1;
+	border-top: 2px solid #ADEFD1;
 }
 
 table input{
@@ -138,4 +121,23 @@ table input{
 	border-radius: 5px;
 }
 
+.List {
+	width: 1020px;
+	margin-top: 40px;
+	text-align: center;
+	vertical-align: middle;
+	word-break: break-all;
+	height: auto;
+}
 /* 테이블 공통 속성 end*/
+
+/*페이징 css*/
+.pageing{
+	width:auto;
+	margin-top: 40px;
+	text-align: center;
+}
+
+.subtitle2{
+	margin-top: 70px;
+}

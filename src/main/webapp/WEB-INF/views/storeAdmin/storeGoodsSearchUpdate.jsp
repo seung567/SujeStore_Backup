@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
-<link href="./resources/css/subMenuStyle.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 hr {
 	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */

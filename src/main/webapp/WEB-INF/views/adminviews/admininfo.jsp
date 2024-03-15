@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/subMenuStyle.css" rel="stylesheet" type="text/css">
-<link href="./resources/css/admininfo.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/admincss/admininfo.css" rel="stylesheet" type="text/css">
 <body>
 <%@ include file="../../views/headerHtml/adminHeader.jsp" %>
 <div class="adminContentsWrap">

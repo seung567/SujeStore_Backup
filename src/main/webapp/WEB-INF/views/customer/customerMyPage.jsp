@@ -28,7 +28,7 @@
 	<div class="main">
 		<div class="mainContentleft">
 			<div>
-				<img width=120px height=120px alt="" src="./resources/img/basicProfileIcon.png">
+				<img width=120px height=120px alt="" src="./resources/img/basicProfileIconBig.png">
 			</div>
 			<div>abc123</div>
 			<div class="subTitle mypagebtn"><a href="">마이페이지</a></div>

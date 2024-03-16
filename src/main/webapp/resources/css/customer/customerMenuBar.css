@@ -61,3 +61,13 @@ body {
 	text-align: center;
 	line-height: 50px;
 }
+
+.selectMenu{
+	background-color: #00203F;
+	border: 2px solid #00203F;
+	border-radius: 10px;
+}
+
+.selectMenu>a{
+	color: white;
+}

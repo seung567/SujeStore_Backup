@@ -18,6 +18,7 @@ $(function(){
 		"border-radius" : ""
     	});
     $(this).children('a').css("color" , "");
+    
   });
   
 });

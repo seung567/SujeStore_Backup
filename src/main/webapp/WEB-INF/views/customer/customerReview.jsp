@@ -16,22 +16,24 @@
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
-<link rel="stylesheet"
-	href="./resources/css/customer/customerReview.css" />
+<link rel="stylesheet" href="./resources/css/customer/customerReview.css" />
+<link rel="stylesheet" type="text/css"  href="http://code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css" />
 
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
+  src="http://code.jquery.com/jquery-1.9.0.js"></script>
 <script type="text/javascript"
-	src="./resources/js/customer/customerReview.js"></script>
+  src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/i18n/jquery-ui-i18n.min.js"></script>
+<script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
 </head>
 <body>
 
 	<!-- 상단메뉴바 호출 -->
 	<jsp:include page="/WEB-INF/views/headerHtml/memberHeader.jsp"></jsp:include>
-	
+
 	<div class="main">
-	
+
 		<!-- 좌측 서브 메뉴 버튼 호출 -->
 		<jsp:include page="/WEB-INF/views/customer/customerMenuBar.jsp"></jsp:include>
 
@@ -110,14 +112,14 @@
 						<td><input type="button" value="작성"></td>
 						<td>2024/03/01</td>
 					</tr>
-				
+
 
 				</table>
 				<div class="pageing">< 1 2 3 ></div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Modal 출력 부분 -->
 	<div class="reviewInsertModal">
 		<div class="reviewInsertModalBody">
@@ -129,16 +131,18 @@
 					제작주문결제번호 <input type="text" />
 				</div>
 			</div>
-			
+
 			<!-- Modal 메인 Content -->
 			<div class="modalMainContent">
 				<!-- 메인 좌측 Content Title -->
 				<div class="ContentLefit">
-					<div><img width=30px height=30px alt="" src="./resources/img/Star1Customer.png" /></div>
+					<div>
+						<img width=30px height=30px alt="" src="./resources/img/Star1Customer.png" />
+					</div>
 					<div>이미지 등록</div>
 					<div>내용</div>
 				</div>
-				
+
 				<!-- 메인 우측 Content -->
 				<div class="ContentRight">
 					<!-- Content 첫번째 라인 -->
@@ -153,25 +157,39 @@
 							</select>
 						</div>
 						<div>점</div>
-						<div>작성일자</div>
-						<div><input type="text"/></div>
+						<div><label for="date">작성일자</label></div>
+						<div>
+							<input id="datepicker" type="text" />
+						</div>
 					</div>
 					<!-- Content 두번째 라인 -->
 					<div>
-						<div><input type="text"/></div>
-						<div><input type="button" value="불러오기"/></div>
+						<div>
+							<input type="text" />
+						</div>
+						<div>
+							<input type="button" value="불러오기" />
+						</div>
 					</div>
 					<!-- Content 세번째 라인 -->
 					<div>
-						<div><input type="text"/></div>
+						<div>
+							<input type="text" />
+						</div>
 					</div>
 				</div>
 			</div>
-			
+
 			<!-- 등록하기 버튼 -->
 			<div class="insertbtn">
-				<div><input type="button" value="등록하기"></div>
-				<div><a href=testPageSet.do?page=ysm&site=customer/customerReview><input type="button" value="취소"></a></div>
+				<div>
+					<input type="button" value="등록하기">
+				</div>
+				<div>
+					<a href=testPageSet.do?page=ysm&site=customer/customerReview>
+						<input type="button" value="취소">
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

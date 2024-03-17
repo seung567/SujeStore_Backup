@@ -1,7 +1,6 @@
 /*
  * 
  */
-
 $(function(){
 
   $(".subTitle").hover(function(){

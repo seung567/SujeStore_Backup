@@ -9,9 +9,17 @@ $(function(){
 		
 		$(".reviewInsertModal").css("display","block");
 		$(".reviewInsertTitle div:nth-child(3) input").val(orderNo);
-	});
+		
+			//datepicker 인풋 태그 클릭시 달력 송출
+$.datepicker.setDefaults($.datepicker.regional["ko"]);
+$("#datepicker").datepicker({
+	showAnim: "slideDown",
+	showOn: "button",
+	buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
+	buttonImageOnly: true,
+	showButtonPanel : true
+});
 	
-
-
+	});
 
 });

@@ -18,16 +18,16 @@
 <div class="adminSubMenuBox">
 	<ul class="adminCategoryArea">
 		<li class="adminFirstCategoryArea">
-			<a href="#" class="adminFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a>
+			<a href="adminmanage.jsp" class="adminFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a>
 		</li>
 		<li class="storeFirstCategoryArea">
-			<a href="#" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a>
+			<a href="adminpnt.jsp" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a>
 		</li>
 		<li class="adminFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
+			<a href="adminQ&A.jsp" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
 		</li>
 		<li class="adminFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;통계</a>
+			<a href="adminstatistics.jsp" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;통계</a>
 		</li>
 	</ul>
 </div> <!-- sadminSubMenuBox -->

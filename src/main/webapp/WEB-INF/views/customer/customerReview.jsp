@@ -17,14 +17,16 @@
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet" href="./resources/css/customer/customerReview.css" />
-<link rel="stylesheet" type="text/css"  href="http://code.jquery.com/ui/1.10.0/themes/ui-lightness/jquery-ui.css" />
+
+<!-- 데이터피커 CSS 연결 -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- 자바스크립트 연결 -->
-<script type="text/javascript"
-  src="http://code.jquery.com/jquery-1.9.0.js"></script>
-<script type="text/javascript"
-  src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/i18n/jquery-ui-i18n.min.js"></script>
+<!-- 자바 라이브러리 -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- JS 연결 -->
 <script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
 </head>
 <body>

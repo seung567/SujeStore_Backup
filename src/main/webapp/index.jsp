@@ -39,11 +39,11 @@
 
 	<!-- 유승민 -->
 	<h4>유승민 테스트 버튼</h4>
-	<!--  <a href=testPageSet.do?page=ysm&site=<%=ysm %>>클릭</a>-->
+	 <a href=testPageSet.do?page=ysm&site=<%=ysm %>>클릭</a>
 
 	<!-- 이수정 -->
 	<h4>이수정 테스트 버튼</h4>
-	<!--  <a href=testPageSet.do?page=lyj&site=<%=lyj %>>클릭</a>-->
+	<a href=testPageSet.do?page=lyj&site=<%=lyj %>>클릭</a>
 
 	<!-- 장경희 -->
 	<h4>장경희 테스트 버튼</h4>

@@ -310,7 +310,7 @@ table input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 	height: 30px;
-	padding-left: 20px;
+	text-align: center;
 }
 
 .ContentRight input[type=button] {

@@ -192,7 +192,7 @@
 				</tr>
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
-			
+
 			<!-- 결제 취소 부분 -->
 			<div class="subtitle2">결제취소 내역</div>
 			<div class="myPageLine"></div>
@@ -223,7 +223,7 @@
 				</tr>
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
-			
+
 			<!-- 반품 요청 내역 -->
 			<div class="subtitle2">반품 요청 내역</div>
 			<div class="myPageLine"></div>
@@ -253,35 +253,38 @@
 					<td>주문한 디자인과 실물 디자인이 너무 다름</td>
 				</tr>
 			</table>
-			<div class="pageing">< 1 2 3 ></div>			
+			<div class="pageing">< 1 2 3 ></div>
 		</div>
 	</div>
-	
+
 	<!-- Modal 출력 부분 -->
-		<div class="customerOrderListModal">
-			<div class="customerOrderListModalBody">
-				<!-- 상단 제목 부분 -->
-				<div class="customerOrderListTitle">
-					<div>SUJE</div>
-					<div>최종 주문서 조회</div>
-					<div>
+	<!-- Order join content 부분 -->
+	<jsp:include page="/WEB-INF/views/customer/Modal/orderInfo.jsp"></jsp:include>
+<!-- 	<div class="customerOrderListModal">
+		<div class="customerOrderListModalBody">
+			상단 제목 부분
+			<div class="customerOrderListTitle">
+				<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
+				<div>최종 주문서 조회</div>
+				<div>
 					최종주문번호 <input type="text" />
 				</div>
 			</div>
-			
-			<!-- Modal 메인 Content -->
+
+			MainContent 부분
 			<div class="modalMainContent">
-				<!-- 메인 좌측 Content Title -->
+				메인 좌측 Content Title
 				<div class="ContentLefit">
-				<div>상품 카테고리</div>
-				<div>주문 수량</div>
-				<div>주문 금액</div>
-				<div>요구사항</div>
-			</div>
-			
-			<!-- 메인 우측 Content -->
-			<div class="ContentRight">
-				<!-- Content 첫번째 라인 -->
+					<div>상품 카테고리</div>
+					<div>주문 수량</div>
+					<div>주문 금액</div>
+					<div>요구사항</div>
+				</div>
+
+				메인 우측 Content
+				<div class="ContentRight">
+					Content 첫번째 라인
+					<div>
 						<div>
 							<select>
 								<option>베이커리</option>
@@ -292,7 +295,7 @@
 								<option selected="selected">케이크</option>
 							</select>
 						</div>
-						
+
 						<div>
 							<select>
 								<option>롤케이크</option>
@@ -308,24 +311,26 @@
 								<option selected="selected">치즈케이크</option>
 							</select>
 						</div>
-						
-					<!-- Content 두번째 라인 -->
+					</div>
+					Content 두번째 라인
+					<div>
 						<div>
 							<input type="text" />
 						</div>
 						<div>개</div>
-						
+
 						<div>주문 사이즈</div>
 						<div>
 							<input type="text" />
 						</div>
-						
-					<!-- Content 세번째 라인 -->
+					</div>
+					Content 세번째 라인
+					<div>
 						<div>
 							<input type="text" />
 						</div>
 						<div>원</div>
-						
+
 						<div>배송형태</div>
 						<div>
 							<select>
@@ -334,13 +339,78 @@
 								<option selected="selected">배송</option>
 							</select>
 						</div>
-						
-					<!-- Content 네번째 라인 -->
+					</div>
+					Content 네번째 라인
+					<div>
+						<input type="text" />
+					</div>
+				</div>
+			</div>
+
+			<div class="insertbtn">
+				<div>
+					<input type="button" value="등록하기">
+				</div>
+				<div>
+					<a href=testPageSet.do?page=ysm&site=customer/customerOrderList>
+						<input type="button" value="취소">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	Order join content 부분
+
+	Pay Cancle 부분
+	<div class="payCancleModal">
+		<div class="payCancleBody">
+			상단 제목 부분
+			<div class="payCancleTitle">
+				<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
+				<div>결제 취소 요청</div>
+				<div>
+					결제번호 <input type="text" />
+				</div>
+			</div>
+
+			MainContent 부분
+			<div class="modalMainContent">
+				메인 좌측 Content Title
+				<div class="payCancleContentLefit">
+					<div>취소일자</div>
+					<div>취소사유</div>
+				</div>
+
+				메인 우측 Content
+				<div class="payCancleContentRight">
+					Content 첫번째 라인
+					<div>
 						<div>
-							<input type="text" placeholder="기본 치즈케이크 디자인" <br/> "초코시럽으로 '길동아 사랑해!' 문구 삽입" />
+							<input type="text"/>
 						</div>
-						
-			
-					
+					</div>
+					Content 두번째 라인
+					<div>
+						<div>
+							<input type="text" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="payCancleinsertbtn">
+				<div>
+					<input type="button" value="요청하기">
+				</div>
+				<div>
+					<a href=testPageSet.do?page=ysm&site=customer/customerOrderList>
+						<input type="button" value="취소">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- Order join content 부분 -->
 </body>
 </html>

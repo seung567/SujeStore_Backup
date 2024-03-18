@@ -24,15 +24,21 @@ hr {
 }
 
 .store_subTitle {
+	display: block;
+	float: left;
+	line-height: 50px;
 	font-size: 20px;
 	margin-left: 20px;
+	width: 200px;
+	height: 50px; 
+	
 }
 
 .goodsInfo_selectBox_First {
 	font-size: 20px;
 	width: 200px;
 	height: 50px;
-	border: 3px solid #ADEFD1;
+	border: 5px solid #ADEFD1;
 	border-radius: 5px;
 	text-align: center;
 	margin-left: 100px;
@@ -42,20 +48,38 @@ hr {
 	font-size: 20px;
 	width: 200px;
 	height: 50px;
-	border: 3px solid #ADEFD1;
+	border: 5px solid #ADEFD1;
 	border-radius: 5px;
 	text-align: center;
 	margin-left: 50px;
 }
 
+.goodsInfo_selectBox:focus, .goodsInfo_selectBox_First:focus {
+	outline: 2px solid #ADEFD1;
+	border: 1px solid #ADEFD1;
+	cursor: pointer;
+}
+
+
+.goodsInfo_selectBox option:focus, .goodsInfo_selectBox_First option:focus {
+	cursor: pointer;
+}
+
+
 .goodsInfo_content {
-	border: 4px solid #ADEFD1;
+	border: 5px solid #ADEFD1;
 	width: 1130px;
 	height: 200px;
 	margin-top: 10px;
 	margin-left: 20px;
 	font-size: 20px;
 }
+
+.goodsInfo_content:focus {
+	outline: 2px solid #ADEFD1;
+	border: 1px solid #ADEFD1;
+}
+
 
 .store_subCategory {
 	margin-top: 50px;
@@ -224,117 +248,117 @@ hr {
 			<div class= "store_subCategory">
 				<label class="store_subTitle">작품 카테고리</label> 
 				<select	class="goodsInfo_selectBox_First">
-					<option value="choice">대분류</option>
-					<option value="1">디저트</option>
-					<option value="2">전통간식</option>
-					<option value="3">반려동물식품</option>
-					<option value="4">의류</option>
-					<option value="5">주얼리</option>
-					<option value="6">수공예품</option>
-					<option value="7">잡화</option>
-					<option value="8">홈리빙</option>
+					<option selected="selected">대분류</option>
+					<option>디저트</option>
+					<option>전통간식</option>
+					<option>반려동물식품</option>
+					<option>의류</option>
+					<option>주얼리</option>
+					<option>수공예품</option>
+					<option>잡화</option>
+					<option>홈리빙</option>
 				</select> 
 				<select class="goodsInfo_selectBox">
-					<option value="choice">중분류</option>
-					<option value="1">베이커리</option>
-					<option value="2">케이크</option>
-					<option value="3">마카롱</option>
-					<option value="4">타르트</option>
-					<option value="5">쿠키</option>
-					<option value="6">약과</option>
-					<option value="7">떡</option>
-					<option value="8">양갱</option>
-					<option value="9">애견간식</option>
-					<option value="10">애견쿠키</option>
-					<option value="11">애견케이크</option>
-					<option value="12">여성</option>
-					<option value="13">남성</option>
-					<option value="14">남녀공용</option>
-					<option value="15">키즈</option>
-					<option value="16">반지</option>
-					<option value="17">목걸이</option>
-					<option value="18">팔찌</option>
-					<option value="19">생활소품</option>
-					<option value="20">주방공예</option>
-					<option value="21">인테리어</option>
-					<option value="22">문구</option>
-					<option value="23">기념일</option>
-					<option value="24">일러스트</option>
-					<option value="25">가구</option>
-					<option value="26">패브릭</option>
-					<option value="27">방향제</option>
+    				<option selected="selected">중분류</option>
+    				<option>베이커리</option>
+    				<option>케이크</option>
+    				<option>마카롱</option>
+    				<option>타르트</option>
+    				<option>쿠키</option>
+    				<option>약과</option>
+    				<option>떡</option>
+    				<option>양갱</option>
+    				<option>애견간식</option>
+    				<option>애견쿠키</option>
+    				<option>애견케이크</option>
+    				<option>여성</option>
+    				<option>남성</option>
+    				<option>남녀공용</option>
+    				<option>키즈</option>
+    				<option>반지</option>
+    				<option>목걸이</option>
+    				<option>팔찌</option>
+    				<option>생활소품</option>
+    				<option>주방공예</option>
+    				<option>인테리어</option>
+    				<option>문구</option>
+    				<option>기념일</option>
+    				<option>일러스트</option>
+    				<option>가구</option>
+    				<option>패브릭</option>
+    				<option>방향제</option>
 				</select> 
 				<select class="goodsInfo_selectBox">
-					<option value="choice">소분류</option>
-					<option value="1">롤케이크</option>
-					<option value="2">버터크림빵</option>
-					<option value="3">마늘빵</option>
-					<option value="4">슈크림빵</option>
-					<option value="5">프레지에</option>
-					<option value="6">생크림케이크</option>
-					<option value="7">쉬폰케이크</option>
-					<option value="8">치즈케이크</option>
-					<option value="9">티라미수</option>
-					<option value="10">일반마카롱</option>
-					<option value="11">뚱카롱</option>
-					<option value="12">타르틀레트</option>
-					<option value="13">에그타르트</option>
-					<option value="14">초코칩 쿠키</option>
-					<option value="15">버터쿠키</option>
-					<option value="16">치즈쿠키</option>
-					<option value="17">땅콩쿠키</option>
-					<option value="18">바닐라쿠키</option>
-					<option value="19">황치즈쿠키</option>
-					<option value="20">조청</option>
-					<option value="21">꿀</option>
-					<option value="22">전통약과</option>
-					<option value="23">이벤트떡</option>
-					<option value="24">떡케이크</option>
-					<option value="25">팥</option>
-					<option value="26">말차</option>
-					<option value="27">밤</option>
-					<option value="28">고구마</option>
-					<option value="29">강아지 껌</option>
-					<option value="30">육포</option>
-					<option value="31">고구마치킨</option>
-					<option value="32">두부쿠키</option>
-					<option value="33">황태쿠키</option>
-					<option value="34">당근쿠키</option>
-					<option value="35">두부케이크</option>
-					<option value="36">참치케이크</option>
-					<option value="37">비프케이크</option>
-					<option value="38">티셔츠</option>
-					<option value="39">맞춤정장</option>
-					<option value="40">맨투맨</option>
-					<option value="41">커플룩</option>
-					<option value="42">신발</option>
-					<option value="43">커플링</option>
-					<option value="44">각인반지</option>
-					<option value="45">커플목걸이</option>
-					<option value="46">커플팔찌</option>
-					<option value="47">머그컵</option>
-					<option value="48">열쇠고리</option>
-					<option value="49">연필꽂이</option>
-					<option value="50">주병</option>
-					<option value="51">그릇</option>
-					<option value="52">수저</option>
-					<option value="53">화병</option>
-					<option value="54">오브제</option>
-					<option value="55">러그</option>
-					<option value="56">커스텀앨범</option>
-					<option value="57">커스텀스티커</option>
-					<option value="58">커스텀다이어리</option>
-					<option value="59">커스텀풍선</option>
-					<option value="60">커스텀박스</option>
-					<option value="61">커스텀카드</option>
-					<option value="62">커스텀폰케이스</option>
-					<option value="63">커스텀텀블러</option>
-					<option value="64">커스텀시계</option>
-					<option value="65">침대</option>
-					<option value="66">의자</option>
-					<option value="67">쇼파</option>
-					<option value="68">쿠션</option>
-					<option value="69">방석</option>
+					<option selected="selected">소분류</option>
+					<option>롤케이크</option>
+					<option>버터크림빵</option>
+					<option>마늘빵</option>
+					<option>슈크림빵</option>
+					<option>프레지에</option>
+					<option>생크림케이크</option>
+					<option>쉬폰케이크</option>
+					<option>치즈케이크</option>
+					<option>티라미수</option>
+					<option>일반마카롱</option>
+					<option>뚱카롱</option>
+					<option>타르틀레트</option>
+					<option>에그타르트</option>
+					<option>초코칩 쿠키</option>
+					<option>버터쿠키</option>
+					<option>치즈쿠키</option>
+					<option>땅콩쿠키</option>
+					<option>바닐라쿠키</option>
+					<option>황치즈쿠키</option>
+					<option>조청</option>
+					<option>꿀</option>
+					<option>전통약과</option>
+					<option>이벤트떡</option>
+					<option>떡케이크</option>
+					<option>팥</option>
+					<option>말차</option>
+					<option>밤</option>
+					<option>고구마</option>
+					<option>강아지 껌</option>
+					<option>육포</option>
+					<option>고구마치킨</option>
+					<option>두부쿠키</option>
+					<option>황태쿠키</option>
+					<option>당근쿠키</option>
+					<option>두부케이크</option>
+					<option>참치케이크</option>
+					<option>비프케이크</option>
+					<option>티셔츠</option>
+					<option>맞춤정장</option>
+					<option>맨투맨</option>
+					<option>커플룩</option>
+					<option>신발</option>
+					<option>커플링</option>
+					<option>각인반지</option>
+					<option>커플목걸이</option>
+					<option>커플팔찌</option>
+					<option>머그컵</option>
+					<option>열쇠고리</option>
+					<option>연필꽂이</option>
+					<option>주병</option>
+					<option>그릇</option>
+					<option>수저</option>
+					<option>화병</option>
+					<option>오브제</option>
+					<option>러그</option>
+					<option>커스텀앨범</option>
+					<option>커스텀스티커</option>
+					<option>커스텀다이어리</option>
+					<option>커스텀풍선</option>
+					<option>커스텀박스</option>
+					<option>커스텀카드</option>
+					<option>커스텀폰케이스</option>
+					<option>커스텀텀블러</option>
+					<option>커스텀시계</option>
+					<option>침대</option>
+					<option>의자</option>
+					<option>쇼파</option>
+					<option>쿠션</option>
+					<option>방석</option>
 				</select> 
 				</div>
 				<div class= "store_subCategory"> 

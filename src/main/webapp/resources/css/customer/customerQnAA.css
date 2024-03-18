@@ -25,7 +25,7 @@ body {
 	margin-right: 40px;
 	width: auto;
 	text-align: center;
-}
+}`
 
 .mainContentleft div:nth-child(1) {
 	width: 120px;
@@ -46,7 +46,7 @@ body {
 	font-weight: bold;
 }
 
-.mainContentleft div:nth-child(3), .mainContentleft div:nth-child(4),
+ .mainContentleft div:nth-child(3), .mainContentleft div:nth-child(4),
 	.mainContentleft div:nth-child(5), .mainContentleft div:nth-child(6),
 	.mainContentleft div:nth-child(7), .mainContentleft div:nth-child(8),
 	.mainContentleft div:nth-child(9) {
@@ -56,12 +56,26 @@ body {
 	justify-content: center;
 	text-align: center;
 	line-height: 50px;
-}
+} 
 
 .mainContentright {
 	width: 1020px;
 	height: auto;
+
 }
+
+.mainContentright div:nth-child(1) {
+	display : flex;
+}
+
+.mainContentright div:nth-child(2) input {
+	width : 200px;
+	height : 50px;
+	border-radius: 10px;
+	margin-left : 680px;
+	background-color: #ADEFD1;
+}
+
 
 .subtitle, .subtitle2 {
 	font-weight: bold;
@@ -138,7 +152,7 @@ table input {
 	margin-top: 70px;
 }
 
-* Modal css */
+/* Modal css */
 /* Modal 기본 css*/
 .qnaInsertModal {
 	position: absolute;
@@ -147,7 +161,7 @@ table input {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
-	display: none;
+	display: none;	
 	text-align: center;
 }
 
@@ -193,6 +207,19 @@ table input {
 	font-weight: bold;
 }
 
+.qnaInsertTitle div:nth-child(3) {
+	font-size : 12px;
+	margin-left : 130px;
+}
+
+.qnaInsertTitle div:nth-child(3) input{
+	border : 2px solid #ADEFD1;
+	width : 100px;
+	height : 30px;
+	border-radius : 5px;
+	margin-left : 20px;
+}
+
 /*Modal Main Content CSS*/
 .modalMainContent {
 	margin-top: 50px;
@@ -236,8 +263,14 @@ table input {
 	display: flex;
 }
 
-.ContentRight div:nth-child(1) {
-	display: flex;
+.ContentRight div:nth-child(1) input {
+	width : 500px;
+	height : 30px;
+}
+
+.ContentRight div:nth-child(2) input {
+	width : 500px;
+	height : 100px;
 }
 
 .ContentRight div:nth-child(1)>div:nth-child(2) {
@@ -255,15 +288,6 @@ table input {
 .ContentRight div:nth-child(1)>div:nth-child(4) input {
 	width: 150px;
 	height: 30px;
-}
-
-.ContentRight div:nth-child(1)>select {
-	display: flex;
-	width: 100px;
-	height: 30px;
-	text-align: center;
-		border: 2px solid #ADEFD1;
-	border-radius: 5px;
 }
 
 .ContentRight div:nth-child(2) {
@@ -291,7 +315,6 @@ table input {
 .ContentRight input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
-	height: 30px;
 	text-align: center;
 }
 
@@ -305,12 +328,12 @@ table input {
 
 /* 등록하기 버튼 CSS */
 .insertbtn {
-	margin-top: 50px; display : flex;
+	margin-top: 90px; display : flex;
 	justify-content: center;
 	display: flex;
 }
 
-.insertbtn div:nth-child(1)>input {
+.insertbtn div:nth-child(1) input {
 	width: 200px;
 	height: 30px;
 	background-color: #ADEFD1;

@@ -258,159 +258,17 @@
 	</div>
 
 	<!-- Modal 출력 부분 -->
-	<!-- Order join content 부분 -->
-	<jsp:include page="/WEB-INF/views/customer/Modal/orderInfo.jsp"></jsp:include>
-<!-- 	<div class="customerOrderListModal">
-		<div class="customerOrderListModalBody">
-			상단 제목 부분
-			<div class="customerOrderListTitle">
-				<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
-				<div>최종 주문서 조회</div>
-				<div>
-					최종주문번호 <input type="text" />
-				</div>
-			</div>
-
-			MainContent 부분
-			<div class="modalMainContent">
-				메인 좌측 Content Title
-				<div class="ContentLefit">
-					<div>상품 카테고리</div>
-					<div>주문 수량</div>
-					<div>주문 금액</div>
-					<div>요구사항</div>
-				</div>
-
-				메인 우측 Content
-				<div class="ContentRight">
-					Content 첫번째 라인
-					<div>
-						<div>
-							<select>
-								<option>베이커리</option>
-								<option>케이크</option>
-								<option>마카롱</option>
-								<option>타르트</option>
-								<option>쿠키</option>
-								<option selected="selected">케이크</option>
-							</select>
-						</div>
-
-						<div>
-							<select>
-								<option>롤케이크</option>
-								<option>버터크림빵</option>
-								<option>마늘빵</option>
-								<option>슈크림빵</option>
-								<option>프레지에</option>
-								<option>생크림케이크</option>
-								<option>쉬폰케이크</option>
-								<option>치즈케이크</option>
-								<option>일반마카롱</option>
-								<option>뚱카롱</option>
-								<option selected="selected">치즈케이크</option>
-							</select>
-						</div>
-					</div>
-					Content 두번째 라인
-					<div>
-						<div>
-							<input type="text" />
-						</div>
-						<div>개</div>
-
-						<div>주문 사이즈</div>
-						<div>
-							<input type="text" />
-						</div>
-					</div>
-					Content 세번째 라인
-					<div>
-						<div>
-							<input type="text" />
-						</div>
-						<div>원</div>
-
-						<div>배송형태</div>
-						<div>
-							<select>
-								<option>배송</option>
-								<option>픽업</option>
-								<option selected="selected">배송</option>
-							</select>
-						</div>
-					</div>
-					Content 네번째 라인
-					<div>
-						<input type="text" />
-					</div>
-				</div>
-			</div>
-
-			<div class="insertbtn">
-				<div>
-					<input type="button" value="등록하기">
-				</div>
-				<div>
-					<a href=testPageSet.do?page=ysm&site=customer/customerOrderList>
-						<input type="button" value="취소">
-					</a>
-				</div>
-			</div>
+	<div class="orderListWrap">
+	
+		<!-- 주문상세정보 보기 부분 -->
+		<div class="orderInfoModal">
+			<jsp:include page="/WEB-INF/views/customer/Modal/orderInfo.jsp"></jsp:include>
+		</div>
+		
+		<!-- 결제취소 부분 -->
+		<div class="payCancelModalView">
+			<jsp:include page="/WEB-INF/views/customer/Modal/orderListModal2.jsp"></jsp:include>
 		</div>
 	</div>
-	Order join content 부분
-
-	Pay Cancle 부분
-	<div class="payCancleModal">
-		<div class="payCancleBody">
-			상단 제목 부분
-			<div class="payCancleTitle">
-				<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
-				<div>결제 취소 요청</div>
-				<div>
-					결제번호 <input type="text" />
-				</div>
-			</div>
-
-			MainContent 부분
-			<div class="modalMainContent">
-				메인 좌측 Content Title
-				<div class="payCancleContentLefit">
-					<div>취소일자</div>
-					<div>취소사유</div>
-				</div>
-
-				메인 우측 Content
-				<div class="payCancleContentRight">
-					Content 첫번째 라인
-					<div>
-						<div>
-							<input type="text"/>
-						</div>
-					</div>
-					Content 두번째 라인
-					<div>
-						<div>
-							<input type="text" />
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="payCancleinsertbtn">
-				<div>
-					<input type="button" value="요청하기">
-				</div>
-				<div>
-					<a href=testPageSet.do?page=ysm&site=customer/customerOrderList>
-						<input type="button" value="취소">
-					</a>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<!-- Order join content 부분 -->
 </body>
 </html>

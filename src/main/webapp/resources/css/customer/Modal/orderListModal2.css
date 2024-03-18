@@ -1,19 +1,9 @@
 @charset "UTF-8";
 
-/*페이징 css*/
-.pageing {
-	width: auto; margin-top : 40px;
-	text-align: center;
-	margin-top: 40px;
-}
-
-.subtitle2 {
-	margin-top: 70px;
-}
-
-/* Modal css */
 /* Modal Order Join css*/
-.customerOrderListModal {
+
+/* Modal payCancleModal css*/
+.payCancleModal {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -24,18 +14,18 @@
 	text-align: center;
 }
 
-.customerOrderListModal.show {
+.payCancleModal.show {
 	display: block;
 }
 
-.customerOrderListModalBody {
+.payCancleBody {
 	margin-top: 70px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	width: 700px;
 	height: 400px;
-	padding: 40px 20px 40px 40px;
+	padding: 20px 20px 40px 40px;
 	text-align: center;
 	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
@@ -44,22 +34,23 @@
 	position: absolute;
 }
 
-.customerOrderListTitle {
+.payCancleTitle {
 	display: flex;
 	height: 20px;
-		align-items: baseline;
+	align-items: baseline;
+		margin-bottom: 50px;
 }
 
 /*Modal Main Title CSS*/
 /* SUJE 로고 CSS*/
-.customerOrderListTitle div:nth-child(1) {
+.payCancleTitle div:nth-child(1) {
 	margin-right: 40px;
 	font-weight: bold;
 	font-size: 30px;
 }
 
 /* 주문제작후기 타이틀 CSS*/
-.customerOrderListTitle div:nth-child(2) {
+.payCancleTitle div:nth-child(2) {
 	height: auto;
 	margin-right: 90px;
 	font-size: 15px;
@@ -67,16 +58,16 @@
 }
 
 /* 제작주문번호 입력부분*/
-.customerOrderListTitle div:nth-child(3) {
+.payCancleTitle div:nth-child(3) {
 	margin-left: 100px;
 	font-size: 12px;
 }
 
-.customerOrderListTitle div:nth-child(3) input {
+.payCancleTitle div:nth-child(3) input {
 	text-align: center;
 }
 
-.customerOrderListTitle input {
+.payCancleTitle input {
 	border: 2px solid #ADEFD1;
 	width: 100px;
 	height: 30px;
@@ -91,7 +82,7 @@
 	display: flex;
 }
 
-.ContentLefit {
+.payCancleContentLefit {
 	width: 100px;
 	display: flex;
 	align-items: flex-start;
@@ -100,60 +91,60 @@
 	display: flex;
 }
 
-.ContentLefit>div:nth-child(1), .ContentLefit>div:nth-child(2),
-	.ContentLefit>div:nth-child(3), .ContentLefit>div:nth-child(4) {
+.payCancleContentLefit>div:nth-child(1), .payCancleContentLefit>div:nth-child(2),
+	.payCancleContentLefit>div:nth-child(3), .payCancleContentLefit>div:nth-child(4) {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: 12px;
 }
 
-.ContentLefit div {
-	margin-bottom: 10px;
+.payCancleContentLefit div {
+	margin-bottom: 20px;
 	height: 30px;
 	font-size: 12px;
 }
 
 /* contetntRight*/
-.ContentRight {
+.payCancleContentRight {
 	margin-left: 20px;
 }
 
-.ContentRight>div {
-	margin-bottom: 10px;
+.payCancleContentRight>div {
+	margin-bottom: 20px;
 }
 
-.ContentRight input {
+.payCancleContentRight input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 }
 
 /* 첫번째 라인*/
-.ContentRight>div:nth-child(1) {
+.payCancleContentRight>div:nth-child(1) {
 	display: flex;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(1) {
+.payCancleContentRight>div:nth-child(1)>div:nth-child(1) {
 	margin-right: 40px;
-	width: 150px;
+	width: 100px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(1) select {
+.payCancleContentRight>div:nth-child(1)>div:nth-child(1) input {
 	margin-right: 40px;
-	width: 150px;
+	width: 100px;
 	height: 30px;
 	text-align: center;
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(2) {
+.payCancleContentRight>div:nth-child(1)>div:nth-child(2) {
 	width: 150px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(2) select {
+.payCancleContentRight>div:nth-child(1)>div:nth-child(2) select {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
@@ -163,7 +154,7 @@
 }
 
 /* 두번째 라인*/
-.ContentRight>div:nth-child(2) {
+.payCancleContentRight>div:nth-child(2) {
 	display: flex;
 	font-size: 12px;
 	margin-left: 0;
@@ -171,67 +162,21 @@
 	align-items: center;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(1) input {
-	width: 100px;
-	height: 30px;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(2) {
-	margin-left: 10px;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(3) {
-	margin-left: 120px;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(4) input {
-	margin-left: 30px;
-	width: 100px;
-	height: 30px;
-}
-
-/* 세번째 라인*/
-.ContentRight>div:nth-child(3) {
-	display: flex;
-	font-size: 12px;
-	align-items: center;
-}
-
-.ContentRight>div:nth-child(3)>div:nth-child(1) input {
-	width: 100px;
-	height: 30px;
-}
-
-.ContentRight>div:nth-child(3)>div:nth-child(2) {
-	margin-left: 10px;
-}
-
-.ContentRight>div:nth-child(3)>div:nth-child(3) {
-	margin-left: 120px;
-}
-
-.ContentRight>div:nth-child(3)>div:nth-child(4) select {
-	margin-left: 45px;
-	width: 100px;
-	height: 30px;
-	border: 2px solid #ADEFD1;
-	border-radius: 5px;
-}
-
-.ContentRight>div:nth-child(4)>input {
+.payCancleContentRight>div:nth-child(2)>div:nth-child(1) input {
 	width: 500px;
 	height: 70px;
 }
 
+
 /* 등록하기 버튼 CSS */
-.insertbtn {
-	margin-top: 30px; display : flex;
+.payCancleinsertbtn {
+	margin-top: 110px; 
 	justify-content: center;
 	display: flex;
-	display: flex;
+	font-weight: bold;
 }
 
-.insertbtn div:nth-child(1)>input {
+.payCancleinsertbtn div:nth-child(1)>input {
 	width: 200px;
 	height: 30px;
 	background-color: #ADEFD1;
@@ -239,7 +184,7 @@
 	border-radius: 5px;
 }
 
-.insertbtn div:nth-child(2)>input {
+.payCancleinsertbtn div:nth-child(2)>input {
 	width: 200px;
 	height: 30px;
 	background-color: white;
@@ -247,3 +192,4 @@
 	border-radius: 5px;
 	margin-left: 20px;
 }
+

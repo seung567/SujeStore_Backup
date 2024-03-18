@@ -123,9 +123,7 @@
 					<input type="button" value="등록하기">
 				</div>
 				<div>
-					<a href=testPageSet.do?page=ysm&site=customer/customerOrderList>
-						<input type="button" value="취소">
-					</a>
+						<input class="viewCancel" type="button" value="취소">
 				</div>
 			</div>
 		</div>

@@ -7,24 +7,20 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-
 hr {
-    border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-    margin-top: 50px; /* 위쪽 여백 설정 */
-    margin-bottom: 20px; /* 아래쪽 여백 설정 */
+	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
+	margin-top: 50px; /* 위쪽 여백 설정 */
+	margin-bottom: 20px; /* 아래쪽 여백 설정 */
 }
-
 
 .store_mainTitle {
 	font-size: 30px;
 	margin-top: 50px;
 	margin-left: 20px;
-	
 }
 
 .store_mainInfo {
 	margin-top: 50px;
-
 }
 
 .store_subTitle {
@@ -44,9 +40,8 @@ hr {
 	height: 50px;
 	border: 5px solid #ADEFD1;
 	border-radius: 5px;
-	text-align:center;
+	text-align: center;
 	margin-left: 100px;
-
 }
 
 .goodsInfo_selectBox {
@@ -55,7 +50,7 @@ hr {
 	height: 50px;
 	border: 5px solid #ADEFD1;
 	border-radius: 5px;
-	text-align:center;
+	text-align: center;
 	margin-left: 50px;
 }
 
@@ -70,15 +65,13 @@ hr {
 	cursor: pointer;
 }
 
-
 .goodsInfo_content {
 	border: 5px solid #ADEFD1;
-	width: 1130px; 
-	height: 200px;
+	width: 1130px;
+	height: 100px;
 	margin-top: 10px;
 	margin-left: 20px;
 	font-size: 20px;
-	
 }
 
 .goodsInfo_content:focus {
@@ -89,9 +82,7 @@ hr {
 
 .store_subCategory {
 	margin-top: 50px;
-
 }
-
 
 .submitBtn {
 	background-color: #ADEFD1;
@@ -100,29 +91,78 @@ hr {
 	border-radius: 10px;
 	margin-top: 30px;
 	margin-left: 20px;
-	
 }
 
-
-.uploadBtn{
+.uploadBtn {
 	background-color: #ADEFD1;
 	width: 100px;
 	height: 30px;
 	border-radius: 10px;
 	font-size: 15px;
 	margin-left: 30px;
-
 }
 
 .goodsImg {
 	margin-left: 100px;
-
 }
 
 .goodsImgSub {
 	margin-left: 50px;
-
 }
+
+.text-box {
+	border: 5px solid #ADEFD1;
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px 10px;
+	font-size: 20px; /* 화면 너비에 대해 상대적인 크기 */
+	margin-bottom: 50px; /* 하단 여백을 화면 너비의 1%로 설정 */
+	margin-left: 100px;
+	width: 200px; /* 폼의 너비를 화면 너비의 90%로 설정 */
+	height: 50px;
+}
+
+.text-box:focus {
+	outline: 2px solid #ADEFD1;
+	border: 1px solid #ADEFD1;
+	cursor: text;
+}
+
+
+/*  *****테이블***** */
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+th, td {
+   border: 1px solid #ADEFD1;
+   padding: 8px;
+   text-align: left;
+}
+
+th {
+   background-color: #ADEFD1;
+   text-align: center;
+}
+
+td {
+   text-align: center;
+}
+
+tr:nth-child(even) {
+   background-color: #ADEFD1;
+}
+
+tr:hover {
+   background-color: #ddd;
+}
+
+.table-wrapper {
+   margin-top: 50px; /* 원하는 만큼의 상단 여백을 설정합니다 */
+}
+
 
 
 </style> 
@@ -140,7 +180,7 @@ hr {
 	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
 	<ul class="storeCategoryArea">
 		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 관리</a>
+			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
 			<ul class="storeSecondCategoryArea">
 				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 페이지 관리</span>
@@ -154,15 +194,15 @@ hr {
 				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 작품 조회/수정</span>
 				</a></li>
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a href="#">
+				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 작품 등록</span>
 				</a></li>
 			</ul>
 		</li>
 		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn ">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
+			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
 			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
+				<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a href="#">
 					<span>플리마켓 상품 조회/수정</span>
 				</a></li>
 				<li class="storeSecondCategoryBtn"><a href="#">
@@ -191,12 +231,71 @@ hr {
 </div> <!-- storeSubMenuBox -->
 
 		<div class="storeContentsBox">
-			<h1 class="store_mainTitle">스토어 작품 등록</h1>
+			<h1 class="store_mainTitle">플리마켓 상품 조회/수정</h1>
 			<hr/>
+			<h1 class="store_mainTitle">상품 조회</h1>
+			<div class="fleaSearch-table">
+			<div class="table-wrapper">
+            <table>
+               <thead>
+                  <tr>
+                     <th>상품 카테고리</th>
+                     <th>상품 내용</th>
+                     <th>상품 금액</th>
+                     <th>상품 수량</th>
+                     <th>등록일자</th>
+                     <th>수정일자</th>
+                     <th>판매여부</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>카테고리 1</td>
+                     <td>공지 내용이 여기에 들어갑니다.</td>
+                     <td>11,000</td>
+                     <td>10</td>
+                     <td>2024-03-16</td>
+                     <td>2024-03-16</td>
+                     <td>판매중</td>
+                  </tr>
+                  <tr>
+                     <td>카테고리 2</td>
+                     <td>공지 내용이 여기에 들어갑니다.</td>
+                     <td>11,000</td>
+                     <td>10</td>
+                     <td>2024-03-15</td>
+                     <td>2024-03-15</td>
+                     <td>판매중단</td>
+                  </tr>
+                  <tr>
+                     <td>카테고리 3</td>
+                     <td>공지 내용이 여기에 들어갑니다.</td>
+                     <td>11,000</td>
+                     <td>10</td>
+                     <td>2024-03-14</td>
+                     <td>2024-03-14</td>
+                     <td>판매완료</td>
+                  </tr>
+                  <tr>
+                     <td>카테고리 4</td>
+                     <td>공지 내용이 여기에 들어갑니다.</td>
+                     <td>11,000</td>
+                     <td>10</td>
+                     <td>2024-03-14</td>
+                     <td>2024-03-14</td>
+                     <td>판매완료</td>
+                  </tr>
+                  <!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
+               </tbody>
+            </table>
+         </div> <!-- table-wrapper -->
+ 		 </div> <!-- fleaSearch-table -->
 
+			<hr/>
+			<h1 class="store_maintitle">상품 수정</h1>
 			<form class="store_mainInfo">
 			<div class= "store_subCategory">
-				<label class="store_subTitle">작품 카테고리</label> 
+				<label class="store_subTitle">상품 카테고리</label> 
 				<select	class="goodsInfo_selectBox_First">
 					<option selected="selected">대분류</option>
 					<option>디저트</option>
@@ -312,13 +411,13 @@ hr {
 				</select> 
 				</div>
 				<div class= "store_subCategory"> 
-				<label class="store_subTitle">작품 메인 이미지</label>
+				<label class="store_subTitle">상품 메인 이미지</label>
 				<img class="goodsImg" src="./resources/img/goodsImgArea.png">
 				<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
 				</div>
 				
 				<div class= "store_subCategory">
-				<label class="store_subTitle">작품 서브 이미지</label>
+				<label class="store_subTitle">상품 서브 이미지</label>
 				<img class="goodsImg" src="./resources/img/goodsImgArea.png">
 				<img class="goodsImgSub" src="./resources/img/goodsImgArea.png">
 				<img class="goodsImgSub" src="./resources/img/goodsImgArea.png">
@@ -326,15 +425,24 @@ hr {
 				</div>
 				
 				<div class= "store_subCategory">
-				<label class="store_subTitle">작품 상세 내용</label><br />
+				<label class="store_subTitle">상품 가격</label>
+				<input type="text" class="text-box"/>원
+				</div>
+				
+				<div class= "store_subCategory">
+				<label class="store_subTitle">상품 총 수량</label>
+				<input type="text" class="text-box"/>개
+				</div>
+				
+				<div class= "store_subCategory">
+				<label class="store_subTitle">상품 내용</label><br />
 				<textarea class="goodsInfo_content">내용을 작성하세요</textarea>
 				</div>
 				
-				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
 			</form>
 		</div>
 		<!-- storeContentsBox -->
 	</div> <!-- storeContentsWrap -->
-
 </body>
 </html>

@@ -2,12 +2,12 @@
 $(function(){
 	
 	
-	$(".List tr td:nth-child(8)").click(function(){
+	$(".List tr td:nth-child(4)").click(function(){
 		
 		var orderNo = $(this).parent().children(0).eq(0).text();
 		
-		$(".reviewInsertModal").css("display","block");
-		$(".reviewInsertTitle div:nth-child(3) input").val(orderNo);
+		$(".qnaInsertModal").css("display","block");
+		$(".subtitle div:nth-child(1) input").val(orderNo);
 	
 	});
 	

@@ -192,7 +192,7 @@
 				</tr>
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
-			
+
 			<!-- 결제 취소 부분 -->
 			<div class="subtitle2">결제취소 내역</div>
 			<div class="myPageLine"></div>
@@ -223,7 +223,7 @@
 				</tr>
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
-			
+
 			<!-- 반품 요청 내역 -->
 			<div class="subtitle2">반품 요청 내역</div>
 			<div class="myPageLine"></div>
@@ -254,11 +254,21 @@
 				</tr>
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
-			
 		</div>
-
-
 	</div>
 
+	<!-- Modal 출력 부분 -->
+	<div class="orderListWrap">
+	
+		<!-- 주문상세정보 보기 부분 -->
+		<div class="orderInfoModal">
+			<jsp:include page="/WEB-INF/views/customer/Modal/orderInfo.jsp"></jsp:include>
+		</div>
+		
+		<!-- 결제취소 부분 -->
+		<div class="payCancelModalView">
+			<jsp:include page="/WEB-INF/views/customer/Modal/orderListModal2.jsp"></jsp:include>
+		</div>
+	</div>
 </body>
 </html>

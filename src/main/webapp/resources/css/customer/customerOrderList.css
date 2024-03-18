@@ -1,70 +1,145 @@
-/* Q&A 관련 스타일 */
-.admin-header {
-    font-size: 30px;
-    font-weight: bold;   
+@charset "UTF-8";
+
+body {
+	width: 100%;
 }
 
-.admin-hr {
-    border: none;
-    width: 100%;
-    height: 2px;
-    background-color: #ccc;
-    margin-top: 20px;
+/* 기본 css 속성 */
+.main {
+	/* width: 1900px; */
+	width: auto;
+	height: auto;
+	display: flex;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	justify-content: center;
 }
 
-.qna-table {
-    width: 100%;
-    border-collapse: collapse;
+.main>div {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-.qna-table th, .qna-table td {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
+.mainContentleft {
+	margin-right: 40px;
+	width: auto;
+	text-align: center;
 }
 
-.qna-table th {
-    background-color: #f0f0f0;
+.mainContentleft div:nth-child(1) {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	text-align: center;
+	line-height: 50px;
 }
 
-.qna-table tbody tr:hover {
-    background-color: #f5f5f5;
+.mainContentleft div:nth-child(2) {
+	width: 300px;
+	height: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+	font-weight: bold;
 }
 
-.pageing {
-    margin-top: 20px;
-    text-align: center;
+.mainContentleft div:nth-child(3), .mainContentleft div:nth-child(4),
+	.mainContentleft div:nth-child(5), .mainContentleft div:nth-child(6),
+	.mainContentleft div:nth-child(7), .mainContentleft div:nth-child(8),
+	.mainContentleft div:nth-child(9) {
+	width: 300px;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	line-height: 50px;
 }
 
-/* 각 폼 그룹(라벨과 입력 창) 사이의 간격 설정 */
-.form-group {
-    margin-bottom: 15px;
-    margin-left: 50px;
+.mainContentright {
+	width: 1020px;
+	height: auto;
 }
 
-/* 라벨 스타일 */
-.form-group label {
-    display: inline-block;
-    width: 200px;
-    height: 50px;
-    margin-right: 10px;
-    margin-left: 50px;
-    font-size: 20px;
+.subtitle, .subtitle2 {
+	font-weight: bold;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-/* 페이징 css */
-.pageing {
-    width: auto;
-    margin-top: 40px;
-    text-align: center;
+.myPageLine {
+	width: 100%;
+	height: 5px;
+	background-color: #D9D9D9;
 }
 
-/* 수평선 스타일 */
-.hr {
-    border: none;
-    width: 1190px;
-    height: 5px;
-    background-color: #ccc;
-    margin: 20px auto;
-    margin-top: 8px;
+.mypagebtn {
+	background-color: #ADEFD1;
+	border: 2px solid #ADEFD1;
+	border-radius: 10px;
+}
+
+.mypagebtn>a {
+	color: white;
+}
+
+/* 기본 css 속성 end */
+
+/* 테이블 공통 속성 */
+table tr td {
+	font-size: 15px;
+}
+
+td {
+	width: auto;
+	height: 50px;
+}
+
+tr td {
+	width: auto;
+	border-bottom: 2px solid #ADEFD1;
+}
+
+tr:first-child>td {
+	height: 30px;
+	border-top: 2px solid #ADEFD1;
+}
+
+table input {
+	width: 100px;
+	height: 30px;
+	background-color: #ADEFD1;
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+.List {
+	width: 1020px;
+	margin-top: 40px;
+	text-align: center;
+	vertical-align: middle;
+	word-break: break-all;
+	height: auto;
+}
+
+/* 테이블 공통 속성 end*/
+.orderInfoModal{
+	display: none;
+}
+
+.payCancelModalView {
+	display: none; 
+}
+.orderListWrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	text-align: center;
 }

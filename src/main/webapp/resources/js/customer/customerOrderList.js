@@ -3,21 +3,27 @@
  */
 
 $(function(){
-
-  $(".subTitle").hover(function(){
-    $(this).css({
-    	"background-color" : "#00203F",
-    	"border": "2px solid #00203F",
-		"border-radius" : "10px"
-    	});
-    $(this).children('a').css("color" , "white");
-  },function(){
-        $(this).css({
-    	"background-color" : "",
-    	"border": "",
-		"border-radius" : ""
-    	});
-    $(this).children('a').css("color" , "");
-  });
-  
+	
+	// 상세정보 보기 이벤트
+	$(".List tr td:nth-child(8)").click(function() {
+      $(".orderListWrap").fadeIn(200);
+      $(".orderInfoModal").slideDown(200);
+   });
+   
+   $(".viewCancel").click(function() {
+      $(".orderInfoModal").slideUp(200);
+      $(".orderListWrap").fadeOut(200);
+   });
+   
+   // 결제 취소 보기 이벤트
+  	$(".List tr td:nth-child(9)").click(function() {
+      $(".orderListWrap").fadeIn(200);
+      $(".payCancelModalView").slideDown(200);
+   });
+   
+   $(".viewCancel").click(function() {
+      $(".payCancelModalView").slideUp(200);
+      $(".orderListWrap").fadeOut(200);
+   });
+   
 });

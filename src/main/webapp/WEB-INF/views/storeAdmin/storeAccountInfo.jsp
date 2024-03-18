@@ -22,65 +22,49 @@ hr {
 	
 }
 
-
-.store_mainInfo {
-	margin-top: 50px;
+.storeAcc_mainInfo {
+	width: 680px;
+	margin: 0 auto;
 
 }
 
-
-.store_subTitle {
-	display: block;
-	float: left;
-	line-height: 50px;
-	font-size: 20px;
-	margin-left: 20px;
+.storeAcc_subTitle {
 	width: 200px;
-	height: 50px; 
+	height: 50px;
+	display: block;
+	line-height: 50px;
+	margin-top: 30px;
+	float: left; 
 	
 }
 
-
-.notiInfo_selectBox {
-	font-size: 20px;
+.storeAcc_selectBox {
 	width: 300px;
 	height: 50px;
+	float: left;
+	border-radius: 10px;
 	border: 5px solid #ADEFD1;
-	border-radius: 5px;
-	text-align:center;
-}
-
-.notiInfo_selectBox:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
+	margin-top: 30px;
+	margin-right: 100px;
 	cursor: pointer;
-}
-
-
-.notiInfo_selectBox option:focus {
-	cursor: pointer;
-}
-
-
-.notiInfo_content {
-	border: 5px solid #ADEFD1;
-	width: 1130px; 
-	height: 200px;
-	margin-top: 10px;
-	margin-left: 20px;
 	font-size: 20px;
-	
+	text-align: center;
 }
 
-
-.notiInfo_content:focus {
+.storeAcc_selectBox:focus {
 	outline: 2px solid #ADEFD1;
 	border: 1px solid #ADEFD1;
+	cursor: pointer;
+}
+
+.storeAcc_selectBox option:focus {
+	cursor: pointer;
 }
 
 
-.store_subCategory{
+.storeAcc_subCategory {
 	margin-top: 50px;
+
 }
 
 .submitBtn {
@@ -91,6 +75,42 @@ hr {
 	margin-top: 30px;
 	margin-left: 20px;
 	
+}
+
+.idCheckBtn {
+	width: 150px;
+	height: 50px;
+	border-radius: 10px;
+	background-color: #ADEFD1;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+
+.storeAcc_textbox1 {
+	width: 300px;
+	height: 50px;
+	float: left;
+	border-radius: 10px;
+	border: 2px solid #ADEFD1;
+	margin-top: 30px;
+	font-size: 20px;
+}
+
+.storeAcc_textbox2 {
+	width: 480px;
+	height: 50px;
+	float: left;
+	border-radius: 10px;
+	border: 2px solid #ADEFD1;
+	margin-top: 30px;
+	font-size: 20px;
+}
+
+.storeAcc_textbox1:focus, .storeAcc_textbox2:focus {
+	outline: 2px solid #ADEFD1;
+	border: 1px solid #ADEFD1;
+	cursor: text;
 }
 
 </style> 
@@ -108,7 +128,7 @@ hr {
 	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
 	<ul class="storeCategoryArea">
 		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 관리</a>
+			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
 			<ul class="storeSecondCategoryArea">
 				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 페이지 관리</span>
@@ -116,7 +136,7 @@ hr {
 				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 공지 조회/수정</span>
 				</a></li>
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a href="#">
+				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 공지 등록</span>
 				</a></li>
 				<li class="storeSecondCategoryBtn"><a href="#">
@@ -159,28 +179,43 @@ hr {
 </div> <!-- storeSubMenuBox -->
 
 		<div class="storeContentsBox">
-			<h1 class="store_mainTitle">스토어 공지 등록</h1>
+			<h1 class="store_mainTitle">계정 정보</h1>
 			<hr/>
 
-			<form class="store_mainInfo">
-			<div class= "store_subCategory">
-				<label class="store_subTitle">공지 유형</label> 
-				<select class="notiInfo_selectBox">
-					<option selected="selected">======= 선택 =======</option>
-					<option>공지사항</option>
-					<option>배송안내</option>
-					<option>주문안내</option>
-				</select>
-			</div>
-			<div class= "store_subCategory">
-				<label class="store_subTitle">공지 작성 내용</label><br />
-				<textarea class="notiInfo_content">내용을 작성하세요</textarea>
-			</div>
+			<form action="#" class="storeAcc_mainInfo">
 				
-				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+				<label class="storeAcc_subTitle">아이디</label> 
+				<input type="text" required="required" autofocus="autofocus" class="storeAcc_textbox1" />
+				<button class="idCheckBtn">중복확인</button>
+
+				<label class="storeAcc_subTitle">비밀번호</label> 
+				<input type="password" required="required" class="storeAcc_textbox1" /> 
+				
+				<label class="storeAcc_subTitle">이메일</label> 
+				<input type="text" required="required" class="storeAcc_textbox1" /> 
+				
+				<label class="storeAcc_subTitle">전화번호</label> 
+				<input type="text" required="required" class="storeAcc_textbox1" /> 
+				
+				<label class="storeAcc_subTitle">주소</label> 
+				<input type="text" required="required" class="storeAcc_textbox2" /> 
+				
+				<label class="storeAcc_subTitle">사업자등록번호</label> 
+				<input type="text" required="required" class="storeAcc_textbox2" /> 
+				
+				<label class="storeAcc_subTitle">은행명</label> 
+					<select	class="storeAcc_selectBox">
+						<option selected="selected">=== 은행 선택 ===</option>
+						<option>우리은행</option>
+						<option>기업은행</option>
+						<option>신한은행</option>
+						<option>카카오뱅크</option>
+					</select> 
+				<label class="storeAcc_subTitle">계좌번호</label> 
+				<input type="text" required="required" class="storeAcc_textbox2" /> 
+				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
 			</form>
-		</div>
-		<!-- storeContentsBox -->
+		</div> <!-- storeContentsBox -->
 	</div> <!-- storeContentsWrap -->
 </body>
 </html>

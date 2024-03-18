@@ -16,7 +16,7 @@
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
-<link rel="stylesheet" href="./resources/css/customer/customerQnAQ.css" />
+<link rel="stylesheet" href="./resources/css/customer/customerQnA.css" />
 
 <!-- 데이터피커 CSS 연결 -->
 <link rel="stylesheet"
@@ -29,7 +29,7 @@
 
 <!-- JS 연결 -->
 <script type="text/javascript"
-	src="./resources/js/customer/customerReview.js"></script>
+	src="./resources/js/customer/customerQnA.js"></script>
 
 </head>
 <body>
@@ -94,35 +94,35 @@
 	</div>
 
 	<!-- Modal 출력 부분 -->
-	<div class="qnaInsertModal">
+<!-- 	<div class="qnaInsertModal">
 		<div class="qnaInsertModalBody">
-			<!-- 상단 제목 부분 -->
+			상단 제목 부분
 			<div class="qnaInsertTitle">
 				<div>SUJE</div>
 				<div>Q&A 작성</div>
 			</div>
 
 
-			<!-- Modal 메인 Content -->
+			Modal 메인 Content
 			<div class="modalMainContent">
-				<!-- 메인 좌측 Content Title -->
+				메인 좌측 Content Title
 				<div class="ContentLefit">
 					<div>제목</div>
 					<div>내용</div>
 				</div>
 
-				<!-- 메인 우측 Content -->
+				메인 우측 Content
 				<div class="ContentRight">
-					<!-- Content 첫번째 라인 -->
+					Content 첫번째 라인
 					<div>
 						<input type="text" />
 					</div>
-					<!-- Content 두번째 라인 -->
+					Content 두번째 라인
 					<div>
 						<input type="text" />
 					</div>
 
-					<!-- 등록하기 버튼 -->
+					등록하기 버튼
 					
 				</div>
 			</div>
@@ -137,6 +137,6 @@
 						</div>
 					</div>	
 		</div>
-	</div>
+	</div> -->
 </body>
 </html>

@@ -26,4 +26,15 @@ $(function(){
       $(".orderListWrap").fadeOut(200);
    });
    
+   // 반품요청 보기 이벤트
+  	$(".List tr td:nth-child(10)").click(function() {
+      $(".orderListWrap").fadeIn(200);
+      $(".returnModalView").slideDown(200);
+   });
+   
+   $(".viewCancel").click(function() {
+      $(".returnModalView").slideUp(200);
+      $(".orderListWrap").fadeOut(200);
+   });
+   
 });

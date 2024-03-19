@@ -6,171 +6,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-hr {
-	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-	margin-top: 50px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
 
-.store_mainTitle {
-	font-size: 30px;
-	margin-top: 50px;
-	margin-left: 20px;
-}
-
-.store_mainInfo {
-	margin-top: 50px;
-}
-
-.store_subTitle {
-	display: block;
-	float: left;
-	line-height: 50px;
-	font-size: 20px;
-	margin-left: 20px;
-	width: 200px;
-	height: 50px; 
-	
-}
-
-.goodsInfo_selectBox_First {
-	font-size: 20px;
-	width: 200px;
-	height: 50px;
-	border: 5px solid #ADEFD1;
-	border-radius: 5px;
-	text-align: center;
-	margin-left: 100px;
-}
-
-.goodsInfo_selectBox {
-	font-size: 20px;
-	width: 200px;
-	height: 50px;
-	border: 5px solid #ADEFD1;
-	border-radius: 5px;
-	text-align: center;
-	margin-left: 50px;
-}
-
-.goodsInfo_selectBox:focus, .goodsInfo_selectBox_First:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-	cursor: pointer;
-}
-
-
-.goodsInfo_selectBox option:focus, .goodsInfo_selectBox_First option:focus {
-	cursor: pointer;
-}
-
-.goodsInfo_content {
-	border: 5px solid #ADEFD1;
-	width: 1130px;
-	height: 100px;
-	margin-top: 10px;
-	margin-left: 20px;
-	font-size: 20px;
-}
-
-.goodsInfo_content:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-}
-
-
-.store_subCategory {
-	margin-top: 50px;
-}
-
-.submitBtn {
-	background-color: #ADEFD1;
-	width: 300px;
-	height: 50px;
-	border-radius: 10px;
-	margin-top: 30px;
-	margin-left: 20px;
-}
-
-.uploadBtn {
-	background-color: #ADEFD1;
-	width: 100px;
-	height: 30px;
-	border-radius: 10px;
-	font-size: 15px;
-	margin-left: 30px;
-}
-
-.goodsImg {
-	margin-left: 100px;
-}
-
-.goodsImgSub {
-	margin-left: 50px;
-}
-
-.text-box {
-	border: 5px solid #ADEFD1;
-	background-color: white;
-	border-radius: 10px;
-	padding: 10px 10px;
-	font-size: 20px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-bottom: 50px; /* 하단 여백을 화면 너비의 1%로 설정 */
-	margin-left: 100px;
-	width: 200px; /* 폼의 너비를 화면 너비의 90%로 설정 */
-	height: 50px;
-}
-
-.text-box:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-	cursor: text;
-}
-
-
-/*  *****테이블***** */
-
-table {
-   width: 100%;
-   border-collapse: collapse;
-}
-
-th, td {
-   border: 1px solid #ADEFD1;
-   padding: 8px;
-   text-align: left;
-}
-
-th {
-   background-color: #ADEFD1;
-   text-align: center;
-}
-
-td {
-   text-align: center;
-}
-
-tr:nth-child(even) {
-   background-color: #ADEFD1;
-}
-
-tr:hover {
-   background-color: #ddd;
-}
-
-.table-wrapper {
-   margin-top: 50px; /* 원하는 만큼의 상단 여백을 설정합니다 */
-}
-
-
-
-</style> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
+<link rel="stylesheet" href="./resources/css/fleaMarket/fleaGoodsSearchUpdate.css" />
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
@@ -444,5 +286,6 @@ tr:hover {
 		</div>
 		<!-- storeContentsBox -->
 	</div> <!-- storeContentsWrap -->
+	<footer></footer>
 </body>
 </html>

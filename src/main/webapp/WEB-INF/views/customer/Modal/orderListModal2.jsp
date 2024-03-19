@@ -6,23 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- 폰트링크 -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-	rel="stylesheet" />
-
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet"
 	href="./resources/css/customer/Modal/orderListModal2.css" />
-
-<!-- 자바스크립트 연결 -->
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- <script type="text/javascript"
-	src="./resources/js/customer/customerOrderList.js"></script> -->
 
 </head>
 <body>

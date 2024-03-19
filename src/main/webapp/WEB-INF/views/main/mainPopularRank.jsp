@@ -226,5 +226,5 @@
 	<a href="#" class="moreStoreBtn">스토어 더보기</a>
 </div> <!-- contentsWrap -->
 <footer></footer>
-</body>
+</body> 
 </html>

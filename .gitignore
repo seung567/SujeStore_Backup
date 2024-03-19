@@ -22,6 +22,6 @@ replay_pid*
 .project
 pom.properties
 /.metadata/
-
+index.jsp
 MANIFEST.MF
 target/

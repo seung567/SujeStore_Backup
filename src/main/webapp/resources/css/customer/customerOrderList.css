@@ -133,6 +133,11 @@ table input {
 .payCancelModalView {
 	display: none; 
 }
+
+.returnModalView {
+	display: none; 
+}
+
 .orderListWrap {
 	position: absolute;
 	top: 0;

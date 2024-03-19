@@ -28,6 +28,7 @@
 <body>
 
 	<jsp:include page="/WEB-INF/views/headerHtml/memberHeader.jsp"></jsp:include>
+	
 	<div class="main">
 
 		<!-- 좌측 서브 메뉴 버튼 -->
@@ -262,13 +263,19 @@
 	
 		<!-- 주문상세정보 보기 부분 -->
 		<div class="orderInfoModal">
-			<jsp:include page="/WEB-INF/views/customer/Modal/orderInfo.jsp"></jsp:include>
+			<jsp:include page="Modal/orderInfoModal.jsp"></jsp:include>
 		</div>
 		
 		<!-- 결제취소 부분 -->
 		<div class="payCancelModalView">
-			<jsp:include page="/WEB-INF/views/customer/Modal/orderListModal2.jsp"></jsp:include>
+			<jsp:include page="Modal/orderListModal2.jsp"></jsp:include>
 		</div>
+		
+		<!-- 결제취소 부분 -->
+		<div class="returnModalView">
+			<jsp:include page="Modal/returnModal.jsp"></jsp:include>
+		</div>
+		
 	</div>
 </body>
 </html>

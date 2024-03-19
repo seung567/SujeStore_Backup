@@ -25,12 +25,12 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- JS 연결 -->
-<script type="text/javascript"	src="./resources/js/customer/customerQnAQ.js"></script>
+<script type="text/javascript"	src="./resources/js/customer/customerQnA.js"></script>
 </head>
 
 <body>
 <!-- Modal 출력 부분 -->
-	<div class="qnaInsertModal">
+	<div class="qnaqInsertModal">
 		<div class="qnaInsertModalBody">
 			<!-- 상단 제목 부분 -->
 			<div class="qnaInsertTitle">
@@ -48,7 +48,7 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<div class="ContentRight">
+				<div class="qContentRight">
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<input type="text" />
@@ -57,17 +57,18 @@
 					<div>
 						<input type="text" />
 					</div>
-
-					<!-- 등록하기 버튼 -->
 					
 				</div>
 			</div>
+
+					<!-- 등록하기 버튼 -->
+
 			<div class="insertbtn">
 						<div>
 							<input type="button" value="등록하기">
 						</div>
 						<div>
-							<a href=testPageSet.do?page=ysm&site=customer/customerQnAQ> <input
+							<a href=testPageSet.do?page=ysj&site=customer/customerQnA> <input
 								type="button" value="취소">
 							</a>
 						</div>

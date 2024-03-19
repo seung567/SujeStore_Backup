@@ -28,7 +28,7 @@
 <script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
 </head>
 
-<body>eeeee
+<body>
 <!-- Modal 출력 부분 -->
 	<!-- Order join content 부분 -->
 	<div class="customerOrderListModal">
@@ -59,11 +59,10 @@
 						<div>
 							<select>
 								<option>베이커리</option>
-								<option>케이크</option>
+								<option selected="selected">케이크</option>
 								<option>마카롱</option>
 								<option>타르트</option>
 								<option>쿠키</option>
-								<option selected="selected">케이크</option>
 							</select>
 						</div>
 
@@ -76,10 +75,9 @@
 								<option>프레지에</option>
 								<option>생크림케이크</option>
 								<option>쉬폰케이크</option>
-								<option>치즈케이크</option>
+								<option selected="selected">치즈케이크</option>
 								<option>일반마카롱</option>
 								<option>뚱카롱</option>
-								<option selected="selected">치즈케이크</option>
 							</select>
 						</div>
 					</div>
@@ -105,9 +103,8 @@
 						<div>배송형태</div>
 						<div>
 							<select>
-								<option>배송</option>
-								<option>픽업</option>
 								<option selected="selected">배송</option>
+								<option>픽업</option>
 							</select>
 						</div>
 					</div>

@@ -1,34 +1,13 @@
-
-$(function(){
-	
-	
-	$(".List tr td:nth-child(4)").click(function(){
-		
-		var orderNo = $(this).parent().children(0).eq(0).text();
-		
-		$(".qnaInsertModal").css("display","block");
-		$(".subtitle div:nth-child(1) input").val(orderNo);
-	
+// Modal QnA 작성하기 부분
+$(function(){		
+	$(".regit").click(function(){
+		$(".qnaqInsertModal").css("display","block");		
 	});
-	
-	//datepicker 인풋 태그 클릭시 달력 송출
-	$.datepicker.setDefaults($.datepicker.regional["ko"]);
-	$("#datepicker").datepicker({
-		showAnim: "slideDown",
-		showOn: "button",
-		buttonImage: "./resources/img/calendar.gif",
-		buttonImageOnly: true,
-		showButtonPanel : true
-	});
-	
-		  // 모달창 오픈/클로즈
-   $('.storeMoreInfoBtn').click(function() {
-      $(".storeMoreInfoModalWrap").fadeIn(200);
-      $(".storeMoreInfoModal").slideDown(200);
-   });
-   $('.modalCloseBtn').click(function() {
-      $(".storeMoreInfoModal").slideUp(200);
-      $(".storeMoreInfoModalWrap").fadeOut(200);
-   });
+});
 
+// Modal QnA 답변조회 부분
+$(function(){		
+	$(".answer").click(function(){
+		$(".qnaaInsertModal").css("display","block");		
+	});	
 });

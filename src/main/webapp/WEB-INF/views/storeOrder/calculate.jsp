@@ -8,114 +8,14 @@
 	rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet"
 	type="text/css">
-<link href="./resources/css/subMenuStyles.css" rel="stylesheet"
-	type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css"> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
-<style type="text/css">
-.title {
-	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-left: 1.5%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
-	margin-top: 1.5%;
-}
+<link rel="stylesheet" href="./resources/css/storeOrder/calculate.css" />
 
-.subtitle {
-	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-left: 2%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
-	margin-top: 5%;
-}
-
-.hr {
-	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
-
-.hr2 {
-	border-top: 2px solid #ADEFD1; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	border: 1px solid #ADEFD1;
-}
-
-th, td {
-	border-bottom: 1px solid #ADEFD1;;
-	padding: 8px;
-}
-
-th {
-	background-color: #ADEFD1;
-	text-align: center;
-}
-
-td {
-	text-align: center;
-}
-tr:nth-child(even) {
-	background-color: #ADEFD1;
-}
-
-tr:hover {
-	background-color: #ddd;
-}
-
-tr:hover {
-	background-color: #ddd;
-}
-
-.table-wrapper {
-	margin-top: 50px; /* 원하는 만큼의 상단 여백을 설정합니다 */
-}
-
-.check {
-	background-color: #ADEFD1; /* 배경색 */
-	color: black; /* 글자색 */
-	border: none; /* 테두리 없음 */
-	padding: 10px 20px; /* 내부 여백 */
-	font-size: 16px; /* 글자 크기 */
-	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-	border-radius: 5px; /* 버튼 모서리를 둥글게 */
-}
-
-.check:hover {
-	background-color: #7BB5AF; /* 마우스를 올렸을 때의 배경색 */
-}
-
-.total-amount {
-	font-size: 20px;
-	font-weight: bold;
-}
-
-.month-selector {
-	margin-bottom: 20px;
-	margin-left: 30px;
-}
-
-.month-selector label {
-	font-size: 30px;
-	margin-left: 30px;
-	font-weight: bold;
-}
-
-.month-selector select {
-	padding: 5px;
-	font-size: 16px;
-	border: 1px solid #ADEFD1;
-	border-radius: 5px;
-	margin-left: 100px;
-	text-align:center;
-	width: 150px;
-	height: 50px;
-}
-</style>
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -294,5 +194,6 @@ tr:hover {
 	<!-- storeContentsBox -->
 	</div>
 	<!-- storeContentsWrap -->
+	<footer></footer>
 </body>
 </html>

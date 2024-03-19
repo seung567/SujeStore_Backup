@@ -8,85 +8,13 @@
 	rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet"
 	type="text/css">
-<link href="./resources/css/subMenuStyles.css" rel="stylesheet"
-	type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
-<style type="text/css">
-.title {
-	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-left: 1.5%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
-	margin-top: 1.5%;
-}
-
-.subtitle {
-	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-left: 2%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
-	margin-top: 5%;
-}
-
-.hr {
-	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
-
-.hr2 {
-	border-top: 2px solid #ADEFD1; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-th, td {
-	border: 1px solid #ADEFD1;
-	padding: 8px;
-}
-
-th {
-	background-color: #ADEFD1;
-	text-align: center;
-
-	
-}
-
-td {
-	text-align: center;
-	border-bottom: 3px solid #ADEFD1
-}
-
-
-
-tr:hover {
-	background-color: #ddd;
-}
-
-.table-wrapper {
-	margin-top: 50px; /* 원하는 만큼의 상단 여백을 설정합니다 */
-}
-
-.check {
-	background-color: #ADEFD1; /* 배경색 */
-	color: black; /* 글자색 */
-	border: none; /* 테두리 없음 */
-	padding: 10px 20px; /* 내부 여백 */
-	font-size: 16px; /* 글자 크기 */
-	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-	border-radius: 5px; /* 버튼 모서리를 둥글게 */
-}
-
-.check:hover {
-	background-color: #7BB5AF; /* 마우스를 올렸을 때의 배경색 */
-}
-
-</style>
+<link rel="stylesheet" href="./resources/css/storeOrder/storeOrderCheck.css" />
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -97,8 +25,7 @@ tr:hover {
 			<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
 			<ul class="storeCategoryArea">
 				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어
-						관리</a>
+					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
 					<ul class="storeSecondCategoryArea">
 						<li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
 									페이지 관리</span>
@@ -334,6 +261,64 @@ tr:hover {
 						</tr>
 					</tbody>
 				</table>
+			</div>
+		</div>
+		<!-- Modal 출력 부분 -->
+		<div class="storeOrderModal">
+			<div class="storeOrderModalBody">
+				<!-- 상단 제목 부분 -->
+				<div class="storeOrderModalTitle">
+					<div class="logoImg">
+						<img width="100px" height="20px" alt=""
+							src="./resources/img/sujeStoreLogo.png" />
+					</div>
+					<h3 class="modalTitle">최종 주문서 조회</h3>
+					<label class="modalNo">최종주문번호</label> <input class="textbox"
+						type="text" />
+				</div>
+
+				<!-- 메인 우측 Content -->
+				<div class="modalMainContent">
+					<!-- Content 첫번째 열 -->
+					<div class="first">
+						<label class="categoryLabel" for="Cartegory">상품 카테고리</label> <select>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option selected="selected">5</option>
+						</select> <select>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option selected="selected">5</option>
+						</select>
+					</div>
+					<!-- Content 두번째 열 -->
+					<div class="secound">
+						<label class="orderCountLabel" for="orderCount">주문 수량</label> <input
+							type="text" /> <label class="orderSizeLabel" for="orderSize">주문
+							사이즈</label> <input type="text" />
+					</div>
+					<!-- Content 세번째 열 -->
+					<div class="third">
+						<label class="orderAmountLabel" for="orderAmount">주문 금액</label> <input
+							type="text" /> <label class="deliveryLabel" for="delivery">배송
+							형태</label> <input type="text" />
+					</div>
+					<!-- Content 네번째 열 -->
+					<div class="fourth">
+						<label class="requirementsLabel" for="requirements">요구 사항</label>
+						<textarea></textarea>
+					</div>
+				</div>
+           <!-- 등록하기 버튼 -->
+         <div class="insertbtn">
+            <div>
+               <a href=testPageSet.do?page=jkh&site=storeOrder/storeOrderCheck>
+               <input type="button" >확인
+				</a>
 			</div>
 		</div>
 

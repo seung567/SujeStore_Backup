@@ -6,99 +6,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-
-hr {
-    border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-    margin-top: 50px; /* 위쪽 여백 설정 */
-    margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
-
-
-.store_mainTitle {
-	font-size: 30px;
-	margin-top: 50px;
-	margin-left: 20px;
-	
-}
-
-
-.store_mainInfo {
-	margin-top: 50px;
-
-}
-
-
-.store_subTitle {
-	display: block;
-	float: left;
-	line-height: 50px;
-	font-size: 20px;
-	margin-left: 20px;
-	width: 200px;
-	height: 50px; 
-	
-}
-
-
-.notiInfo_selectBox {
-	font-size: 20px;
-	width: 300px;
-	height: 50px;
-	border: 5px solid #ADEFD1;
-	border-radius: 5px;
-	text-align:center;
-}
-
-.notiInfo_selectBox:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-	cursor: pointer;
-}
-
-
-.notiInfo_selectBox option:focus {
-	cursor: pointer;
-}
-
-
-.notiInfo_content {
-	border: 5px solid #ADEFD1;
-	width: 1130px; 
-	height: 200px;
-	margin-top: 10px;
-	margin-left: 20px;
-	font-size: 20px;
-	
-}
-
-
-.notiInfo_content:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-}
-
-
-.store_subCategory{
-	margin-top: 50px;
-}
-
-.submitBtn {
-	background-color: #ADEFD1;
-	width: 300px;
-	height: 50px;
-	border-radius: 10px;
-	margin-top: 30px;
-	margin-left: 20px;
-	
-}
-
-</style> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
+<link href="./resources/css/storeAdmin/storeNotiInfo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>

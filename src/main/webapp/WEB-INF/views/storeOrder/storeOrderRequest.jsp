@@ -14,7 +14,8 @@
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
-<link rel="stylesheet" href="./resources/css/storeOrder/fleaOrderCheck.css" />
+<link rel="stylesheet"
+	href="./resources/css/storeOrder/storeOrderRequest.css" />
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -60,11 +61,11 @@
 						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
 									주문요청 관리</span>
 						</a></li>
-						<li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
-									최종주문 조회</span>
-						</a></li>
 						<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a
-							href="#"> <span>플리마켓 주문 조회</span>
+							href="#"> <span>스토어 최종주문 조회</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
+									주문 조회</span>
 						</a></li>
 					</ul></li>
 				<li class="storeFirstCategoryArea"><a href="#"
@@ -73,107 +74,26 @@
 		</div>
 		<!-- storeSubMenuBox -->
 		<div class="storeContentsBox">
-			<h1 class="title">플리마켓 주문 조회</h1>
+			<h1 class="title">스토어 주문요청 관리</h1>
 			<hr class="hr">
-			<div class="table-wrapper">
-				<table>
-					<thead>
-						<tr>
-							<th>주문번호</th>
-							<th>상품 내용</th>
-							<th>주문 수량</th>
-							<th>결제금액</th>
-							<th>주문일자</th>
-							<th>구매확정일자</th>
-							<th>구매확정일자</th>
-							<th>배송정보</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>빵빵이</td>
-							<td>1</td>
-							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>N</td>
-							<td>2024-03-16</td>
-							<td><button class="check">조회</button></td>
-						</tr>
-						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
+			<div class="container">
+				<div class="orderList">
+					<h2>주문자 목록</h2>
+					<ul id="orderList">
+						<li class="orderItem" data-id="1">주문자 1</li>
+						<li class="orderItem" data-id="2">주문자 2</li>
+						<!-- Add more order items as needed -->
+					</ul>
+				</div>
 
-					</tbody>
-				</table>
+				<div class="chatBox">
+					<h2>주문 요청 내역</h2>
+					<div id="chatMessages"></div>
+					<div class="chatMessage senderMessage">주문자 1: 여기는 주문 내용입니다.</div>
+					<div class="chatMessage receiverMessage">점주: 주문 내용에 대한 답변입니다.</div>
+					<input type="text" id="messageInput" placeholder="텍스트를 입력하세요">
+					<button id="sendMessageBtn">전송</button>
+				</div>
 			</div>
 		</div>
 

@@ -6,119 +6,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-
-hr {
-    border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-    margin-top: 50px; /* 위쪽 여백 설정 */
-    margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
-
-
-.store_mainTitle {
-	font-size: 30px;
-	margin-top: 50px;
-	margin-left: 20px;
-	
-}
-
-.storeAcc_mainInfo {
-	width: 680px;
-	margin: 0 auto;
-
-}
-
-.storeAcc_subTitle {
-	width: 200px;
-	height: 50px;
-	display: block;
-	line-height: 50px;
-	margin-top: 30px;
-	float: left; 
-	
-}
-
-.storeAcc_selectBox {
-	width: 300px;
-	height: 50px;
-	float: left;
-	border-radius: 10px;
-	border: 5px solid #ADEFD1;
-	margin-top: 30px;
-	margin-right: 100px;
-	cursor: pointer;
-	font-size: 20px;
-	text-align: center;
-}
-
-.storeAcc_selectBox:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-	cursor: pointer;
-}
-
-.storeAcc_selectBox option:focus {
-	cursor: pointer;
-}
-
-
-.storeAcc_subCategory {
-	margin-top: 50px;
-
-}
-
-.submitBtn {
-	background-color: #ADEFD1;
-	width: 300px;
-	height: 50px;
-	border-radius: 10px;
-	margin-top: 30px;
-	margin-left: 20px;
-	
-}
-
-.idCheckBtn {
-	width: 150px;
-	height: 50px;
-	border-radius: 10px;
-	background-color: #ADEFD1;
-	margin-top: 30px;
-	margin-left: 30px;
-}
-
-
-.storeAcc_textbox1 {
-	width: 300px;
-	height: 50px;
-	float: left;
-	border-radius: 10px;
-	border: 2px solid #ADEFD1;
-	margin-top: 30px;
-	font-size: 20px;
-}
-
-.storeAcc_textbox2 {
-	width: 480px;
-	height: 50px;
-	float: left;
-	border-radius: 10px;
-	border: 2px solid #ADEFD1;
-	margin-top: 30px;
-	font-size: 20px;
-}
-
-.storeAcc_textbox1:focus, .storeAcc_textbox2:focus {
-	outline: 2px solid #ADEFD1;
-	border: 1px solid #ADEFD1;
-	cursor: text;
-}
-
-</style> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
+<link href="./resources/css/storeAdmin/storeAccountInfo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>

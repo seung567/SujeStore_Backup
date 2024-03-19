@@ -52,17 +52,17 @@ body {
 
 .contentsRankArea {
 	width: 1260px;
-	height: 1350px;
-	margin: 0 auto;
+	height: auto;
+	margin: 40px auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 40px;
+	column-gap: 120px;
 }
 .eachRankTable {
 	width: 570px;
 	height: 190px;
 	float: left;
-	margin: 40px 0 40px  0;
-}
-.eachRankTable:nth-child(odd) {
-	margin-right: 120px;
 }
 .eachRankNumTd {
 	vertical-align: top;

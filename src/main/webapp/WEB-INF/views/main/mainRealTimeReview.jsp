@@ -76,6 +76,62 @@
 				<td colspan="3" class="eachReviewContentsTd">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</td>
 			</tr>
 		</table>
+		<table class="eachReviewTable">
+			<tr>
+				<td rowspan="4" class="eachReviewImgTd"><div><img src="././resources/img/exImg.png"/></div></td>
+				<td colspan="2" class="eachReviewStoreProfileTd">
+					<img src="././resources/img/basicProfileIcon.png"/>
+					<span>STORE NAME</span>
+				</td>
+				<td class="eachReviewStoreBtnTd"><a href="">스토어 바로가기</a></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="eachReviewPayNumTd">
+					<span>주문번호</span>
+					<button>12341234</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="eachReviewMemberIdTd">STORE123</td>
+				<td class="eachReviewScoreTd">
+					<img src="././resources/img/mainReviewStarImg.png"/>
+					<span>5.0</span>
+					<img src="././resources/img/mainReviewThumbsUpImg.png"/>
+					<span>0</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" class="eachReviewContentsTd">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</td>
+			</tr>
+		</table>
+		<table class="eachReviewTable">
+			<tr>
+				<td rowspan="4" class="eachReviewImgTd"><div><img src="././resources/img/exImg.png"/></div></td>
+				<td colspan="2" class="eachReviewStoreProfileTd">
+					<img src="././resources/img/basicProfileIcon.png"/>
+					<span>STORE NAME</span>
+				</td>
+				<td class="eachReviewStoreBtnTd"><a href="">스토어 바로가기</a></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="eachReviewPayNumTd">
+					<span>주문번호</span>
+					<button>12341234</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="eachReviewMemberIdTd">STORE123</td>
+				<td class="eachReviewScoreTd">
+					<img src="././resources/img/mainReviewStarImg.png"/>
+					<span>5.0</span>
+					<img src="././resources/img/mainReviewThumbsUpImg.png"/>
+					<span>0</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" class="eachReviewContentsTd">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</td>
+			</tr>
+		</table>
 	</div>
 	<div class="pageingArea">
 		<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>

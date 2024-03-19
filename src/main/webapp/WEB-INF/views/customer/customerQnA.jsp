@@ -18,18 +18,13 @@
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet" href="./resources/css/customer/customerQnA.css" />
 
-<!-- 데이터피커 CSS 연결 -->
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 <!-- 자바스크립트 연결 -->
 <!-- 자바 라이브러리 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- JS 연결 -->
-<script type="text/javascript"
-	src="./resources/js/customer/customerQnA.js"></script>
+<script type="text/javascript" src="./resources/js/customer/customerQnA.js"></script>
 
 </head>
 <body>
@@ -47,7 +42,7 @@
 			<!-- Q&A 작성 내역 부분 -->
 			<div>
 			<div class="subtitle">Q&A 작성</div>
-			<div><input type="button" value="작성하기"></div>
+			<div><input class="regit" type="button" value="작성하기"></div>
 			</div>
 			<div class="myPageLine"></div>
 
@@ -67,7 +62,7 @@
 						<td>3/14까지 주문 가능할까요?</td>
 						<td>2024/03/01</td>
 						<td>2024/03/02</td>
-						<td><input type="button" value="조회"></td>
+						<td><input class="answer" type="button" value="조회"></td>
 					</tr>
 
 					<tr>
@@ -75,7 +70,7 @@
 						<td>특이한 색상도 제작 가능한가요?</td>
 						<td>2024/03/02</td>
 						<td>2024/03/03</td>
-						<td><input type="button" value="조회"></td>
+						<td><input class="answer" type="button" value="조회"></td>
 					</tr>
 
 					<tr>
@@ -83,7 +78,15 @@
 						<td>제작 범위 관련해서 문의 드립니다!</td>
 						<td>2024/03/03</td>
 						<td>2024/03/04</td>
-						<td><input type="button" value="조회"></td>
+						<td><input class="answer" type="button" value="조회"></td>
+					</tr>
+					
+					<tr>
+						<td>000000004</td>
+						<td>배송 송장번호 언제 나와요?</td>
+						<td>2024/03/04</td>
+						<td>2024/03/05</td>
+						<td><input class="answer" type="button" value="조회"></td>
 					</tr>
 
 
@@ -93,50 +96,17 @@
 		</div>
 	</div>
 
-	<!-- Modal 출력 부분 -->
-<!-- 	<div class="qnaInsertModal">
-		<div class="qnaInsertModalBody">
-			상단 제목 부분
-			<div class="qnaInsertTitle">
-				<div>SUJE</div>
-				<div>Q&A 작성</div>
-			</div>
+	<!-- Modal 출력 부분 -->	
+	<!-- Modal QnA 작성하기 부분 -->
+ 	<div class="qnaqModal">
+		<jsp:include page="/WEB-INF/views/customer/Modal/qnaqModal.jsp"></jsp:include>
+	</div> 
+			
+	<!-- Modal QnA 답변조회 부분 -->
+  		<div class="qnaaModal">
+			<jsp:include page="/WEB-INF/views/customer/Modal/qnaaModal.jsp"></jsp:include>
+		</div>  
+	
 
-
-			Modal 메인 Content
-			<div class="modalMainContent">
-				메인 좌측 Content Title
-				<div class="ContentLefit">
-					<div>제목</div>
-					<div>내용</div>
-				</div>
-
-				메인 우측 Content
-				<div class="ContentRight">
-					Content 첫번째 라인
-					<div>
-						<input type="text" />
-					</div>
-					Content 두번째 라인
-					<div>
-						<input type="text" />
-					</div>
-
-					등록하기 버튼
-					
-				</div>
-			</div>
-			<div class="insertbtn">
-						<div>
-							<input type="button" value="등록하기">
-						</div>
-						<div>
-							<a href=testPageSet.do?page=ysm&site=customer/customerQnAQ> <input
-								type="button" value="취소">
-							</a>
-						</div>
-					</div>	
-		</div>
-	</div> -->
 </body>
 </html>

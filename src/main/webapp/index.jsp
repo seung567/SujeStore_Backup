@@ -11,7 +11,7 @@
  String lyj = "customerMyPage";
  
 //장경희 테스트 페이지 설정
- String jkh = "storeNotiInfo";
+ String jkh = "fleaMarket/fleaGoodsSearchUpdate";
  
 //최수빈 테스트 페이지 설정
  String csb = "customerMyPage";

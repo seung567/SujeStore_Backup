@@ -43,29 +43,26 @@
 table {
 	width: 100%;
 	border-collapse: collapse;
-	border: 1px solid #ADEFD1;
 }
 
 th, td {
-	border-bottom: 1px solid #ADEFD1;;
+	border: 1px solid #ADEFD1;
 	padding: 8px;
 }
 
 th {
 	background-color: #ADEFD1;
 	text-align: center;
+
+	
 }
 
 td {
 	text-align: center;
-}
-tr:nth-child(even) {
-	background-color: #ADEFD1;
+	border-bottom: 3px solid #ADEFD1
 }
 
-tr:hover {
-	background-color: #ddd;
-}
+
 
 tr:hover {
 	background-color: #ddd;
@@ -89,32 +86,6 @@ tr:hover {
 	background-color: #7BB5AF; /* 마우스를 올렸을 때의 배경색 */
 }
 
-.total-amount {
-	font-size: 20px;
-	font-weight: bold;
-}
-
-.month-selector {
-	margin-bottom: 20px;
-	margin-left: 30px;
-}
-
-.month-selector label {
-	font-size: 30px;
-	margin-left: 30px;
-	font-weight: bold;
-}
-
-.month-selector select {
-	padding: 5px;
-	font-size: 16px;
-	border: 1px solid #ADEFD1;
-	border-radius: 5px;
-	margin-left: 100px;
-	text-align:center;
-	width: 150px;
-	height: 50px;
-}
 </style>
 </head>
 <body>
@@ -126,7 +97,8 @@ tr:hover {
 			<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
 			<ul class="storeCategoryArea">
 				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
+					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어
+						관리</a>
 					<ul class="storeSecondCategoryArea">
 						<li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
 									페이지 관리</span>
@@ -155,13 +127,13 @@ tr:hover {
 						</a></li>
 					</ul></li>
 				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn ">&nbsp;&nbsp;&nbsp;주문
+					class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;주문
 						관리</a>
 					<ul class="storeSecondCategoryArea">
 						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
 									주문요청 관리</span>
 						</a></li>
-						<li class="storeSecondCategoryBtn"><a
+						<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a
 							href="#"> <span>스토어 최종주문 조회</span>
 						</a></li>
 						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
@@ -169,120 +141,196 @@ tr:hover {
 						</a></li>
 					</ul></li>
 				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;정산 관리</a></li>
+					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a></li>
 			</ul>
 		</div>
 		<!-- storeSubMenuBox -->
 		<div class="storeContentsBox">
-			<h1 class="title">정산 관리</h1>
+			<h1 class="title">스토어 최종주문 조회</h1>
 			<hr class="hr">
-			<div class="month-selector" style="display: inline-block;">
-				<label for="month">월별 조회</label> <select id="month" name="month">
-					<option value="01">1월</option>
-					<option value="02">2월</option>
-					<option value="03">3월</option>
-					<option value="04">4월</option>
-					<option value="05">5월</option>
-					<option value="06">6월</option>
-					<option value="07">7월</option>
-					<option value="08">8월</option>
-					<option value="09">9월</option>
-					<option value="10">10월</option>
-					<option value="11">11월</option>
-					<option value="12">12월</option>
-				</select>
-			</div>
+			<h2 class="title">주문 결제정보</h2>
 			<div class="table-wrapper">
-				<table>
+				<table border="1">
 					<thead>
 						<tr>
-							<th>주문유형</th>
-							<th>주문번호</th>
+							<th>결제번호</th>
+							<th>최종주문번호</th>
+							<th>주문일자</th>
+							<th>결제일자</th>
 							<th>결제금액</th>
+							<th>구매확정</th>
 							<th>구매확정일자</th>
-							<th>정산일자</th>
-							<th>수수료</th>
-							<th>정산 금액</th>
+							<th>상세주문정보</th>
+							<th>배송형태</th>
+							<th>배송정보</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
 							<td>123456</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
 							<td>11,900</td>
-							<td>2024-03-16</td>
-							<td>2024-03-16</td>
-							<td>1,900</td>
-							<td>10,000</td>
+							<td>N</td>
+							<td></td>
+							<td><button class="check">조회</button></td>
+							<td>픽업</td>
+							<td><button class="check">조회</button></td>
 						</tr>
 						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
+					</tbody>
+				</table>
+			</div>
+			<br /> <br />
+			<hr class="hr">
+			<h2 class="title">결제취소정보</h2>
+			<div class="table-wrapper">
+				<table>
+					<thead>
 						<tr>
-							<td colspan="6" style="text-align: center;"><strong><span
-									class="total-amount">총 정산 금액</span></strong></td>
-							<td><strong><span class="total-amount">$총 금액</span></strong></td>
+							<th>결제취소번호</th>
+							<th>최종주문번호</th>
+							<th>취소일자</th>
+							<th>취소사유</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>123456</td>
+							<td>123456</td>
+							<td>2024-03-16</td>
+							<td>그냥</td>
+						</tr>
+						<tr>
+							<td>123456</td>
+							<td>123456</td>
+							<td>2024-03-16</td>
+							<td>그냥</td>
+						</tr>
+						<tr>
+							<td>123456</td>
+							<td>123456</td>
+							<td>2024-03-16</td>
+							<td>그냥</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr class="hr">
+			<h2 class="title">반품요청정보</h2>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>결제취소번호</th>
+							<th>최종주문번호</th>
+							<th>반품일자</th>
+							<th>반품사유</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>123456</td>
+							<td>123456</td>
+							<td>2024-03-16</td>
+							<td>그냥</td>
+						</tr>
+						<tr>
+							<td>123456</td>
+							<td>123456</td>
+							<td>2024-03-16</td>
+							<td>그냥</td>
+						</tr>
+						<tr>
+							<td>123456</td>
+							<td>123456</td>
+							<td>2024-03-16</td>
+							<td>그냥</td>
 						</tr>
 					</tbody>
 				</table>

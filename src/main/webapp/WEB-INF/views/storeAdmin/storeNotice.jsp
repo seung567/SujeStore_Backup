@@ -40,6 +40,38 @@
 	margin-bottom: 20px; /* 아래쪽 여백 설정 */
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid #ADEFD1;
+	padding: 8px;
+	text-align: left;
+}
+
+th {
+	background-color: #ADEFD1;
+	text-align: center;
+}
+
+td {
+	text-align: center;
+}
+
+tr:nth-child(even) {
+	background-color: #ADEFD1;
+}
+
+tr:hover {
+	background-color: #ddd;
+}
+
+.table-wrapper {
+	margin-top: 50px; /* 원하는 만큼의 상단 여백을 설정합니다 */
+}
+
 .notice-header {
 	display: flex;
 	justify-content: space-between;
@@ -59,7 +91,6 @@
 }
 
 .notice-item {
-
 	align-items: center;
 	margin-bottom: 20px;
 }
@@ -73,59 +104,53 @@
 	color: #007bff;
 	text-decoration: none;
 }
-.store_mainInfo {
-   margin-top: 50px;
 
+.store_mainInfo {
+	margin-top: 50px;
 }
 
 .store_subTitle {
-   font-size: 20px;
-   margin-right: 100px;
-   margin-left: 20px;
-   
+	font-size: 20px;
+	margin-right: 100px;
+	margin-left: 20px;
 }
 
 .notiInfo_selectBox {
-   font-size: 20px;
-   width: 300px;
-   height: 50px;
-   border: 3px solid #ADEFD1;
-   border-radius: 5px;
-   text-align:center;
+	font-size: 20px;
+	width: 300px;
+	height: 50px;
+	border: 3px solid #ADEFD1;
+	border-radius: 5px;
+	text-align: center;
 }
-
 
 .notiInfo_content {
-   border: 4px solid #ADEFD1;
-   width: 1130px; 
-   height: 200px;
-   margin-top: 10px;
-   margin-left: 20px;
-   font-size: 20px;
-   
+	border: 4px solid #ADEFD1;
+	width: 1130px;
+	height: 200px;
+	margin-top: 10px;
+	margin-left: 20px;
+	font-size: 20px;
 }
 
-.store_subCategory{
-   margin-top: 50px;
+.store_subCategory {
+	margin-top: 50px;
 }
 
 .submitBtn {
-   background-color: #ADEFD1;
-   width: 300px;
-   height: 50px;
-   border-radius: 10px;
-   margin-top: 30px;
-   margin-left: 20px;
-   
+	background-color: #ADEFD1;
+	width: 300px;
+	height: 50px;
+	border-radius: 10px;
+	margin-top: 30px;
+	margin-left: 20px;
 }
+
 .store_mainTitle {
-   font-size: 30px;
-   margin-top: 50px;
-   margin-left: 20px;
-   
+	font-size: 30px;
+	margin-top: 50px;
+	margin-left: 20px;
 }
-
-
 </style>
 </head>
 <body>
@@ -185,43 +210,42 @@
 		</div>
 		<!-- storeSubMenuBox -->
 		<div class="storeContentsBox">
-
 			<h1 class="title">스토어 공지 조회/수정</h1>
 			<hr class="hr">
-
-			<h3 class="subtitle">공지 조회</h3>
-			<div class="notice-header">
-				<hr class="hr2">
-				<div>공지 유형</div>
-				<div>공지 내용</div>
-				<div>등록일자</div>
-				<div>수정일자</div>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>공지 유형</th>
+							<th>공지 내용</th>
+							<th>등록일자</th>
+							<th>수정일자</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>공지 유형 1</td>
+							<td>공지 내용이 여기에 들어갑니다.</td>
+							<td>2024-03-15</td>
+							<td>2024-03-16</td>
+						</tr>
+						<tr>
+							<td>공지 유형 2</td>
+							<td>공지 내용이 여기에 들어갑니다.</td>
+							<td>2024-03-14</td>
+							<td>2024-03-15</td>
+						</tr>
+						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
+					</tbody>
+				</table>
 			</div>
-			<hr class="hr2">
-			<div class="notice-container">
-				<div class="notice-item">
-					<div>공지 유형 1</div>
-					<div>공지 내용이 여기에 들어갑니다.</div>
-					<div>2024-03-15</div>
-					<div>2024-03-16</div>
-				</div>
-				<hr class="hr2">
-				<div class="notice-item">
-					<div>공지 유형 2</div>
-					<div>공지 내용이 여기에 들어갑니다.</div>
-					<div>2024-03-14</div>
-					<div>2024-03-15</div>
-				</div>
-				<hr class="hr2">
-			</div>
-
 			<br /> <br />
 			<hr class="hr">
- <h1 class="store_mainTitle">스토어 공지 수정</h1>
+			<h1 class="store_mainTitle">스토어 공지 수정</h1>
 			<form class="store_mainInfo">
 				<div class="store_subCategory">
-					<label class="store_subTitle">공지 유형</label> 
-					<select class="notiInfo_selectBox">
+					<label class="store_subTitle">공지 유형</label> <select
+						class="notiInfo_selectBox">
 						<option value="choice">======= 선택 =======</option>
 						<option value="1">공지사항</option>
 						<option value="2">배송안내</option>

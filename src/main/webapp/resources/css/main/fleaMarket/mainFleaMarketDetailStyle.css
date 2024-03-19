@@ -16,6 +16,12 @@ body {
 	margin: 0 auto;
 	background-color: #fff;
 }
+.itemImageArea {
+	width: 500px;
+	height: 500px;
+	border-radius: 10px;
+	margin-left: 90px;
+}
 
 /*Footer*/
 footer {

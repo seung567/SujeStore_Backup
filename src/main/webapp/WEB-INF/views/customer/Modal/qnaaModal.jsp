@@ -25,21 +25,19 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- JS 연결 -->
-<script type="text/javascript"	src="./resources/js/customer/customerQnAA.js"></script>
+<script type="text/javascript"	src="./resources/js/customer/customerQnA.js"></script>
 </head>
 
 <body>
 <!-- Modal 출력 부분 -->
-<div class="qnaInsertModal">
+<div class="qnaaInsertModal">
 		<div class="qnaInsertModalBody">
 			<!-- 상단 제목 부분 -->
 			<div class="qnaInsertTitle">
 				<div>SUJE</div>
 				<div>Q&A 답변</div>
-				<div>
-					게시물번호 <input type="text" />
-				</div>
-					</div>
+				<div>게시물번호 <input type="text" /></div>
+			</div>
 
 				<!-- Modal 메인 Content -->
 				<div class="modalMainContent">
@@ -66,19 +64,22 @@
 					<input type="text" />
 				</div>
 
+				</div>
+			</div>
+			
 				<!-- 등록하기 버튼 -->
 				<div class="insertbtn">
 					<div>
 						<input type="button" value="확인">
-					</div>
-
+					</div>				
+					<div>
+					<a href=testPageSet.do?page=ysj&site=customer/customerQnA> <input
+						type="button" value="취소">
+					</a>
 				</div>
 			</div>
 		</div>
-		</div>
-		
-			</div>
-			</div>
+	</div>
 			
 </body>
 </html>

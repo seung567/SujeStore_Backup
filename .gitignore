@@ -22,3 +22,6 @@ replay_pid*
 .project
 pom.properties
 /.metadata/
+
+MANIFEST.MF
+target/

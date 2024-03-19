@@ -14,9 +14,10 @@
 	type="text/css">
 <link href="./resources/css/main/mainLoginStyle.css" rel="stylesheet"
 	type="text/css">
-<link href="./resources/css/main/maincummu/cummuwrite.css"
+<link href="./resources/css/main/maincommu/commwrite.css"
 	rel="stylesheet" type="text/css">
 <title>SUJE</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<%@ include file="../../headerHtml/memberHeader.jsp"%>
@@ -36,7 +37,7 @@
 				</select>
 			</div>
 			<div class="titleLabel">
-				<label for="title" class="inputLabel">제목</label> <input type="text"
+				<label for="title" class="writerLabel">제목</label> <input type="text"
 					id="title" name="title" class="inputField">
 			</div>
 			<div class="imageContainer">

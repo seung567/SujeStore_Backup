@@ -11,7 +11,7 @@
  String lyj = "customerMyPage";
  
 //장경희 테스트 페이지 설정
- String jkh = "fleaMarket/fleaGoodsSearchUpdate";
+ String jkh = "storeNotiInfo";
  
 //최수빈 테스트 페이지 설정
  String csb = "customerMyPage";
@@ -61,6 +61,6 @@
 	<h4>이정석 테스트 버튼</h4>
 	<a href=testPageSet.do?page=ejs&site=<%=ejs %>>클릭</a>
 
-
+ 
 </body>
 </html>

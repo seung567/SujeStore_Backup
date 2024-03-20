@@ -21,3 +21,7 @@ replay_pid*
 .vscode/
 .project
 pom.properties
+/.metadata/
+index.jsp
+MANIFEST.MF
+target/

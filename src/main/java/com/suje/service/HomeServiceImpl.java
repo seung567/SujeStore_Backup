@@ -20,5 +20,11 @@ public class HomeServiceImpl implements HomeService{
 		
 		return homeDao.getSerchTest();
 	}
-
+	
+	@Override
+	public HomeVO getModalTest(HomeVO vo) {
+		// TODO Auto-generated method stub
+		
+		return homeDao.getModalTest(vo);
+	}
 }

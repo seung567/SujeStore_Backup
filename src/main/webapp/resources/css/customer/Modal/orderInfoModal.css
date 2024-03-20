@@ -86,12 +86,12 @@
 
 /*Modal Main Content CSS*/
 /* contetntLeft*/
-.modalMainContent {
+.OrderInfomodalMainContent {
 	margin-top: 30px;
 	display: flex;
 }
 
-.ContentLefit {
+.OrderInfoContentLefit {
 	width: 100px;
 	display: flex;
 	align-items: flex-start;
@@ -100,46 +100,46 @@
 	display: flex;
 }
 
-.ContentLefit>div:nth-child(1), .ContentLefit>div:nth-child(2),
-	.ContentLefit>div:nth-child(3), .ContentLefit>div:nth-child(4) {
+.OrderInfoContentLefit>div:nth-child(1), .OrderInfoContentLefit>div:nth-child(2),
+	.OrderInfoContentLefit>div:nth-child(3), .OrderInfoContentLefit>div:nth-child(4) {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: 12px;
 }
 
-.ContentLefit div {
+.OrderInfoContentLefit div {
 	margin-bottom: 10px;
 	height: 30px;
 	font-size: 12px;
 }
 
 /* contetntRight*/
-.ContentRight {
+.OrderInfoContentRight {
 	margin-left: 20px;
 }
 
-.ContentRight>div {
+.OrderInfoContentRight>div {
 	margin-bottom: 10px;
 }
 
-.ContentRight input {
+.OrderInfoContentRight input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 }
 
 /* 첫번째 라인*/
-.ContentRight>div:nth-child(1) {
+.OrderInfoContentRight>div:nth-child(1) {
 	display: flex;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(1) {
+.OrderInfoContentRight>div:nth-child(1)>div:nth-child(1) {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(1) select {
+.OrderInfoContentRight>div:nth-child(1)>div:nth-child(1) select {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
@@ -148,12 +148,12 @@
 	border-radius: 5px;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(2) {
+.OrderInfoContentRight>div:nth-child(1)>div:nth-child(2) {
 	width: 150px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(1)>div:nth-child(2) select {
+.OrderInfoContentRight>div:nth-child(1)>div:nth-child(2) select {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
@@ -163,7 +163,7 @@
 }
 
 /* 두번째 라인*/
-.ContentRight>div:nth-child(2) {
+.OrderInfoContentRight>div:nth-child(2) {
 	display: flex;
 	font-size: 12px;
 	margin-left: 0;
@@ -171,46 +171,46 @@
 	align-items: center;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(1) input {
+.OrderInfoContentRight>div:nth-child(2)>div:nth-child(1) input {
 	width: 100px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(2) {
+.OrderInfoContentRight>div:nth-child(2)>div:nth-child(2) {
 	margin-left: 10px;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(3) {
+.OrderInfoContentRight>div:nth-child(2)>div:nth-child(3) {
 	margin-left: 120px;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(4) input {
+.OrderInfoContentRight>div:nth-child(2)>div:nth-child(4) input {
 	margin-left: 30px;
 	width: 100px;
 	height: 30px;
 }
 
 /* 세번째 라인*/
-.ContentRight>div:nth-child(3) {
+.OrderInfoContentRight>div:nth-child(3) {
 	display: flex;
 	font-size: 12px;
 	align-items: center;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(1) input {
+.OrderInfoContentRight>div:nth-child(3)>div:nth-child(1) input {
 	width: 100px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(2) {
+.OrderInfoContentRight>div:nth-child(3)>div:nth-child(2) {
 	margin-left: 10px;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(3) {
+.OrderInfoContentRight>div:nth-child(3)>div:nth-child(3) {
 	margin-left: 120px;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(4) select {
+.OrderInfoContentRight>div:nth-child(3)>div:nth-child(4) select {
 	margin-left: 45px;
 	width: 100px;
 	height: 30px;
@@ -218,20 +218,20 @@
 	border-radius: 5px;
 }
 
-.ContentRight>div:nth-child(4)>input {
+.OrderInfoContentRight>div:nth-child(4)>input {
 	width: 500px;
 	height: 70px;
 }
 
 /* 등록하기 버튼 CSS */
-.insertbtn {
+.OrderInfoinsertbtn {
 	margin-top: 30px; display : flex;
 	justify-content: center;
 	display: flex;
 	display: flex;
 }
 
-.insertbtn div:nth-child(1)>input {
+.OrderInfoinsertbtn div:nth-child(1)>input {
 	width: 200px;
 	height: 30px;
 	background-color: #ADEFD1;
@@ -239,7 +239,7 @@
 	border-radius: 5px;
 }
 
-.insertbtn div:nth-child(2)>input {
+.OrderInfoinsertbtn div:nth-child(2)>input {
 	width: 200px;
 	height: 30px;
 	background-color: white;

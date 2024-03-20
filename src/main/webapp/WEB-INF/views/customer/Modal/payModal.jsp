@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +14,12 @@
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
-<link rel="stylesheet" href="./resources/css/customer/Modal/payModal.css" />
+<link rel="stylesheet"
+	href="./resources/css/customer/Modal/payModal.css" />
 
 <!-- 데이터피커 CSS 연결 -->
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- 자바스크립트 연결 -->
 <!-- 자바 라이브러리 -->
@@ -25,26 +27,29 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- JS 연결 -->
-<script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
+<script type="text/javascript"
+	src="./resources/js/customer/customerReview.js"></script>
 </head>
 
 <body>
-<!-- Modal 출력 부분 -->
+	<!-- Modal 출력 부분 -->
 	<!-- Order join content 부분 -->
-	<div class="customerOrderListModal">
-		<div class="customerOrderListModalBody">
+	<div class="payMent">
+		<div class="payMentListModalBody">
 			<!-- 상단 제목 부분 -->
-			<div class="customerOrderListTitle">
-				<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
+			<div class="payMentOrderListTitle">
+				<div>
+					<img width=62px height=20px src="./resources/img/sujeLogo.png" />
+				</div>
 				<div>결제하기</div>
 			</div>
 
-			<div class="subtitle">주문정보</div>
-			<hr/>
+			<div class="payMentsubtitle">주문정보</div>
+			<hr />
 			<!-- MainContent 부분(1) -->
-			<div class="modalMainContent">
+			<div class="payMentmodalMainContent">
 				<!-- 메인 좌측 Content Title -->
-				<div class="ContentLefit">
+				<div class="payMentContentLefit">
 					<div>최종주문번호</div>
 					<div>상품 카테고리</div>
 					<div>주문 수량</div>
@@ -53,9 +58,11 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<div class="ContentRight">
-					<!-- Content 1번째 라인 -->				
-						<div><input type="text" /></div>				
+				<div class="payMentContentRight">
+					<!-- Content 1번째 라인 -->
+					<div>
+						<input type="text" />
+					</div>
 					<!-- Content 2번째 라인 -->
 					<div>
 						<div>
@@ -116,20 +123,20 @@
 					</div>
 				</div>
 			</div>
-			
-			<div class="subtitle">결제정보</div>
-			<hr/>
-			
+
+			<div class="payMentsubtitle">결제정보</div>
+			<hr />
+
 			<!-- MainContent 부분(2) -->
-			<div class="modalMainContent2">
+			<div class="payMentmodalMainContent2">
 				<!-- 메인 좌측 Content Title -->
-				<div class="ContentLefit2">
+				<div class="payMentContentLefit2">
 					<div>결제 방식</div>
 					<div>결제 금액</div>
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<div class="ContentRight2">
+				<div class="payMentContentRight2">
 					<!-- Content 1번째 라인 -->
 					<div>
 						<select>
@@ -156,14 +163,14 @@
 			</div>
 
 
-			<div class="subtitle">배송정보</div>
-			<hr/>
-			
-			
+			<div class="payMentsubtitle">배송정보</div>
+			<hr />
+
+
 			<!-- MainContent 부분(3) -->
-			<div class="modalMainContent3">
+			<div class="payMentmodalMainContent3">
 				<!-- 메인 좌측 Content Title -->
-				<div class="ContentLefit3">
+				<div class="payMentContentLefit3">
 					<div>수령자명</div>
 					<div>수령자 전화번호</div>
 					<div>배송 주소</div>
@@ -171,28 +178,34 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<div class="ContentRight3">
-					<!-- Content 1번째 라인 -->				
-						<div><input type="text" /></div>				
+				<div class="payMentContentRight3">
+					<!-- Content 1번째 라인 -->
+					<div>
+						<input type="text" />
+					</div>
 					<!-- Content 2번째 라인 -->
-						<div><input type="text" /></div>			
+					<div>
+						<input type="text" />
+					</div>
 					<!-- Content 3번째 라인 -->
-						<div><input type="text" /></div>
+					<div>
+						<input type="text" />
+					</div>
 					<!-- Content 4번째 라인 -->
-						<div><input type="text" /></div>
-
-
-			
-			<!-- 버튼-->
-			<div class="insertbtn">
-				<div><input type="button" value="결제하기"></div>
-				<div><input class="viewCancel" type="button" value="취소"></div>
+					<div>
+						<input type="text" />
+					</div>
+					<!-- 버튼-->
+				</div>
 			</div>
-			
-			
-			
-		</div>
-	</div>
-	<!-- Order join content 부분 -->
+			<div class="payMentinsertbtn">
+				<div>
+					<input type="button" value="결제하기">
+				</div>
+				<div>
+					<input class="viewCancel" type="button" value="취소">
+				</div>
+			</div>
+			<!-- Order join content 부분 -->
 </body>
 </html>

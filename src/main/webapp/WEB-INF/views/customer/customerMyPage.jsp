@@ -25,7 +25,7 @@
 <body>
 
 	<jsp:include page="/WEB-INF/views/headerHtml/memberHeader.jsp"></jsp:include>
-	<div class="main">
+	<div class="main contentsWrap">
 		<jsp:include page="/WEB-INF/views/customer/customerMenuBar.jsp"></jsp:include>
 		
 		<div class="mainContentright">
@@ -77,6 +77,7 @@
 		</div>
 		
 	</div>
-	
+	<footer>
+	</footer>
 </body>
 </html>

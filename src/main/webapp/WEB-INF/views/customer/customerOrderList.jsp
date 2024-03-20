@@ -63,7 +63,11 @@
 						<td>11,900</td>
 						<td>N</td>
 						<td>2024/03/01</td>
-						<td><input type="button" value="조회"></td>
+						<td>
+							<a href=modaltest.do>
+								<input type="button" value="조회">
+							</a>
+							</td>
 						<td><input type="button" value="요청"></td>
 						<td><input type="button" value="요청"></td>
 					</tr>

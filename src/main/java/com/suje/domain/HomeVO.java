@@ -4,6 +4,8 @@ package com.suje.domain;
 public class HomeVO {
 	int no;
 	String content;
+	String testval;
+	
 	public int getNo() {
 		return no;
 	}
@@ -16,6 +18,11 @@ public class HomeVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+	public String getTestval() {
+		return testval;
+	}
+	public void setTestval(String testval) {
+		this.testval = testval;
+	}
 	
 }

@@ -4,15 +4,20 @@
 
 <!-- <mapper namespace="HomeDAO"> -->
 <mapper namespace="HomeDAO">
+
 	<resultMap type="home" id="testResult">
-		<result property="no" column="NO"/>
-		<result property="content" column="CONTENT"/>
+		<result property="no" column="NO" />
+		<result property="content" column="CONTENT" />
 	</resultMap>
 
 
-<select id="getSerchTest" resultMap="testResult">
-	 	select * from test
+	<select id="getSerchTest" resultMap="testResult">
+		select * from test
 	</select>
+	
+	<select id="getModalTest" parameterType="home" resultType="home">
+		select * from seungmintest where TESTVAL = '테스트'
+	</select>
+	
 </mapper>
-<!-- </mapper>
- -->
+<!-- </mapper> -->

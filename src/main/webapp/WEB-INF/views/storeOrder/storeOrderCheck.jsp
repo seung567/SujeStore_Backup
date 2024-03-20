@@ -6,15 +6,19 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
 	rel="stylesheet">
-<link href="./resources/css/resetStyle.css" rel="stylesheet"
-	type="text/css">
-<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css"> 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeOrder/storeOrderCheck.css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="./resources/js/storeOrder/storeOrderCheckModal.js"></script>
+<script type="text/javascript" src="./resources/js/storeOrder/deliveryModal.js"></script>
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -25,7 +29,8 @@
 			<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
 			<ul class="storeCategoryArea">
 				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
+					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어
+						관리</a>
 					<ul class="storeSecondCategoryArea">
 						<li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
 									페이지 관리</span>
@@ -103,7 +108,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -115,7 +120,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -127,7 +132,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -139,7 +144,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -151,7 +156,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -163,7 +168,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -175,7 +180,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -187,7 +192,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
 					</tbody>
@@ -263,69 +268,22 @@
 				</table>
 			</div>
 		</div>
-		<!-- Modal 출력 부분 -->
-		<div class="storeOrderModal">
-			<div class="storeOrderModalBody">
-				<!-- 상단 제목 부분 -->
-				<div class="storeOrderModalTitle">
-					<div class="logoImg">
-						<img width="100px" height="20px" alt=""
-							src="./resources/img/sujeStoreLogo.png" />
-					</div>
-					<h3 class="modalTitle">최종 주문서 조회</h3>
-					<label class="modalNo">최종주문번호</label> <input class="textbox"
-						type="text" />
-				</div>
-
-				<!-- 메인 우측 Content -->
-				<div class="modalMainContent">
-					<!-- Content 첫번째 열 -->
-					<div class="first">
-						<label class="categoryLabel" for="Cartegory">상품 카테고리</label> <select>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option selected="selected">5</option>
-						</select> <select>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option selected="selected">5</option>
-						</select>
-					</div>
-					<!-- Content 두번째 열 -->
-					<div class="secound">
-						<label class="orderCountLabel" for="orderCount">주문 수량</label> <input
-							type="text" /> <label class="orderSizeLabel" for="orderSize">주문
-							사이즈</label> <input type="text" />
-					</div>
-					<!-- Content 세번째 열 -->
-					<div class="third">
-						<label class="orderAmountLabel" for="orderAmount">주문 금액</label> <input
-							type="text" /> <label class="deliveryLabel" for="delivery">배송
-							형태</label> <input type="text" />
-					</div>
-					<!-- Content 네번째 열 -->
-					<div class="fourth">
-						<label class="requirementsLabel" for="requirements">요구 사항</label>
-						<textarea></textarea>
-					</div>
-				</div>
-           <!-- 등록하기 버튼 -->
-         <div class="insertbtn">
-            <div>
-               <a href=testPageSet.do?page=jkh&site=storeOrder/storeOrderCheck>
-               <input type="button" >확인
-				</a>
-			</div>
-		</div>
-
-
 	</div>
 	<!-- storeContentsBox -->
 	</div>
 	<!-- storeContentsWrap -->
+	<footer></footer>
+
+	
+		<!-- 주문상세정보 보기 부분 -->
+		<div>
+			<jsp:include page="Modal/storeOrderModal.jsp"></jsp:include>
+		</div>
+		
+		<!-- 배송정보 부분 -->
+		<div>
+			<jsp:include page="Modal/deliveryModal.jsp"></jsp:include>
+		</div>
+ 	</div>
 </body>
 </html>

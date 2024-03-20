@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+body {
+	background-color: #ccc;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.contentsWrap {
+	flex-grow: 1;
+	width: 1440px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+.contents {
+/* 	background-color: #ccc; */
+	width: 1080px;
+	margin: 0 auto;
+	margin-top: 100px;
+	flex-grow: 1;
+	padding-bottom: 140px;
+}
+
+
+.postCategory {
+	width: 410px;
+	height: 40px;
+	margin-top: 70px;
+}
+
+.postCategory span, .postCategory img {
+	display: block;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 40px;
+}
+
+.postCategory span:first-child{
+	width: 70px;
+	height: 40px;
+	color: #999;
+} 
+
+
+.postCategoryArrow {
+	width: 20px;
+	height: 20px;
+	margin: 10px 0;
+	margin-right: 10px;
+	transform: rotate(-90deg);
+}
+
+.postbar{
+ 	width: 1080px;
+	height: 5px;
+	background-color: #D9D9D9;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.postTitle {
+	width: 1080px;
+	height: 50px;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 50px;
+	margin-top: 40px;
+}
+
+.postTitleValue {
+	width: 1080px;
+	height: 50px;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 50px;
+	overflow-wrap: break-word;
+	resize: none;
+	background-color: #fff;
+	color: #222;
+}
+
+.postwriterArea {
+	width: 1080px;
+	height: 50px;
+	margin-top: 40px;
+	position: relative;
+}
+
+.postwriterProfile {
+	width: 40px;
+	height: 40px;
+	display: block;
+	float: left;
+	margin: 5px 20px 5px 10px;
+}
+
+.postwriterArea span {
+	width: 170px;
+	height: 50px;
+	display: block;
+	float: left;
+	font-size: 20px;
+	line-height: 50px;
+}
+
+.postwriterNickname {
+	font-weight: 700;
+}
+
+.postDateValue {
+	background-color: #fff;
+	color: #999;
+	font-size: 20px;
+	margin-left: 600px;
+}
+
+
+.postSubmenu, .postSubmenu img {
+	width: 40px;
+	height: 40px;
+	float: right;
+}
+
+
+/* commentDetailBtn */
+
+
+.postDetailBtn-container  {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	border: 2px solid #ADEFD1;
+	background-color: #fff;
+	width: 200px;
+	height: 70px;
+	font-size: 20px;
+/* 	display: none; */
+}
+
+.postDetailBtn {
+	width: 100%;
+	height: 70px;
+	font-weight: 700;
+}
+
+.postMainImg, .postMainImg img {
+	width: 500px;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.postContent {
+	width: 1080px;
+	margin-top: 80px;
+	font-size: 22px;
+	line-height: 1.5;
+	padding: 0 10px 70px;
+}
+
+.postEtc {
+	width: 520px;
+	height: 40px;
+}
+
+.postEtc img, .postEtc button {
+	width: 40px;
+	height: 40px;
+	display: block;
+	float: left;
+}
+
+.postEtc span {
+	width: 100px;
+	height: 40px;
+	display: block;
+	float: left;
+	margin-left: 20px;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 40px;
+	color: #999;
+}
+
+
+/* 게시글 댓글 영역 */
+.myComment {
+	width: 1080px;
+	height: 150px;
+	border: 3px solid #D9D9D9;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.writerProfile {
+	width: 200px;
+	height: 40px;
+	float: left;
+}
+.writerProfile img {
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+.writerProfile span {
+	width: 90px;
+	height: 40px;
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 40px;
+}
+
+.myCommentText {
+	width: 650px;
+	height: 110px;
+	font-size: 20px;
+	text-align: left;
+	vertical-align: top;
+	line-height: 1.5;
+	padding:5px;
+	resize: none;
+	margin-left: 40px;
+}
+.myCommentText:focus {
+	outline: 2px solid #ADEFD1;
+	cursor: text;
+}
+.myCommentBtn {
+	width: 100px;
+	height: 100px;
+	display: block;
+	float: right;
+	background-color: #00203F;
+	color: #fff;
+	font-weight: 700;
+	border-radius: 10px;
+	transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+	
+}
+.myCommentBtn:hover {
+	border: 2px solid #ADEFD1;
+	background-color: #fff;
+	color: #222;
+}
+.postComment {
+	width: 1080px;
+	height: auto;
+	padding: 20px 0;
+	margin-top: 20px;
+	position: relative;
+}
+
+.commentDetailBtn {
+	position: absolute;
+	top: 70px;
+	right: 10px;
+	border: 2px solid #ADEFD1;
+	background-color: #fff;
+	width: 200px;
+	height: 80px;
+	font-weight: 700;
+	font-size: 20px;
+/* 	display: none; */
+}
+
+
+.commentWriterArea {
+	width: 1080px;
+	height: 40px;
+}
+
+.commentwriterProfile span, .commentwriterProfile img {
+	float: left;
+}
+
+.commentwriterNickname {
+	font-weight: 700;
+}
+
+.commentwriterProfile span{	
+	width: 470px;
+	height: 40px;
+	float: left;
+	font-size: 20px;
+	line-height: 40px;
+}
+
+.commentDate {
+
+	display: block;
+	float: left;
+	margin-left: 0px;
+	line-height: 40px;
+	color: #999;
+	text-align: right;
+}
+
+.commentsubmenu, .commentsubmenu img {
+	width: 40px;
+	height: 40px;
+	float: right;
+}
+
+.postCommentText {
+	width: 880px;
+	margin-top: 30px;
+	margin-left: 65px;
+	line-height: 1.5;
+}
+
+
+
+
+
+
+
+footer {
+	width: 100%;
+	height: 200px;
+	background-color: #ADEFD1;
+}
+
+
+
+

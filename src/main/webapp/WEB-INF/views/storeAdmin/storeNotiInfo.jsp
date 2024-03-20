@@ -6,12 +6,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
+ 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
-<link href="./resources/css/storeAdmin/storeNotiInfo.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./resources/css/storeAdmin/storeNotiInfo.css" />
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
@@ -95,5 +96,6 @@
 		</div>
 		<!-- storeContentsBox -->
 	</div> <!-- storeContentsWrap -->
+	<footer></footer>
 </body>
 </html>

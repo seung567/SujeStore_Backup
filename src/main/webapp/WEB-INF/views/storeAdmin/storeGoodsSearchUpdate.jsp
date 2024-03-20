@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
-<link href="./resources/css/storeAdmin/storeGoodsSearchUpdate.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./resources/css/storeAdmin/storeGoodsSearchUpdate.css" />
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>

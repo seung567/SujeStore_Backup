@@ -8,13 +8,14 @@
 	rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet"
 	type="text/css">
-<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css"> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeOrder/calculate.css" />
+
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -193,5 +194,6 @@
 	<!-- storeContentsBox -->
 	</div>
 	<!-- storeContentsWrap -->
+	<footer></footer>
 </body>
 </html>

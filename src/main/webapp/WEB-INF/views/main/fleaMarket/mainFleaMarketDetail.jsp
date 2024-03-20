@@ -11,6 +11,7 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/main/fleaMarket/mainFleaMarketDetailStyle.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./resources/js/main/mainFleaMarketDetailJs.js"></script>
 <title>SUJE</title>
 </head>
 <body>
@@ -35,9 +36,9 @@
 			<div class="category">SECOND CATEGORY</div>
 		</div>
 		<div class="itemStore">STORE NAME</div>
-		<div class="itemName">ITEM NAME</div>
+		<div class="itemName">ITEM NAME ITEM NAME ITEM NAME</div>
 		<div class="itemPrice">
-			<span>10,000</span>
+			<span>260000</span>
 			<span>원</span>
 		</div>
 		<div class="itemCountArea">
@@ -47,7 +48,7 @@
 				<button class="CountPlus">+</button>
 			</div>
 			<div class="finalPrice">
-				<span>10,000</span>
+				<span><!-- itemPrice 값이 자동으로 들어오도록 JS 설정됨 --></span>
 				<span>원</span>
 			</div>
 		</div>

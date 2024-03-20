@@ -1,0 +1,206 @@
+@charset "UTF-8";
+
+/*페이징 css*/
+.pageing {
+	width: auto; margin-top : 40px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.subtitle2 {
+	margin-top: 70px;
+}
+
+/* Modal css */
+/* Modal Order Join css*/
+.customerOrderListModal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+/* 	display: none; */
+	text-align: center;
+}
+
+.customerOrderListModal.show {
+	display: block;
+}
+
+.customerOrderListModalBody {
+	margin-top: 70px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1000px;
+	height: 500px;
+	padding: 40px 20px 40px 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+	transform: translateX(-50%) translateY(-50%);
+	position: absolute;
+}
+
+.customerOrderListTitle {
+	display: flex;
+	align-items: baseline;
+}
+
+/*Modal Main Title CSS*/
+/* SUJE 로고 CSS*/
+.customerOrderListTitle div:nth-child(1) {
+	margin-right: 40px;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+/* 주문제작후기 타이틀 CSS*/
+.customerOrderListTitle div:nth-child(2) {
+	height: auto;
+	margin-right: 90px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/*Modal Main Content CSS*/
+
+/* contetntRight*/
+.ContentRight {
+	margin-left: 20px;
+}
+
+.firstContent {
+	display: flex;
+	align-items : center;
+	margin-top : 20px;
+}
+
+.firstContent div:nth-child(1) {
+	font-size: 12px;
+	margin-left : 10px;
+	margin-right : 10px;
+}
+
+.firstContent select {
+	margin-right : 20px;
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+	width : 150px;
+	height : 30px;
+}
+
+.secondContent {
+	display: flex;
+	align-items: center;
+	margin-top : 20px;
+}
+
+.secondContent div:nth-child(1) {
+	font-size: 12px;
+	margin-left : 10px;
+	margin-right : 10px;
+}
+
+.secondContent input {
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+	width : 150px;
+	height : 30px;
+}
+
+.thirdContent {
+	display: flex;
+	align-items: center;
+	margin-top : 20px;
+}
+
+.thirdContent div:nth-child(1) {
+	font-size: 12px;
+	margin-left : 10px;
+	margin-right : 10px;
+}
+
+.thirdContent input {
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+	width : 580px;
+	height : 200px;
+}
+
+/* 등록하기 버튼 CSS */
+.insertbtn {
+	margin-top: 35px; display : flex;
+	justify-content: center;
+	display: flex;
+}
+
+.insertbtn div:nth-child(1)>input {
+	width: 200px;
+	height: 30px;
+	background-color: #ADEFD1;
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+/*이미지 슬라이드 부분*/
+
+.ContentLeft {
+  width: 300px; 
+}
+
+/**사진**/
+.slide { /**이만큼의 크기로 보이겠다는 의미**/
+  width: 100px; 
+  height: 100px;/**사진보다 크면 다음 사진까지 표시되어 img와 slide크기를 맞춘다.**/
+  overflow: hidden;/**이미지는 내장이라 overflow:hidden을 사용해 넘친 사진들을 안보이게 한다.**/
+}
+
+.images {
+  display: flex; /**좌우 슬라이드를 위해 flex로 사진을 가로정렬한다.**/
+  height: 100px; /**slide와 images의 높이가 다르면 부자연스럽게 표시돼 slide의 높이에 맞게 높이를 바꾼다.**/
+  transition: transform 0.5s;
+/**어떤 속성에 대해 애니메이션 효과를 주는 속성이다. 
+tranform속성에 0.5초의 듀레이션(동작의 시작해서 끝나는 시간)을 준다.**/
+}
+
+.ContentLeft div:nth-child() img{
+  width: 30px; 
+  height: 30px;/**slide 크기에 맞춘다.**/
+}
+
+/**버튼위치**/
+.back  {
+  position: relative;
+  bottom: 50px; 
+  right: 35px;
+}
+
+.next {
+  position: relative;
+  bottom: 50px; 
+  left: 30px;
+}
+
+/**버튼디자인**/
+button {
+  width: 30px; 
+  height: 30px;
+  color: white;
+  background: #646464;
+}
+
+button:active {/**버튼을 클릭하는 동안 색을 바꾼다.**/
+  background:#3e3e3e;
+}
+
+button:disabled {/**버튼 속성이 disabled되면 색을 바꾼다.**/
+  background: #cbcaca;
+}
+
+.totalBody{
+	display: flex;
+	    align-items: center;
+}

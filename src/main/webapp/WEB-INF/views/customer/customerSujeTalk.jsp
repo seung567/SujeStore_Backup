@@ -23,7 +23,8 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript"
-	src="./resources/js/customer/customerMyPage.js"></script>
+	src="./resources/js/customer/customerSujeTalk.js"></script>
+	
 </head>
 <body>
 
@@ -188,7 +189,7 @@
 									</div>
 									<!-- 대화 사용자 정보 -->
 									<!-- 대화 내용 -->
-									<div><input type="button" value="최종 주문서 확인"/></div>
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
 									<!-- 대화 내용 -->
 									<!-- 뒷 배경 그림 -->
 									<img src="./resources/img/wordballoon.png">
@@ -223,7 +224,18 @@
 		</div>
 
 	</div>
-
+	<!-- Modal -->
+	<div class="modalWrap">
+	
+		<div class="orderCheckModal">
+			<jsp:include page="./Modal/orderInfoModal.jsp"></jsp:include>
+		</div>
+		
+		<div class="payResultModal">
+			<jsp:include page="./Modal/payModal.jsp"></jsp:include>
+		</div>
+		
+	</div>
 </body>
 </html>
 

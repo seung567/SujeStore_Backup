@@ -15,6 +15,10 @@
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeOrder/storeOrderCheck.css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="./resources/js/storeOrder/storeOrderCheckModal.js"></script>
+<script type="text/javascript" src="./resources/js/storeOrder/deliveryModal.js"></script>
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -104,7 +108,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -116,7 +120,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -128,7 +132,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -140,7 +144,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -152,7 +156,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -164,7 +168,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -176,7 +180,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<tr>
 							<td>123456</td>
@@ -188,7 +192,7 @@
 							<td></td>
 							<td><button class="check">조회</button></td>
 							<td>픽업</td>
-							<td><button class="check">조회</button></td>
+							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
 					</tbody>
@@ -269,70 +273,17 @@
 	</div>
 	<!-- storeContentsWrap -->
 	<footer></footer>
-	      <!-- Modal 출력 부분 -->
-      <div class="storeOrderModal">
-         <div class="storeOrderModalBody">
-            <!-- 상단 제목 부분 -->
-            <div class="storeOrderModalTitle">
-               <div class="logoImg">
-                  <img width="100px" height="20px" alt=""
-                     src="./resources/img/sujeStoreLogo.png" />
-               </div>
-               <h3 class="modalTitle">최종 주문서 조회</h3>
-               <label class="modalNo">최종주문번호</label> 
-               <input class="modalNo_textbox" type="text" />
-            </div>
 
-            <!-- 메인 Content -->
-            <div class="modalMainContent">
-               <!-- Content 첫번째 열 -->
-               <div class = "first">
-                  <label class="categoryLabel" for="Cartegory">상품 카테고리</label>
-                  <select>
-                     <option selected="selected">==중분류==</option>
-                     <option>1</option>
-                     <option>2</option>
-                     <option>3</option>
-                     <option>4</option>
-                  </select>
-                  <select>
-                     <option selected="selected">==소분류==</option>
-                     <option>1</option>
-                     <option>2</option>
-                     <option>3</option>
-                     <option>4</option>
-                  </select>
-               </div>
-               <!-- Content 두번째 열 -->
-               <div class = "secound">
-                  <label class="orderCountLabel" for="orderCount">주문 수량</label> 
-                  <input type="text" class="modal_textbox" />
-                  <label class="orderSizeLabel" for="orderSize">주문 사이즈</label> 
-                  <input type="text" class="modal_textbox" />
-               </div>
-               <!-- Content 세번째 열 -->
-               <div class = "third">
-                  <label class="orderAmountLabel" for="orderAmount">주문 금액</label> 
-                  <input type="text" class="modal_textbox"/>
-                  <label class="deliveryLabel" for="delivery">배송 형태</label> 
-                   <select>
-                     <option selected="selected">==선택==</option>
-                     <option>배송</option>
-                     <option>방문</option>
-                  </select>
-               </div>
-               <!-- Content 네번째 열 -->
-               <div class = "fourth">
-                  <label class="requirementsLabel" for="requirements">요구 사항</label>
-                  <textarea></textarea>
-               </div>
-               <!-- 확인 버튼 -->
-				<div class="modalBtnBox">
-				<input type="submit" value="확인" class="modalSubmitBtn">
-				</div>
-            </div> <!-- modalMainContent -->
-         </div> <!-- storeOrderModalBody -->
-      </div> <!-- storeOrderModal -->
 	
+		<!-- 주문상세정보 보기 부분 -->
+		<div>
+			<jsp:include page="Modal/storeOrderModal.jsp"></jsp:include>
+		</div>
+		
+		<!-- 배송정보 부분 -->
+		<div>
+			<jsp:include page="Modal/deliveryModal.jsp"></jsp:include>
+		</div>
+ 	</div>
 </body>
 </html>

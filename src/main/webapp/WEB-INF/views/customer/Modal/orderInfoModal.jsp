@@ -68,7 +68,8 @@
 					<!-- Content 두번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />${vo.testval }
+							<input type="text" value=${home.test }/>
+
 						</div>
 						<div>개</div>
 

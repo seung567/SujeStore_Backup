@@ -16,7 +16,9 @@
 	</select>
 	
 	<select id="getModalTest" parameterType="home" resultType="home">
-		select * from seungmintest where TESTVAL = '테스트'
+
+		select * from testTable where TEST = 'test1'
+
 	</select>
 	
 </mapper>

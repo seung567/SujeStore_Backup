@@ -27,9 +27,9 @@
 			</div>
 
 			<!-- MainContent 부분 -->
-			<div class="modalMainContent">
+			<div class="OrderInfomodalMainContent">
 				<!-- 메인 좌측 Content Title -->
-				<div class="ContentLefit">
+				<div class="OrderInfoContentLefit">
 					<div>상품 카테고리</div>
 					<div>주문 수량</div>
 					<div>주문 금액</div>
@@ -37,7 +37,7 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<div class="ContentRight">
+				<div class="OrderInfoContentRight">
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<div>
@@ -68,7 +68,7 @@
 					<!-- Content 두번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input type="text" />${vo.testval }
 						</div>
 						<div>개</div>
 
@@ -99,9 +99,9 @@
 				</div>
 			</div>
 
-			<div class="insertbtn">
+			<div class="OrderInfoinsertbtn">
 				<div>
-					<input type="button" value="등록하기">
+					<input class="insertBtnRes" type="button" value="등록하기">
 				</div>
 				<div>
 						<input class="viewCancel" type="button" value="취소">

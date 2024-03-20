@@ -13,7 +13,7 @@
 
 /* Modal css */
 /* Modal Order Join css*/
-.customerOrderListModal {
+.payMent {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -24,11 +24,11 @@
 	text-align: center;
 }
 
-.customerOrderListModal.show {
+.payMent.show {
 	display: block;
 }
 
-.customerOrderListModalBody {
+.payMentListModalBody {
 	margin-top: 70px;
 	position: absolute;
 	top: 50%;
@@ -44,7 +44,7 @@
 	position: absolute;
 }
 
-.customerOrderListTitle {
+.payMentOrderListTitle {
 	display: flex;
 	height: 20px;
 	align-items: baseline;
@@ -52,14 +52,14 @@
 
 /*Modal Main Title CSS*/
 /* SUJE 로고 CSS*/
-.customerOrderListTitle div:nth-child(1) {
+.payMentOrderListTitle div:nth-child(1) {
 	margin-right: 40px;
 	font-weight: bold;
 	font-size: 30px;
 }
 
 /* 주문제작후기 타이틀 CSS*/
-.customerOrderListTitle div:nth-child(2) {
+.payMentOrderListTitle div:nth-child(2) {
 	height: auto;
 	margin-right: 90px;
 	font-size: 15px;
@@ -67,16 +67,16 @@
 }
 
 /* 제작주문번호 입력부분*/
-.customerOrderListTitle div:nth-child(3) {
+.payMentOrderListTitle div:nth-child(3) {
 	margin-left: 100px;
 	font-size: 12px;
 }
 
-.customerOrderListTitle div:nth-child(3) input {
+.payMentOrderListTitle div:nth-child(3) input {
 	text-align: center;
 }
 
-.customerOrderListTitle input {
+.payMentOrderListTitle input {
 	border: 2px solid #ADEFD1;
 	width: 100px;
 	height: 30px;
@@ -86,12 +86,12 @@
 
 /*Modal Main Content CSS* (1)/
 /* contetntLeft*/
-.modalMainContent {
+.payMentmodalMainContent {
 	margin-top: 30px;
 	display: flex;
 }
 
-.ContentLefit {
+.payMentContentLefit {
 	width: 100px;
 	display: flex;
 	align-items: flex-start;
@@ -100,53 +100,53 @@
 	display: flex;
 }
 
-.ContentLefit>div:nth-child(1), .ContentLefit>div:nth-child(2),
-	.ContentLefit>div:nth-child(3), .ContentLefit>div:nth-child(4) {
+.payMentContentLefit>div:nth-child(1), .payMentContentLefit>div:nth-child(2),
+	.payMentContentLefit>div:nth-child(3), .payMentContentLefit>div:nth-child(4) {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: 12px;
 }
 
-.ContentLefit div {
+.payMentContentLefit div {
 	margin-bottom: 10px;
 	height: 30px;
 	font-size: 12px;
 }
 
 /* contetntRight*/
-.ContentRight {
+.payMentContentRight {
 	margin-left: 20px;
 }
 
-.ContentRight>div {
+.payMentContentRight>div {
 	margin-bottom: 10px;
 }
 
-.ContentRight input {
+.payMentContentRight input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 }
 
 /* 1번째 라인*/
-.ContentRight>div:nth-child(1) {
+.payMentContentRight>div:nth-child(1) {
 	width : 150px;
 	height : 30px;
 	display: flex;
 }
 
 /* 2번째 라인*/
-.ContentRight>div:nth-child(2) {
+.payMentContentRight>div:nth-child(2) {
 	display: flex;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(1) {
+.payMentContentRight>div:nth-child(2)>div:nth-child(1) {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(1) select {
+.payMentContentRight>div:nth-child(2)>div:nth-child(1) select {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
@@ -155,12 +155,12 @@
 	border-radius: 5px;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(2) {
+.payMentContentRight>div:nth-child(2)>div:nth-child(2) {
 	width: 150px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(2)>div:nth-child(2) select {
+.payMentContentRight>div:nth-child(2)>div:nth-child(2) select {
 	margin-right: 40px;
 	width: 150px;
 	height: 30px;
@@ -170,7 +170,7 @@
 }
 
 /* 3번째 라인*/
-.ContentRight>div:nth-child(3) {
+.payMentContentRight>div:nth-child(3) {
 	display: flex;
 	font-size: 12px;
 	margin-left: 0;
@@ -178,46 +178,46 @@
 	align-items: center;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(1) input {
+.payMentContentRight>div:nth-child(3)>div:nth-child(1) input {
 	width: 100px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(2) {
+.payMentContentRight>div:nth-child(3)>div:nth-child(2) {
 	margin-left: 10px;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(3) {
+.payMentContentRight>div:nth-child(3)>div:nth-child(3) {
 	margin-left: 120px;
 }
 
-.ContentRight>div:nth-child(3)>div:nth-child(4) input {
+.payMentContentRight>div:nth-child(3)>div:nth-child(4) input {
 	margin-left: 30px;
 	width: 100px;
 	height: 30px;
 }
 
 /* 4번째 라인*/
-.ContentRight>div:nth-child(4) {
+.payMentContentRight>div:nth-child(4) {
 	display: flex;
 	font-size: 12px;
 	align-items: center;
 }
 
-.ContentRight>div:nth-child(4)>div:nth-child(1) input {
+.payMentContentRight>div:nth-child(4)>div:nth-child(1) input {
 	width: 100px;
 	height: 30px;
 }
 
-.ContentRight>div:nth-child(4)>div:nth-child(2) {
+.payMentContentRight>div:nth-child(4)>div:nth-child(2) {
 	margin-left: 10px;
 }
 
-.ContentRight>div:nth-child(4)>div:nth-child(3) {
+.payMentContentRight>div:nth-child(4)>div:nth-child(3) {
 	margin-left: 120px;
 }
 
-.ContentRight>div:nth-child(4)>div:nth-child(4) select {
+.payMentContentRight>div:nth-child(4)>div:nth-child(4) select {
 	margin-left: 45px;
 	width: 100px;
 	height: 30px;
@@ -225,12 +225,12 @@
 	border-radius: 5px;
 }
 
-.ContentRight>div:nth-child(4)>input {
+.payMentContentRight>div:nth-child(4)>input {
 	width: 500px;
 	height: 70px;
 }
 
-.ContentRight>div:nth-child(5)>input {
+.payMentContentRight>div:nth-child(5)>input {
 	display : flex;
 	width: 500px;
 	height: 70px;
@@ -240,12 +240,12 @@
 
 /*Modal Main Content CSS* (2)/
 /* contetntLeft*/
-.modalMainContent2 {
+.payMentmodalMainContent2 {
 	margin-top: 30px;
 	display: flex;
 }
 
-.ContentLefit2 {
+.payMentContentLefit2 {
 	width: 100px;
 	display: flex;
 	align-items: flex-start;
@@ -254,49 +254,49 @@
 	display: flex;
 }
 
-.ContentLefit2>div:nth-child(1), .ContentLefit2>div:nth-child(2),
-	.ContentLefit2>div:nth-child(3), .ContentLefit2>div:nth-child(4) {
+.payMentContentLefit2>div:nth-child(1), .payMentContentLefit2>div:nth-child(2),
+	.payMentContentLefit2>div:nth-child(3), .payMentContentLefit2>div:nth-child(4) {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: 12px;
 }
 
-.ContentLefit2 div {
+.payMentContentLefit2 div {
 	margin-bottom: 10px;
 	height: 30px;
 	font-size: 12px;
 }
 
 /* contetntRight*/
-.ContentRight2 {
+.payMentContentRight2 {
 	margin-left: 20px;
 }
 
-.ContentRight2>div {
+.payMentContentRight2>div {
 	margin-bottom: 10px;
 }
 
-.ContentRight2>div:nth-child(2){
+.payMentContentRight2>div:nth-child(2){
 	align-items: center;
 }
 
-.ContentRight2>div:nth-child(2)>div:first-child input {
+.payMentContentRight2>div:nth-child(2)>div:first-child input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 	width: 100px;
 	height: 30px;
 }
 
-.ContentRight2>div:nth-child(2)>div:nth-child(2) {
+.payMentContentRight2>div:nth-child(2)>div:nth-child(2) {
 	margin-left: 10px;
 	}
 	
-.ContentRight2>div:nth-child(2)>div:nth-child(3) {
+.payMentContentRight2>div:nth-child(2)>div:nth-child(3) {
 	margin-left: 124px;
 	}
 	
-.ContentRight2>div:nth-child(2)>div:nth-child(4) input {
+.payMentContentRight2>div:nth-child(2)>div:nth-child(4) input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 	width: 150px;
@@ -304,20 +304,20 @@
 	margin-left: 50px;
 }
 
-.ContentRight2 select {
+.payMentContentRight2 select {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 }
 
 /* 1번째 라인*/
-.ContentRight2>div:nth-child(1) {
+.payMentContentRight2>div:nth-child(1) {
 	width : 100px;
 	height : 30px;
 	display: flex;
 }
 
 /* 2번째 라인*/
-.ContentRight2>div:nth-child(2) {
+.payMentContentRight2>div:nth-child(2) {
 	display: flex;
 	font-size: 12px;
 }
@@ -326,12 +326,12 @@
 
 /*Modal Main Content CSS* (3)/
 /* contetntLeft*/
-.modalMainContent3 {
+.payMentmodalMainContent3 {
 	margin-top: 30px;
 	display: flex;
 }
 
-.ContentLefit3 {
+.payMentContentLefit3 {
 	width: 100px;
 	display: flex;
 	align-items: flex-start;
@@ -340,57 +340,57 @@
 	display: flex;
 }
 
-.ContentLefit3>div:nth-child(1), .ContentLefit3>div:nth-child(2),
-	.ContentLefit3>div:nth-child(3), .ContentLefit3>div:nth-child(4) {
+.payMentContentLefit3>div:nth-child(1), .payMentContentLefit3>div:nth-child(2),
+	.payMentContentLefit3>div:nth-child(3), .payMentContentLefit3>div:nth-child(4) {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: 12px;
 }
 
-.ContentLefit3 div {
+.payMentContentLefit3 div {
 	margin-bottom: 10px;
 	height: 30px;
 	font-size: 12px;
 }
 
 /* contetntRight*/
-.ContentRight3 {
+.payMentContentRight3 {
 	margin-left: 20px;
 }
 
-.ContentRight3>div {
+.payMentContentRight3>div {
 	margin-bottom: 10px;
 }
 
-.ContentRight3 input {
+.payMentContentRight3 input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 }
 
 /* 1번째 라인*/
-.ContentRight3>div:nth-child(1) input {
+.payMentContentRight3>div:nth-child(1) input {
 	width : 100px;
 	height : 30px;
 	display: flex;
 }
 
 /* 2번째 라인*/
-.ContentRight3>div:nth-child(2) input {
+.payMentContentRight3>div:nth-child(2) input {
 	width : 200px;
 	height : 30px;
 	display: flex;
 }
 
 /* 3번째 라인*/
-.ContentRight3>div:nth-child(3) input {
+.payMentContentRight3>div:nth-child(3) input {
 	width : 500px;
 	height : 30px;
 	display: flex;
 }
 
 /* 4번째 라인*/
-.ContentRight3>div:nth-child(4) input {
+.payMentContentRight3>div:nth-child(4) input {
 	width : 500px;
 	height : 30px;
 	display: flex;
@@ -398,14 +398,14 @@
 
 
 /* 등록하기 버튼 CSS */
-.insertbtn {
-	margin-top: 30px; display : flex;
+.payMentinsertbtn {
+	margin-top: 30px; 
+	display : flex;
 	justify-content: center;
-	display: flex;
 	display: flex;
 }
 
-.insertbtn div:nth-child(1)>input {
+.payMentinsertbtn div:nth-child(1)>input {
 	width: 200px;
 	height: 30px;
 	background-color: #ADEFD1;
@@ -413,7 +413,7 @@
 	border-radius: 5px;
 }
 
-.insertbtn div:nth-child(2)>input {
+.payMentinsertbtn div:nth-child(2)>input {
 	width: 200px;
 	height: 30px;
 	background-color: white;
@@ -422,7 +422,7 @@
 	margin-left: 20px;
 }
 
-.subtitle {
+.payMentsubtitle {
 	margin-top : 35px;
 	margin-right: 580px;
 	font-weight: bold;

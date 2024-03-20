@@ -7,5 +7,6 @@ import com.suje.domain.HomeVO;
 public interface HomeDAO {
 	
 	public List<HomeVO> getSerchTest();
+	public HomeVO getModalTest(HomeVO vo);
 	
 }

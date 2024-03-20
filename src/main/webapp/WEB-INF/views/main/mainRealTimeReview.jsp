@@ -142,7 +142,7 @@
 	</div>
 </div> <!-- contentsWrap -->
 <footer></footer>
-<div class="finalOrderModalWrap">
+<!--<div class="finalOrderModalWrap">
 	<div class="finalOrderModal">
 		<div class="finalOrderModalHead">
 			<img src="././resources/img/sujeLogo.png" class="finalOrderModalLogo">
@@ -190,7 +190,7 @@
 				<option>방향제</option>
 			</select>
 		</div>
-		<div class="modalContentsBox">
+		  <div class="modalContentsBox">
 			<label class="modalContentsTitle">주문 수량</label>
 			<input type="text" disabled="disabled" class="modalContentsInfo"><div class="orderCount">개</div>
 			<label class="modalContentsTitle marginModalContentsTitle">주문 사이즈</label> 
@@ -211,6 +211,6 @@
 		</div>
 		<button class="modalCloseBtn">확인</button>
 	</div> <!-- storeMoreInfoModal -->
-</div> <!-- storeMoreInfoModalWrap -->
+<!-- </div><!-- storeMoreInfoModalWrap -->
 </body>
 </html>

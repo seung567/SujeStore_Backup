@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+/*페이징 css*/
+.pageing {
+	width: auto; margin-top : 40px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.subtitle2 {
+	margin-top: 70px;
+}
+
+/* Modal css */
+/* Modal Order Join css*/
+.customerOrderListModal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+/* 	display: none; */
+	text-align: center;
+}
+
+.customerOrderListModal.show {
+	display: block;
+}
+
+.customerOrderListModalBody {
+	margin-top: 70px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1000px;
+	height: 500px;
+	padding: 40px 20px 40px 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+	transform: translateX(-50%) translateY(-50%);
+	position: absolute;
+}
+
+.customerOrderListTitle {
+	display: flex;
+	align-items: baseline;
+}
+
+/*Modal Main Title CSS*/
+/* SUJE 로고 CSS*/
+.customerOrderListTitle div:nth-child(1) {
+	margin-right: 40px;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+/* 주문제작후기 타이틀 CSS*/
+.customerOrderListTitle div:nth-child(2) {
+	height: auto;
+	margin-right: 90px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/*Modal Main Content CSS*/
+
+/* contetntRight*/
+.ContentRight {
+	margin-left: 20px;
+}
+
+.firstContent {
+	display: flex;
+	align-items : center;
+	margin-top : 20px;
+}
+
+.firstContent div:nth-child(1) {
+	font-size: 12px;
+	margin-left : 10px;
+	margin-right : 10px;
+}
+
+.firstContent select {
+	margin-right : 20px;
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+	width : 150px;
+	height : 30px;
+}
+
+.secondContent {
+	display: flex;
+	align-items: center;
+	margin-top : 20px;
+}
+
+.secondContent div:nth-child(1) {
+	font-size: 12px;
+	margin-left : 10px;
+	margin-right : 10px;
+}
+
+.secondContent input {
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+	width : 150px;
+	height : 30px;
+}
+
+.thirdContent {
+	display: flex;
+	align-items: center;
+	margin-top : 20px;
+}
+
+.thirdContent div:nth-child(1) {
+	font-size: 12px;
+	margin-left : 10px;
+	margin-right : 10px;
+}
+
+.thirdContent input {
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+	width : 580px;
+	height : 200px;
+}
+
+/* 등록하기 버튼 CSS */
+.insertbtn {
+	margin-top: 35px; display : flex;
+	justify-content: center;
+	display: flex;
+}
+
+.insertbtn div:nth-child(1)>input {
+	width: 200px;
+	height: 30px;
+	background-color: #ADEFD1;
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+.totalBody{
+	display: flex;
+	    align-items: center;
+}
+
+.ContentLeft{
+	margin-top: 30px;
+}
+/*이미지 슬라이드 부분*/
+
+.itemImage{
+	width: 900px;
+	height: 300px;
+}
+
+.itemImage img{
+	width: 300px;
+	height: 300px;
+		float: left;
+}
+
+.itemImageArea{
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.back {
+	position: absolute;
+    top: 45%;
+left: 50px;
+
+}
+
+.next{
+	position: absolute;
+    top: 45%;
+    left: 320px;
+}

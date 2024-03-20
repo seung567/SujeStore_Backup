@@ -1,13 +1,26 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8" />
+<title>modal-후기</title>
+
+<!-- 폰트링크 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+	rel="stylesheet" />
+
+<!-- css 파일 연결 -->
+<link rel="stylesheet" href="./resources/css/resetStyle.css" />
+<link rel="stylesheet" href="./resources/css/customer/Modal/reviewModal.css" />
 </head>
 <body>
-<div class="reviewInsertModal">
+	<div class="reviewInsertModal">
 		<div class="reviewInsertModalBody">
 			<!-- 상단 제목 부분 -->
 			<div class="reviewInsertTitle">
@@ -17,13 +30,13 @@
 					제작주문결제번호 <input type="text" />
 				</div>
 			</div>
-
 			<!-- Modal 메인 Content -->
 			<div class="modalMainContent">
 				<!-- 메인 좌측 Content Title -->
 				<div class="ContentLefit">
 					<div>
-						<img width=30px height=30px alt="" src="./resources/img/Star1Customer.png" />
+						<img width="30px" height="30px" alt=""
+							src="./resources/img/Star1Customer.png" />
 					</div>
 					<div>이미지 등록</div>
 					<div>내용</div>
@@ -43,7 +56,7 @@
 							</select>
 						</div>
 						<div>점</div>
-						<div><label for="date">작성일자</label></div>
+						<label for="date">작성일자</label> <input id="date" type="text" />
 						<div>
 							<input id="datepicker" type="text" />
 						</div>
@@ -72,12 +85,12 @@
 					<input type="button" value="등록하기">
 				</div>
 				<div>
-					<a href=testPageSet.do?page=ysm&site=customer/customerReview>
+					<a href="testPageSet.do?page=ysm&site=customer/customerReview">
 						<input type="button" value="취소">
 					</a>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
 </body>
 </html>

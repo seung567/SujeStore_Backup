@@ -2,8 +2,8 @@
 
 .title {
 	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-left: 1.5%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
-	margin-top: 1.5%;
+	margin-left: 30px; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
+	margin-top: 40px;
 }
 
 .subtitle {
@@ -14,7 +14,7 @@
 
 .hr {
 	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
+	margin-top: 30px; /* 위쪽 여백 설정 */
 	margin-bottom: 20px; /* 아래쪽 여백 설정 */
 }
 
@@ -70,190 +70,37 @@ tbody>tr>td {
 .check:hover {
 	background-color: #7BB5AF; /* 마우스를 올렸을 때의 배경색 */
 }
-
-
-/* Modal css */
-/* Modal 기본 css*/
-.storeOrderModal {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.4);
-   /*   display: none; */
-   text-align: center;
+.check-delivery {
+	background-color: #ADEFD1; /* 배경색 */
+	color: black; /* 글자색 */
+	border: none; /* 테두리 없음 */
+	padding: 10px 20px; /* 내부 여백 */
+	font-size: 16px; /* 글자 크기 */
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	border-radius: 5px; /* 버튼 모서리를 둥글게 */
 }
 
-.storeOrderModal.show {
-   display: block;
+.check-delivery:hover {
+	background-color: #7BB5AF; /* 마우스를 올렸을 때의 배경색 */
 }
 
-.storeOrderModalBody {
-   margin-top: 70px;
-   top: 50%;
-   left: 50%;
-   width: 700px;
-   height: 400px;
-   padding: 40px 20px 40px 40px;
-   text-align: center;
-   background-color: rgb(255, 255, 255);
-   border-radius: 10px;
-   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-   transform: translateX(-50%) translateY(-50%);
-   position: absolute;
+.orderListWrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	text-align: center;
 }
 
-.storeOrderModalTitle {
-   display: flex;
-   /*  width: 100px; */
-   height: 20px;
-   align-items: center;
+/* 테이블 공통 속성 end*/
+.storeOrderModal{
+	display: none;
 }
 
-/*Modal Main Title CSS*/
-/* SUJE 로고 CSS*/
-.modalTitle {
-   margin-left:30px;
-   margin-right: 30px;
-   font-size: 20px;
-   font-weight: bold;
-   text-align:left;
-   width: 200px;
-   height: 20px;
+.deliveryModal{
+	display: none; 
 }
 
-.modalNo {
-   font-size: 15px;
-   font-weight: bold;
-   width: 100px;
-   height: 20px;
-   align-items: center;
-}
-
-/*Modal Main Content CSS*/
-.modalMainContent {
-   margin-top: 30px;
-   font-size: 12px;
-   
-}
-
- .first{
-   width:400px;
-   height:30px;
-   margin-left: 40px;
-   display: flex;
-   align-items: center;
-   
-}
-.first select {
-    width: 150px;
-    height:30px;
-    margin-left: 30px;
-    border-radius: 5px;
-    border: 1px solid #ADEFD1;
-    box-sizing: border-box;
-    text-align: center;
-}
-.secound{
-   width:700px;
-   height:30px;
-   margin-top:15px;
-   margin-left:40px;
-   display: flex;
-   align-items: center;
-}
-.third{
-   width:700px;
-   height:30px;
-   margin-left: 40px;
-   margin-top:10px;
-   display: flex;
-   align-items: center;
-}
-
-.third select {
-    width: 100px;
-    height: 30px;
-    margin-left: 20px;
-    border-radius: 5px;
-    border: 1px solid #ADEFD1;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-
-.fourth{
-   width:700px;
-   height:30px;
-   margin-left: 40px;
-   margin-top:50px;
-   display: flex;   
-   align-items: center;
-}
-
-.modal_textbox {
-    width: 100px;
-    height: 30px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ADEFD1;
-    box-sizing: border-box;
-    margin-left: 20px; /* 상단 여백 추가 */
-    margin-top: 0px;
-    margin-right: 80px;
-    
-}
-
-
-
-/* .modalMainContent input[type="text"] {
-    width: 100px;
-    height: 30px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ADEFD1;
-    box-sizing: border-box;
-    margin-left: 20px; 상단 여백 추가
-    margin-top: 0px;
-    margin-right: 80px;
-    
-}
- */
-
-/* 텍스트 영역(텍스트 상자 아래) 스타일 */
-.modalMainContent textarea {
-    width: 400px;
-     height: 70px; 
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ADEFD1;
-    box-sizing: border-box;
-    margin-top: 5px; 
-    margin-left: 20px;
-   
-}
-
-.categoryLabel, .orderCountLabel, .orderSizeLabel, .orderAmountLabel, .deliveryLabel, .requirementsLabel {
-    font-size: 12px; /* 원하는 크기로 조정하세요 */
-    width: 100px;
-    text-align: left;
-}
-
-.modalNo_textbox{
-   width: 130px;
-   height: 30px;
-   border-radius: 5px;
-   border: 1px solid #ADEFD1;
-   box-sizing: border-box;
-   margin-left: 20px;
-}
-
-.modalSubmitBtn {
-	background-color: #ADEFD1;
-	width: 200px;
-	height: 30px;
-	border-radius: 10px;
-	font-size: 15px;
-	margin-top: 50px;
-}

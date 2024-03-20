@@ -26,6 +26,7 @@ public class HomeServiceImpl implements HomeService{
 	public HomeVO getModalTest(HomeVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("서비스 진입");
+
 		return homeDao.getModalTest(vo);
 	}
 }

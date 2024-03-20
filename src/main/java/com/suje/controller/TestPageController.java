@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.suje.domain.HomeVO;
 import com.suje.main.HomeController;
@@ -17,9 +18,11 @@ public class TestPageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+
 	@Autowired
 	private HomeService homeserviceTest;
 	
+
 	// 테스트용 컨트롤 메소드
 	@RequestMapping(value="testPageSet")
 	public String ysm(@RequestParam("page") String page, @RequestParam("site") String siteURL) {
@@ -34,6 +37,7 @@ public class TestPageController {
 		model.addAttribute("home", homeserviceTest.getModalTest(vo));
 		
 		return "/customer/Modal/orderInfoModal";
+
 	}
 	
 }

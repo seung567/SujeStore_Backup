@@ -129,44 +129,17 @@
 }
 
 /* 1번째 라인*/
-.ContentRight>div:nth-child(1) {
+.ContentRight>div:nth-child(1) input {
 	width : 150px;
 	height : 30px;
 	display: flex;
 }
 
 /* 2번째 라인*/
-.ContentRight>div:nth-child(2) {
+.ContentRight>div:nth-child(2) input {
+	width : 500px;
+	height : 30px;
 	display: flex;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(1) {
-	margin-right: 40px;
-	width: 150px;
-	height: 30px;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(1) select {
-	margin-right: 40px;
-	width: 150px;
-	height: 30px;
-	text-align: center;
-	border: 2px solid #ADEFD1;
-	border-radius: 5px;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(2) {
-	width: 150px;
-	height: 30px;
-}
-
-.ContentRight>div:nth-child(2)>div:nth-child(2) select {
-	margin-right: 40px;
-	width: 150px;
-	height: 30px;
-	text-align: center;
-	border: 2px solid #ADEFD1;
-	border-radius: 5px;
 }
 
 /* 3번째 라인*/
@@ -181,6 +154,7 @@
 .ContentRight>div:nth-child(3)>div:nth-child(1) input {
 	width: 100px;
 	height: 30px;
+	display: flex;
 }
 
 .ContentRight>div:nth-child(3)>div:nth-child(2) {
@@ -190,53 +164,6 @@
 .ContentRight>div:nth-child(3)>div:nth-child(3) {
 	margin-left: 120px;
 }
-
-.ContentRight>div:nth-child(3)>div:nth-child(4) input {
-	margin-left: 30px;
-	width: 100px;
-	height: 30px;
-}
-
-/* 4번째 라인*/
-.ContentRight>div:nth-child(4) {
-	display: flex;
-	font-size: 12px;
-	align-items: center;
-}
-
-.ContentRight>div:nth-child(4)>div:nth-child(1) input {
-	width: 100px;
-	height: 30px;
-}
-
-.ContentRight>div:nth-child(4)>div:nth-child(2) {
-	margin-left: 10px;
-}
-
-.ContentRight>div:nth-child(4)>div:nth-child(3) {
-	margin-left: 120px;
-}
-
-.ContentRight>div:nth-child(4)>div:nth-child(4) select {
-	margin-left: 45px;
-	width: 100px;
-	height: 30px;
-	border: 2px solid #ADEFD1;
-	border-radius: 5px;
-}
-
-.ContentRight>div:nth-child(4)>input {
-	width: 500px;
-	height: 70px;
-}
-
-.ContentRight>div:nth-child(5)>input {
-	display : flex;
-	width: 500px;
-	height: 70px;
-}
-
-
 
 /*Modal Main Content CSS* (2)/
 /* contetntLeft*/

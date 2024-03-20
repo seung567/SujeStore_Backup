@@ -58,11 +58,12 @@
 						<div><input type="text" /></div>		
 					<!-- Content 3번째 라인 -->
 					<div>
-						<div>
-							<input type="text" />
-						</div>
+						<div><input type="text" /></div>
 						<div>개</div>
 					</div>
+					
+			</div>
+		</div>
 			
 			<div class="subtitle">결제정보</div>
 			<hr/>

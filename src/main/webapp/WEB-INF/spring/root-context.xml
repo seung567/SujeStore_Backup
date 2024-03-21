@@ -11,9 +11,9 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property value="jdbc:oracle:thin:@192.168.0.2:1521:bridb" name="url"/>
-		<property name="username" value="bri"/>
-		<property name="password" value="password"/>
+		<property value="jdbc:oracle:thin:@192.168.0.93:1521:suje" name="url"/>
+		<property name="username" value="suje"/>
+		<property name="password" value="game"/>
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

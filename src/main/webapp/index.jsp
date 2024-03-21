@@ -5,7 +5,7 @@
 
 // 각자의 변수에 테스트 하고자 하는 페이지 입력
 // 유승민 테스트 페이지 설정
- String ysm = "customer/customerMyPage";
+ String ysm = "customer/customerOrderList";
  
 //이수정 테스트 페이지 설정
  String lyj = "customerMyPage";
@@ -18,7 +18,7 @@
  
 //김동현 테스트 페이지 설정
  String kdh = "customerMyPage";
- 
+ 	
 //이정석 테스트 페이지 설정
  String ejs = "adminviews/adminQnA";
  

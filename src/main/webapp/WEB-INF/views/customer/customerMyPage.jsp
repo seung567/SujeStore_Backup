@@ -43,7 +43,7 @@
 				</div>
 				<div>
 					<div>
-						<input type="text" />
+						<input type="text" value=${vo.m_id }/>
 					</div>
 					<div>
 						<input type="text" />

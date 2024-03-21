@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,10 @@
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript"
 	src="./resources/js/customer/customerOrderList.js"></script>
+
 </head>
 <body>
 
@@ -64,9 +66,9 @@
 						<td>N</td>
 						<td>2024/03/01</td>
 						<td>
-							<a href=modaltest.do>
-								<input type="button" value="조회">
-							</a>
+						
+								<input class="joinCheck" type="button" value="조회">
+
 							</td>
 						<td><input type="button" value="요청"></td>
 						<td><input type="button" value="요청"></td>
@@ -282,4 +284,36 @@
 		
 	</div>
 </body>
+<script type="text/javascript">
+
+    $(function() {
+		$(".joinCheck").click(setAjex);
+    });
+
+    function setAjex() {
+		sandPage();
+		return false;
+    }
+
+    function sandPage() {
+
+		$.ajax({
+		    url : "modaltest.do",
+		    type : "get",
+		    dataType : "json",
+		    contentType : 'application/json; charset=utf-8',
+		    beforeSend : function(){
+				$(".orderListWrap").fadeIn(200);
+				$(".orderInfoModal").slideDown(200);				
+		    },
+		    success : function(data) {
+					
+				var dataList = data;
+				$('#testinput').val(dataList[0]);
+				$('#sizeInput').val(dataList[1]);
+	
+		    }
+		});
+    }
+</script>
 </html>

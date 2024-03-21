@@ -43,13 +43,13 @@
 				</div>
 				<div>
 					<div>
-						<input type="text" value=${vo.m_id }/>
+						<input type="text" value="${vo.m_id }" disabled/>
 					</div>
 					<div>
-						<input type="text" />
+						<input type="password" disabled/>
 					</div>
 					<div>
-						<input type="text" />
+						<input type="text" disabled/>
 					</div>
 					<div>
 						<input type="text" />

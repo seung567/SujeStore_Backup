@@ -1,113 +1,116 @@
+/* ¹®ÀÚ ÀÎÄÚµù ¹× ±âº» ½ºÅ¸ÀÏ ¼³Á¤ */
+@charset "UTF-8";
+
 .adminTitle {
-    margin: 30px 0 20px 30px;
+	margin: 30px 0 20px 30px
 }
 
 .adminSubtitle {
-    margin: 40px 0 0 30px;
+	margin: 40px 0 0 30px;
 }
 
 .adminTitle, .adminSubTitle {
-    display: block;
-    width: 500px;
-    height: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
+	display: block;
+	width: 500px;
+	height: 50px;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 50px;
 }
 
-/* hr ìš”ì†Œ ìŠ¤íƒ€ì¼ë§ */
+/* hr ¿ä¼Ò ½ºÅ¸ÀÏ¸µ */
 .adminHr {
-    border: none;
-    width: 100%;
-    height: 5px;
-    background-color: #eee;
-    margin: 0;
+	border: none;
+	width: 100%;
+	height: 5px;
+	background-color: #eee;
+	margin: 0;
 }
 
-/* ë²Œì  ë¶€ì—¬ ì„¹ì…˜ê³¼ ë²Œì  ë‚´ì—­ ì„¹ì…˜ ê°„ ê°„ê²© ì¡°ì • */
-.adminContentsBox > .adminSection,
-.adminContentsBox > .adminTable {
-    margin-bottom: 20px; /* ì•„ë˜ìª½ ì—¬ë°± ì¶”ê°€ */
+/* ¹úÁ¡ ºÎ¿© ¼½¼Ç°ú ¹úÁ¡ ³»¿ª ¼½¼Ç °£ °£°İ Á¶Á¤ */
+.adminContentsBox>.adminSection, .adminContentsBox>.adminTable {
+	margin-bottom: 20px; /* ¾Æ·¡ÂÊ ¿©¹é Ãß°¡ */
 }
 
-/* ë²Œì  ë¶€ì—¬ ì„¹ì…˜ ìš”ì†Œ ê°„ ê°„ê²© ì¡°ì • */
-.adminContentsBox > .adminSection > * {
-    margin-bottom: 10px; /* ì•„ë˜ìª½ ì—¬ë°± ì¶”ê°€ */
+/* ¹úÁ¡ ºÎ¿© ¼½¼Ç ¿ä¼Ò °£ °£°İ Á¶Á¤ */
+.adminContentsBox>.adminSection>* {
+	margin-bottom: 10px; /* ¾Æ·¡ÂÊ ¿©¹é Ãß°¡ */
 }
 
-/* í•„ë“œì…‹ ìš”ì†Œ ê°„ ê°„ê²© ì¡°ì • */
+/* ÇÊµå¼Â ¿ä¼Ò °£ °£°İ Á¶Á¤ */
 .adminContentsBox fieldset {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
-/* ë“±ë¡í•˜ê¸° ë²„íŠ¼ ìŠ¤íƒ€ì¼ ì§€ì • */
+/* µî·ÏÇÏ±â ¹öÆ° ½ºÅ¸ÀÏ ÁöÁ¤ */
 .submitButton[type="submit"] {
-    margin-top: 35px; /* ìœ„ìª½ ì—¬ë°± ì„¤ì • */
+	margin-top: 35px; /* À§ÂÊ ¿©¹é ¼³Á¤ */
 	transition: background-color 0.2s ease, border 0.2s ease;
 }
 
-/* í•„ë“œì…‹ ì•ˆ ìš”ì†Œë“¤ ê°„ ìˆ˜ì§ ê°„ê²© ì¡°ì • */
-.adminContentsBox fieldset > label,
-.adminContentsBox fieldset > input[type="text"],
-.adminContentsBox fieldset > input[type="number"],
-.adminContentsBox fieldset > textarea,
-.adminContentsBox fieldset > button {
-    margin-bottom: 50px; /* ê° ìš”ì†Œë“¤ ê°„ì˜ ìˆ˜ì§ ê°„ê²© ì¡°ì • */
+/* ÇÊµå¼Â ¾È ¿ä¼Òµé °£ ¼öÁ÷ °£°İ Á¶Á¤ */
+.adminContentsBox fieldset>label, .adminContentsBox fieldset>input[type="text"],
+	.adminContentsBox fieldset>input[type="number"], .adminContentsBox fieldset>textarea,
+	.adminContentsBox fieldset>button {
+	margin-bottom: 50px; /* °¢ ¿ä¼Òµé °£ÀÇ ¼öÁ÷ °£°İ Á¶Á¤ */
 }
 
-/* ì•„ì´ë”” ê²€ìƒ‰ì°½ ìŠ¤íƒ€ì¼ */
+/* ¾ÆÀÌµğ °Ë»öÃ¢ ½ºÅ¸ÀÏ */
 .inputField#storeId {
-    width: 300px; /* ë„ˆë¹„ 300pxë¡œ ì„¤ì • */
-    height: 50px; /* ë†’ì´ 50pxë¡œ ì„¤ì • */
-    border: 2px solid #ADEFD1; /* í…Œë‘ë¦¬ ìƒ‰ ë° ë‘ê»˜ ì„¤ì • */
-    border-radius: 10px; /* í…Œë‘ë¦¬ ëª¨ì„œë¦¬ ë‘¥ê¸€ê²Œ ì„¤ì • */
-    padding: 5px; /* ë‚´ë¶€ ì—¬ë°± ì„¤ì • */
+	width: 300px; /* ³Êºñ 300px·Î ¼³Á¤ */
+	height: 50px; /* ³ôÀÌ 50px·Î ¼³Á¤ */
+	border: 2px solid #ADEFD1; /* Å×µÎ¸® »ö ¹× µÎ²² ¼³Á¤ */
+	border-radius: 5px; /* Å×µÎ¸® ¸ğ¼­¸® µÕ±Û°Ô ¼³Á¤ */
+	padding: 5px; /* ³»ºÎ ¿©¹é ¼³Á¤ */
+	font-size: 15px;
 }
 
-/* ê²€ìƒ‰ ê²°ê³¼ì°½ ìŠ¤íƒ€ì¼ */
+/* °Ë»ö °á°úÃ¢ ½ºÅ¸ÀÏ */
 .searchResult#searchResults {
-    width: 600px; /* ë„ˆë¹„ 600pxë¡œ ì„¤ì • */
-    height: 50px; /* ë†’ì´ 50pxë¡œ ì„¤ì • */
-    border: 2px solid #ADEFD1; /* í…Œë‘ë¦¬ ìƒ‰ ë° ë‘ê»˜ ì„¤ì • */
-    border-radius: 5px; /* í…Œë‘ë¦¬ ëª¨ì„œë¦¬ ë‘¥ê¸€ê²Œ ì„¤ì • */
-    padding: 5px; /* ë‚´ë¶€ ì—¬ë°± ì„¤ì • */
+	width: 600px; /* ³Êºñ 600px·Î ¼³Á¤ */
+	height: 50px; /* ³ôÀÌ 50px·Î ¼³Á¤ */
+	border: 2px solid #ADEFD1; /* Å×µÎ¸® »ö ¹× µÎ²² ¼³Á¤ */
+	border-radius: 5px; /* Å×µÎ¸® ¸ğ¼­¸® µÕ±Û°Ô ¼³Á¤ */
+	padding: 5px; /* ³»ºÎ ¿©¹é ¼³Á¤ */
 }
 
 .inputField#storeId {
-    margin-right: 30px; /* ì…ë ¥ ì°½ ì¢Œì¸¡ ì—¬ë°± ì„¤ì • */
+	margin-right: 30px; /* ÀÔ·Â Ã¢ ÁÂÃø ¿©¹é ¼³Á¤ */
 }
 
-.inputField#storeId,
-.searchResult#searchResults {
-    margin-left: 30px; /* ì™¼ìª½ ì—¬ë°± ì„¤ì • */
+.inputField#storeId, .searchResult#searchResults {
+	margin-left: 30px; /* ¿ŞÂÊ ¿©¹é ¼³Á¤ */
 }
 
 .pntPoints#pntPoints {
-    width: 100px; /* ë„ˆë¹„ ì„¤ì • */
-    height: 50px; /* ë†’ì´ ì„¤ì • */
-    border: 2px solid #ADEFD1; /* í…Œë‘ë¦¬ ì„¤ì • */
-    margin-left: 120px; 
+	width: 100px; /* ³Êºñ ¼³Á¤ */
+	height: 50px; /* ³ôÀÌ ¼³Á¤ */
+	border: 2px solid #ADEFD1; /* Å×µÎ¸® ¼³Á¤ */
+	margin-left: 120px;
+	padding: 0 10px;
+	text-align: center;
+	font-size: 15px;
 }
-
-/* ë²Œì  ì‚¬ìœ  ì…ë ¥ì¹¸ ìŠ¤íƒ€ì¼ ì„¤ì • */
+/* ¹úÁ¡ »çÀ¯ ÀÔ·ÂÄ­ ½ºÅ¸ÀÏ ¼³Á¤ */
 .pntReason#pntReason {
-    width: 1130px;
-    height: 100px;
-    border: 1px solid #ADEFD1; /* í…Œë‘ë¦¬ ìƒ‰ ì„¤ì • */
-    margin: 0 auto; /* ê°€ìš´ë° ì •ë ¬ */
-    display: block; /* ë¸”ë¡ ìš”ì†Œë¡œ ì„¤ì •í•˜ì—¬ ê°€ë¡œí­ ì§€ì • ê°€ëŠ¥í•˜ë„ë¡ í•¨ */
-    margin-top: 15px;
-    resize: none; /* ë¦¬ì‚¬ì´ì¦ˆ ë¹„í™œì„±í™” */
+	width: 1130px;
+	height: 100px;
+	border: 1px solid #ADEFD1; /* Å×µÎ¸® »ö ¼³Á¤ */
+	margin: 0 auto; /* °¡¿îµ¥ Á¤·Ä */
+	display: block; /* ºí·Ï ¿ä¼Ò·Î ¼³Á¤ÇÏ¿© °¡·ÎÆø ÁöÁ¤ °¡´ÉÇÏµµ·Ï ÇÔ */
+	margin-top: 15px;
+	resize: none; /* ¸®»çÀÌÁî ºñÈ°¼ºÈ­ */
+	padding: 10px;
+	font-size: 15px;
 }
-
-/* ë“±ë¡í•˜ê¸° ë²„íŠ¼ ìŠ¤íƒ€ì¼ ì„¤ì • */
+/* µî·ÏÇÏ±â ¹öÆ° ½ºÅ¸ÀÏ ¼³Á¤ */
 .submitButton[type="submit"] {
-    width: 300px;
-    height: 50px;
-    background-color: #ADEFD1; /* ë°°ê²½ìƒ‰ ì„¤ì • */
-    border: none; /* í…Œë‘ë¦¬ ì—†ì•° */
-    color: #000; /* ê¸€ììƒ‰ ì„¤ì • */
-    border-radius: 10px; /* ë‘¥ê·¼ ëª¨ì„œë¦¬ ì„¤ì • */
+	width: 300px;
+	height: 50px;
+	background-color: #ADEFD1; /* ¹è°æ»ö ¼³Á¤ */
+	border: none; /* Å×µÎ¸® ¾ø¾Ú */
+	color: #000; /* ±ÛÀÚ»ö ¼³Á¤ */
+	border-radius: 10px; /* µÕ±Ù ¸ğ¼­¸® ¼³Á¤ */
 	margin-left: 30px;
 }
 
@@ -117,81 +120,157 @@
 	font-weight: bold;
 }
 
-/* ì•„ì´ë”” ê²€ìƒ‰ì°½ ìŠ¤íƒ€ì¼ */
-.inputField#storeId,
-.searchResult#searchResults,
-.pntPoints#pntPoints,
-.pntReason#pntReason { 
-    border-radius: 10px; /* ë‘¥ê·¼ ëª¨ì„œë¦¬ ì„¤ì • */   
+/* ¾ÆÀÌµğ °Ë»öÃ¢ ½ºÅ¸ÀÏ */
+.inputField#storeId, .searchResult#searchResults, .pntPoints#pntPoints,
+	.pntReason#pntReason {
+	border-radius: 10px; /* µÕ±Ù ¸ğ¼­¸® ¼³Á¤ */
 }
-
-/* ë²Œì  ë‚´ì—­ íŒŒíŠ¸ ì‹œì‘ */
-/* í…Œì´ë¸” ìœ„ìª½ì— ë§ˆì§„ ì¶”ê°€ */
+/* ¹úÁ¡ºÎ¿© ÆÄÆ® ³¡! */
+/* ¹úÁ¡ ³»¿ª ÆÄÆ® ½ÃÀÛ */
+/* Å×ÀÌºí À§ÂÊ¿¡ ¸¶Áø Ãß°¡ */
 .adminContentsBox table {
-    margin-top: 20px; /* ìœ„ìª½ ì—¬ë°± ì„¤ì • */
-    text-align: center;
-    border-bottom: 2px solid #ADEFD1; /* ìˆ˜í‰ ê°€ë¡œì¤„ ìŠ¤íƒ€ì¼ ì„¤ì • */    
-    border-top: 2px solid #ADEFD1;
+	margin-top: 20px; /* À§ÂÊ ¿©¹é ¼³Á¤ */
+	text-align: center;
+	border-bottom: 2px solid #ADEFD1; /* ¼öÆò °¡·ÎÁÙ ½ºÅ¸ÀÏ ¼³Á¤ */
+	border-top: 2px solid #ADEFD1;
 }
-
-/* ë²Œì  ì‚¬ìœ  ì…€ í¬ê¸° ì¡°ì • */
+/* ¹úÁ¡ »çÀ¯ ¼¿ Å©±â Á¶Á¤ */
 #pntReasonCell {
-    width: 380px;
+	width: 380px;
 }
 
-/* í…Œì´ë¸” í—¤ë” ìŠ¤íƒ€ì¼ ì§€ì • */
+/* Å×ÀÌºí Çì´õ ½ºÅ¸ÀÏ ÁöÁ¤ */
 .adminTable th {
-    background-color: #ffffff; /* ë°°ê²½ìƒ‰ì„ í°ìƒ‰ìœ¼ë¡œ ì„¤ì • */
-    border-top: 2px solid #ADEFD1; /* ìƒë‹¨ í…Œë‘ë¦¬ ì„¤ì • */
-    border-bottom: 2px solid #ADEFD1; /* í•˜ë‹¨ í…Œë‘ë¦¬ ì„¤ì • */
-    padding: 10px; /* ì…€ ì•ˆìª½ ì—¬ë°± ì„¤ì • */
+	background-color: #ADEFD1; /* Çì´õÀÇ ¹è°æ»öÀ» ADEFD1·Î ¼³Á¤ */
+	border-top: 2px solid #ffffff; /* »ó´Ü Å×µÎ¸® ¼³Á¤ */
+	border-bottom: 2px solid #ffffff; /* ÇÏ´Ü Å×µÎ¸® ¼³Á¤ */
+	padding: 10px; /* ¼¿ ¾ÈÂÊ ¿©¹é ¼³Á¤ */
+	font-size: 15px;
 }
 
-/* í…Œì´ë¸”ì˜ ë§¨ ìœ„ì— ì¤„ ìŠ¤íƒ€ì¼ ì§€ì • */
+/* Å×ÀÌºíÀÇ ¸Ç À§¿¡ ÁÙ ½ºÅ¸ÀÏ ÁöÁ¤ */
 .adminTable thead tr:first-child th {
-    border-top: 2px solid #ADEFD1; /* ë§¨ ìœ„ ì¤„ì— ìƒë‹¨ í…Œë‘ë¦¬ ì„¤ì • */
+	border-top: 2px solid #ADEFD1; /* ¸Ç À§ ÁÙ¿¡ »ó´Ü Å×µÎ¸® ¼³Á¤ */
 }
 
-/* í…Œì´ë¸”ì˜ ë§¨ ì•„ë˜ì— ì¤„ ìŠ¤íƒ€ì¼ ì§€ì • */
+/* Å×ÀÌºíÀÇ ¸Ç ¾Æ·¡¿¡ ÁÙ ½ºÅ¸ÀÏ ÁöÁ¤ */
 .adminTable tfoot tr:last-child td {
-    border-bottom: 2px solid #ADEFD1; /* ë§¨ ì•„ë˜ ì¤„ì— í•˜ë‹¨ í…Œë‘ë¦¬ ì„¤ì • */
+	border-bottom: 2px solid #ADEFD1; /* ¸Ç ¾Æ·¡ ÁÙ¿¡ ÇÏ´Ü Å×µÎ¸® ¼³Á¤ */
 }
 
-/* í…Œì´ë¸” ê° í–‰ì˜ ì¤„ ìŠ¤íƒ€ì¼ ì§€ì • */
+/* Å×ÀÌºí °¢ ÇàÀÇ ÁÙ ½ºÅ¸ÀÏ ÁöÁ¤ */
 .adminTable tbody td {
-    padding: 10px; /* ê° ì…€ì˜ ì•ˆìª½ ì—¬ë°± ì„¤ì • */
-    text-align: center; /* í…ìŠ¤íŠ¸ ê°€ìš´ë° ì •ë ¬ */
-    font-size: 15px;
+	padding: 10px; /* °¢ ¼¿ÀÇ ¾ÈÂÊ ¿©¹é ¼³Á¤ */
+	text-align: center; /* ÅØ½ºÆ® °¡¿îµ¥ Á¤·Ä */
+	font-size: 15px;
 }
 
-/* í…Œì´ë¸” í—¤ë” í–‰ ì‚¬ì´ì— ì—´ì— í•´ë‹¹í•˜ëŠ” ì¤„ ìŠ¤íƒ€ì¼ ì§€ì • */
+/* Å×ÀÌºí Çì´õ Çà »çÀÌ¿¡ ¿­¿¡ ÇØ´çÇÏ´Â ÁÙ ½ºÅ¸ÀÏ ÁöÁ¤ */
 .adminTable thead tr th:not(:last-child) {
-    border-right: 2px solid #ffffff; /* ê° ì—´ ì‚¬ì´ì— ì˜¤ë¥¸ìª½ ì„  ì„¤ì • */
+	border-right: 2px solid #ffffff; /* °¢ ¿­ »çÀÌ¿¡ ¿À¸¥ÂÊ ¼± ¼³Á¤ */
 }
 
-/* ì¤‘ê°„ ì„  ì œê±° */
+/* Áß°£ ¼± Á¦°Å */
 .adminTable tbody tr:not(:last-child) td {
-    border-bottom: none; /* ì¤‘ê°„ ì¤„ ì œê±° */
+	border-bottom: none; /* Áß°£ ÁÙ Á¦°Å */
 }
 
 .pageingArea {
-    width: 100%; /* ë¶€ëª¨ ìš”ì†Œì˜ ê°€ë¡œí­ì„ ëª¨ë‘ ì°¨ì§€í•˜ë„ë¡ ì„¤ì • */
-    text-align: center; /* ë‚´ë¶€ ìš”ì†Œë“¤ì„ ê°€ìš´ë° ì •ë ¬í•˜ê¸° ìœ„í•´ ì„¤ì • */
-    margin-top: 40px; /* ì›í•˜ëŠ” ìœ„ì¹˜ì— ë”°ë¼ ì¡°ì ˆ ê°€ëŠ¥ */
+	width: 100%; /* ºÎ¸ğ ¿ä¼ÒÀÇ °¡·ÎÆøÀ» ¸ğµÎ Â÷ÁöÇÏµµ·Ï ¼³Á¤ */
+	text-align: center; /* ³»ºÎ ¿ä¼ÒµéÀ» °¡¿îµ¥ Á¤·ÄÇÏ±â À§ÇØ ¼³Á¤ */
+	margin-top: 40px; /* ¿øÇÏ´Â À§Ä¡¿¡ µû¶ó Á¶Àı °¡´É */
 }
 
 .adminTable {
-    width: 100%; /* í…Œì´ë¸”ì˜ ë„ˆë¹„ë¥¼ 100%ë¡œ ì„¤ì •í•˜ì—¬ ë¶€ëª¨ ìš”ì†Œì— ë§ì¶¤ */
-    text-align: center;
-    border-bottom: 2px solid #ADEFD1; /* ìˆ˜í‰ ê°€ë¡œì¤„ ìŠ¤íƒ€ì¼ ì„¤ì • */    
-    border-collapse: collapse; /* í…Œì´ë¸” ê²½ê³„ ë³‘í•© */
-    margin-bottom: 40px; /* í…Œì´ë¸” ì•„ë˜ìª½ ì—¬ë°± ì„¤ì • */
+	width: 100%; /* Å×ÀÌºíÀÇ ³Êºñ¸¦ 100%·Î ¼³Á¤ÇÏ¿© ºÎ¸ğ ¿ä¼Ò¿¡ ¸ÂÃã */
+}
+
+.pageingArea a {
+	width: 20px;
+	height: 20px;
+	display: inline-block; /* ÀÎ¶óÀÎ ºí·Ï ¿ä¼Ò·Î ¼³Á¤ÇÏ¿© °¡¿îµ¥ Á¤·Ä¿¡ ¹İÀÀÇÏµµ·Ï ÇÔ */
+	text-align: center; /* ³»ºÎ ÅØ½ºÆ®¸¦ °¡¿îµ¥ Á¤·ÄÇÏ±â À§ÇØ ¼³Á¤ */
+	line-height: 20px;
+	color: #999999;
+	margin: 0 5px;
+}
+
+.pageingArea a img {
+	width: 20px;
+	height: 20px;
+}
+
+.pageingArea a:hover {
+	text-decoration: underline;
+}
+
+.searchBox {
+	position: relative;
+}
+
+.serchimg {
+	position: absolute;
+	left: 290px;
+	right: 50;
+	top: 16px;
+	bottom: 50;
+}
+
+.idflied {
+	display: flex;
+}
+
+.inputField#storeId {
+	position: relative; /* »ó´ë À§Ä¡ ¼³Á¤ */
+}
+
+.searchButton {
+	position: absolute; /* °Ë»ö ¹öÆ°À» Àı´ë À§Ä¡·Î ¼³Á¤ */
+	top: 0;
+	left: 250px; /* °Ë»ö Ã¢À» ±âÁØÀ¸·Î ¿ŞÂÊÀ¸·Î ¼³Á¤. */
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	margin-left: -50px; /* ¿ŞÂÊÀ¸·Î ÀÌµ¿ÇÏ´Â ¸¶Áø ¼³Á¤ */
+	z-index: 1; /* ´Ù¸¥ ¿ä¼Ò À§¿¡ ½×ÀÌµµ·Ï ¼³Á¤ */
+}
+
+.searchIcon {
+	/* ÀÌ¹ÌÁö ½ºÅ¸ÀÏ ¼³Á¤ */
+	position: absolute; /* ÀÌ¹ÌÁö¸¦ Àı´ë À§Ä¡·Î ¼³Á¤ */
+	top: 15px;
+	left: 290px; /* °Ë»ö Ã¢À» ±âÁØÀ¸·Î ¿ŞÂÊÀ¸·Î ¼³Á¤. */
+	width: 20px;
+	height: 20px;
+	z-index: 1; /* ´Ù¸¥ ¿ä¼Ò À§¿¡ ½×ÀÌµµ·Ï ¼³Á¤ */
+}
+
+/* ÀÌµ¿½ÃÅ³ ¿ä¼Ò¿¡ ´ëÇÑ Ãß°¡ ½ºÅ¸ÀÏ¸µ */
+.inputLabel, .pntPoints, .pntReason .submitButton {
+	margin-left: 30px; /* ¿ŞÂÊ ¿©¹é ¼³Á¤ */
+	margin-top: 14px;
+}
+
+.adminTable {
+	width: 100%; /* ¹úÁ¡ »çÀ¯ ÀÔ·ÂÄ­ÀÇ °¡·Î ±æÀÌ¿¡ ¸ÂÃã */
+	text-align: center;
+	border-bottom: 2px solid #ADEFD1; /* ¼öÆò °¡·ÎÁÙ ½ºÅ¸ÀÏ ¼³Á¤ */
+	border-collapse: collapse; /* Å×ÀÌºí °æ°è º´ÇÕ */
+	margin-bottom: 40px; /* Å×ÀÌºí ¾Æ·¡ÂÊ ¿©¹é ¼³Á¤ */
 	width: 1130px;
 	margin-left: 30px;
 }
 
-#storeId:focus,
-#pntPoints:focus,
+#storeId:focus {
+	outline: 2px solid #ADEFD1; /* Æ÷Ä¿½º½Ã Å×µÎ¸® »ö»ó º¯°æ */
+}
+
+#pntPoints:focus {
+	outline: 2px solid #ADEFD1; /* Æ÷Ä¿½º½Ã Å×µÎ¸® »ö»ó º¯°æ */
+}
+
 #pntReason:focus {
-    outline: 2px solid #ADEFD1; /* í¬ì»¤ìŠ¤ì‹œ í…Œë‘ë¦¬ ìƒ‰ìƒ ë³€ê²½ */
+	outline: 2px solid #ADEFD1; /* Æ÷Ä¿½º½Ã Å×µÎ¸® »ö»ó º¯°æ */
 }

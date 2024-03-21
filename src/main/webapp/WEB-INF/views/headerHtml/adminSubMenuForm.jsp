@@ -26,9 +26,11 @@
 		<li class="adminFirstCategoryArea">
 			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
 		</li>
+		<!-- 
 		<li class="adminFirstCategoryArea">
 			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;통계</a>
 		</li>
+		 -->
 	</ul>
 </div> <!-- adminSubMenuBox -->
 <div class="adminContentsBox">

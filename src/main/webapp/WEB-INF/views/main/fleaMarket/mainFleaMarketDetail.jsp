@@ -12,6 +12,7 @@
 <link href="./resources/css/main/fleaMarket/mainFleaMarketDetailStyle.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./resources/js/main/mainFleaMarketDetailJs.js"></script>
+<script src="./resources/js/main/mainFleaMarketModalJs.js"></script>
 <title>SUJE</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
 		<div class="itemStore">STORE NAME</div>
 		<div class="itemName">ITEM NAME ITEM NAME ITEM NAME</div>
 		<div class="itemPrice">
-			<span>260000</span>
+			<span>10000</span>
 			<span>원</span>
 		</div>
 		<div class="itemCountArea">
@@ -56,5 +57,12 @@
 	</div> <!-- itemInfoArea -->
 </div> <!-- contentsWrap -->
 <footer></footer>
+
+<!-- 모달 -->
+<div class="customerOrderListModal">
+	<div class="customerOrderListModalBody">
+		<%@ include file="./Modal/buyModal.jsp" %>
+	</div> <!-- customerOrderListModalBody -->
+</div> <!-- customerOrderListModal -->
 </body>
 </html>

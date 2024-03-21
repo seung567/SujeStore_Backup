@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/headerStyle.css" rel="stylesheet" type="text/css">
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function() {
 	$('.headerCategoryBtn').click(function(){
@@ -25,12 +25,12 @@ $(function() {
 <div class="header">
 	<div class="firstHeaderNavi">
 		<div class="headerLogo"><a href="./index.jsp"><img src="./resources/img/sujeLogo.png"/></a></div>
-		<div class="beforeLoginArea hide">
-			<a href="#" class="headerLoginBtn">로그인</a>
+		<div class="beforeLoginArea">
+			<a href="../main/mainLogin.jsp" class="headerLoginBtn">로그인</a>
 			<a href="#" class="headerNewMemBtn">회원가입</a>
 			<a href="#" class="headerStoreNewMemBtn">스토어 입점신청</a>
 		</div>
-		<div class="afterLoginArea">
+		<div class="afterLoginArea hide">
 			<input type="text" disabled="disabled" value="SUJE123" class="headerId"/>
 			<span>님</span>
 			<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>

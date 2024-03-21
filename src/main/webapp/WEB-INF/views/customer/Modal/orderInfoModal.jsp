@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%--     <%
+    
+    String result = "";
+    
+    result += "<data>";
+    result += "<first>"+  ${home.textval }+ "</first>";
+    result += "</data>"
+    
+    
+    out.write(result);
+    
+    %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +23,9 @@
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet" href="./resources/css/customer/Modal/orderInfoModal.css" />
+
+
+
 
 </head>
 
@@ -68,14 +85,14 @@
 					<!-- Content 두번째 라인 -->
 					<div>
 						<div>
-							<input type="text" value=${home.test }/>
+							<input id="testinput" type="text" />
 
 						</div>
 						<div>개</div>
 
 						<div>주문 사이즈</div>
 						<div>
-							<input type="text" />
+							<input id="sizeInput" type="text" />
 						</div>
 					</div>
 					<!-- Content 세번째 라인 -->

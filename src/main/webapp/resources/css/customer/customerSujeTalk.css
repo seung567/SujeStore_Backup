@@ -277,9 +277,13 @@ body {
 .orderMainContent{
 	position: relative;
 	font-size: 15px;
+	width: 706px;
+	height: 560px;
+	overflow: auto; 
 }
 
 .orderMainContentInner{
+	height: 1000px;
 	position: absolute;
 	bottom: 0;
 }
@@ -312,7 +316,10 @@ body {
 	margin-left: 25px;
 }
 
+
+
 .orderMainDetail>div:last-child {
+	width: 190px;
 	margin-left: 485px;
 	margin-top: -21px;
 	font-size: 15px;

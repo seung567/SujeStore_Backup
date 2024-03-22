@@ -18,6 +18,7 @@
 		<!-- 김동현 설정 부분 -->
 
 		<!-- 최수빈 설정 부분 -->
+		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
 
 		<!-- 이정석 설정 부분 -->
 

@@ -18,7 +18,7 @@ body {
 
 .loginArea {
 	width: 440px;
-	height: 520px;
+	height: 570px;
 	border: 2px solid #ADEFD1;
 	border-radius: 10px;
 	margin: 0 auto;
@@ -46,6 +46,7 @@ body {
 	border-radius: 5px;
 	margin: 0 50px;
 	font-size: 15px;
+	padding: 0 10px;
 }
 .loginInfoInput:focus {
 	outline: 2px solid #ADEFD1;
@@ -66,7 +67,7 @@ body {
 .memberLoginBtn:hover {
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 }
-.storeLoginBtn {
+.storeLoginBtn, .adminLoginBtn {
 	width: 340px;
 	height: 50px;
 	border: 2px solid #ADEFD1;
@@ -74,11 +75,11 @@ body {
 	background-color: #fff;
 	font-weight: bold;
 	font-size: 15px;
-	margin: 0 50px;
+	margin: 0 50px 10px;
 	transition: box-shadow 0.2s ease;
 	cursor: pointer;
 }
-.storeLoginBtn:hover {
+.storeLoginBtn:hover, .adminLoginBtn:hover {
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 }
 

@@ -16,7 +16,7 @@
 		<!-- 이수정 설정 부분 -->
 
 		<!-- 김동현 설정 부분 -->
-
+		<typeAlias alias="storeProfile" type="com.suje.domain.storeAdmin.StoreProfileVO"/>
 		<!-- 최수빈 설정 부분 -->
 
 		<!-- 이정석 설정 부분 -->

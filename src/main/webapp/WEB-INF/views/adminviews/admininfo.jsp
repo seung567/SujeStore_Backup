@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-<link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
-<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
-<link href="./resources/css/admincss/admininfo.css" rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+	rel="stylesheet">
+<link href="./resources/css/resetStyle.css" rel="stylesheet"
+	type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet"
+	type="text/css">
+<link href="./resources/css/admincss/admininfo.css" rel="stylesheet"
+	type="text/css">
 <title>SUJE</title>
 </head>
 <body>
+
 <%@ include file="../../views/headerHtml/adminHeader.jsp" %>
 <div class="adminContentsWrap">
 <div class="adminSubMenuBox">

@@ -70,15 +70,16 @@
 		</li>
 	</ul>
 		</div>
-		<!-- storeSubMenuBox -->
+		<!-- storeSubMenuBox --> 
 		<div class="storeContentsBox">
 
 			<h1 class="title">스토어 페이지 관리</h1>
 			<hr>
 
 			<form class="form-container">
-				<label for="storeName">스토어명</label> <input type="text"
-					id="storeName" name="storeName" class="text-box">
+				<label for="storeName">스토어명</label> 
+				<input type="text" 
+					id="storeName" name="storeName" class="text-box" value="${vo.s_id}" disabled/>
 			</form>
 
 			<form class="form-container">
@@ -105,7 +106,7 @@
 
 			<form class="form-container">
 				<label for="storeDescription">스토어 소개문구</label> <input type="text"
-					name="storeDescription" class="text-box2"> <span
+					name="storeDescription" class="text-box2" value="${vo.s_text}" disabled/> <span
 					style="color: gray; font-size: 12px;">(100자 이하)</span>
 				 <div class="button-container">
 				<button>수정하기</button>

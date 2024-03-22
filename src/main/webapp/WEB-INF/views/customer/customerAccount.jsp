@@ -47,6 +47,7 @@
 					<!-- 은행사 선택부분 -->
 					<div>
 						<select>
+						 <option value="">은행 선택</option>
 							<option value="woori">우리은행</option>
 							<option value="ibkbank">기업은행</option>
 							<option value="shinhan">신한은행</option>
@@ -56,7 +57,7 @@
 					
  					<!-- 계좌번호 입력부분 -->
 					<div>
-						<input type="text" />
+						<input type="text" value="${vo.m_acc_num }"/>
 					</div>
 										
 				</div>

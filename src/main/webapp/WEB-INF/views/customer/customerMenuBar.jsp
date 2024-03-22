@@ -16,6 +16,7 @@
 				<img width=120px height=120px alt="" src="./resources/img/basicProfileIconBig.png">
 			</div>
 			<div>abc123</div>
+
 			
 			<div class="subTitle mypagebtn">
 				<a href="customerMyPage.do?id=steel2310">마이페이지</a>

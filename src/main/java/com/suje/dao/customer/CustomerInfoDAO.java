@@ -1,6 +1,6 @@
-package com.suje.dao;
+package com.suje.dao.customer;
 
-import com.suje.domain.MemberVO;
+import com.suje.domain.customer.MemberVO;
 
 public interface CustomerInfoDAO {
 

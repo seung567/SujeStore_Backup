@@ -57,5 +57,29 @@
 	<button class="orderBtn">+</button>	
 </div> <!-- contentsWrap -->
 <footer></footer>
+
+<!-- 모달 -->
+
+<!-- 주문하기 모달 -->
+<div class="customerOrderListModal">
+	<div class="customerOrderListModalBody">
+		<%@ include file="./Modal/orderModal.jsp" %>
+	</div>
+</div>
+
+<!-- 스토어 피드 모달 -->
+<div class="customerFeedListModal">
+	<div class="customeFeedListModalBody">
+		<%@ include file="./Modal/feedModal.jsp" %>
+	</div>
+</div>
+
+<!-- 공지사항 모달 -->
+<div class="customerinfoListModal">
+	<div class="customeinfoListModalBody">
+		<%@ include file="./Modal/infoModal.jsp" %>
+	</div>
+</div>
+
 </body>
 </html>

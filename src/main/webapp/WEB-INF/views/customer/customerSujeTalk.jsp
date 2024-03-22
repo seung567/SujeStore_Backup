@@ -127,59 +127,11 @@
 						<!-- 요청내용 -->
 						<div class="orderMainContent">
 							<div class="orderMainContentInner">
+
 								<!-- 대화출력 -->
 								<div class="orderMainDetail">
 									<!-- 대화 사용자 정보 -->
-									<div>
-
-										<div>
-											<img src="./resources/img/custmerLogo.png">
-										</div>
-										<div>구매 고객</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div>안녕하세요! 3월 14일 화이트데이에 케잌을 주문하려고 하는데 가능할까요? 시간이 촉박한 점
-										저도 인지하고 있으며 최대한 가능한 제작옵션만 소개 부탁드려요!</div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div>2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div>
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div>안녕하세요! 3월 14일 화이트데이에 케잌을 주문하려고 하는데 가능할까요? 시간이 촉박한 점
-										저도 인지하고 있으며 최대한 가능한 제작옵션만 소개 부탁드려요!</div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div>2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div>
+									<div class="chatDetali">
 
 										<div>
 											<img alt="" src="./resources/img/sujetalkstoreimg.png">
@@ -195,7 +147,214 @@
 									<img src="./resources/img/wordballoon.png">
 									<!-- 뒷 배경 그림 -->
 									<!-- 날짜 -->
-									<div>2024-03-19</div>
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
+									<!-- 날짜 -->
+								</div>
+								<!-- 대화출력 -->
+								<!-- 대화출력 -->
+								<div class="orderMainDetail">
+									<!-- 대화 사용자 정보 -->
+									<div class="chatDetali">
+
+										<div>
+											<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										</div>
+										<div>CAKE FACTORY</div>
+
+									</div>
+									<!-- 대화 사용자 정보 -->
+									<!-- 대화 내용 -->
+									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
+									<!-- 대화 내용 -->
+									<!-- 뒷 배경 그림 -->
+									<img src="./resources/img/wordballoon.png">
+									<!-- 뒷 배경 그림 -->
+									<!-- 날짜 -->
+									<div class="dateDetail">2024-03-19</div>
 									<!-- 날짜 -->
 								</div>
 								<!-- 대화출력 -->

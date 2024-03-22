@@ -43,30 +43,30 @@
 				</div>
 				<div>
 					<div>
-						<input type="text" />
+						<input type="text" value="${vo.m_id }" disabled/>
 					</div>
 					<div>
-						<input type="text" />
+						<input type="password" />
 					</div>
 					<div>
-						<input type="text" />
+						<input type="text" value="${vo.m_name }" disabled/>
 					</div>
 					<div>
-						<input type="text" />
+						<input type="text" value="${vo.m_tel }" />
 					</div>
 					<div>
-						<input type="text" />
+						<input type="text" value="${vo.m_email }"/>
 					</div>
 					<div>
-						<input type="text" />
+						<input type="text" value="${vo.m_birth }"/>
 					</div>
 					<div class="customSex">
 						<div>
-							<input type="radio" />
+							 <input type="radio" name="gender" value="남자" ${vo.m_sex} checked'}/>
 						</div>
 						<div>남자</div>
 						<div>
-							<input type="radio" />
+							 <input type="radio" name="gender" value="여자" ${vo.m_sex} checked/>
 						</div>
 						<div>여자</div>
 					</div>

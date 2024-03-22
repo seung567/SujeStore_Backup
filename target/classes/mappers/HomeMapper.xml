@@ -17,7 +17,7 @@
 	
 	<select id="getModalTest" parameterType="home" resultType="home">
 
-		select * from testTable where TEST = 'test1'
+		SELECT TESTVAL FROM seungmintest WHERE ROWNUM = 1
 
 	</select>
 	

@@ -1,24 +1,5 @@
 @charset  "UTF-8";
 
-.storeMoreInfoModalWrap {
-	width: 100%;
-	height: 100%;
-	background-color: rgba(50,50,50,.5);
-	position: fixed; top: 0; left: 0; z-index: 9;
-	display: block;
-}
-.storeMoreInfoModal {
-	width: 700px;
-	height:650px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 30px 30px 0 30px;
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999; 
-	display: block;
-}
-
 .storeMoreInfoModalLogo {
 	width: 100px;
 	height: 20px;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/headerStyle.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script type="text/javascript">
 $(function() {
 	$('.headerCategoryBtn').click(function(){
@@ -19,23 +20,35 @@ $(function() {
 });
 </script>
 <title>SUJE</title>
+<% 
+String mainId = (String)session.getAttribute("mainId");
+%>
 </head>
 <body>
 <header>
 <div class="header">
 	<div class="firstHeaderNavi">
-		<div class="headerLogo"><a href="./index.jsp"><img src="./resources/img/sujeLogo.png"/></a></div>
-		<div class="beforeLoginArea">
-			<a href="../main/mainLogin.jsp" class="headerLoginBtn">로그인</a>
-			<a href="#" class="headerNewMemBtn">회원가입</a>
-			<a href="#" class="headerStoreNewMemBtn">스토어 입점신청</a>
-		</div>
-		<div class="afterLoginArea hide">
-			<input type="text" disabled="disabled" value="SUJE123" class="headerId"/>
-			<span>님</span>
-			<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
-			<button class="headerLogoutBtn">로그아웃</button>
-		</div>
+		<div class="headerLogo"><a href="memberMain.do"><img src="./resources/img/sujeLogo.png"/></a></div>
+		
+		<!-- 세션에 계정정보가 존재하지 않을 시 로그인 하기 버튼 영역(beforeLogin) 호출 -->
+		<c:if test="${mainId eq null}">
+			<div class="beforeLoginArea">
+				<a href="mainLogin.do" class="headerLoginBtn">로그인</a>
+				<a href="mainNewMember.do" class="headerNewMemBtn">회원가입</a>
+				<a href="mainNewStore.do" class="headerStoreNewMemBtn">스토어 입점신청</a>
+			</div>
+		</c:if>
+		
+		<!-- 세션에 계정정보가 존재할 시 계정 영역(afterLogin) 호출 -->
+		<c:if test="${mainId ne null}">
+			<div class="afterLoginArea">
+				<input type="text" disabled="disabled" value="${mainId}" class="headerId"/>
+				<span>님</span>
+				<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
+				<a href="mainLogout.do" class="headerLogoutBtn">로그아웃</a>
+			</div>
+		</c:if>
+		
 	</div>
 	<div class="firstHeaderLine"></div>
 	<div class="secondHeaderNavi">

@@ -34,13 +34,13 @@ body {
 .newMemberArea {
 	width: 680px;
 	margin: 0 auto;
+	margin-top: 30px;
 }
 .newMemberItemTitle {
 	width: 200px;
 	height: 50px;
 	display: block;
 	line-height: 50px;
-	margin-top: 30px;
 	float: left;
 }
 .newMemberInfoInput {
@@ -49,8 +49,9 @@ body {
 	float: left;
 	border-radius: 10px;
 	border: 2px solid #ADEFD1;
-	margin-top: 30px;
+	margin-right: 20px;
 	font-size: 20px;
+	padding: 0 10px;
 }
 .newMemberInfoInput:focus {
 	outline: 2px solid #ADEFD1;
@@ -63,19 +64,33 @@ body {
 	font-weight: bold;
 	border-radius: 10px;
 	background-color: #ADEFD1;
-	margin-top: 30px;
-	margin-left: 30px;
 	transition: background-color 0.2s ease, border 0.2s ease;
 }
 .idCheckBtn:hover {
 	background-color: #fff;
 	border: 2px solid #ADEFD1;
 }
+.formArea {
+	width: 680px;
+	height: 50px;
+	display: flex;
+	margin-bottom: 30px;
+	align-items: center;
+}
+/*
+#datepicker {
+	width: 30px;
+	height: 30px;
+	background-color: #ddd;
+	display: block;
+	float: left;
+	margin: 40px 0 0 20px;
+}
+*/
 .newMemberSexArea {
 	width: 340px;
 	height: 50px;
 	float: left;
-	margin-top: 30px;
 }
 .newMemberSexTitle {
 	width: 100px;

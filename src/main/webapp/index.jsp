@@ -20,7 +20,7 @@
  String kdh = "customerMyPage";
  
 //이정석 테스트 페이지 설정
- String ejs = "adminviews/adminQnA";
+ String ejs = "adminviews/admininfo";
  
 %>
 

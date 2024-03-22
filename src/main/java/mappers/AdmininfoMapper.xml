@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- admininfodao.xml -->
+<mapper namespace="com.suje.dao.adminsviews.admininfodao">
+    <select id="getAdminInfo" parameterType="string" resultType="adminVO">
+        SELECT * FROM admin_table WHERE MA_ID = #{id}
+    </select>
+    
+    <update id="updateAdmin" parameterType="adminVO">
+        UPDATE admin_table SET MA_PASS = #{password}, MA_NAME = #{name}, MA_EMAIL = #{email}, MA_TEL = #{phone} WHERE MA_ID = #{id}
+    </update>
+</mapper>

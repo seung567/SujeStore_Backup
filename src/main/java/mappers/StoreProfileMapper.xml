@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="storeProfileDAO">
+
+<select id="getStoreById" parameterType="String" resultType="storeProfile">
+
+	select s_id, s_text from store where s_id = #{id}
+
+</select>
+
+
+</mapper>

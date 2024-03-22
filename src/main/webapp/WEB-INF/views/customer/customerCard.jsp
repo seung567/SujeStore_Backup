@@ -21,6 +21,15 @@
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/customer/customerCard.js"></script>
+
+<script type="text/javascript">
+
+	var bank = "${infoVO.card_company}";
+	
+	
+
+
+</script>
 </head>
 <body>
 
@@ -59,17 +68,17 @@
 					
 					<!-- 카드번호 입력부분 -->
 					<div>
-						<input type="text" />
+						<input type="text" value="${infoVO.cardNum}"/>
 					</div>
 					
 					<!-- 유효기간 입력부분 -->
 					<div>
-						<input type="text" />
+						<input type="text" value="${infoVO.cardAdateResult}"/>
 					</div>
 					
 					<!-- CVC 입력부분 -->
 					<div>
-						<input type="text" />
+						<input type="text" value="${infoVO.card_cvc}"/>
 					</div>
 					
 					<!-- 비밀번호 입력부분 -->

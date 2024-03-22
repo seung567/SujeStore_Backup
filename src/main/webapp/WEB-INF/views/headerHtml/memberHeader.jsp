@@ -44,7 +44,7 @@ String mainId = (String)session.getAttribute("mainId");
 			<div class="afterLoginArea">
 				<input type="text" disabled="disabled" value="${mainId}" class="headerId"/>
 				<span>님</span>
-				<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
+				<a href="customerMyPage.do?id=<%=mainId %>" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
 				<a href="mainLogout.do" class="headerLogoutBtn">로그아웃</a>
 			</div>
 		</c:if>

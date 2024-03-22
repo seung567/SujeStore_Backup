@@ -10,12 +10,12 @@
 	
 		<!-- 유승민 설정 부분 -->
 		<typeAlias alias="home" type="com.suje.domain.HomeVO"/>
-		<typeAlias alias="customerMyPage" type="com.suje.domain.MemberVO"/>
+		<typeAlias alias="customerMyPage" type="com.suje.domain.customer.MemberVO"/>
 		<typeAlias alias="customerCardInfo" type="com.suje.domain.customer.CardInfoVO"/>
 
 		<!-- 장경희 설정 부분 -->
 		
-		<typeAlias alias="storeNotiInfo" type="com.suje.domain.JkikiStoreAdminVO"/>
+		<!-- <typeAlias alias="storeNotiInfo" type="com.suje.domain.JkikiStoreAdminVO"/> -->
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO"/>
 		<!-- 김동현 설정 부분 -->
@@ -24,6 +24,8 @@
 		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
 
 		<!-- 이정석 설정 부분 -->
+		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
+		
 		
 	</typeAliases>
 	

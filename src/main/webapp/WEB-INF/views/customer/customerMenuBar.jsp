@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%
+	
+ 	Object obj = session.getAttribute("mainId");
+	if(obj == null){
+		response.sendRedirect("LoginForm.jsp");
+		return;
+	}
+	
+	String user = (String)obj; 
+	
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +29,15 @@
 			<div>
 				<img width=120px height=120px alt="" src="./resources/img/basicProfileIconBig.png">
 			</div>
-			<div>abc123</div>
+			<div><%=user %></div>
 
 			
 			<div class="subTitle mypagebtn">
-				<a href="customerMyPage.do?id=steel2310">마이페이지</a>
+				<a href="customerMyPage.do?id=<%=user %>">마이페이지</a>
 			</div>
 			
 			<div class="subTitle cardInsert">
-				<a href="cardInfomation.do?id=steel2310">카드 등록/수정</a>
+				<a href="cardInfomation.do?id=<%=user %>">카드 등록/수정</a>
 			</div>
 			
 			<div class="subTitle accountInsert"><a href="">계좌 등록/수정</a></div>

@@ -28,7 +28,7 @@ public class CustomerAccountController {
 		
 		model.addAttribute("vo", vo);
 		
-		return "customer/customerAccount";
+		return "/customer/customerAccount";
 	}
 	
 	

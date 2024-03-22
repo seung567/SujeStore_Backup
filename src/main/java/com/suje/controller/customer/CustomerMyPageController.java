@@ -22,7 +22,7 @@ public class CustomerMyPageController {
 	@Autowired
 	CustomerInfoService service;
 	
-	@RequestMapping(value = "customerMyPage.do")
+	@RequestMapping(value = "customerMyPage")
 	public String getCustomerInfo(@RequestParam String id, Model model) {
 		
 		MemberVO vo = service.getCustomerInfo(id);
@@ -31,7 +31,7 @@ public class CustomerMyPageController {
 		
 		model.addAttribute("vo",vo);
 		
-		return "customer/customerMyPage";
+		return "/customer/customerMyPage";
 		
 	}
 	

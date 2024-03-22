@@ -1,10 +1,10 @@
-package com.suje.service;
+package com.suje.service.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.suje.dao.CustomerInfoDAO;
-import com.suje.domain.MemberVO;
+import com.suje.dao.customer.CustomerInfoDAO;
+import com.suje.domain.customer.MemberVO;
 
 @Service
 public class CustomerInfoServiceImpl implements CustomerInfoService {

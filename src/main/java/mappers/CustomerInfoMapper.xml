@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="customerDAO">
+<mapper namespace="CustomerDAO">
 
+<!-- 고객정보 조회 -->
 <select id="getCustomerInfo" parameterType="String" resultType="customerMyPage">
 
 	select * from member where m_id = #{id}
 
 </select>
-
 
 </mapper>

@@ -1,11 +1,11 @@
-package com.suje.dao;
+package com.suje.dao.customer;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.suje.domain.MemberVO;
-import com.suje.service.CustomerInfoService;
+import com.suje.domain.customer.MemberVO;
+import com.suje.service.customer.CustomerInfoService;
 
 @Repository
 public class CustomerInfoDAOImpl implements CustomerInfoDAO {
@@ -17,7 +17,7 @@ public class CustomerInfoDAOImpl implements CustomerInfoDAO {
 	public MemberVO getCustomerInfo(String id) {
 		// TODO Auto-generated method stub
 		System.out.println("레포지토리 실행");
-		return mybatis.selectOne("customerDAO.getCustomerInfo",id);
+		return mybatis.selectOne("CustomerDAO.getCustomerInfo",id);
 		
 	}
 	

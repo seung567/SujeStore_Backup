@@ -16,39 +16,39 @@ public class MainLoginController {
 	@Autowired
 	private MainLoginService mainloginService;
 	
-	//¸â¹ö ·Î±×ÀÎ
+	//ë©¤ë²„ ë¡œê·¸ì¸
 	@RequestMapping("mainMemberLogin.do")
 	public String mainMemberLogin(MainLoginVO vo, HttpSession session, Model model) {
-		System.out.println("¸â¹ö ·Î±×ÀÎ ÄÁÆ®·Ñ·¯ ÀÛµ¿ >> "+vo.getM_id()+" / "+vo.getM_pass());
+		System.out.println("ë©¤ë²„ ë¡œê·¸ì¸ ì»¨íŠ¸ë¡¤ëŸ¬ ì‘ë™ >> "+vo.getM_id()+" / "+vo.getM_pass());
 		MainLoginVO login = mainloginService.getMemberLogin(vo);
 		if(login==null) {
-			model.addAttribute("errorMessage", "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+			model.addAttribute("errorMessage", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 			return "main/mainLogin";
 		}else {   
 			session.setAttribute("mainId", login.getM_id());   
 			return "redirect: index.jsp";
 		}
 	}
-	//½ºÅä¾î ·Î±×ÀÎ
+	//ìŠ¤í† ì–´ ë¡œê·¸ì¸
 	@RequestMapping("mainStoreLogin.do")
 	public String mainStoreLogin(MainLoginVO vo, HttpSession session, Model model) {
-		System.out.println("½ºÅä¾î ·Î±×ÀÎ ÄÁÆ®·Ñ·¯ ÀÛµ¿ >> "+vo.getS_id()+" / "+vo.getS_id());
+		System.out.println("ìŠ¤í† ì–´ ë¡œê·¸ì¸ ì»¨íŠ¸ë¡¤ëŸ¬ ì‘ë™ >> "+vo.getS_id()+" / "+vo.getS_id());
 		MainLoginVO login = mainloginService.getStoreLogin(vo);
 		if(login==null) {
-			model.addAttribute("errorMessage", "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+			model.addAttribute("errorMessage", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 			return "main/mainLogin";
 		}else {   
 			session.setAttribute("mainId", login.getS_id());   
 			return "storeAdmin/storeProfile";
 		}
 	}
-	//°ü¸®ÀÚ ·Î±×ÀÎ
+	//ê´€ë¦¬ì ë¡œê·¸ì¸
 	@RequestMapping("mainAdminLogin.do")
 	public String mainAdminLogin(MainLoginVO vo, HttpSession session, Model model) {
-		System.out.println("¾îµå¹Î ·Î±×ÀÎ ÄÁÆ®·Ñ·¯ ÀÛµ¿ >> "+vo.getMa_id()+" / "+vo.getMa_pass());
+		System.out.println("ì–´ë“œë¯¼ ë¡œê·¸ì¸ ì»¨íŠ¸ë¡¤ëŸ¬ ì‘ë™ >> "+vo.getMa_id()+" / "+vo.getMa_pass());
 		MainLoginVO login = mainloginService.getAdminLogin(vo);
 		if(login==null) {
-			model.addAttribute("errorMessage", "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+			model.addAttribute("errorMessage", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 			return "main/mainLogin";
 		}else {   
 			session.setAttribute("mainId", login.getMa_id());   
@@ -56,16 +56,16 @@ public class MainLoginController {
 		}
 	}
 	
-	//¸â¹ö È¸¿ø°¡ÀÔ
+	//ë©¤ë²„ íšŒì›ê°€ì…
 	@RequestMapping("newMember.do")
 	public String newMember(MainLoginVO vo, Model model) {
-		System.out.println("¸â¹ö È¸¿ø°¡ÀÔ ÄÁÆ®·Ñ·¯ ÀÛµ¿ >> "+vo.getM_id());
+		System.out.println("ë©¤ë²„ íšŒì›ê°€ì… ì»¨íŠ¸ë¡¤ëŸ¬ ì‘ë™ >> "+vo.getM_id());
 		mainloginService.getMemberSignup(vo);
-		model.addAttribute("newMemberComple", "È¸¿ø°¡ÀÔÀ» ¼º°øÀûÀ¸·Î ¿Ï·áÇÏ¿´½À´Ï´Ù.");
+		model.addAttribute("newMemberComple", "íšŒì›ê°€ì…ì„ ì„±ê³µì ìœ¼ë¡œ ì™„ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 		return "main/mainLogin";
 	}
 	
-	//·Î±×¾Æ¿ô
+	//ë¡œê·¸ì•„ì›ƒ
     @RequestMapping("mainLogout.do")
     public String logout(HttpSession session) {
        session.removeAttribute("mainId");

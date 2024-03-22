@@ -24,12 +24,18 @@
 
 <script type="text/javascript">
 
-	var bank = "${infoVO.card_company}";
-	
-	
-
+$(function() {
+    
+	$('#bankselect option').each(function() {
+	    if ($(this).text() == "${infoVO.card_company}" + "카드") {
+			$(this).prop('selected', true);
+	    }
+	    
+	});
+});
 
 </script>
+
 </head>
 <body>
 
@@ -58,7 +64,7 @@
 				<div>
 					<!-- 카드사 선택부분 -->
 					<div>
-						<select>
+						<select id="bankselect">
 							<option value="woori">우리카드</option>
 							<option value="hyundai">현대카드</option>
 							<option value="shinhan">신한카드</option>

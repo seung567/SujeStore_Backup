@@ -74,25 +74,27 @@
 
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">스토어 공지 등록</h1>
-			<hr/>
+			<hr />
 
-			<form class="store_mainInfo">
-			<div class= "store_subCategory">
-				<label class="store_subTitle">공지 유형</label> 
-				<select class="notiInfo_selectBox">
-					<option selected="selected">======= 선택 =======</option>
-					<option>공지사항</option>
-					<option>배송안내</option>
-					<option>주문안내</option>
-				</select>
+			<div>
+				<form class="store_mainInfo" action="storeNotiInsert.do" method="post">
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 유형</label> 
+						<select class="notiInfo_selectBox">
+							<option value="choice">======= 선택 =======</option>
+							<option value="1">공지사항</option>
+							<option value="2">배송안내</option>
+							<option value="3">주문안내</option>
+						</select>
+					</div>
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 작성 내용</label><br />
+						<textarea class="notiInfo_content">내용을 작성하세요</textarea>
+					</div>
+
+					<button class="submitBtn" name="submitBtn">등록하기</button>
+				</form>
 			</div>
-			<div class= "store_subCategory">
-				<label class="store_subTitle">공지 작성 내용</label><br />
-				<textarea class="notiInfo_content">내용을 작성하세요</textarea>
-			</div>
-				
-				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
-			</form>
 		</div>
 		<!-- storeContentsBox -->
 	</div> <!-- storeContentsWrap -->

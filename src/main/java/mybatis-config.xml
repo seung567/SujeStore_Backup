@@ -10,11 +10,11 @@
 	
 		<!-- 유승민 설정 부분 -->
 		<typeAlias alias="home" type="com.suje.domain.HomeVO"/>
-		<typeAlias alias="customerMyPage" type="com.suje.domain.MemberVO"/>
+		<typeAlias alias="customerMyPage" type="com.suje.domain.customer.MemberVO"/>
 		<!-- 장경희 설정 부분 -->
 
 		<!-- 이수정 설정 부분 -->
-
+		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO"/>
 		<!-- 김동현 설정 부분 -->
 
 		<!-- 최수빈 설정 부분 -->

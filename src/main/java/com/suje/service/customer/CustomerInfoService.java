@@ -1,6 +1,6 @@
-package com.suje.service;
+package com.suje.service.customer;
 
-import com.suje.domain.MemberVO;
+import com.suje.domain.customer.MemberVO;
 
 public interface CustomerInfoService {
 

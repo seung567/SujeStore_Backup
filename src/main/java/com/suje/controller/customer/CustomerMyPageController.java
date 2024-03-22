@@ -1,6 +1,7 @@
-package com.suje.controller;
+package com.suje.controller.customer;
 
 import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.suje.domain.MemberVO;
-import com.suje.service.CustomerInfoService;
+import com.suje.domain.customer.MemberVO;
+import com.suje.service.customer.CustomerInfoService;
 
 
 @Controller
@@ -25,7 +26,9 @@ public class CustomerMyPageController {
 	public String getCustomerInfo(@RequestParam String id, Model model) {
 		
 		MemberVO vo = service.getCustomerInfo(id);
-		System.out.println("컨트롤 실행");
+
+		System.out.println("컨트롤러 실행");
+		
 		model.addAttribute("vo",vo);
 		
 		return "customer/customerMyPage";
@@ -33,3 +36,6 @@ public class CustomerMyPageController {
 	}
 	
 }
+
+
+

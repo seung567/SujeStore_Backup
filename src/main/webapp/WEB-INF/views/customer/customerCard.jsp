@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Suje - 카드 등록/수정</title>
+<title>SUJE - 카드 등록/수정</title>
 
 <!-- 폰트링크 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />

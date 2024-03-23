@@ -13,31 +13,30 @@
 <link href="./resources/css/main/mainLoginStyle.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		// 멤버 회원 로그인
-		$('.memberLoginBtn').click(function(event) {
-			event.preventDefault();
-			$('.loginIdInput').attr('name', 'm_id').val(${m_id});
-			$('.loginPwInput').attr('name', 'm_pass').val(${m_pass});
-			$('.loginArea').attr('action', 'mainMemberLogin.do');
-			$('.loginArea').submit();
-		});
-		// 스토어 회원 로그인
-		$('.storeLoginBtn').click(function(event) {
-			event.preventDefault();
-			$('.loginIdInput').attr('name', 's_id').val(${s_id});
-			$('.loginPwInput').attr('name', 's_pass').val(${s_pass});
-			$('.loginArea').attr('action', 'mainStoreLogin.do');
-			$('.loginArea').submit();
-		});
-		// 관리자 회원 로그인
-		$('.adminLoginBtn').click(function(event) {
-			event.preventDefault();
-			$('.loginIdInput').attr('name', 'ma_id').val(${ma_id});
-			$('.loginPwInput').attr('name', 'ma_pass').val(${ma_pass});
-			$('.loginArea').attr('action', 'mainAdminLogin.do');
-			$('.loginArea').submit();
-		});
+$(function() {
+	// 멤버 회원 로그인
+	$('.memberLoginBtn').click(function(event) {
+		event.preventDefault();
+		$('.loginIdInput').attr('name', 'm_id').val(${m_id});
+		$('.loginPwInput').attr('name', 'm_pass').val(${m_pass});
+		$('.loginArea').attr('action', 'mainMemberLogin.do');
+		$('.loginArea').submit();
+	});
+	// 스토어 회원 로그인
+	$('.storeLoginBtn').click(function(event) {
+		event.preventDefault();
+		$('.loginIdInput').attr('name', 's_id').val(${s_id});
+		$('.loginPwInput').attr('name', 's_pass').val(${s_pass});
+		$('.loginArea').attr('action', 'mainStoreLogin.do');
+		$('.loginArea').submit();
+	});
+	// 관리자 회원 로그인
+	$('.adminLoginBtn').click(function(event) {
+		event.preventDefault();
+		$('.loginIdInput').attr('name', 'ma_id').val(${ma_id});
+		$('.loginPwInput').attr('name', 'ma_pass').val(${ma_pass});
+		$('.loginArea').attr('action', 'mainAdminLogin.do');
+		$('.loginArea').submit();
 	});
 
 <% if (request.getAttribute("errorMessage") != null) { %>
@@ -49,6 +48,7 @@ var newMemberComple = "<%= request.getAttribute("newMemberComple") %>";
 alert(newMemberComple);
 <% } %>
 
+});
 </script>
 
 <title>SUJE</title>

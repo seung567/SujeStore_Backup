@@ -27,6 +27,4 @@ $(function() {
 		slideTime = setInterval(animateSlide, sliderTime);
 	});
 
-
-
 });

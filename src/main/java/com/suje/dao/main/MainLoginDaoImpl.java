@@ -14,23 +14,39 @@ public class MainLoginDaoImpl implements MainLoginDao {
 	
 	@Override
 	public MainLoginVO getMemberLogin(MainLoginVO vo) {
-		System.out.println("¸â¹ö ·Î±×ÀÎ ¸¶ÀÌ¹ÙÆ¼½º ÀÛµ¿ >> "+vo.getM_id()+" / "+vo.getM_pass());
+		System.out.println("ë©¤ë²„ ë¡œê·¸ì¸ ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getM_id()+" / "+vo.getM_pass());
 		return mybatis.selectOne("MainLoginDao.getMemberLogin", vo);
 	}
 	@Override
 	public MainLoginVO getStoreLogin(MainLoginVO vo) {
-		System.out.println("½ºÅä¾î ·Î±×ÀÎ ¸¶ÀÌ¹ÙÆ¼½º ÀÛµ¿ >> "+vo.getS_id()+" / "+vo.getS_pass());
+		System.out.println("ìŠ¤í† ì–´ ë¡œê·¸ì¸ ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getS_id()+" / "+vo.getS_pass());
 		return mybatis.selectOne("MainLoginDao.getStoreLogin", vo);
 	}
 	@Override
 	public MainLoginVO getAdminLogin(MainLoginVO vo) {
-		System.out.println("¾îµå¹Î ·Î±×ÀÎ ¸¶ÀÌ¹ÙÆ¼½º ÀÛµ¿ >> "+vo.getMa_id()+" / "+vo.getMa_pass());
+		System.out.println("ì–´ë“œë¯¼ ë¡œê·¸ì¸ ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getMa_id()+" / "+vo.getMa_pass());
 		return mybatis.selectOne("MainLoginDao.getAdminLogin", vo);
 	}
 	
 	@Override
 	public void getMemberSignup(MainLoginVO vo) {
-		System.out.println("¸â¹ö È¸¿ø°¡ÀÔ ¸¶ÀÌ¹ÙÆ¼½º ÀÛµ¿ >> "+vo.getM_id());
+		System.out.println("ë©¤ë²„ íšŒì›ê°€ìž… ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getM_id());
 		mybatis.insert("MainLoginDao.getMemberSignup", vo);
+	}
+	@Override
+	public MainLoginVO getMemberIdCheck(MainLoginVO vo) {
+		System.out.println("ë©¤ë²„ ì•„ì´ë”” ì¤‘ë³µì²´í¬ ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getM_id());
+		return mybatis.selectOne("MainLoginDao.getMemberIdCheck", vo);
+	}
+	@Override
+	public void getStoreSignup(MainLoginVO vo) {
+		System.out.println("ìŠ¤í† ì–´ íšŒì›ê°€ìž… ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getS_id());
+		mybatis.insert("MainLoginDao.getStoreSignup", vo);
+		mybatis.insert("MainLoginDao.getStoreAvailInsert", vo);
+	}
+	@Override
+	public MainLoginVO getStoreIdCheck(MainLoginVO vo) {
+		System.out.println("ìŠ¤í† ì–´ ì•„ì´ë”” ì¤‘ë³µì²´í¬ ë§ˆì´ë°”í‹°ìŠ¤ ìž‘ë™ >> "+vo.getS_id());
+		return mybatis.selectOne("MainLoginDao.getStoreIdCheck", vo);
 	}
 }

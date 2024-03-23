@@ -17,5 +17,10 @@ public class StoreProfileDAOImpl implements StoreProfileDAO {
 		
 		return mybatis.selectOne("storeProfileDAO.getStoreById",id);
 	}
+    @Override
+    public void updateStoreProfile(StoreProfileVO updatedStoreProfile) {
+    	System.out.println("레포지토리" + updatedStoreProfile.getCatem_code());
+        mybatis.update("storeProfileDAO.updateStoreProfile", updatedStoreProfile);
+    }
 
 }

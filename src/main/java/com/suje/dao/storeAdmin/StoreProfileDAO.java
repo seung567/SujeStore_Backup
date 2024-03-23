@@ -7,5 +7,5 @@ import com.suje.domain.storeAdmin.StoreProfileVO;
 public interface StoreProfileDAO {
 	
 	public StoreProfileVO getStoreById(String id);
-
+	void updateStoreProfile(StoreProfileVO updatedStoreProfile);
 }

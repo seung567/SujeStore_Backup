@@ -11,4 +11,14 @@
 
 </select>
 
+<update id="updateMypageInfo" parameterType="customerMyPage" >
+
+	update member set
+	m_pass = #{m_pass},
+	m_tel = #{m_tel},
+	m_email = #{m_email}
+	where m_id = #{m_id}
+
+</update>
+
 </mapper>

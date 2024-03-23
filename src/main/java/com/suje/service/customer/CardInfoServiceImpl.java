@@ -22,5 +22,11 @@ public class CardInfoServiceImpl implements CardInfoService {
 		
 	}
 	
+	@Override
+	public int updateCardInfo(CardInfoVO vo) {
 	
+		System.out.println("=> CardInfoService 실행");
+		int vo1 =  cardInfoDao.updateCardInfo(vo);
+		return vo1;
+ }
 }

@@ -6,7 +6,7 @@ public interface CardInfoService {
 
 	public CardInfoVO getCardInfo(String id);
 	
-	
+	public int updateCardInfo(CardInfoVO vo);
 	
 	
 	

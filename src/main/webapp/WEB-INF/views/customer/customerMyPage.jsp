@@ -29,8 +29,11 @@
 		<jsp:include page="/WEB-INF/views/customer/customerMenuBar.jsp"></jsp:include>
 		
 		<div class="mainContentright">
+		
 			<div class="subtitle">마이페이지</div>
 			<div class="myPageLine"></div>
+			
+			<form action="mypageModify.do?id=123" method="post">
 			<div class="mainInputFormTitle">
 				<div>
 					<div>아이디</div>
@@ -46,34 +49,38 @@
 						<input type="text" value="${vo.m_id }" disabled/>
 					</div>
 					<div>
-						<input type="password" />
+						<input type="password" name="m_pass"/>
 					</div>
 					<div>
 						<input type="text" value="${vo.m_name }" disabled/>
 					</div>
 					<div>
-						<input type="text" value="${vo.m_tel }" />
+						<input type="text" value="${vo.m_tel }" name="m_tel"/>
 					</div>
 					<div>
-						<input type="text" value="${vo.m_email }"/>
+						<input type="text" value="${vo.m_email }" name="m_email"/>
 					</div>
 					<div>
-						<input type="text" value="${vo.m_birth }"/>
+						<input type="text" value="${vo.m_birth }" name="m_birth"/>
 					</div>
 					<div class="customSex">
 						<div>
-							 <input type="radio" name="gender" value="남자" ${vo.m_sex} checked'}/>
+							 <input type="radio" name="m_sex" value="남자" ${vo.m_sex} checked/>
 						</div>
 						<div>남자</div>
 						<div>
-							 <input type="radio" name="gender" value="여자" ${vo.m_sex} checked/>
+							 <input type="radio" name="m_sex" value="여자" ${vo.m_sex} checked/>
 						</div>
 						<div>여자</div>
 					</div>
 				</div>
 			</div>
-			<div class="modifyBtn"><input type="button" value="수정하기" /></div>
+			<div class="modifyBtn">
+			<input type="submit" value="수정하기" />
+			<input type="hidden" value="${vo.m_id}" name="m_id"/>
+			</div>
 			<div class="myPageLine"></div>
+			</form>
 		</div>
 		
 	</div>

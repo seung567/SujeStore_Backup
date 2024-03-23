@@ -15,8 +15,17 @@ public class CardInfoDAOImpl implements CardInfoDAO {
 	@Override
 	public CardInfoVO getCardInfo(String id) {
 		
-		System.out.println("=> CardInfoDAO 실행");
+		System.out.println("CardInfoDAOImpl => getCardInfo 실행");
 		return mybatis.selectOne("cardInfoDAO.getCardInfo",id);
 		 
 	}
+	
+	@Override
+	public int updateCardInfo(CardInfoVO vo) {
+	
+		System.out.println("CardInfoDAOImpl => updateCardInfo 실행");
+		return mybatis.update("cardInfoDAO.updateCardInfo",vo);
+		
+	}
+
 }

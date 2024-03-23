@@ -15,9 +15,16 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 	@Override
 	public AccountVO getCustomerAccount(String id) {
 		// TODO Auto-generated method stub
-		System.out.println("서비스 실행");
+		System.out.println("=> CustomerAccountServiceImpl  => getCustomerAccount 실행");
 		AccountVO vo = dao.getCustomerAccount(id);
 		return vo;
 	}
-
+	
+	@Override
+	public int accountUpdate(AccountVO accountVO) {
+		// TODO Auto-generated method stub
+		System.out.println("=> CustomerAccountServiceImpl  => accountUpdate 실행");
+		int resultNum = dao.accountUpdate(accountVO);
+		return 0;
+	}
 }

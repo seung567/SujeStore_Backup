@@ -16,7 +16,7 @@ public class CardInfoServiceImpl implements CardInfoService {
 	@Override
 	public CardInfoVO getCardInfo(String id) {
 		
-		System.out.println("=> CardInfoService 실행");
+		System.out.println("=> CardInfoServiceImpl  => getCardInfo 실행");
 		CardInfoVO vo =  cardInfoDao.getCardInfo(id);
 		return vo;
 		

@@ -20,14 +20,14 @@ public class CustomerMyPageController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerMyPageController.class);
 	
 	@Autowired
-	CustomerInfoService service;
+	private CustomerInfoService service;
 	
 	@RequestMapping(value = "customerMyPage")
 	public String getCustomerInfo(@RequestParam String id, Model model) {
 		
 		MemberVO vo = service.getCustomerInfo(id);
 
-		System.out.println("컨트롤러 실행");
+		System.out.println("=> CustomerMyPageController  => getCustomerInfo 실행");
 		
 		model.addAttribute("vo",vo);
 		

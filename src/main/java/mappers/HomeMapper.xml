@@ -5,7 +5,7 @@
 <!-- <mapper namespace="HomeDAO"> -->
 <mapper namespace="HomeDAO">
 
-	<resultMap type="home" id="testResult">
+<!-- 	<resultMap type="home" id="testResult">
 		<result property="no" column="NO" />
 		<result property="content" column="CONTENT" />
 	</resultMap>
@@ -20,6 +20,6 @@
 		SELECT TESTVAL FROM seungmintest WHERE ROWNUM = 1
 
 	</select>
-	
+	 -->
 </mapper>
 <!-- </mapper> -->

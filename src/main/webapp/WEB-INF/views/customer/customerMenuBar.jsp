@@ -4,6 +4,7 @@
     
 <%
 	
+	// 세션 정보를 가져오는 부분
  	Object obj = session.getAttribute("mainId");
 	if(obj == null){
 		response.sendRedirect("LoginForm.jsp");
@@ -12,8 +13,8 @@
 	
 	String user = (String)obj; 
 	
-
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,13 +35,18 @@
 			
 			<div class="subTitle mypagebtn">
 				<a href="customerMyPage.do?id=<%=user %>">마이페이지</a>
-			</div>
+			</div><!-- 마이페이지 연결 -->
+			
 			
 			<div class="subTitle cardInsert">
 				<a href="cardInfomation.do?id=<%=user %>">카드 등록/수정</a>
-			</div>
+			</div><!-- 카드 등록/ 수정 -->
 			
-			<div class="subTitle accountInsert"><a href="">계좌 등록/수정</a></div>
+			<div class="subTitle accountInsert">
+				<a href="customerAccount.do?id=<%=user %>">계좌 등록/수정</a>
+			</div>
+			<!-- 카드 등록/ 수정 -->
+			
 			<div class="subTitle orderList"><a href="">주문 내역 조회</a></div>
 			<div class="subTitle reviews"><a href="">후기 작성</a></div>
 			<div class="subTitle sujeTalk"><a href="">SUJE 톡톡</a></div>

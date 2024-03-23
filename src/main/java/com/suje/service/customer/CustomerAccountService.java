@@ -5,5 +5,6 @@ import com.suje.domain.customer.AccountVO;
 public interface CustomerAccountService {
 	
 	public AccountVO getCustomerAccount(String id);
-
+	public int accountUpdate(AccountVO accountVO);
+	
 }

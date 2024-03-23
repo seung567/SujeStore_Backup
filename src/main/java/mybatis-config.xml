@@ -9,9 +9,9 @@
 	<typeAliases>
 	
 		<!-- 유승민 설정 부분 -->
-		<typeAlias alias="home" type="com.suje.domain.HomeVO"/>
 		<typeAlias alias="customerMyPage" type="com.suje.domain.customer.MemberVO"/>
 		<typeAlias alias="customerCardInfo" type="com.suje.domain.customer.CardInfoVO"/>
+		<typeAlias alias="customerAccountInfo" type="com.suje.domain.customer.AccountVO"/>
 
 
 		<!-- 장경희 설정 부분 -->

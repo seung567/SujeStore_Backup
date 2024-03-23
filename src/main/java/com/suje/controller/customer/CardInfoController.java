@@ -19,12 +19,12 @@ public class CardInfoController {
 	private static final Logger logger = LoggerFactory.getLogger(CardInfoController.class);
 	
 	@Autowired
-	CardInfoService cardInfoService;
+	private CardInfoService cardInfoService;
 	
 	@RequestMapping(value = "cardInfomation")
 	public String getCardInfo(@RequestParam(value = "id") String id, Model model) {
 		
-		System.out.println("getCardInfo 컨트롤 실행");
+		System.out.println("=> CardInfoController  => getCardInfo 실행");
 		CardInfoVO infoVO = cardInfoService.getCardInfo(id);
 		model.addAttribute("infoVO", infoVO);
 		

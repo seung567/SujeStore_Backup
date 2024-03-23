@@ -13,18 +13,16 @@
 <title>SUJE</title>
 </head>
 <body>
-<%@ include file="adminHeader.jsp" %>
-<div class="adminContentsWrap">
 <div class="adminSubMenuBox">
 	<ul class="adminCategoryArea">
 		<li class="adminFirstCategoryArea">
-			<a href="#" class="adminFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a>
+			<a href="adminmange.do" class="adminFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a>
 		</li>
 		<li class="storeFirstCategoryArea">
-			<a href="#" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a>
+			<a href="adminpnt.do" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a>
 		</li>
 		<li class="adminFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
+			<a href="adminQnA.do" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
 		</li>
 		<!-- 
 		<li class="adminFirstCategoryArea">
@@ -33,13 +31,5 @@
 		 -->
 	</ul>
 </div> <!-- adminSubMenuBox -->
-<div class="adminContentsBox">
-
-
-==== 어드민 관련 모든 콘텐츠는 해당 박스 안에 복붙하세요 ====
-
-
-</div> <!-- adminContentsBox -->
-</div> <!-- adminContentsWrap -->
 </body>
 </html>

@@ -14,24 +14,39 @@ public class MainLoginServiceImpl implements MainLoginService {
 	
 	@Override
 	public MainLoginVO getMemberLogin(MainLoginVO vo) {
-		System.out.println("¸â¹ö ·Î±×ÀÎ ¼­ºñ½º ÀÛµ¿ >> "+vo.getM_id()+" / "+vo.getM_pass());
+		System.out.println("ë©¤ë²„ ë¡œê·¸ì¸ ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getM_id()+" / "+vo.getM_pass());
 		return mainLoginDao.getMemberLogin(vo);
 	}
 	@Override
 	public MainLoginVO getStoreLogin(MainLoginVO vo) {
-		System.out.println("½ºÅä¾î ·Î±×ÀÎ ¼­ºñ½º ÀÛµ¿ >> "+vo.getS_id()+" / "+vo.getS_pass());
+		System.out.println("ìŠ¤í† ì–´ ë¡œê·¸ì¸ ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getS_id()+" / "+vo.getS_pass());
 		return mainLoginDao.getStoreLogin(vo);
 	}
 	@Override
 	public MainLoginVO getAdminLogin(MainLoginVO vo) {
-		System.out.println("¾îµå¹Î ·Î±×ÀÎ ¼­ºñ½º ÀÛµ¿ >> "+vo.getMa_id()+" / "+vo.getMa_pass());
+		System.out.println("ì–´ë“œë¯¼ ë¡œê·¸ì¸ ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getMa_id()+" / "+vo.getMa_pass());
 		return mainLoginDao.getAdminLogin(vo);
 	}
 	
 	@Override
 	public void getMemberSignup(MainLoginVO vo) {
-		System.out.println("¸â¹ö È¸¿ø°¡ÀÔ ¼­ºñ½º ÀÛµ¿ >> "+vo.getM_id());
+		System.out.println("ë©¤ë²„ íšŒì›ê°€ìž… ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getM_id());
 		mainLoginDao.getMemberSignup(vo);
+	}
+	@Override
+	public MainLoginVO getMemberIdCheck(MainLoginVO vo) {
+		System.out.println("ë©¤ë²„ ì•„ì´ë”” ì¤‘ë³µì²´í¬ ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getM_id());
+		return mainLoginDao.getMemberIdCheck(vo);
+	}
+	@Override
+	public void getStoreSignup(MainLoginVO vo) {
+		System.out.println("ìŠ¤í† ì–´ íšŒì›ê°€ìž… ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getS_id());
+		mainLoginDao.getStoreSignup(vo);
+	}
+	@Override
+	public MainLoginVO getStoreIdCheck(MainLoginVO vo) {
+		System.out.println("ìŠ¤í† ì–´ ì•„ì´ë”” ì¤‘ë³µì²´í¬ ì„œë¹„ìŠ¤ ìž‘ë™ >> "+vo.getS_id());
+		return mainLoginDao.getStoreIdCheck(vo);
 	}
 	
 }

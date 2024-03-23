@@ -12,28 +12,31 @@ public class HeaderController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HeaderController.class);
 	
-	//¸â¹ö ¸ŞÀÎÆäÀÌÁö ÀÌµ¿
+	//ë©¤ë²„ ë©”ì¸í˜ì´ì§€ ì´ë™
 	@RequestMapping("memberMain.do")
 	public String viewMemberMain() {
 		return "redirect: index.jsp";
 	}
 	
-	//½ºÅä¾î ¸ŞÀÎÆäÀÌÁö ÀÌµ¿
+	//ìŠ¤í† ì–´ ë©”ì¸í˜ì´ì§€ ì´ë™
 	@RequestMapping("storeMain.do")
 	public String viewStoreMain() {
 		return "storeAdmin/storeProfile";
 	}
 	
-	//¾îµå¹Î ¸ŞÀÎÆäÀÌÁö ÀÌµ¿
+	//ì–´ë“œë¯¼ ë©”ì¸í˜ì´ì§€ ì´ë™
 	@RequestMapping("adminMain.do")
 	public String viewAdminMain() {
-		return "adminviews/admininfo";
+		return "adminviews/adminmanage";
 	}
 	
-	//Çì´õ ÆäÀÌÁö ÀÌµ¿
+	//í—¤ë” í˜ì´ì§€ ì´ë™
 	@RequestMapping("{step}.do")
 	public String viewPage(@PathVariable String step) {
-		return "main/"+step;
+		if(step.contains("main")) {
+			return "main/"+step;
+		} else {
+			return "adminviews/"+step;
+		}
 	}
-	
 }

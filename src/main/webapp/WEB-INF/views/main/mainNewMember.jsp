@@ -19,7 +19,6 @@
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" />
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
-
 <script type="text/javascript">
 $(function() {
 	//datepicker 인풋 태그 클릭시 달력 송출
@@ -32,6 +31,26 @@ $(function() {
 		showButtonPanel: true,
 		dateFormat: "yy/mm/dd"
 	});
+	
+	$(".idCheckBtn").click(function() {
+		$.ajax({
+			url: "memberIdcheck.do",
+			type: "post",
+			data: {m_id : $("input[name=m_id]").val()},
+			dataType: "text",
+			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			success: function(result) {
+				if(result=="사용중인 아이디입니다.") {
+					$('input[name="m_id"]').focus();
+				}
+				alert(result);
+			},
+			error: function(err) {
+				alert("통신 에러가 발생했습니다 : "+err)
+			}
+		})
+	});
+	
 });
 </script>
 </head>

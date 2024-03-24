@@ -15,10 +15,10 @@ public class StoreNotiInfoDAOImple implements StoreNotiInfoDAO {
 
 	public void insertStoreNotiInfo(StoreNotiInfoVO vo) {
 		System.out.println("=> 스토어 공지등록 Repository");
-		int result = mybatis.insert("StoreNotiInfoDAO.insertStoreNotiInfo", vo);
+		
+		mybatis.insert("StoreNotiInfoDAO.insertStoreNotiInfo", vo);
 
 		System.out.println("insertStoreNotiInfo vo :"+ vo);
-		System.out.println("insertStoreNotiInfo result :"+ result);
 
 	}
 

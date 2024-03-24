@@ -29,7 +29,7 @@ public class StoreNotiInfoController {
 	@RequestMapping(value = "storeNotiInfo")
 	public String storeNoitUrl22() {
 
-		System.out.println("메인 실행");
+		System.out.println("storeNotiInfo 메인 실행");
 
 		return "/storeAdmin/storeNotiInfo";
 	}

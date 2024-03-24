@@ -3,14 +3,14 @@ package com.suje.service.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.suje.dao.customer.CardInfoDAO;
+import com.suje.dao.customer.CustomerCardInfoDAO;
 import com.suje.domain.customer.CardInfoVO;
 
 @Service
-public class CardInfoServiceImpl implements CardInfoService {
+public class CustomerCardInfoServiceImpl implements CustomerCardInfoService {
 	
 	@Autowired
-	CardInfoDAO cardInfoDao; 
+	CustomerCardInfoDAO cardInfoDao; 
 	
 	
 	@Override

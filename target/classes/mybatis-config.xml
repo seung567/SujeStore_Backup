@@ -12,7 +12,8 @@
 		<typeAlias alias="customerMyPage" type="com.suje.domain.customer.MemberVO"/>
 		<typeAlias alias="customerCardInfo" type="com.suje.domain.customer.CardInfoVO"/>
 		<typeAlias alias="customerAccountInfo" type="com.suje.domain.customer.AccountVO"/>
-
+		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
+	
 
 		<!-- 장경희 설정 부분 -->
 		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNotiInfoVO"/>

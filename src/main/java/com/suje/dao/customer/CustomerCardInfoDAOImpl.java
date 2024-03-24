@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.suje.domain.customer.CardInfoVO;
 
 @Repository
-public class CardInfoDAOImpl implements CardInfoDAO {
+public class CustomerCardInfoDAOImpl implements CustomerCardInfoDAO {
 	
 	@Autowired
 	SqlSessionTemplate mybatis;

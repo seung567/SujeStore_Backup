@@ -44,13 +44,23 @@
 			
 			<div class="subTitle accountInsert">
 				<a href="customerAccount.do?id=<%=user %>">계좌 등록/수정</a>
-			</div>
-			<!-- 카드 등록/ 수정 -->
+			</div><!-- 계좌 등록/ 수정 -->
 			
-			<div class="subTitle orderList"><a href="">주문 내역 조회</a></div>
-			<div class="subTitle reviews"><a href="">후기 작성</a></div>
-			<div class="subTitle sujeTalk"><a href="">SUJE 톡톡</a></div>
-			<div class="subTitle qna"><a href="">Q&A 작성</a></div>
+			<div class="subTitle orderList">
+				<a href="customerOrder.do?id=<%=user %>">주문 내역 조회</a>
+			</div><!-- 주문 내역 조회-->
+			
+			<div class="subTitle reviews">
+				<a href="">후기 작성</a>
+			</div><!-- 후기 작성 -->
+			
+			<div class="subTitle sujeTalk">
+				<a href="customerSujeTalk.do?id=<%=user %>&page=1">SUJE 톡톡</a>
+			</div><!-- suje 톡톡 -->
+			
+			<div class="subTitle qna">
+				<a href="">Q&A 작성</a>
+			</div><!-- Q&A 작성 -->
 		</div>
 </body>
 </html>

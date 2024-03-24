@@ -1,5 +1,12 @@
 package com.suje.controller.customer;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,28 +29,31 @@ public class CustomerAccountController {
 	private CustomerAccountService service;
 	
 	@RequestMapping(value = "customerAccount")
-	public String getCustomerAccount(@RequestParam String id, Model model) {
-		
+	public String getCustomerAccount(@RequestParam String id, Model model)  {
+		logger.info("accountUpdate");
 		AccountVO vo = service.getCustomerAccount(id);
-		
-		logger.info("실행");
-		
 		model.addAttribute("vo", vo);
-		
+
 		return "/customer/customerAccount";
 	}
 	
 	@RequestMapping(value = "AccountUpdate", method = RequestMethod.POST)
-	public String accountUpdate(@ModelAttribute("vo") AccountVO vo, Model model) {
-	
-		logger.info("실행");
+	public String accountUpdate(@ModelAttribute("vo") AccountVO vo, Model model, HttpServletRequest servlet) {
+		logger.info("accountUpdate");
+		
 		int result = service.accountUpdate(vo);
-		if(result == 0) {
-			model.addAttribute("message", "정상적으로 수정이 완료 되었습니다.");
+		String id = servlet.getParameter("id");
+		String state;
+		
+		if(result > 0) {
+			state = "수정이 되었습니다 !";
 		}else {
-			model.addAttribute("message", "수정 실패 하였습니다. 관리자 문의 하여 주세요.");
+			state = "수정이 실패 하였습니다. - 관리자 문의 하여 주세요 !";
 		}
-		System.out.println(vo.getM_id());
-		return "redirect:/customerAccount.do?id="  + vo.getM_id(); 
+		
+		model.addAttribute("id",id);
+		model.addAttribute("state",state);
+		return "/customer/customerAccount";
+		
 	}
 }

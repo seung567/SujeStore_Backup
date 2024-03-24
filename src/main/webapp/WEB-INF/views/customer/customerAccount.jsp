@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	
-	
-
-
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,16 +36,17 @@ $(function(){
 	    }
 	});
     
-    if( "<%=request.getParameter("message") %>" != "null"){
-		alert("<%=request.getParameter("message") %>");
-    }
-    
+	if("<%=request.getAttribute("state") %>" !="null"){
+		alert("<%=request.getAttribute("state") %>");
+		
+	}
+	
 });
 
 </script>
 </head>
 <body>
-
+	
 	<jsp:include page="/WEB-INF/views/headerHtml/memberHeader.jsp"></jsp:include>
 	<div class="main">
 	

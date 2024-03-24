@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.suje.domain.customer.CardInfoVO;
-import com.suje.service.customer.CardInfoService;
+import com.suje.service.customer.CustomerCardInfoService;
 
 @Controller
-public class CardInfoController {
+public class CustomerCardInfoController {
 
-	private static final Logger logger = LoggerFactory.getLogger(CardInfoController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerCardInfoController.class);
 	
 	@Autowired
-	private CardInfoService cardInfoService;
+	private CustomerCardInfoService cardInfoService;
 	
 	@RequestMapping(value = "cardInfomation")
 	public String getCardInfo(@RequestParam(value = "id") String id, Model model) {

@@ -16,8 +16,10 @@
 	
 
 		<!-- 장경희 설정 부분 -->
-		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNotiInfoVO"/>
 
+		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO"/>
+		<typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO"/>
+		
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO"/>
 		<typeAlias alias="updatedCardInfo" type="com.suje.domain.customer.CardInfoVO"/>
@@ -33,4 +35,6 @@
     
 	</typeAliases>
 	
-</configuration>
+
+</configuration> 
+

@@ -9,10 +9,31 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet"
 	type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css"> 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
+<script type="text/javascript">
+	
+ $(function() {
+	    $(".noticeListDetail").click(function() {
+	        // 클릭한 공지 번호와 스토어 아이디를 가져옵니다.
+	        const notiNum = $(this).find("td:first-child").text();
+	        const id = $(this).data("s_id");  // JSP 코드를 사용하여 스토어 아이디를 가져옵니다.
+	        
+	        // 공지 번호와 스토어 아이디를 포함하여 URL을 구성합니다.
+	        const url = "getNotiInfo.do?notiNum=" + notiNum + "&id=" + id;
+	        
+	        // 새로운 URL로 이동합니다.
+	        location.href = url;
+	    });
+	});
+ 
+</script>
+
+
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeAdmin/storeNotice.css" />
 </head>
@@ -20,58 +41,6 @@
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
 	<div class="storeContentsWrap">
 	 <jsp:include page="storeSubMenuBar.jsp"></jsp:include>
-		<!-- <div class="storeSubMenuBox">
-			<a href="#" class="storeProfileBox"><img
-				src="./resources/img/basicProfileIconBig.png" /></a>
-			<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
-			<ul class="storeCategoryArea">
-				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어
-						관리</a>
-					<ul class="storeSecondCategoryArea">
-						<li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
-									페이지 관리</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a
-							href="#"> <span>스토어 공지 조회/수정</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-									공지 등록</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-									작품 조회/수정</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-									작품 등록</span>
-						</a></li>
-					</ul></li>
-				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
-					<ul class="storeSecondCategoryArea">
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
-									상품 조회/수정</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
-									상품 등록</span>
-						</a></li>
-					</ul></li>
-				<li class="storeFirstCategoryArea"><a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
-					<ul class="storeSecondCategoryArea">
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-									주문요청 관리</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-									최종주문 조회</span>
-						</a></li>
-						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
-									주문 조회</span>
-						</a></li>
-					</ul></li>
-				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a></li>
-			</ul>
-		</div> -->
-		<!-- storeSubMenuBox -->
 		<div class="storeContentsBox">
 			<h1 class="title">스토어 공지 조회/수정</h1>
 			<hr class="hr">
@@ -79,60 +48,68 @@
 				<table name="noticeList">
 					<thead>
 						<tr>
-							<th name="notit_code">공지 유형</th>
-							<th name="noti_content">공지 내용</th>
-							<th name="notir_date">등록일자</th>
-							<th name="notim_date">수정일자</th>
+							<th >공지 번호</th>
+							<th >공지 유형</th>
+							<th >공지 내용</th>
+							<th >등록일자</th>
+							<th >수정일자</th>
 						</tr>
 					</thead>
 					<tbody>
-					<%-- <c:forEach items="${listVO }" var=info>
-					<tr>
-					<td> ${info.notit_code } </td>
-					<td> ${info.noti_content } </td>
-					<td> ${info.notir_date } </td>
-					<td> ${info.notim_date } </td>
-					</tr>
-					</c:forEach> --%>
-						<tr>
-							<td>공지 유형 1</td>
-							<td>공지 내용이 여기에 들어갑니다.</td>
-							<td>2024-03-15</td>
-							<td>2024-03-16</td>
-						</tr>
-						<tr>
-							<td>공지 유형 2</td>
-							<td>공지 내용이 여기에 들어갑니다.</td>
-							<td>2024-03-14</td>
-							<td>2024-03-15</td>
-						</tr>
-						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
+						<c:forEach items="${StoreNoticeList }" var="listAll">
+							<tr class="noticeListDetail" data-s_id="${listAll.s_id}">
+								<td>${listAll.noti_code }</td>
+								<td>${listAll.notit_code }</td>
+								<td>${listAll.noti_content }</td>
+								<td>${listAll.notir_date }</td>
+								<td>${listAll.notim_date }</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 			<br /> <br />
 			<hr class="hr">
 			<h1 class="store_mainTitle">스토어 공지 수정</h1>
-			<form class="store_mainInfo">
-			<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id" />
-				<div class="store_subCategory">
-					<label class="store_subTitle">공지 유형</label> <select
-						class="notiInfo_selectBox" name="notit_code">
-						<option value="choice">======= 선택 =======</option>
-						<option value="1">공지사항</option>
-						<option value="2">배송안내</option>
-						<option value="3">주문안내</option>
-					</select>
-				</div>
-				<div class="store_subCategory">
-					<label class="store_subTitle">공지 작성 내용</label><br />
-					<textarea class="notiInfo_content" name="noti_content">내용을 작성하세요</textarea>
-				</div>
 
-				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
-			</form>
+			<c:if test="${not empty getListVO}">
+				<form class="store_mainInfo">
+					<div class="store_subCategory">
+						<input type="hidden" name="id" value= "${s_id}">
+						<label class="store_subTitle">공지 유형</label> 
+						<select	class="notiInfo_selectBox" name="notit_code">
+							<option value="${getListVO.notit_code}">${getListVO.notit_code}</option>
+							<option value="1">공지사항</option>
+							<option value="2">배송안내</option>
+							<option value="3">주문안내</option>
+						</select>
+					</div>
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 작성 내용</label><br />
+						<textarea class="notiInfo_content" name="noti_content">${getListVO.noti_content}</textarea>
+					</div>
+					<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+				</form>
+			</c:if>
+			<c:if test="${empty getListVO}">
+				<form class="store_mainInfo">
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 유형</label> <select
+							class="notiInfo_selectBox" name="notit_code">
+							<option value="0">======선택======</option>
+							<option value="1">공지사항</option>
+							<option value="2">배송안내</option>
+							<option value="3">주문안내</option>
+						</select>
+					</div>
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 작성 내용</label><br />
+						<textarea class="notiInfo_content" name="noti_content">내용을 입력하세요</textarea>
+					</div>
+					<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+				</form>
+			</c:if>
 		</div>
-
 
 	</div>
 	<!-- storeContentsBox -->

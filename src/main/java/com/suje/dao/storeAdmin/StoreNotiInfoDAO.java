@@ -1,8 +1,8 @@
 package com.suje.dao.storeAdmin;
 
-import com.suje.domain.storeAdmin.StoreNotiInfoVO;
+import com.suje.domain.storeAdmin.StoreNoticeVO;
 
 public interface StoreNotiInfoDAO {
 
-	 public void insertStoreNotiInfo(StoreNotiInfoVO vo); 
+	 public void insertStoreNotiInfo(StoreNoticeVO vo); 
 }

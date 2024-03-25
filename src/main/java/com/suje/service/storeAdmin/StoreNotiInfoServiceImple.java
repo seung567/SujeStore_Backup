@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.suje.dao.storeAdmin.StoreNotiInfoDAO;
-import com.suje.domain.storeAdmin.StoreNotiInfoVO;
+import com.suje.domain.storeAdmin.StoreNoticeVO;
 
 
 @Service
@@ -16,7 +16,7 @@ public class StoreNotiInfoServiceImple implements StoreNotiInfoService {
 
 	
 	@Override
-	public void insertStoreNotiInfo(StoreNotiInfoVO notiVO) {
+	public void insertStoreNotiInfo(StoreNoticeVO notiVO) {
 		System.out.println("=> 스토어 공지등록 Service");
 	  dao.insertStoreNotiInfo(notiVO);
 	}

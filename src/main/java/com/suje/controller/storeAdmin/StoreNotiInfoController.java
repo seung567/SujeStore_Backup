@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.suje.domain.storeAdmin.StoreNotiInfoVO;
+import com.suje.domain.storeAdmin.StoreNoticeVO;
 import com.suje.service.storeAdmin.StoreNotiInfoService;
 
 
@@ -45,7 +45,7 @@ public class StoreNotiInfoController {
 	 */
 
 	@RequestMapping(value = "insertStoreNotiInfo", method = RequestMethod.POST)
-	public String insertStoreNotiInfo(@ModelAttribute("vo") StoreNotiInfoVO vo, Model model) {
+	public String insertStoreNotiInfo(@ModelAttribute("vo") StoreNoticeVO vo, Model model) {
 
 		System.out.println("insertStoreNotiInfo 컨트롤러 실행1");
 		

@@ -23,6 +23,8 @@
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO"/>
 		<typeAlias alias="updatedCardInfo" type="com.suje.domain.customer.CardInfoVO"/>
+		<typeAlias alias="customerReview" type="com.suje.domain.customer.ReviewVO"/>
+		<typeAlias alias="customerQnA" type="com.suje.domain.customer.QnAVO"/>
 	
 		<!-- 김동현 설정 부분 -->
 		<typeAlias alias="storeProfile" type="com.suje.domain.storeAdmin.StoreProfileVO"/>

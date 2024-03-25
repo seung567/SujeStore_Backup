@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html>
@@ -59,63 +64,19 @@
 						<td>후기작성</td>
 						<td>후기작성일자</td>
 					</tr>
-					<tr>
-						<td>000000001</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="작성"></td>
-						<td>2024/03/01</td>
-					</tr>
-					<tr>
-						<td>000000002</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="작성"></td>
-						<td>2024/03/01</td>
-					</tr>
-					<tr>
-						<td>000000003</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="작성"></td>
-						<td>2024/03/01</td>
-					</tr>
-					<tr>
-						<td>000000004</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="작성"></td>
-						<td>2024/03/01</td>
-					</tr>
-					<tr>
-						<td>000000005</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="작성"></td>
-						<td>2024/03/01</td>
-					</tr>
-
-
+					<c:forEach items="${vo}" var="vo">
+						<tr>
+							<td>${vo.p_code }</td>
+							<td></td>
+							<td></td>
+							<td>${vo.p_date }</td>
+							<td>${vo.p_sum }</td>
+							<td>N</td>
+							<td>2024/03/01</td>
+							<td><input type="button" value="작성"></td>
+							<td>2024/03/01</td>
+						</tr>
+					</c:forEach>
 				</table>
 				<div class="pageing">< 1 2 3 ></div>
 			</div>

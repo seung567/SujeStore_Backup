@@ -11,6 +11,7 @@
 
 </select>
 
+<!-- 고객정보 업데이트-->
 <update id="updateMypageInfo" parameterType="customerMyPage" >
 
 	update member set
@@ -20,5 +21,21 @@
 	where m_id = #{m_id}
 
 </update>
+
+<!-- 고객리뷰 리스트 조회 -->
+<select id="getCustomerReview" parameterType="String" resultType="customerReview">
+	
+	select p.p_code, p.p_date, p.p_sum, p.p_ck, re.rv_date from pay_test p, review_test re where p.p_code = re.p_code
+
+</select>
+
+
+<!-- 고객QnA 리스트 조회 -->
+<select id="getCustomerQnA" parameterType="String" resultType="customerQnA">
+	
+	select qna_code, qna_title, qna_qdate, qna_adate from qna
+	
+</select>
+
 
 </mapper>

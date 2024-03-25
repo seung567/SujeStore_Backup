@@ -51,7 +51,7 @@
 			</div><!-- 주문 내역 조회-->
 			
 			<div class="subTitle reviews">
-				<a href="">후기 작성</a>
+				<a href="customerReview.do?id=<%=user%>">후기 작성</a>
 			</div><!-- 후기 작성 -->
 			
 			<div class="subTitle sujeTalk">
@@ -59,7 +59,7 @@
 			</div><!-- suje 톡톡 -->
 			
 			<div class="subTitle qna">
-				<a href="">Q&A 작성</a>
+				<a href="customerQnA.do?id=<%=user %>">Q&A 작성</a>
 			</div><!-- Q&A 작성 -->
 		</div>
 </body>

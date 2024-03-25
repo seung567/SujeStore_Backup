@@ -1,21 +1,33 @@
 package com.suje.controller.main;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.suje.controller.headerHtml.HeaderController;
+import com.suje.domain.adminviews.AdminManageVO;
 import com.suje.domain.main.MainLoginVO;
+import com.suje.service.adminviews.AdminManageService;
 import com.suje.service.main.MainLoginService;
 
 @Controller
 public class MainLoginController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(HeaderController.class);
+	
 	@Autowired
 	private MainLoginService mainloginService;
+	
+	@Autowired
+	private AdminManageService AdminManageService;
 	
 	//멤버 로그인
 	@RequestMapping("mainMemberLogin.do")
@@ -56,8 +68,8 @@ public class MainLoginController {
 			model.addAttribute("errorMessage", "아이디 혹은 비밀번호가 틀렸습니다.");
 			return "main/mainLogin";
 		}else {   
-			session.setAttribute("mainId", login.getMa_id());   
-			return "adminviews/adminmanage";
+			session.setAttribute("mainId", login.getMa_id()); 
+			return "forward:/adminmanage.do?page=1";
 		}
 	}
 	

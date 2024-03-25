@@ -71,12 +71,14 @@
 			<br /> <br />
 			<hr class="hr">
 			<h1 class="store_mainTitle">스토어 공지 수정</h1>
-
+ 
 			<c:if test="${not empty getListVO}">
-				<form class="store_mainInfo">
+				<form class="store_mainInfo" action="modifyNotiInfo.do" method="post">
 					<div class="store_subCategory">
-						<input type="hidden" name="id" value= "${s_id}">
-						<label class="store_subTitle">공지 유형</label> 
+						<input type="text" name="s_id" value= "${getListVO.s_id}">
+						<input type="hidden" name="notir_date" value= "${getListVO.notir_date}">
+						<input type="hidden" name="noti_code" value= "${getListVO.noti_code}">
+						<label class="store_subTitle">공지 유형</label>  
 						<select	class="notiInfo_selectBox" name="notit_code">
 							<option value="${getListVO.notit_code}">${getListVO.notit_code}</option>
 							<option value="1">공지사항</option>
@@ -88,7 +90,7 @@
 						<label class="store_subTitle">공지 작성 내용</label><br />
 						<textarea class="notiInfo_content" name="noti_content">${getListVO.noti_content}</textarea>
 					</div>
-					<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+					<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
 				</form>
 			</c:if>
 			<c:if test="${empty getListVO}">
@@ -106,7 +108,7 @@
 						<label class="store_subTitle">공지 작성 내용</label><br />
 						<textarea class="notiInfo_content" name="noti_content">내용을 입력하세요</textarea>
 					</div>
-					<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+					<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
 				</form>
 			</c:if>
 		</div>

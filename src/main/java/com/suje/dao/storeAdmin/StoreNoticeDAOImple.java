@@ -18,19 +18,28 @@ public class StoreNoticeDAOImple implements StoreNoticeDAO {
 	@Override
 	public List<StoreNoticeVO> storeNoticeListAll(StoreNoticeVO vo) {
 
-		System.out.println("=> 스토어 공지조회 Repository");
-		
+		System.out.println("=> 스토어 공지 리스트 조회 Repository");
+
 		return mybatis.selectList("StoreNoticeDAO.storeNoticeListAll", vo);
 
 	} 
-	
+
 	@Override
 	public StoreNoticeVO getNotiInfo(StoreNoticeVO vo) {
-		
-		System.out.println("=> 스토어 공지내용조회 Repository");
-		
+
+		System.out.println("=> 스토어 공지내용 조회 Repository");
+
 		return mybatis.selectOne("StoreNoticeDAO.getNotiInfo", vo);
-		
 	}
 
-}
+
+	@Override
+	public int modifyNotiInfo(StoreNoticeVO vo) {
+
+		System.out.println("=> 스토어 공지내용 수정 Repository");
+
+		return mybatis.update("StoreNoticeDAO.modifyNotiInfo", vo);
+
+	}
+
+	}

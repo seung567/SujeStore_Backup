@@ -15,13 +15,13 @@
 <script type="text/javascript">
 
 /* 테스트 중  */
-$(function() {
+/* $(function() {
     $(".submitBtn").click(function(event) {
         event.preventDefault(); // 기본 제출 동작 방지
         console.log("Submit 버튼이 클릭되었습니다.");
         alert("등록되었습니다.");
     });
-});
+}); */
 
 
 </script>

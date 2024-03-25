@@ -16,60 +16,7 @@
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
 <div class="storeContentsWrap">
-<div class="storeSubMenuBox">
-	<a href="#" class="storeProfileBox"><img src="./resources/img/basicProfileIconBig.png"/></a>
-	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
-	<ul class="storeCategoryArea">
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a href="#">
-					<span>스토어 페이지 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 등록</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 주문요청 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 최종주문 조회</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 주문 조회</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a>
-		</li>
-	</ul>
-		</div>
+<jsp:include page="storeSubMenuBar.jsp"></jsp:include>
 		<!-- storeSubMenuBox --> 
 		<div class="storeContentsBox">
 
@@ -78,8 +25,8 @@
 
 			<form action="updateStoreProfile.do" method="post" class="form-container">
 				<label for="storeName">스토어명</label> 
-				<input type="hidden" id="s_id" name="s_id" class="text-box" value="${vo.s_id}" />
-
+				<input type="text" id="s_id" name="s_id" class="text-box" value="${vo.s_id}" />
+				<br/>
 				<label for="storeCategory">스토어 카테고리</label> 
 				<select id="catem_code" name="catem_code" class="text-box">
 					<option value="${vo.catem_code}">${vo.catem_name}</option>

@@ -11,5 +11,7 @@ public class OrderListVO {
 	private String o_content, m_id, o_date, s_id;
 	
 	// 페이징 관련 메소드
-	private int totalPageCount;
+	private int totalPageCount,firstNum,endNum;
+	
+	
 }

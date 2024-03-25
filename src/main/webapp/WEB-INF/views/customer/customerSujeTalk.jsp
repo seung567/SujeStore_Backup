@@ -60,13 +60,14 @@
 						<!-- 주문 요청 내역 상단 정보 -->
 						<div>
 							
-							<c:forEach var="orderList" items="${orderList}">
+							<c:forEach var="orderList" items="${orderListTotal}">
 								<div>
 									<div class="storeSimpleInfo">
 										<img alt="" src="./resources/img/sujetalkstoreimg.png">
 										<div>${orderList. o_code}</div>
 									</div>
 									<div>${orderList. o_date}</div>
+									<input type="hidden" value="${ orderList. o_code}">
 								</div>
 								<div class="listBar"></div>
 							</c:forEach>
@@ -75,8 +76,8 @@
 						
 						<div>
 						◀
-						<c:forEach var="i" begin="0" end="5" step="1">
-							<a href="orderListPageNum.do?id=${id }&page=${i+1}">${i+1}</a>						
+						<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
+							<a href="customerSujeTalk.do?id=${id }&page=${i+1}">${i+1}</a>						
 						</c:forEach>
 						▶
 						</div>
@@ -384,5 +385,36 @@
 		
 	</div>
 </body>
+<script type="text/javascript">
+
+
+$(function(){
+
+    $(".storeSimpleInfo").parent().click(function(){
+			
+		$.ajax({
+		    type : "post",
+		    url : "orderDetailContext.do",
+		    data : {
+				orderNumReuslt : $(this).find("input").val()
+				},
+		    dataType : "json",
+			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			success : function(data) {
+				
+				var dataList = data;
+				console.log(dataList[0]);
+				
+		    },
+		    error : function(status){
+				console.log(status);
+		    }
+		});
+	
+    });
+    
+});
+
+</script>
 </html>
 

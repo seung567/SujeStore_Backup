@@ -1,19 +1,22 @@
 package com.suje.controller.customer;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.suje.domain.customer.EtcVO;
 import com.suje.domain.customer.OrderListVO;
 import com.suje.service.customer.CustomerOrderService;
-
-import lombok.RequiredArgsConstructor;
 
 @Controller
 //@RequiredArgsConstructor
@@ -23,7 +26,7 @@ public class CustomerOrderController {
 	
 	@Autowired
 	CustomerOrderService orderService;
-	
+	final int  pageCountNum = 5; // 각 페이지별 출력되는 목록의 수
 	
 	// 고객 주문 내역 조회 페이지 연결
 	@RequestMapping(value = "customerOrder")
@@ -34,24 +37,53 @@ public class CustomerOrderController {
 		return "/customer/customerOrderList";
 	}
 	
-	// 고객 SUJE 톡톡 페이지 연결
+	// 고객 SUJE 톡톡 페이지 연결(초기 페이징)
 	@RequestMapping(value = "customerSujeTalk")
 	public String sujeTalkTalk(
 			@RequestParam("id") String id, 
 			@RequestParam("page") int page,
-			Model model) {
+			Model model,
+			OrderListVO vo) {
 		
 		logger.info("sujeTalkTalk");
 		
 		// 전체 페이지 수 계산
 		int totalCountPage = orderService.getCountPageTotal(id);		
 		
+		if((totalCountPage/pageCountNum) < 0) {
+			totalCountPage = 1;
+		}else {
+			totalCountPage = totalCountPage/pageCountNum;
+		}
 		
+		// 부분 페이지 수 계산
+		int firstNum = (page-1) * pageCountNum + 1 ;
+		int endNum = page * pageCountNum;
+		
+		vo.setM_id(id);
+		vo.setFirstNum(firstNum);
+		vo.setEndNum(endNum);
+		List<OrderListVO> orderList = orderService.getOrderList(vo);
 		// 출력용 부분 페이지 출력
 		
+		model.addAttribute("totalCountPage",totalCountPage);
+		model.addAttribute("orderListTotal",orderList);
 		model.addAttribute("id",id);
 		
 		return "/customer/customerSujeTalk";
 	}
-
+	
+	
+	//주문요청사항 - 비동기
+	@RequestMapping(value="orderDetailContext", method = RequestMethod.POST, produces={"application/json"})
+	@ResponseBody
+	public List<EtcVO> orderEtcContext(@RequestParam  Map<String,String> oCode) {
+		
+		logger.info("orderEtcContext");
+		
+		List<EtcVO> etcVO = orderService.getEtcList(Integer.parseInt(oCode.get("orderNumReuslt")));
+		
+		return etcVO;
+		
+	}
 }

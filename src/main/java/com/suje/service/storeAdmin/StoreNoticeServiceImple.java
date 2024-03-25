@@ -24,11 +24,17 @@ public class StoreNoticeServiceImple implements StoreNoticeService {
 	  return dao.storeNoticeListAll(vo);
 	}
 	
-	
+	@Override
 	public StoreNoticeVO getNotiInfo(StoreNoticeVO vo){
 		System.out.println("=> 스토어 공지내용조회 Service");
 		return dao.getNotiInfo(vo);
 	}
 	
+	@Override
+	public int modifyNotiInfo(StoreNoticeVO vo) {
+		System.out.println("=> 스토어 공지내용조회 Service");
+		return dao.modifyNotiInfo(vo);
+		
+	}
  
 }

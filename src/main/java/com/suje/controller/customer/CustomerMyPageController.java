@@ -1,13 +1,13 @@
 package com.suje.controller.customer;
 
 import org.slf4j.Logger;
-
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.suje.domain.customer.MemberVO;
@@ -20,22 +20,32 @@ public class CustomerMyPageController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerMyPageController.class);
 	
 	@Autowired
-	CustomerInfoService service;
+	private CustomerInfoService service;
 	
-	@RequestMapping(value = "customerMyPage.do")
+	@RequestMapping(value = "customerMyPage")
 	public String getCustomerInfo(@RequestParam String id, Model model) {
 		
 		MemberVO vo = service.getCustomerInfo(id);
 
-		System.out.println("컨트롤러 실행");
+		System.out.println("=> CustomerMyPageController  => getCustomerInfo 실행");
 		
 		model.addAttribute("vo",vo);
 		
-		return "customer/customerMyPage";
-		
+		return "/customer/customerMyPage";
 	}
 	
-}
+	// 회원 정보 수정 처리.
+	@RequestMapping(value = "mypageModify" , method=RequestMethod.POST)
+	public String updateMypageInfo(@ModelAttribute("vo") MemberVO vo, Model model) {
+		System.out.println(vo.getM_id());
+		System.out.println("updateMypage 컨트롤 실행");
+		
+		int infoVO = service.updateMypageInfo(vo);
+		model.addAttribute("infoVO", infoVO);
+		System.out.println(infoVO);
+		return "redirect:/customerMyPage.do?id=" + vo.getM_id();
 
+	}
+}
 
 

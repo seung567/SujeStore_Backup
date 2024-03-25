@@ -7,6 +7,7 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
  
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,10 @@
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
-<div class="storeContentsWrap">
-<div class="storeSubMenuBox">
+
+ <div class="storeContentsWrap">
+ <jsp:include page="storeSubMenuBar.jsp"></jsp:include>
+<!--<div class="storeSubMenuBox">
 	<a href="#" class="storeProfileBox"><img src="./resources/img/basicProfileIconBig.png"/></a>
 	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
 	<ul class="storeCategoryArea">
@@ -70,29 +73,32 @@
 			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a>
 		</li>
 	</ul>
-</div> <!-- storeSubMenuBox -->
-
+</div> storeSubMenuBox
+ -->
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">스토어 공지 등록</h1>
-			<hr/>
+			<hr />
 
-			<form class="store_mainInfo">
-			<div class= "store_subCategory">
-				<label class="store_subTitle">공지 유형</label> 
-				<select class="notiInfo_selectBox">
-					<option selected="selected">======= 선택 =======</option>
-					<option>공지사항</option>
-					<option>배송안내</option>
-					<option>주문안내</option>
-				</select>
+			<div>
+				<form class="store_mainInfo" action="insertStoreNotiInfo.do" method="post">
+					<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id" />
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 유형</label> 
+						<select class="notiInfo_selectBox" name="notit_code">
+							<option value="choice">======= 선택 =======</option>
+							<option value="1">공지사항</option>
+							<option value="2">배송안내</option>
+							<option value="3">주문안내</option>
+						</select>
+					</div>
+					<div class="store_subCategory">
+						<label class="store_subTitle">공지 작성 내용</label><br />
+						<textarea class="notiInfo_content" name="noti_content">내용을 작성하세요</textarea>
+					</div>
+						
+					<button class="submitBtn" name="submitBtn">등록하기</button>
+				</form>
 			</div>
-			<div class= "store_subCategory">
-				<label class="store_subTitle">공지 작성 내용</label><br />
-				<textarea class="notiInfo_content">내용을 작성하세요</textarea>
-			</div>
-				
-				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
-			</form>
 		</div>
 		<!-- storeContentsBox -->
 	</div> <!-- storeContentsWrap -->

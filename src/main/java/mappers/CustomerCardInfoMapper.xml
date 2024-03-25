@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cardInfoDAO">
+
+	<select id="getCardInfo" parameterType="customerCardInfo" resultType="customerCardInfo">
+	
+		select 
+		 card_code,
+		 card_cvc,
+		 card_pass,
+		 substr(card_num,1,4)||'-'||substr(card_num,5,4)||'-'||substr(card_num,9,4)||'-'||substr(card_num,13,4) as cardNum,
+		 m_id,
+		 card_company,
+		 to_char(card_adate,'yyyy-mm-dd') as cardAdateResult from card where m_id = #{id}
+		 
+	</select>
+	
+		<update id="updateCardInfo" parameterType="updatedCardInfo" >  
+	
+		 update card set 
+		 card_company = #{card_company}, 
+		 card_num = #{card_num},
+		 card_adate = #{cardAdateResult},
+		 card_cvc = #{card_cvc},
+		 card_pass = #{card_pass}
+		 where m_id = #{m_id}
+		 
+	</update>
+
+</mapper>
+

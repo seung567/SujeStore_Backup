@@ -76,21 +76,24 @@
 			<h1 class="title">스토어 페이지 관리</h1>
 			<hr>
 
-			<form class="form-container">
+			<form action="updateStoreProfile.do" method="post" class="form-container">
 				<label for="storeName">스토어명</label> 
-				<input type="text" 
-					id="storeName" name="storeName" class="text-box" value="${vo.s_id}" disabled/>
-			</form>
+				<input type="hidden" id="s_id" name="s_id" class="text-box" value="${vo.s_id}" />
 
-			<form class="form-container">
 				<label for="storeCategory">스토어 카테고리</label> 
-				<select name="storeCategory" class="text-box">
-					<option value="option1">카테고리 1</option>
-					<option value="option2">카테고리 2</option>
-					<option value="option3">카테고리 3</option>
+				<select id="catem_code" name="catem_code" class="text-box">
+					<option value="${vo.catem_code}">${vo.catem_name}</option>
+					<option value="1">디저트</option>
+					<option value="2">전통간식</option>
+					<option value="3">반려동물식품</option>
+					<option value="4">의류</option>
+					<option value="5">주얼리</option>
+					<option value="6">수공예품</option>
+					<option value="7">잡화</option>
+					<option value="8">홈리빙</option>
 					<!-- 필요한 만큼 옵션을 추가할 수 있습니다. -->
 				</select>
-			</form>
+
 
 			<div class="image-container">
 				<label for="storeProfile">스토어 프로필 이미지</label> <img
@@ -99,20 +102,18 @@
 			</div>
 
 			<div class="image-container">
-				<label for="storeBackimg">스토어 배경 이미지</label> <img
-					id="backimgPreview" src="#" alt="배경 이미지 미리보기">
+				<label for="storeBackimg">스토어 배경 이미지</label>
+					<img id="backimgPreview" src="#" alt="배경 이미지 미리보기">
 				<button onclick="document.getElementById('storeBackimg').click()">불러오기</button>
 			</div>
-
-			<form class="form-container">
-				<label for="storeDescription">스토어 소개문구</label> <input type="text"
-					name="storeDescription" class="text-box2" value="${vo.s_text}" disabled/> <span
-					style="color: gray; font-size: 12px;">(100자 이하)</span>
-				 <div class="button-container">
-				<button>수정하기</button>
+				<label for="storeDescription">스토어 소개문구</label> 
+				<input type="text" name="s_text" class="text-box2" value="${vo.s_text}" /> 
+				<span style="color: gray; font-size: 12px;">(100자 이하)</span>
+				<div class="button-container">
+					<button>수정하기</button>
 				</div>
 			</form>
-		</div>
+		</div> 
 		<!-- storeContentsBox -->
 	</div>
 	<!-- storeContentsWrap -->

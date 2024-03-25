@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -53,45 +59,27 @@
 						<!-- 목록정보 -->
 						<!-- 주문 요청 내역 상단 정보 -->
 						<div>
-							<div>
-								<div class="storeSimpleInfo">
-									<img alt="" src="./resources/img/sujetalkstoreimg.png">
-									<div>CAKE FACTORY</div>
+							
+							<c:forEach var="orderList" items="${orderList}">
+								<div>
+									<div class="storeSimpleInfo">
+										<img alt="" src="./resources/img/sujetalkstoreimg.png">
+										<div>${orderList. o_code}</div>
+									</div>
+									<div>${orderList. o_date}</div>
 								</div>
-								<div>2024/03/13</div>
-							</div>
-							<!-- 주문 요청 내역 -->
-							<div class="listBar"></div>
-							<div>
-								<div class="storeSimpleInfo">
-									<img alt="" src="./resources/img/sujetalkstoreimg.png">
-									<div>CAKE FACTORY</div>
-								</div>
-								<div>2024/03/13</div>
+								<div class="listBar"></div>
+							</c:forEach>
 
-							</div>
-							<div class="listBar"></div>
-							<div>
-								<div class="storeSimpleInfo">
-									<img alt="" src="./resources/img/sujetalkstoreimg.png">
-									<div>CAKE FACTORY</div>
-								</div>
-								<div>2024/03/13</div>
-
-							</div>
-							<div class="listBar"></div>
-							<div>
-								<div class="storeSimpleInfo">
-									<img alt="" src="./resources/img/sujetalkstoreimg.png">
-									<div>CAKE FACTORY</div>
-								</div>
-								<div>2024/03/13</div>
-
-							</div>
-							<div class="listBar"></div>
+						</div><!-- 목록정보 -->
+						
+						<div>
+						◀
+						<c:forEach var="i" begin="0" end="5" step="1">
+							<a href="orderListPageNum.do?id=${id }&page=${i+1}">${i+1}</a>						
+						</c:forEach>
+						▶
 						</div>
-						<!-- 목록정보 -->
-						<div>< 1 2 3 ></div>
 					</div>
 				</div>
 

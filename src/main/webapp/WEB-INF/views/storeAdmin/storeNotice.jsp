@@ -19,7 +19,8 @@
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
 	<div class="storeContentsWrap">
-		<div class="storeSubMenuBox">
+	 <jsp:include page="storeSubMenuBar.jsp"></jsp:include>
+		<!-- <div class="storeSubMenuBox">
 			<a href="#" class="storeProfileBox"><img
 				src="./resources/img/basicProfileIconBig.png" /></a>
 			<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
@@ -54,8 +55,7 @@
 									상품 등록</span>
 						</a></li>
 					</ul></li>
-				<li class="storeFirstCategoryArea"><a href="#"
-					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
+				<li class="storeFirstCategoryArea"><a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
 					<ul class="storeSecondCategoryArea">
 						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
 									주문요청 관리</span>
@@ -70,22 +70,30 @@
 				<li class="storeFirstCategoryArea"><a href="#"
 					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a></li>
 			</ul>
-		</div>
+		</div> -->
 		<!-- storeSubMenuBox -->
 		<div class="storeContentsBox">
 			<h1 class="title">스토어 공지 조회/수정</h1>
 			<hr class="hr">
-			<div class="table-wrapper">
-				<table>
+			<div class="table-wrapper" >
+				<table name="noticeList">
 					<thead>
 						<tr>
-							<th>공지 유형</th>
-							<th>공지 내용</th>
-							<th>등록일자</th>
-							<th>수정일자</th>
+							<th name="notit_code">공지 유형</th>
+							<th name="noti_content">공지 내용</th>
+							<th name="notir_date">등록일자</th>
+							<th name="notim_date">수정일자</th>
 						</tr>
 					</thead>
 					<tbody>
+					<%-- <c:forEach items="${listVO }" var=info>
+					<tr>
+					<td> ${info.notit_code } </td>
+					<td> ${info.noti_content } </td>
+					<td> ${info.notir_date } </td>
+					<td> ${info.notim_date } </td>
+					</tr>
+					</c:forEach> --%>
 						<tr>
 							<td>공지 유형 1</td>
 							<td>공지 내용이 여기에 들어갑니다.</td>
@@ -106,9 +114,10 @@
 			<hr class="hr">
 			<h1 class="store_mainTitle">스토어 공지 수정</h1>
 			<form class="store_mainInfo">
+			<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id" />
 				<div class="store_subCategory">
 					<label class="store_subTitle">공지 유형</label> <select
-						class="notiInfo_selectBox">
+						class="notiInfo_selectBox" name="notit_code">
 						<option value="choice">======= 선택 =======</option>
 						<option value="1">공지사항</option>
 						<option value="2">배송안내</option>
@@ -117,7 +126,7 @@
 				</div>
 				<div class="store_subCategory">
 					<label class="store_subTitle">공지 작성 내용</label><br />
-					<textarea class="notiInfo_content">내용을 작성하세요</textarea>
+					<textarea class="notiInfo_content" name="noti_content">내용을 작성하세요</textarea>
 				</div>
 
 				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>

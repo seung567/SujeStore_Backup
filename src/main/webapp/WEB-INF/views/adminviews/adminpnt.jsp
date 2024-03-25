@@ -16,14 +16,7 @@
 <body>
 <%@ include file="../../views/headerHtml/adminHeader.jsp"%>
 <div class="adminContentsWrap">
-	<div class="adminSubMenuBox">
-		<ul class="adminCategoryArea">
-			<li class="adminFirstCategoryArea"><a href="adminmanage.jsp" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a></li>
-			<li class="storeFirstCategoryArea"><a href="adminpnt.jsp" class="adminFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a></li>
-			<li class="adminFirstCategoryArea"><a href="adminQ&A.jsp" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a></li>
-		</ul>
-	</div>
-	<!-- sadminSubMenuBox -->
+	<%@ include file="../../views/headerHtml/adminSubMenuForm.jsp"%>
 	<div class="adminContentsBox">
 		<h2 class="adminTitle">스토어 벌점 관리</h2>
 		<hr class="adminHr">

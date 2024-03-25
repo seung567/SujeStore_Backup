@@ -8,4 +8,6 @@ import lombok.Setter;
 public class StoreProfileVO {
     private String s_id;
     private String s_text;
+    private int catem_code;
+    private String catem_name;
 }

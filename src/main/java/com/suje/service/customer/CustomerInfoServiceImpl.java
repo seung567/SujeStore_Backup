@@ -15,11 +15,18 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
 	@Override
 	public MemberVO getCustomerInfo(String id) {
 		// TODO Auto-generated method stub
-		System.out.println("서비스 실행");
+		System.out.println("=> MyPageInfoService 실행");
 		MemberVO vo = dao.getCustomerInfo(id);
 		return vo;
 		
 	}
 	
+	@Override
+	public int updateMypageInfo(MemberVO vo) {
+		
+		System.out.println("=> MyPageInfoService 실행");
+		int vo1 = dao.updateMypageInfo(vo);
+		return vo1;
+	}
 	
 }

@@ -9,3 +9,4 @@
 <jsp:include page="/WEB-INF/views/adminviews/admininfo.jsp"></jsp:include>
 </body>
 </html>
+

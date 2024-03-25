@@ -14,7 +14,8 @@
 		<property value="jdbc:oracle:thin:@192.168.0.93:1521:suje" name="url"/>
 		<property name="username" value="suje"/>
 		<property name="password" value="game"/>
-	</bean>
+	</bean> 
+	
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />

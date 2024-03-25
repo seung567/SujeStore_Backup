@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +25,28 @@
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/customer/customerAccount.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+    
+    $('#bankAccount option').each(function() {
+	    if ($(this).text() == "${vo.m_acc_bank}" + "은행") {
+			$(this).prop('selected', true);
+	    }
+	});
+    
+	if("<%=request.getAttribute("state") %>" !="null"){
+		alert("<%=request.getAttribute("state") %>");
+		
+	}
+	
+});
+
+</script>
 </head>
 <body>
-
+	
 	<jsp:include page="/WEB-INF/views/headerHtml/memberHeader.jsp"></jsp:include>
 	<div class="main">
 	
@@ -35,34 +58,40 @@
 			<!-- Content 제목 -->
 			<div class="subtitle">계좌 등록/수정</div>
 			<div class="myPageLine"></div>
-			
+
 			<div class="mainInputFormTitle">
 				<!-- 각 입력부분 제목 -->
 				<div>
 					<div>은행명</div>
 					<div>계좌번호</div>
 				</div>
-				<!-- 각 입력부분 -->
-				<div>
-					<!-- 은행사 선택부분 -->
+				<form id="submitForm" action="AccountUpdate.do" method="post">
+					<!-- 각 입력부분 -->
 					<div>
-						<select>
-						 <option value="">은행 선택</option>
-							<option value="woori">우리은행</option>
-							<option value="ibkbank">기업은행</option>
-							<option value="shinhan">신한은행</option>
-							<option value="kakao">카카오뱅크</option>
-						</select>
+						<!-- 은행사 선택부분 -->
+						<div>
+							<select id="bankAccount" name="m_acc_bank">
+								<option value="">은행 선택</option>
+								<option value="우리">우리은행</option>
+								<option value="농협">농협은행</option>
+								<option value="기업">기업은행</option>
+								<option value="신한">신한은행</option>
+								<option value="카카오">카카오뱅크</option>
+							</select>
+						</div>
+
+						<!-- 계좌번호 입력부분 -->
+						<div>
+							<input type="text" value="${vo.m_acc_num }" name="m_acc_num"/>
+						</div>
+ 
 					</div>
-					
- 					<!-- 계좌번호 입력부분 -->
-					<div>
-						<input type="text" value="${vo.m_acc_num }"/>
-					</div>
-										
-				</div>
+					<input type="hidden" value="${vo.m_id}" name="m_id"> 
+				</form>
 			</div>
-			<div class="modifyBtn"><input type="button" value="등록 / 수정하기" /></div>
+			<div class="modifyBtn">
+				<input type="submit" value="등록 / 수정하기"  form="submitForm"/>
+			</div>
 			<div class="myPageLine"></div>
 		</div>
 		

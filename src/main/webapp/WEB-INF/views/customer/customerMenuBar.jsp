@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%
+	
+	// 세션 정보를 가져오는 부분
+ 	Object obj = session.getAttribute("mainId");
+	if(obj == null){
+		response.sendRedirect("LoginForm.jsp");
+		return;
+	}
+	
+	String user = (String)obj; 
+	
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +30,37 @@
 			<div>
 				<img width=120px height=120px alt="" src="./resources/img/basicProfileIconBig.png">
 			</div>
-			<div>abc123</div>
-			<div class="subTitle mypagebtn"><a href="customerMyPage.do?id=steel2310">마이페이지</a>
-			</div>
-			<div class="subTitle cardInsert"><a href="">카드 등록/수정</a></div>
-			<div class="subTitle accountInsert"><a href="customerAccount.do?id=yoon302">계좌 등록/수정</a></div>
-			<div class="subTitle orderList"><a href="">주문 내역 조회</a></div>
-			<div class="subTitle reviews"><a href="">후기 작성</a></div>
-			<div class="subTitle sujeTalk"><a href="">SUJE 톡톡</a></div>
-			<div class="subTitle qna"><a href="">Q&A 작성</a></div>
+			<div><%=user %></div>
+
+			
+			<div class="subTitle mypagebtn">
+				<a href="customerMyPage.do?id=<%=user %>">마이페이지</a>
+			</div><!-- 마이페이지 연결 -->
+			
+			
+			<div class="subTitle cardInsert">
+				<a href="cardInfomation.do?id=<%=user %>">카드 등록/수정</a>
+			</div><!-- 카드 등록/ 수정 -->
+			
+			<div class="subTitle accountInsert">
+				<a href="customerAccount.do?id=<%=user %>">계좌 등록/수정</a>
+			</div><!-- 계좌 등록/ 수정 -->
+			
+			<div class="subTitle orderList">
+				<a href="customerOrder.do?id=<%=user %>">주문 내역 조회</a>
+			</div><!-- 주문 내역 조회-->
+			
+			<div class="subTitle reviews">
+				<a href="">후기 작성</a>
+			</div><!-- 후기 작성 -->
+			
+			<div class="subTitle sujeTalk">
+				<a href="customerSujeTalk.do?id=<%=user %>&page=1">SUJE 톡톡</a>
+			</div><!-- suje 톡톡 -->
+			
+			<div class="subTitle qna">
+				<a href="">Q&A 작성</a>
+			</div><!-- Q&A 작성 -->
 		</div>
 </body>
 </html>

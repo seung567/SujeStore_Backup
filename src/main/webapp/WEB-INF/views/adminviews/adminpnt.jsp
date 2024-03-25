@@ -11,6 +11,12 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/admincss/adminpnt.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('.adminCategoryArea li:nth-child(2) a').addClass('checkedStateFirstCategory');
+});
+</script>
 <title>SUJE</title>
 </head>
 <body>

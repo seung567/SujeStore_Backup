@@ -16,7 +16,7 @@
 <div class="adminSubMenuBox">
 	<ul class="adminCategoryArea">
 		<li class="adminFirstCategoryArea">
-			<a href="adminmange.do" class="adminFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a>
+			<a href="adminmanage.do?page=1" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 입점 관리</a>
 		</li>
 		<li class="storeFirstCategoryArea">
 			<a href="adminpnt.do" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a>

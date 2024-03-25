@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +14,66 @@
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/admincss/adminmanage.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./resources/js/adminjs/adminModalJs.js"></script>
+<% 
+String pageTotalCount = (String)session.getAttribute("pageTotalCount");
+String adminId = (String)session.getAttribute("mainId");
+%>
+<!-- <script src="./resources/js/adminjs/adminModalJs.js"></script> -->
+<script type="text/javascript">
+$(function() {
+	
+<% if (request.getAttribute("storeAvail") != null) { %>
+	var storeAvail = "<%= request.getAttribute("storeAvail") %>";
+	alert(storeAvail);
+<% } %>
+
+	$('.adminCategoryArea li:first-child a').addClass('checkedStateFirstCategory');
+
+	var storeId;
+	var adminId = "<%= adminId %>";
+
+	// 모달창 오픈/클로즈
+	$('.storeMoreInfoBtn').click(function() {
+		//선택 스토어 정보 삽입
+		storeId = $(this).closest('.newStoreTableRow').find('td:first').text();
+        
+		sandPage(storeId);
+	});
+	$('.modalCloseBtn').click(function() {
+		$(".storeMoreInfoModal").slideUp(200);
+		$(".storeMoreInfoModalWrap").fadeOut(200);
+	});
+	
+	function sandPage(storeId) {
+		$.ajax({
+			url : "storeAvailInfo.do",
+			type : "post",
+			data: { s_id : storeId, ma_id : adminId },
+			dataType : "json",
+			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			success : function(storeInfo){
+				$('input[name=storeId]').val(storeInfo.s_id);
+				$('input[name=s_id]').val(storeInfo.s_id);
+				$('input[name=ma_id]').val(storeInfo.ma_id);
+				$('.storeCategory').val(storeInfo.catem_name);
+				$('input[name=storeName]').val(storeInfo.s_name);
+				$('input[name=businessNumber]').val(storeInfo.s_bnum);
+				$('input[name=email]').val(storeInfo.s_email);
+				$('input[name=phoneNumber]').val(storeInfo.s_tel);
+				$('input[name=address]').val(storeInfo.s_addr);
+				$('.bankCategory').val(storeInfo.s_bank);
+				$('input[name=accountNumber]').val(storeInfo.s_acc);
+				
+				$(".storeMoreInfoModalWrap").fadeIn(200);
+				$(".storeMoreInfoModal").slideDown(200);
+			},
+			error: function(err) {
+				alert("통신 에러가 발생했습니다 : "+err);
+			}
+		});
+    }
+});
+</script>
 <title>SUJE</title>
 </head>
 <body>
@@ -36,63 +97,29 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="newStoreTableRow">
-					<td>STORE1238</td>
-					<td>스토어 카테고리 값</td>
-					<td>STORE NAME</td>
-					<td>12341234</td>
-					<td><button class="storeMoreInfoBtn">조회</button></td>
-					<td>Y</td>
-					<td>추가 정보</td>
-					<td>2024/01/01</td>
-				</tr>
-				<tr class="newStoreTableRow">
-					<td>STORE1237</td>
-					<td>스토어 카테고리 값</td>
-					<td>STORE NAME</td>
-					<td>12341234</td>
-					<td><button class="storeMoreInfoBtn">조회</button></td>
-					<td>Y</td>
-					<td>추가 정보</td>
-					<td>2024/01/01</td>
-				</tr>
-				<tr class="newStoreTableRow">
-					<td>STORE1236</td>
-					<td>스토어 카테고리 값</td>
-					<td>STORE NAME</td>
-					<td>12341234</td>
-					<td><button class="storeMoreInfoBtn">조회</button></td>
-					<td>Y</td>
-					<td>추가 정보</td>
-					<td>2024/01/01</td>
-				</tr>
-				<tr class="newStoreTableRow">
-					<td>STORE1235</td>
-					<td>스토어 카테고리 값</td>
-					<td>STORE NAME</td>
-					<td>12341234</td>
-					<td><button class="storeMoreInfoBtn">조회</button></td>
-					<td>Y</td>
-					<td>추가 정보</td>
-					<td>2024/01/01</td>
-				</tr>
-				<tr class="newStoreTableRow">
-					<td>STORE1234</td>
-					<td>스토어 카테고리 값</td>
-					<td>STORE NAME</td>
-					<td>12341234</td>
-					<td><button class="storeMoreInfoBtn">조회</button></td>
-					<td>Y</td>
-					<td>추가 정보</td>
-					<td>2024/01/01</td>
-				</tr>
+				<c:forEach items="${storeList}" var="AdminManageVO">
+					<tr class="newStoreTableRow">
+						<td>${AdminManageVO.s_id}</td>
+						<td>${AdminManageVO.catem_name}</td>
+						<td>${AdminManageVO.s_name}</td>
+						<td>${AdminManageVO.s_bnum}</td>
+						<td><button class="storeMoreInfoBtn">조회</button></td>
+						<td>${AdminManageVO.sa_ck}</td>
+						<td>${AdminManageVO.sa_content}</td>
+						<td>
+							<fmt:parseDate value="${AdminManageVO.sa_date}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
+							<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
+		
 		<div class="pageingArea">
 			<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
-			<a href="#">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
+			<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
+				<a href="adminmanage.do?page=${i}">${i}</a>
+			</c:forEach>
 			<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
 		</div>
 	</div> <!-- adminContentsBox -->

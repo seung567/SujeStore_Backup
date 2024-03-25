@@ -27,7 +27,7 @@ public class HeaderController {
 	//어드민 메인페이지 이동
 	@RequestMapping("adminMain.do")
 	public String viewAdminMain() {
-		return "adminviews/adminmanage";
+		return "forward:/adminmanage.do?page=1";
 	}
 	
 	//헤더 페이지 이동

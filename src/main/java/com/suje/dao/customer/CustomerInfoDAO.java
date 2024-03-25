@@ -4,7 +4,8 @@ import com.suje.domain.customer.MemberVO;
 
 public interface CustomerInfoDAO {
 
-	
 	public MemberVO getCustomerInfo(String id);
+	
+	public int updateMypageInfo(MemberVO vo);
 	
 }

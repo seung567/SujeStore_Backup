@@ -6,9 +6,15 @@
 
 <select id="getStoreById" parameterType="String" resultType="storeProfile">
 
-	select s_id, s_text from store where s_id = #{id}
+	select s.s_id, c.catem_name, s.s_text from store s, cate_main c where s_id = #{id} and s.catem_code=c.catem_code
 
 </select>
+
+   <update id="updateStoreProfile" parameterType="storeProfile" >
+        UPDATE store
+        SET  s_text = #{s_text}, catem_code = #{catem_code} 
+        WHERE s_id = #{s_id}
+    </update>
 
 
 </mapper>

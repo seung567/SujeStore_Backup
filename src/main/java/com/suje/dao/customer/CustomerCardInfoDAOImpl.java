@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.suje.domain.customer.CardInfoVO;
 
 @Repository
-public class CardInfoDAOImpl implements CardInfoDAO {
+public class CustomerCardInfoDAOImpl implements CustomerCardInfoDAO {
 	
 	@Autowired
 	SqlSessionTemplate mybatis;
@@ -15,8 +15,17 @@ public class CardInfoDAOImpl implements CardInfoDAO {
 	@Override
 	public CardInfoVO getCardInfo(String id) {
 		
-		System.out.println("=> CardInfoDAO 실행");
+		System.out.println("CardInfoDAOImpl => getCardInfo 실행");
 		return mybatis.selectOne("cardInfoDAO.getCardInfo",id);
 		 
 	}
+	
+	@Override
+	public int updateCardInfo(CardInfoVO vo) {
+	
+		System.out.println("CardInfoDAOImpl => updateCardInfo 실행");
+		return mybatis.update("cardInfoDAO.updateCardInfo",vo);
+		
+	}
+
 }

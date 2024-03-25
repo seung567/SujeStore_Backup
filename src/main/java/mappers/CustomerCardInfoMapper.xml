@@ -16,5 +16,18 @@
 		 to_char(card_adate,'yyyy-mm-dd') as cardAdateResult from card where m_id = #{id}
 		 
 	</select>
+	
+		<update id="updateCardInfo" parameterType="updatedCardInfo" >  
+	
+		 update card set 
+		 card_company = #{card_company}, 
+		 card_num = #{card_num},
+		 card_adate = #{cardAdateResult},
+		 card_cvc = #{card_cvc},
+		 card_pass = #{card_pass}
+		 where m_id = #{m_id}
+		 
+	</update>
 
 </mapper>
+

@@ -7,8 +7,14 @@
 <!-- 계좌정보 조회 -->
 <select id="getCustomerAccount" parameterType="String" resultType="customerAccount">
 
-	select m_acc_num from member_acc where m_id = #{id}
+	select m_id,m_acc_num,m_acc_bank from member_acc where m_id = #{id}
 
 </select>
 
+<update id="updateAccount" parameterType="customerAccountInfo">
+	
+	update member_acc set M_ACC_BANK = #{m_acc_bank} ,M_ACC_NUM = #{m_acc_num}
+	where M_ID = #{m_id}
+
+</update>
 </mapper>

@@ -16,9 +16,16 @@ public class CustomerInfoDAOImpl implements CustomerInfoDAO {
 	@Override
 	public MemberVO getCustomerInfo(String id) {
 		// TODO Auto-generated method stub
-		System.out.println("레포지토리 실행");
+		System.out.println("CustomerInfoDAOImpl => getCustomerInfo 실행");
 		return mybatis.selectOne("CustomerDAO.getCustomerInfo",id);
 		
+	}
+	
+	@Override
+	public int updateMypageInfo(MemberVO vo) {
+		
+		System.out.println("CustomerInfoDAOImpl => updateMypageInfo 실행");
+		return mybatis.update("CustomerDAO.updateMypageInfo", vo);
 	}
 	
 	

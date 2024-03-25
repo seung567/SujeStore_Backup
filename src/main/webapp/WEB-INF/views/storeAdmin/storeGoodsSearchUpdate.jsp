@@ -12,64 +12,28 @@
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeAdmin/storeGoodsSearchUpdate.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.imgColumn-container img').click(function() {
+            var categoryNameFirst = $(this).data('category');
+            var categoryNameSecound = $(this).data('subcategory');
+            var categoryNameThird = $(this).data('thirdcategory');
+            var mainImageSrc = $(this).attr('src');
+
+            $('.goodsInfo_selectBox_First').val(categoryNameFirst);
+            $('.goodsInfo_selectBox_Secound').val(categoryNameSecound);
+            $('.goodsInfo_selectBox_Third').val(categoryNameThird);
+            $('.goodsImg').attr('src', mainImageSrc);
+        });
+    });
+</script>
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
 <div class="storeContentsWrap">
-<div class="storeSubMenuBox">
-	<a href="#" class="storeProfileBox"><img src="./resources/img/basicProfileIconBig.png"/></a>
-	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
-	<ul class="storeCategoryArea">
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 페이지 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 등록</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a href="#">
-					<span>스토어 작품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn ">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 주문요청 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 최종주문 조회</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 주문 조회</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a>
-		</li>
-	</ul>
-</div> <!-- storeSubMenuBox -->
+<jsp:include page="storeSubMenuBar.jsp"></jsp:include>
 
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">스토어 작품 조회/수정</h1>
@@ -78,16 +42,10 @@
 			
 			<hr class="topLine_imgColumn-container">
 			<div class="imgColumn-container">
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
-				<div class="column"><img src="./resources/img/goodsImgArea.png"></div> 
+			<c:forEach items="${goodVO}" var="goodVO">
+				<div class="column"><img src="./resources/img/${goodVO.g_pname}.jpg" 
+				data-category="${goodVO.catem_name}" data-subcategory="${goodVO.catemm_name}" data-thirdcategory="${goodVO.cates_name}"></div>
+			</c:forEach>
 			</div>
 			<hr class="bottomLine_imgColumn-container">
 			
@@ -108,7 +66,7 @@
 					<option>잡화</option>
 					<option>홈리빙</option>
 				</select> 
-				<select class="goodsInfo_selectBox">
+				<select class="goodsInfo_selectBox_Secound">
     				<option selected="selected">중분류</option>
     				<option>베이커리</option>
     				<option>케이크</option>
@@ -138,7 +96,7 @@
     				<option>패브릭</option>
     				<option>방향제</option>
 				</select> 
-				<select class="goodsInfo_selectBox">
+				<select class="goodsInfo_selectBox_Third">
 					<option selected="selected">소분류</option>
 					<option>롤케이크</option>
 					<option>버터크림빵</option>

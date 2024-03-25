@@ -30,8 +30,7 @@
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
-		
-		
+    
 	</typeAliases>
 	
 </configuration>

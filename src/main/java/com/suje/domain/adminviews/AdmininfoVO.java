@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AdmininfoVO {
-    private String id;
-    private String password;
-    private String name;
-    private String email;
-    private String phone;
+    private String MA_ID; 
+    private String MA_PASS; 
+    private String MA_NAME; 
+    private String MA_EMAIL; 
+    private String MA_TEL; 
 }

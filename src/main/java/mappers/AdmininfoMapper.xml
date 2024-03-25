@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- admininfodao.xml -->
-<mapper namespace="com.suje.dao.adminsviews.admininfodao">
-    <select id="getAdminInfo" parameterType="string" resultType="adminVO">
-        SELECT * FROM admin_table WHERE MA_ID = #{id}
+<!-- AdmininfoMapper.xml -->
+<mapper namespace="Admininfodao">
+    <select id="getAdminInfo" parameterType="string"
+        resultType="adminVO">
+        SELECT * FROM manager WHERE MA_ID = #{MA_ID}
     </select>
+
+    <update id="updateAdmin"
+        parameterType="adminVO">
+        UPDATE manager SET MA_PASS = #{MA_PASS}, MA_NAME = #{MA_NAME}, MA_EMAIL =
+        #{MA_EMAIL}, MA_TEL = #{MA_TEL} WHERE MA_ID = #{MA_ID}
+    </update>
     
-    <update id="updateAdmin" parameterType="adminVO">
-        UPDATE admin_table SET MA_PASS = #{password}, MA_NAME = #{name}, MA_EMAIL = #{email}, MA_TEL = #{phone} WHERE MA_ID = #{id}
+    <!-- 추가된 부분 -->
+    <update id="updateAdminExceptId"
+        parameterType="adminVO">
+        UPDATE manager SET MA_PASS = #{MA_PASS}, MA_NAME = #{MA_NAME}, MA_EMAIL =
+        #{MA_EMAIL}, MA_TEL = #{MA_TEL} WHERE MA_ID = #{MA_ID}
     </update>
 </mapper>

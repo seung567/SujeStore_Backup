@@ -13,14 +13,20 @@ public class Admininfodaoimpl implements Admininfodao {
     SqlSessionTemplate mybatis;
 
     @Override
-    public AdmininfoVO getAdminInfo(String id) {
-        System.out.println("래포지토리 실행");
-        return mybatis.selectOne("admininfodao.getAdminInfo", id);
+    public AdmininfoVO getAdminInfo(String MA_ID) { 
+        System.out.println("래포지토리 실행: 관리자 정보 가져오기");
+        return mybatis.selectOne("admininfodao.getAdminInfo", MA_ID); 
     }
 
     @Override
     public void updateAdmin(AdmininfoVO adminVO) {
         System.out.println("래포지토리 실행: 관리자 정보 업데이트");
-        mybatis.update("admininfodao.updateAdmin", adminVO);
+        mybatis.update("admininfodao.updateAdmin", adminVO); 
+    }
+
+    @Override
+    public void updateAdminExceptId(AdmininfoVO adminVO) {
+        System.out.println("래포지토리 실행: 아이디 제외 관리자 정보 업데이트");
+        mybatis.update("admininfodao.updateAdminExceptId", adminVO); 
     }
 }

@@ -19,12 +19,16 @@
 				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 페이지 관리</span>
 				</a></li>
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory" ><a href="storeNotice.do?id='doglove'">
-					<span>스토어 공지 관리</span>  
-				</a></li>
-				<li class="storeSecondCategoryBtn "><a href="storeNotiInfo.do?id='doglove'">
-					<span>스토어 공지 등록</span>
-				</a></li>
+				<li class="storeSecondCategoryBtn checkedStateSecondCategory" >
+					<a href="storeNoticeListAll.do?id=doglove">
+						<span>스토어 공지 조회/수정</span>  
+					</a>
+				</li>
+				<li class="storeSecondCategoryBtn ">
+					<a href="storeNotiInfo.do?id=doglove">
+						<span>스토어 공지 등록</span>
+					</a>
+				</li>
 				<li class="storeSecondCategoryBtn "><a href="#">
 					<span>스토어 작품 조회/수정</span>
 				</a></li>

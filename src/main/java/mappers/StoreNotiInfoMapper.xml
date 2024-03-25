@@ -12,12 +12,4 @@
 </insert>
 
 
-<select id="selectStoreNotice" parameterType="storeNotiInfo"> 
-
-	select * from noti_info where s_id = #{s_id}
-
-
-</select>
-
-
 </mapper>

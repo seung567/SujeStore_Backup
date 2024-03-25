@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StoreNotiInfoVO {
+public class StoreNoticeVO {
 
 	int noti_code, notit_code; 
 	String s_id, noti_content; 

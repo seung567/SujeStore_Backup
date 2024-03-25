@@ -2,9 +2,10 @@ package com.suje.dao.storeAdmin;
 
 import java.util.List;
 
-import com.suje.domain.storeAdmin.StoreNotiInfoVO;
+import com.suje.domain.storeAdmin.StoreNoticeVO;
 
 public interface StoreNoticeDAO {
 
-	 public List<StoreNotiInfoVO> selectStoreNotice(StoreNotiInfoVO vo); 
+	 public List<StoreNoticeVO> storeNoticeListAll(StoreNoticeVO vo); 
+	 public StoreNoticeVO getNotiInfo(StoreNoticeVO vo);
 }

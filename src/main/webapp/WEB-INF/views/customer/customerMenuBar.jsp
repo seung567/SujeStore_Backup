@@ -19,7 +19,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메뉴바</title>
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet" href="./resources/css/customer/customerMenuBar.css" />
 <script type="text/javascript"

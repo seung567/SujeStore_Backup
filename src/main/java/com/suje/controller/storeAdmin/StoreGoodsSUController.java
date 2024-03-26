@@ -7,10 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.suje.domain.storeAdmin.StoreGoodsSUVO;
+import com.suje.domain.storeAdmin.StoreProfileVO;
 import com.suje.service.storeAdmin.StoreGoodsSUService;
 
 @Controller
@@ -35,13 +38,11 @@ public class StoreGoodsSUController {
 		return "/storeAdmin/storeGoodsSearchUpdate";
 	}
 	
+    @RequestMapping(value="updateGoodsSU", method=RequestMethod.POST)
+    public String updateGoodsSU(@ModelAttribute StoreGoodsSUVO updateGoodsSU) {
+    	goodsService.updateGoodsSU(updateGoodsSU); 
+		logger.info(updateGoodsSU.getS_id());
+        return "redirect:/storeGoodsMainPage.do?id=" + updateGoodsSU.getS_id();
+    }
 	
-//	@RequestMapping(value = "storeGoodsSearchUpdate")
-//	public String showStoreGoods(@RequestParam String id, Model model) {
-//		List<StoreGoodsSUVO> goods = goodsService.getStoreGoodsById(id);
-//        model.addAttribute("vo", goods);
-//		
-//		logger.info("showStoreGoods"); 
-//		return "/storeAdmin/storeGoodsSearchUpdate";
-//	}
 }

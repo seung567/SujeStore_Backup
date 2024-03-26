@@ -22,7 +22,7 @@
 			<a href="adminpnt.do?page=1" class="adminFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 벌점 관리</a>
 		</li>
 		<li class="adminFirstCategoryArea">
-			<a href="adminQnA.do" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
+			<a href="adminQnA.do?page=1" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;Q&A 관리</a>
 		</li>
 		<!-- 
 		<li class="adminFirstCategoryArea">

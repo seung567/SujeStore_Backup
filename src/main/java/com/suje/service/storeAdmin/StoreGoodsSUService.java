@@ -7,5 +7,5 @@ import com.suje.domain.storeAdmin.StoreGoodsSUVO;
 public interface StoreGoodsSUService {
 
     public List<StoreGoodsSUVO> storeGoodsMainPage(String id);
-	/* void updateStoreGoodsInfo(StoreGoodsInfoVO updatedStoreGoodsInfo); */
+	void updateGoodsSU(StoreGoodsSUVO updateGoodsSU);
 }

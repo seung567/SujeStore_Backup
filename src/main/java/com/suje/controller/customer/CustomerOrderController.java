@@ -79,7 +79,7 @@ public class CustomerOrderController {
 	@ResponseBody
 	public List<EtcVO> orderEtcContext(@RequestParam  Map<String,String> oCode) {
 		
-		logger.info("orderEtcContext");
+		logger.trace("orderEtcContext");
 		
 		List<EtcVO> etcVO = orderService.getEtcList(Integer.parseInt(oCode.get("orderNumReuslt")));
 		

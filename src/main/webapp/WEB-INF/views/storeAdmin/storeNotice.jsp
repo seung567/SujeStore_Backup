@@ -29,8 +29,27 @@
 	        // 새로운 URL로 이동합니다.
 	        location.href = url;
 	    });
+	    
+	   
+		 $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
+		 $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(2)").addClass("checkedStateSecondCategory");
 	});
  
+ 
+
+
+	  //공지사항 영역 미리보기
+	   $(function() {
+	    $('.notiContent').each(function() {
+	        var text = $(this).text();
+	        if (text.length > 60) {
+	            text = text.substring(0, 30) + '...';
+	            $(this).text(text);
+	        }
+	    });
+	  });
+	  
+	  
 </script>
 
 
@@ -51,16 +70,24 @@
 							<th >공지 번호</th>
 							<th >공지 유형</th>
 							<th >공지 내용</th>
-							<th >등록일자</th>
-							<th >수정일자</th>
+							<th >최초 등록일자</th>
+							<th >최근 수정일자</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${StoreNoticeList }" var="listAll">
+						<c:forEach items="${StoreNoticeList }" var="listAll" >
 							<tr class="noticeListDetail" data-s_id="${listAll.s_id}">
 								<td>${listAll.noti_code }</td>
-								<td>${listAll.notit_code }</td>
-								<td>${listAll.noti_content }</td>
+								<td>
+								 <c:choose>
+					                <c:when test="${listAll.notit_code eq '2000'}" >공지사항</c:when>
+					                <c:when test="${listAll.notit_code eq '2001'}">배송안내</c:when>
+					                <c:when test="${listAll.notit_code eq '2002'}">주문안내</c:when>
+					                <c:otherwise>선택사항없음</c:otherwise>
+					            </c:choose>
+					            </td>
+								<%-- <td>${listAll.notit_code }</td> --%>
+								<td class="notiContent">${listAll.noti_content }</td>
 								<td>${listAll.notir_date }</td>
 								<td>${listAll.notim_date }</td>
 							</tr>
@@ -75,40 +102,70 @@
 			<c:if test="${not empty getListVO}">
 				<form class="store_mainInfo" action="modifyNotiInfo.do" method="post">
 					<div class="store_subCategory">
-						<input type="text" name="s_id" value= "${getListVO.s_id}">
+						<input type="hidden" name="s_id" value= "${getListVO.s_id}">
 						<input type="hidden" name="notir_date" value= "${getListVO.notir_date}">
 						<input type="hidden" name="noti_code" value= "${getListVO.noti_code}">
 						<label class="store_subTitle">공지 유형</label>  
-						<select	class="notiInfo_selectBox" name="notit_code">
-							<option value="${getListVO.notit_code}">${getListVO.notit_code}</option>
-							<option value="1">공지사항</option>
-							<option value="2">배송안내</option>
-							<option value="3">주문안내</option>
+						<select	class="notiInfo_selectBox" name="notit_code" id="notit_code">
+							<c:choose>
+			                    <c:when test="${getListVO.notit_code == '2000'}">
+			                        <option value="${getListVO.notit_code}" selected>공지사항</option>
+			                        <option value="2001">배송안내</option>
+			                        <option value="2002">주문안내</option>
+			                    </c:when>
+			                    <c:when test="${getListVO.notit_code == '2001'}">
+			                        <option value="${getListVO.notit_code}" selected>배송안내</option>
+			                        <option value="2000">공지사항</option>
+			                        <option value="2002">주문안내</option>
+			                    </c:when>
+			                    <c:when test="${getListVO.notit_code == '2002'}">
+			                        <option value="${getListVO.notit_code}" selected>주문안내</option>
+			                        <option value="2000">공지사항</option>
+			                        <option value="2001">배송안내</option>
+			                    </c:when>
+			                     <c:otherwise>
+			                     	<option value="" selected>선택사항없음</option>
+						            <option value="2000">공지사항</option>
+						            <option value="2001">배송안내</option>
+						            <option value="2002">주문안내</option>
+			                     </c:otherwise>
+			                </c:choose>
 						</select>
 					</div>
 					<div class="store_subCategory">
-						<label class="store_subTitle">공지 작성 내용</label><br />
+						<label class="store_subTitle">공지 내용</label><br />
 						<textarea class="notiInfo_content" name="noti_content">${getListVO.noti_content}</textarea>
 					</div>
-					<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
+					<!-- 수정하기 -->
+					<button class="submitBtn" name="modifyBtn" id="modifyBtn" >수정하기</button>
 				</form>
+					<!-- 삭제하기 -->
+			    <form action="deleteNotiInfo.do" method="post">
+					    <input type="hidden" name="s_id" value= "${getListVO.s_id}">
+						<input type="hidden" name="notir_date" value= "${getListVO.notir_date}">
+						<input type="hidden" name="notim_date" value= "${getListVO.notim_date}">
+						<input type="hidden" name="noti_content" value= "${getListVO.noti_content}">
+					    <input type="hidden" name="notiNum" value="${getListVO.noti_code}">
+					    <input type="hidden" name="notitNum" value="${getListVO.notit_code}">
+			        <button class="submitBtn" type="submit" id="deleteBtn">삭제하기</button>
+			    </form>
 			</c:if>
+			
 			<c:if test="${empty getListVO}">
 				<form class="store_mainInfo">
 					<div class="store_subCategory">
 						<label class="store_subTitle">공지 유형</label> <select
 							class="notiInfo_selectBox" name="notit_code">
-							<option value="0">======선택======</option>
-							<option value="1">공지사항</option>
-							<option value="2">배송안내</option>
-							<option value="3">주문안내</option>
+							<option value="">======선택======</option>
+							<option value="2000">공지사항</option>
+							<option value="2001">배송안내</option>
+							<option value="2002">주문안내</option>
 						</select>
 					</div>
 					<div class="store_subCategory">
-						<label class="store_subTitle">공지 작성 내용</label><br />
+						<label class="store_subTitle">공지 내용</label><br />
 						<textarea class="notiInfo_content" name="noti_content">내용을 입력하세요</textarea>
 					</div>
-					<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
 				</form>
 			</c:if>
 		</div>

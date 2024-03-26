@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+
 <body>
 
 <!-- <div class="storeContentsWrap"> -->
@@ -14,12 +16,12 @@
 	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
 	<ul class="storeCategoryArea">
 		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어 관리</a>
+			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
 			<ul class="storeSecondCategoryArea">
 				<li class="storeSecondCategoryBtn"><a href="#">
 					<span>스토어 페이지 관리</span>
 				</a></li>
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory" >
+				<li class="storeSecondCategoryBtn" >
 					<a href="storeNoticeListAll.do?id=doglove">
 						<span>스토어 공지 조회/수정</span>  
 					</a>
@@ -29,10 +31,12 @@
 						<span>스토어 공지 등록</span>
 					</a>
 				</li>
-				<li class="storeSecondCategoryBtn "><a href="#">
+				<li class="storeSecondCategoryBtn ">
+				<a href="storeGoodsMainPage.do?id=<%=user%>">
 					<span>스토어 작품 조회/수정</span>
 				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
+				<li class="storeSecondCategoryBtn">
+				<a href="#">
 					<span>스토어 작품 등록</span>
 				</a></li>
 			</ul>

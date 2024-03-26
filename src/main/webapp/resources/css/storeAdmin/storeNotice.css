@@ -198,18 +198,36 @@ tr:hover {
 	font-size: 20px;
 	width: 300px;
 	height: 50px;
-	border: 3px solid #ADEFD1;
+	border: 5px solid #ADEFD1;
 	border-radius: 5px;
-	text-align: center;
+	text-align:center;
+}
+
+.notiInfo_selectBox:focus {
+	outline: 2px solid #ADEFD1;
+	border: 1px solid #ADEFD1;
+	cursor: pointer;
+}
+
+
+.notiInfo_selectBox option:focus {
+	cursor: pointer;
 }
 
 .notiInfo_content {
-	border: 4px solid #ADEFD1;
-	width: 1130px;
+	border: 5px solid #ADEFD1;
+	width: 1130px; 
 	height: 200px;
 	margin-top: 10px;
 	margin-left: 20px;
 	font-size: 20px;
+	
+}
+
+
+.notiInfo_content:focus {
+	outline: 2px solid #ADEFD1;
+	border: 1px solid #ADEFD1;
 }
 
 .store_subCategory {
@@ -217,6 +235,7 @@ tr:hover {
 }
 
 .submitBtn {
+	float: left;
 	background-color: #ADEFD1;
 	width: 300px;
 	height: 50px;

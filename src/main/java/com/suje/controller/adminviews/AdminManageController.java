@@ -1,7 +1,5 @@
 package com.suje.controller.adminviews;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.suje.domain.adminviews.AdminManageVO;
-import com.suje.domain.main.MainLoginVO;
 import com.suje.service.adminviews.AdminManageService;
 
 @Controller

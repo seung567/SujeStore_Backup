@@ -35,8 +35,10 @@ public class HeaderController {
 	public String viewPage(@PathVariable String step) {
 		if(step.contains("main")) {
 			return "main/"+step;
-		} else {
+		} else if(step.contains("admin")) {
 			return "adminviews/"+step;
+		} else {
+			return "redirect: index.jsp";
 		}
 	}
 }

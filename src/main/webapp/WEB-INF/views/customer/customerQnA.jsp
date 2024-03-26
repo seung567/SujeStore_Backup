@@ -87,8 +87,40 @@
 	<!-- Modal QnA 답변조회 부분 -->
   		<div class="qnaaModal">
 			<jsp:include page="/WEB-INF/views/customer/Modal/qnaaModal.jsp"></jsp:include>
-		</div>  
-	
+		</div>  	
 
 </body>
+
+<script type="text/javascript">
+
+$(function() {
+	$(".regit").click(regit);
+	$(".UrlMove").click(function(){
+		location.href = "customerQnA.do?id=<%= request.getParameter("id")%>"
+	});
+});
+
+function regit() {
+	var value = "<%= request.getParameter("id")%>";
+	$.ajax({
+		url : "customerQnAModal.do", 
+		type : "get",
+		data:{id : value},
+		dataType : "json",
+		contentType : 'application/json; charset=utf-8',
+        beforeSend : function(){
+            $(".qnaqModal").slideDown(200);            
+          },
+          success : function(data) { 
+              var dataList = data;
+              console.log(dataList);
+              $('#m_id').val(dataList[0].m_id);
+     		 
+            }
+		
+	});
+}
+
+</script>
+
 </html>

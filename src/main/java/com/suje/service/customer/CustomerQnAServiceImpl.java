@@ -16,10 +16,16 @@ public class CustomerQnAServiceImpl implements CustomerQnAService {
 	
 	@Override
 	public List<QnAVO> getCustomerQnA(String id) {
-	
 		System.out.println("=> CustomerQnAService 실행");
 		List<QnAVO> vo = dao.getCustomerQnA(id);
 		return vo;
 	}
+	
+	@Override
+	public void insertQnA(QnAVO vo) {
+		System.out.println("=> Q&A작성 Service 실행");
+		dao.insertQnA(vo);
+	}
+	
 
 }

@@ -10,8 +10,11 @@
 </select>
 <!-- 스토어 로그인 -->
 <select id="getStoreLogin" parameterType="mainLoginVO" resultType="mainLoginVO">
-	SELECT s.s_id, s.s_pass, a.sa_ck FROM store s, store_avail a 
-	WHERE s.s_id=a.s_id AND s.s_id=#{s_id} AND s.s_pass=#{s_pass}
+	SELECT s_id, s_pass, sa_ck 
+	FROM (SELECT s.s_id, s.s_pass, a.sa_ck, a.sa_date FROM store s, store_avail a
+		WHERE s.s_id=a.s_id AND s.s_id=#{s_id} AND s.s_pass=#{s_pass}
+		ORDER BY sa_date DESC)
+	WHERE rownum=1
 </select>
 <!-- 관리자 로그인 -->
 <select id="getAdminLogin" parameterType="mainLoginVO" resultType="mainLoginVO">

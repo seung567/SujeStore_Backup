@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminQnADao">
+
+	<!-- getQnAList : 전체 QnA 테이블 호출 -->
+	<resultMap id="QnAResult" type="AdminQnAVO">
+		<result property="qna_code" column="QNA_CODE" />
+		<result property="qna_title" column="QNA_TITLE" />
+		<result property="qna_content" column="QNA_CONTENT" />
+		<result property="qna_reply" column="QNA_REPLY" />
+		<result property="qna_qdate" column="QNA_QDATE" />
+		<result property="qna_adate" column="QNA_ADATE" />
+		<result property="m_id" column="M_ID" />
+	</resultMap>
+
+	<select id="getQnAList" parameterType="AdminQnAVO"
+		resultMap="QnAResult">
+		SELECT *
+		FROM (
+		SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY, QNA_QDATE, QNA_ADATE,
+		M_ID, ROWNUM AS RN
+		FROM (
+		SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY, QNA_QDATE, QNA_ADATE,
+		M_ID
+		FROM QNA
+		ORDER BY QNA_QDATE DESC
+		)
+		)
+		WHERE RN BETWEEN #{firstNum} AND #{endNum}
+	</select>
+
+	<!-- qna 전체 행수 -->
+	<select id="getTotalCountPage" resultType="integer">
+		SELECT COUNT(*) AS cnt
+		FROM QNA
+	</select>
+
+</mapper>

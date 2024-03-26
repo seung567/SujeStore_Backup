@@ -20,21 +20,31 @@ public class StoreNoticeServiceImple implements StoreNoticeService {
 	@Override
 	public List<StoreNoticeVO> storeNoticeListAll(StoreNoticeVO vo) {
 		
-		System.out.println("=> 스토어 공지조회 Service");
+		System.out.println("=> 스토어 공지 조회 Service");
 	  return dao.storeNoticeListAll(vo);
 	}
 	
 	@Override
 	public StoreNoticeVO getNotiInfo(StoreNoticeVO vo){
-		System.out.println("=> 스토어 공지내용조회 Service");
+		System.out.println("=> 스토어 공지내용 조회 Service");
 		return dao.getNotiInfo(vo);
 	}
 	
 	@Override
 	public int modifyNotiInfo(StoreNoticeVO vo) {
-		System.out.println("=> 스토어 공지내용조회 Service");
+		System.out.println("=> 스토어 공지내용 수정 Service");
 		return dao.modifyNotiInfo(vo);
 		
 	}
+
+	@Override
+	public int deleteNotiInfo(int notiNum) {
+		System.out.println("=> 스토어 공지 삭제 Service");
+		return dao.deleteNotiInfo(notiNum);
+		
+	}
+	
+	
+	
  
 }

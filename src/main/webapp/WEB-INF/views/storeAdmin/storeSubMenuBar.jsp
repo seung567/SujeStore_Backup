@@ -18,6 +18,8 @@ String user = (String) obj;
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+
 <body>
 
 	<!-- <div class="storeContentsWrap"> -->
@@ -27,7 +29,7 @@ String user = (String) obj;
 		<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
 		<ul class="storeCategoryArea">
 			<li class="storeFirstCategoryArea">
-				<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;스토어관리</a>
+				<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어관리</a>
 				<ul class="storeSecondCategoryArea">
 					
 					<!-- 스토어 페이지 관리 -->
@@ -38,7 +40,7 @@ String user = (String) obj;
 					</li>
 					
 					<!-- 스토어 공지 조회 / 수정 -->
-					<li class="storeSecondCategoryBtn checkedStateSecondCategory">
+					<li class="storeSecondCategoryBtn">
 						<a href="storeNoticeListAll.do?id=doglove">
 							<span>스토어 공지 조회/수정</span>
 						</a>
@@ -118,6 +120,7 @@ String user = (String) obj;
 		</ul>
 	</div>
 	<!-- storeSubMenuBox -->
+
 
 </body>
 </html>

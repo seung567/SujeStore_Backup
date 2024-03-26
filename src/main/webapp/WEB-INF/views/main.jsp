@@ -160,7 +160,7 @@ $(function() {
 			</li>
 		</ul> <!-- storeReview -->
 	</div>
-	<a href="#" class="mainMoreBtn">실시간 후기 더보기</a>
+	<a href="mainRealTimeReview.do" class="mainMoreBtn">실시간 후기 더보기</a>
 	<div class="mainTitle">실시간 스토어 피드</div>
 	<div class="storeFeedViewArea mainSlide">
 		<ul class="storeFeed">
@@ -172,7 +172,7 @@ $(function() {
 			<li><img src="./resources/img/exImg.png"/></li>
 		</ul> <!-- "storeFeed" -->
 	</div>
-	<a href="#" class="mainMoreBtn">스토어 더보기</a>
+	<a href="mainPopularRank.do" class="mainMoreBtn">스토어 더보기</a>
 </div> <!-- contentsWrap -->
 <footer></footer>
 </body>

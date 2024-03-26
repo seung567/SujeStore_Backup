@@ -10,23 +10,17 @@ import com.suje.domain.adminviews.AdmininfoVO;
 public class Admininfodaoimpl implements Admininfodao {
     
     @Autowired
-    SqlSessionTemplate mybatis;
+    private SqlSessionTemplate mybatis;
 
     @Override
-    public AdmininfoVO getAdminInfo(String MA_ID) { 
-        System.out.println("래포지토리 실행: 관리자 정보 가져오기");
-        return mybatis.selectOne("admininfodao.getAdminInfo", MA_ID); 
-    }
-
-    @Override
-    public void updateAdmin(AdmininfoVO adminVO) {
-        System.out.println("래포지토리 실행: 관리자 정보 업데이트");
-        mybatis.update("admininfodao.updateAdmin", adminVO); 
+    public AdmininfoVO getAdminInfo(String adminId) { 
+        System.out.println("Repository 실행: 관리자 정보 가져오기");
+        return mybatis.selectOne("com.suje.dao.adminviews.Admininfodao.getAdminInfo", adminId); 
     }
 
     @Override
     public void updateAdminExceptId(AdmininfoVO adminVO) {
-        System.out.println("래포지토리 실행: 아이디 제외 관리자 정보 업데이트");
-        mybatis.update("admininfodao.updateAdminExceptId", adminVO); 
+        System.out.println("Repository 실행: 아이디 제외 관리자 정보 업데이트");
+        mybatis.update("com.suje.dao.adminviews.Admininfodao.updateAdminExceptId", adminVO); 
     }
 }

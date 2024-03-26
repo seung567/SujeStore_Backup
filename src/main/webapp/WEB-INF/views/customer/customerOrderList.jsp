@@ -65,12 +65,8 @@
 						<td>11,900</td>
 						<td>N</td>
 						<td>2024/03/01</td>
-						<td>
-						
-								<input class="joinCheck" type="button" value="조회">
-
-							</td>
-						<td><input type="button" value="요청"></td>
+						<td><input class="joinCheck" type="button" value="조회"></td>
+						<td><input class="payBackCall" type="button" value="요청"></td>
 						<td><input type="button" value="요청"></td>
 					</tr>
 					<tr>
@@ -288,6 +284,7 @@
 
     $(function() {
 		$(".joinCheck").click(setAjex);
+		$(".payBackCall").click(payback);
     });
 
     function setAjex() {
@@ -304,7 +301,7 @@
 		    contentType : 'application/json; charset=utf-8',
 		    beforeSend : function(){
 				$(".orderListWrap").fadeIn(200);
-				$(".orderInfoModal").slideDown(200);				
+				$(".payCancelModalView").slideDown(200);				
 		    },
 		    success : function(data) {
 					
@@ -313,6 +310,20 @@
 				$('#sizeInput').val(dataList[1]);
 	
 		    }
+		});
+    }
+    
+    function payback(){
+		$.ajax({
+		    url : "insert.do",
+		    type : "get",
+		    dataType : "json",
+		    contentType : 'application/json; charset=utf-8',
+		    beforeSend : function(){
+			$(".orderListWrap").fadeIn(200);
+			$(".orderInfoModal").slideDown(200);				
+	    },   
+		    
 		});
     }
 </script>

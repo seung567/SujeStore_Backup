@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 유승민 사용 매퍼 -->
+<mapper namespace="storeOrderListDao">
+
+<select id="getStoreOrderList" parameterType="String" resultType="storeOrderList">
+
+	select
+	o_code,
+	o_content,
+	m_id,
+	to_char(o_date,'yyyy-mm-dd') as o_date,
+	s_id 
+	from orderinfo where s_id = #{storeID}
+
+</select>
+
+
+</mapper>

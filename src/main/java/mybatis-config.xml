@@ -14,6 +14,7 @@
 		<typeAlias alias="customerAccountInfo" type="com.suje.domain.customer.AccountVO"/>
 		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
 		<typeAlias alias="customerEtcList" type="com.suje.domain.customer.EtcVO"/>
+		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
 	
 
 		<!-- 장경희 설정 부분 -->

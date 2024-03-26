@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
 <!DOCTYPE html>
@@ -22,15 +22,12 @@
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
-<link rel="stylesheet"
-	href="./resources/css/customer/customerSujeTalk.css" />
+<link rel="stylesheet" href="./resources/css/customer/customerSujeTalk.css" />
 
 <!-- 자바스크립트 연결 -->
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript"
-	src="./resources/js/customer/customerSujeTalk.js"></script>
-	
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="./resources/js/customer/customerSujeTalk.js"></script>
+
 </head>
 <body>
 
@@ -59,7 +56,7 @@
 						<!-- 목록정보 -->
 						<!-- 주문 요청 내역 상단 정보 -->
 						<div>
-							
+
 							<c:forEach var="orderList" items="${orderListTotal}">
 								<div>
 									<div class="storeSimpleInfo">
@@ -72,14 +69,15 @@
 								<div class="listBar"></div>
 							</c:forEach>
 
-						</div><!-- 목록정보 -->
-						
+						</div>
+						<!-- 목록정보 -->
+
 						<div>
-						◀
-						<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
-							<a href="customerSujeTalk.do?id=${id }&page=${i+1}">${i+1}</a>						
-						</c:forEach>
-						▶
+							◀
+							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
+								<a href="customerSujeTalk.do?id=${id }&page=${i+1}">${i+1}</a>
+							</c:forEach>
+							▶
 						</div>
 					</div>
 				</div>
@@ -93,7 +91,8 @@
 							<span>주문 요청 내역</span>
 						</div>
 						<div>
-							<span>주문 요청 번호</span> <span><input type="text" /></span>
+							<span>주문 요청 번호</span> 
+							<span><input class="orderNum" type="text" /></span>
 						</div>
 					</div>
 
@@ -105,7 +104,7 @@
 								<div>
 									<img src="./resources/img/custmerLogo.png">
 								</div>
-								<div>abc123</div>
+								<div></div>
 							</div>
 							<div>2024/03/13 09:00</div>
 						</div>
@@ -116,237 +115,14 @@
 						<!-- 요청내용 -->
 						<div class="orderMainContent">
 							<div class="orderMainContentInner">
+	
+								<!-- 대화출력 -->
+
+
+
 
 								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
 
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div class="chatDetali">
-
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										</div>
-										<div>CAKE FACTORY</div>
-
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div><input id="orderCheck" type="button" value="최종 주문서 확인"/></div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png">
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div class="dateDetail">2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
 							</div>
 						</div>
 						<!-- 요청내용 -->
@@ -374,47 +150,83 @@
 	</div>
 	<!-- Modal -->
 	<div class="modalWrap">
-	
+
 		<div class="orderCheckModal">
 			<jsp:include page="./Modal/orderInfoModal.jsp"></jsp:include>
 		</div>
-		
+
 		<div class="payResultModal">
 			<jsp:include page="./Modal/payModal.jsp"></jsp:include>
 		</div>
-		
+
 	</div>
 </body>
 <script type="text/javascript">
-
-
-$(function(){
-
-    $(".storeSimpleInfo").parent().click(function(){
-			
-		$.ajax({
-		    type : "post",
-		    url : "orderDetailContext.do",
-		    data : {
-				orderNumReuslt : $(this).find("input").val()
-				},
-		    dataType : "json",
-			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
-			success : function(data) {
-				
-				var dataList = data;
-				console.log(dataList[0]);
-				
-		    },
-		    error : function(status){
-				console.log(status);
-		    }
-		});
+    $(function() {
 	
-    });
-    
-});
+	$(".storeSimpleInfo").parent().click(function() {
 
+	    $.ajax({
+			type : "post",
+			url : "orderDetailContext.do",
+			data : {
+			    orderNumReuslt : $(this).find("input").val()
+			},
+			dataType : "json",
+			contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+			beforeSend : function(){
+			    
+			    if( $(".orderMainDetail") != ""){
+					$(".orderMainDetail").remove();
+					console.log($(".orderMainDetail").val());
+			    } 
+			},
+			success : function(data) {
+			    
+			    	$(".customerInfo div:first-child div:nth-child(2)").text(data[0].s_id);
+			    
+					$(data).each(function(index,item){
+						
+					    $(".orderNum").val(item.o_code);
+					    
+					    var mainDiv = $(".orderMainContentInner");
+					    var mainDetailDiv = $("<div class=orderMainDetail></div>");
+				    
+					    var chatDetail = $("<div class=charDetail></div>");
+				    
+				    	mainDiv.append(mainDetailDiv);
+				    	mainDetailDiv.append(chatDetail);
+				    	
+				    	// 대화 사용자 사진
+				    	if(item.etc_type_code == 77000){
+					    	chatDetail.append("	<div><img src='./resources/img/custmerLogo.png'></div>");
+				    	}else{
+				    		chatDetail.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>");    
+				    	}
+				    	
+				    	//대화 사용자명
+				    	if(item.etc_type_code == 77000){
+				    		chatDetail.append("	<div>" + item.m_id + "</div>");
+				    	}else{
+				    		chatDetail.append("<div>" + item.s_id + "</div>");    
+				    	}	
+						
+				    	mainDetailDiv.append("<div><input id='orderCheck' type='button' value='"+item.etc_content+"' /></div>");
+				    	mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>");
+				    	mainDetailDiv.append("<div class='dateDetail'>2024-03-19</div>");
+				    	
+				    	
+				    	$(".orderMainContent").css("overflow" , "auto");
+					});
+
+			},
+			error : function(status) {
+			    console.log(status);
+			}
+	});
+
+});
+});
 </script>
 </html>
 

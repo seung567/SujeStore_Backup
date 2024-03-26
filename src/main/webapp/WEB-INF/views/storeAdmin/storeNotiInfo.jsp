@@ -6,22 +6,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
- 
- 
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript">
 
-/* 테스트 중  */
-/* $(function() {
-    $(".submitBtn").click(function(event) {
-        event.preventDefault(); // 기본 제출 동작 방지
-        console.log("Submit 버튼이 클릭되었습니다.");
-        alert("등록되었습니다.");
-    });
-}); */
+
+$(function() {
+	
+	$(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
+	$(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(3)").addClass("checkedStateSecondCategory");
+	
+}); 
 
 
 </script>
@@ -43,11 +42,11 @@
 					<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id" />
 					<div class="store_subCategory">
 						<label class="store_subTitle">공지 유형</label> 
-						<select class="notiInfo_selectBox" name="notit_code">
-							<option value="choice">======= 선택 =======</option>
-							<option value="1">공지사항</option>
-							<option value="2">배송안내</option>
-							<option value="3">주문안내</option>
+						<select class="notiInfo_selectBox" name="notit_code" id="notit_code">
+							<option value="">======= 선택 =======</option>
+							<option value="2000">공지사항</option>
+							<option value="2001">배송안내</option>
+							<option value="2002">주문안내</option>
 						</select>
 					</div>
 					<div class="store_subCategory">

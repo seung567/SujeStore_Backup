@@ -72,15 +72,6 @@ public class StoreNoticeController {
 		
 		System.out.println("modifyNotiInfo 실행");
 		
-		
-		
-		logger.info("getNoti_code : "+ vo.getNoti_code());
-		logger.info("getNoti_content : "+ vo.getNoti_content());
-		logger.info("getNotim_date : "+ vo.getNotim_date());
-		logger.info("getNotir_date : "+ vo.getNotir_date());
-		logger.info("getNotit_code : "+ vo.getNotit_code());
-		logger.info("getS_id : "+ vo.getS_id());
-		
 		int result = noticeService.modifyNotiInfo(vo);
 		model.addAttribute("result", result);
 		
@@ -90,6 +81,28 @@ public class StoreNoticeController {
 		return "/storeAdmin/storeNotice";
 		
 	}
+	
+	
+	@RequestMapping(value = "deleteNotiInfo", method = RequestMethod.POST)
+    public String deleteNotiInfo(@RequestParam("notiNum") int notiNum, StoreNoticeVO vo, Model model) {
+      
+		logger.info("getNoti_code : "+ vo.getNoti_code());
+		logger.info("getNoti_content : "+ vo.getNoti_content());
+		logger.info("getNotim_date : "+ vo.getNotim_date());
+		logger.info("getNotir_date : "+ vo.getNotir_date());
+		logger.info("getNotit_code : "+ vo.getNotit_code());
+		logger.info("getS_id : "+ vo.getS_id());
+		
+		int result = noticeService.deleteNotiInfo(notiNum);
+        model.addAttribute("result", result);
+        
+		
+		  List<StoreNoticeVO> list = noticeService.storeNoticeListAll(vo);
+		  model.addAttribute("StoreNoticeList", list);
+		 
+		
+        return "/storeAdmin/storeNotice"; // 삭제 후 화면 이동 경로
+    }
 	
 	
 	

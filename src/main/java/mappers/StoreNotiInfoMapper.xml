@@ -6,8 +6,8 @@
 
 <insert id="insertStoreNotiInfo" parameterType="storeNotiInfo">
 
-	  INSERT INTO noti_info(NOTI_CODE, NOTI_CONTENT, NOTIR_DATE,S_ID)
-        VALUES (noti_info_sqn.nextval, #{noti_content}, sysdate, #{s_id})
+	  INSERT INTO noti_info(NOTI_CODE, NOTI_CONTENT, NOTIR_DATE,NOTIT_CODE,S_ID)
+        VALUES (noti_info_sqn.nextval, #{noti_content}, sysdate, #{notit_code}, #{s_id})
 
 </insert>
 

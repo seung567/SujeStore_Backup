@@ -35,27 +35,13 @@ public class StoreNotiInfoController {
 	}
 
 
-	/*
-	 * @RequestMapping(value = "insertStoreNotiInfo", method = RequestMethod.POST)
-	 * //@PostMapping(value = "storeNotiInsertPost") 
-	 * public String insertStoreNotiInfo(HttpSession session) {
-	 * System.out.println("Post 방식으로 출력");
-	 * return "redirect:/storeNotiInfo.do"; 
-	 * }
-	 */
-
 	@RequestMapping(value = "insertStoreNotiInfo", method = RequestMethod.POST)
 	public String insertStoreNotiInfo(@ModelAttribute("vo") StoreNoticeVO vo, Model model) {
-
-		System.out.println("insertStoreNotiInfo 컨트롤러 실행1");
 		
-		System.out.println(vo.getNoti_content());
-		System.out.println(vo.getNotit_code());
+		System.out.println("insertStoreNotiInfo 컨트롤러 실행");
 		
 		notiService.insertStoreNotiInfo(vo);
-		model.addAttribute("vo",vo);
-		
-		System.out.println("insertStoreNotiInfo 컨트롤러 실행2");
+		model.addAttribute("notiInfoVO",vo);
 		
 		return "redirect:/storeNotiInfo.do"; 
 

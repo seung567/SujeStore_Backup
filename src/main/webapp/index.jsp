@@ -6,7 +6,7 @@
 </head>
 <body>
 <%-- 	<jsp:include page="/WEB-INF/views/headerHtml/memberHeader.jsp"></jsp:include> --%>
-<jsp:include page="/WEB-INF/views/adminviews/admininfo.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/main.jsp"></jsp:include>
 </body>
 </html>
 

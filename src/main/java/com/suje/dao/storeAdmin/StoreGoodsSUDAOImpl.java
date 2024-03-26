@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.suje.domain.storeAdmin.StoreGoodsSUVO;
+import com.suje.domain.storeAdmin.StoreProfileVO;
 
 @Repository
 public class StoreGoodsSUDAOImpl implements StoreGoodsSUDAO {
@@ -20,5 +21,9 @@ public class StoreGoodsSUDAOImpl implements StoreGoodsSUDAO {
 		
 		return mybatis.selectList("StoreGoodsSUDAO.getStoreGoodsById", id);
 	}
-	
+    @Override
+    public void updateGoodsSU(StoreGoodsSUVO updateGoodsSU) {
+        mybatis.update("StoreGoodsSUDAO.updateGoodsSU", updateGoodsSU);
+    }
+
 }

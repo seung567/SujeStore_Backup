@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Q&A작성</title>
 <!-- 폰트링크 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,28 +54,31 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
+				<form id="formSubmit" action="insertQnA.do" method="post">
 				<div class="qContentRight">
 					<!-- Content 첫번째 라인 -->
 					<div>
-						<input type="text" />
+						<input type="text" name="qna_title" />
 					</div>
 					<!-- Content 두번째 라인 -->
 					<div>
-						<input type="text" />
+						<input type="text" name="qna_content"/>
 					</div>
-					
+					<input type="hidden" id="m_id" name="m_id"/>
 				</div>
+				</form>
 			</div>
 
 					<!-- 등록하기 버튼 -->
-
+	
 			<div class="insertbtn">
 						<div>
-							<input type="button" value="등록하기">
+							<input type="submit" value="등록하기" form="formSubmit">
+
 						</div>
 						<div>
-							<a href=testPageSet.do?page=ysj&site=customer/customerQnA> <input
-								type="button" value="취소">
+							<a class="UrlMove" href="#"> 
+							<input type="submit" value="취소" />
 							</a>
 						</div>
 					</div>	

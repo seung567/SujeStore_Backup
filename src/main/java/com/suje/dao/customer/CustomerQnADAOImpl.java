@@ -20,5 +20,11 @@ public class CustomerQnADAOImpl implements CustomerQnADAO {
 		return mybatis.selectList("CustomerDAO.getCustomerQnA", id);
 	}
 	
+	@Override
+	public void insertQnA(QnAVO vo) {
+		System.out.println("=> Q&A 작성 Repository");
+		mybatis.insert("CustomerDAO.insertQnA", vo);
+		System.out.println("insertQnA vo : " + vo);
+	}
 
 }

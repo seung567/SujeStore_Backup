@@ -28,7 +28,7 @@ $(function() {
 <% } %>
 
 	$('.adminCategoryArea li:first-child a').addClass('checkedStateFirstCategory');
-
+	
 	var storeId;
 	var adminId = "<%= adminId %>";
 

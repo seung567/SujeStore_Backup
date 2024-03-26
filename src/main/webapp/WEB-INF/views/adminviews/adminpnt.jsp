@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +13,59 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/admincss/adminpnt.css" rel="stylesheet" type="text/css">
+<% 
+String adminId = (String)session.getAttribute("mainId");
+%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function() {
+	
+<% if (request.getAttribute("degradeInfo") != null) { %>
+	var degradeInfo = "<%= request.getAttribute("degradeInfo") %>";
+	alert(degradeInfo);
+<% } %>
+
+	var storename;
+	
 	$('.adminCategoryArea li:nth-child(2) a').addClass('checkedStateFirstCategory');
+	
+	// 스토어명으로 스토어 아이디 검색
+	$('#storeId').keyup(function() {
+		//입력 정보 가져오기
+		storename = $(this).val();
+        $('.searchItem').css('display', 'grid');
+		sandPage(storename);
+	});
+    
+	$(document).on('click', '.searchItem input[type="button"]', function () {
+		var closestGroup = $(this).closest('.searchItemGroup');
+		var sId = closestGroup.find('input[name="sId"]').val();
+		$('.searchResult').val(sId);
+        $('.searchItem').css('display', 'none');
+	});
+
+	
+	function sandPage(storename) {
+		$.ajax({
+			url : "storeIdSearch.do",
+			type : "post",
+			data: { s_name : storename },
+			dataType : "json",
+			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			success : function(storeInfo){
+				var searchItem = $('.searchItem');
+				searchItem.empty();
+				$.each(storeInfo, function(index, item) {
+					var html = '<div class="searchItemGroup">'
+								+ '<input type="button" name="sId" value="' + item.s_id + '">'
+								+ '<input type="button" name="sName" value="' + item.s_name + '">'
+								+ '</div>';
+					searchItem.append(html);
+			   });
+			}
+		});
+    }
+	
 });
 </script>
 <title>SUJE</title>
@@ -28,23 +79,24 @@ $(function() {
 		<hr class="adminHr">
 		<div class="adminSection">
 			<h2 class="adminSubtitle">벌점 부여</h2>
-			<form action="pntAction.jsp" method="post">
+			<form action="pntInsert.do?adminId=<%= adminId %>" method="post">
 				<fieldset>
 					<div class="idflied">
 						<label for="storeId" class="inputLabel">스토어 아이디</label>
 						<div class="searchBox">
-							<input type="text" id="storeId" name="storeId" class="inputField" placeholder="아이디 검색">
-							<button type="submit" id="searchButton">
+							<input type="text" id="storeId" name="storeId" class="inputField" placeholder="스토어명 검색">
+							<button id="searchButton">
 								<img class="searchIcon" src="./resources/img/searchIcon.png" alt="검색 아이콘" width="20" height="20">
 							</button>
+							<div class="searchItem"></div>
 						</div>
-						<input type="text" id="searchResults" name="searchResults" class="searchResult" disabled>
+						<input type="text" id="searchResults" name="s_id" class="searchResult" readonly="readonly"/>
 					</div>
 					<br> <label for="pntPoints" class="inputLabel">부여 벌점</label>
-					<input type="number" id="pntPoints" name="pntPoints" class="pntPoints"> 점 
+					<input type="number" id="pntPoints" name="de_score" class="pntPoints"> 점 
 					<br> <label for="pntReason" class="inputLabel">벌점 사유</label> 
 					<br>
-					<textarea id="pntReason" name="pntReason" class="pntReason" rows="4" cols="50"></textarea>
+					<textarea id="pntReason" name="de_why" class="pntReason" rows="4" cols="50"></textarea>
 					<br><button type="submit" class="submitButton">등록하기</button>
 					<hr class="adminHr">
 				</fieldset>
@@ -55,6 +107,7 @@ $(function() {
 			<table class="adminTable">
 				<thead>
 					<tr class="adminTableRow">
+						<th class="adminTableHeader">벌점 부여 번호</th>
 						<th class="adminTableHeader">관리자 아이디</th>
 						<th class="adminTableHeader">스토어 아이디</th>
 						<th class="adminTableHeader">부여 벌점</th>
@@ -64,31 +117,28 @@ $(function() {
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="adminTableRow">
-						<td>관리자1</td>
-						<td>스토어1</td>
-						<td>부여 벌점1</td>
-						<td>벌점 사유1</td>
-						<td>업데이트 일자1</td>
-						<td>누적 벌점 점수1</td>
-					</tr>
-					<tr class="adminTableRow">
-						<td>관리자2</td>
-						<td>스토어2</td>
-						<td>부여 벌점2</td>
-						<td>벌점 사유2</td>
-						<td>업데이트 일자2</td>
-						<td>누적 벌점 점수2</td>
-					</tr>
-					<!-- 추가적인 행들을 필요한 만큼 추가 -->
+					<c:forEach items="${pntList}" var="adminPntVO">
+						<tr class="adminTableRow">
+							<td>${adminPntVO.de_code}</td>
+							<td>${adminPntVO.ma_id}</td>
+							<td>${adminPntVO.s_id}</td>
+							<td>${adminPntVO.de_score}</td>
+							<td>${adminPntVO.de_why}</td>
+							<td>
+								<fmt:parseDate value="${adminPntVO.de_date}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
+								<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
+							</td>
+							<td>${adminPntVO.de_score_sum}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			<div class="pageingArea">
-				<a href="#"><img src="././resources/img/pageLeftBtn.png" /></a> 
-				<a href="#">1</a> 
-				<a href="#">2</a> 
-				<a href="#">3</a> 
-				<a href="#"><img src="././resources/img/pageRightBtn.png" /></a>
+				<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
+				<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
+					<a href="adminpnt.do?page=${i}">${i}</a>
+				</c:forEach>
+				<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
 			</div>
 		</div>
 		<!-- adminContentsBox -->

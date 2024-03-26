@@ -12,7 +12,7 @@ $(function(){
 	});
 	
 	//datepicker 인풋 태그 클릭시 달력 송출
-	$.datepicker.setDefaults($.datepicker.regional["ko"]);
+	$.datepickera.setDefaults($.datepicker.regional["ko"]);
 	$("#datepicker").datepicker({
 		showAnim: "slideDown",
 		showOn: "button",

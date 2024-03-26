@@ -4,8 +4,8 @@
 
 <mapper namespace="customerOrderDAO">
 
-<!-- 고객 주문 내역 조회 -->
-<select id="getOrderList" parameterType="String" resultType="Integer">
+<!-- 전체 페이지 수 계산 -->
+<select id="getOrderListCount" parameterType="String" resultType="Integer">
 
 	select 
 	count(*) as totalPageCount
@@ -13,5 +13,28 @@
 	
 </select>
 
+<!-- 페이지에 해당 하는 데이터 추출 -->
+<select id="getOrderList" parameterType="customerOrderList" resultType="customerOrderList">
+ 	
+<![CDATA[
+	select
+	o_code,
+	o_content,
+	m_id,
+	to_char(o_date,'yyyy-mm-dd') as o_date,
+	s_id 
+	from orderinfo
+	where o_code in ( select o_code
+ 		from (select rownum as r_num, o_code from (select rownum,o_code from orderinfo where m_id = #{m_id} order by o_code desc))
+ 		where r_num >= #{firstNum} and r_num <= #{endNum})
+ 	order by o_code desc
+]]>
+ 	
+</select>
 
+<select id="getEtcList" parameterType="Integer" resultType="customerEtcList">
+
+	select * from etc where o_code = #{o_code}
+
+</select>
 </mapper>

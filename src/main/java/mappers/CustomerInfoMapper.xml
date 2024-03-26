@@ -6,19 +6,38 @@
 
 <!-- 고객정보 조회 -->
 <select id="getCustomerInfo" parameterType="String" resultType="customerMyPage">
-
 	select * from member where m_id = #{id}
-
 </select>
 
+<!-- 고객정보 업데이트-->
 <update id="updateMypageInfo" parameterType="customerMyPage" >
-
 	update member set
 	m_pass = #{m_pass},
-	m_tel = #{m_tel},
+	m_tel = #{m_tel}, 
 	m_email = #{m_email}
 	where m_id = #{m_id}
-
 </update>
+
+<!-- 고객리뷰 리스트 조회 -->
+<select id="getCustomerReview" parameterType="String" resultType="customerReview">
+	select p.p_code, p.p_date, p.p_sum, p.p_ck, re.rv_date from pay_test p, review_test re where p.p_code = re.p_code
+</select>
+
+<!-- 고객QnA 리스트 조회 -->
+<select id="getCustomerQnA" parameterType="String" resultType="customerQnA">
+	select m_id, qna_code, qna_title, qna_qdate, qna_adate from qna where m_id = #{id}
+</select>
+
+<!-- 고객QnA 작성하기 insert -->
+<insert id="insertQnA" parameterType="customerQnA">
+	  insert into qna(qna_code, qna_title, qna_content, qna_qdate, m_id) values (qna_code_sqn.nextval, #{qna_title}, #{qna_content}, sysdate, #{m_id})
+</insert>
+
+<!-- 고객QnA 답변 리스트 조회 -->
+<select id="getQnAA" parameterType="String" resultType="customerQnA">
+	  select m_id, qna_code, qna_title, qna_adate, qna_reply from qna where m_id = #{id}
+</select>
+
+
 
 </mapper>

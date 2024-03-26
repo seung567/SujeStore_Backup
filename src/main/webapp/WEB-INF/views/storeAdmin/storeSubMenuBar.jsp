@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+	// 세션 정보를 가져오는 부분
+Object obj = session.getAttribute("mainId");
+if (obj == null) {
+	response.sendRedirect("LoginForm.jsp");
+	return;
+}
+
+String user = (String) obj;
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -71,6 +81,7 @@
 		</li>
 	</ul>
 </div> <!-- storeSubMenuBox -->
+
 
 </body>
 </html>

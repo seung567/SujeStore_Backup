@@ -13,33 +13,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.suje.domain.customer.MemberVO;
 import com.suje.service.customer.CustomerInfoService;
 
-
 @Controller
 public class CustomerMyPageController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CustomerMyPageController.class);
-	
+
 	@Autowired
 	private CustomerInfoService service;
-	
+
 	@RequestMapping(value = "customerMyPage")
 	public String getCustomerInfo(@RequestParam String id, Model model) {
-		
-		MemberVO vo = service.getCustomerInfo(id);
 
+		MemberVO vo = service.getCustomerInfo(id);
 		System.out.println("=> CustomerMyPageController  => getCustomerInfo 실행");
-		
-		model.addAttribute("vo",vo);
-		
+		model.addAttribute("vo", vo);
 		return "/customer/customerMyPage";
 	}
-	
+
 	// 회원 정보 수정 처리.
-	@RequestMapping(value = "mypageModify" , method=RequestMethod.POST)
+	@RequestMapping(value = "mypageModify", method = RequestMethod.POST)
 	public String updateMypageInfo(@ModelAttribute("vo") MemberVO vo, Model model) {
 		System.out.println(vo.getM_id());
 		System.out.println("updateMypage 컨트롤 실행");
-		
+
 		int infoVO = service.updateMypageInfo(vo);
 		model.addAttribute("infoVO", infoVO);
 		System.out.println(infoVO);
@@ -47,5 +43,3 @@ public class CustomerMyPageController {
 
 	}
 }
-
-

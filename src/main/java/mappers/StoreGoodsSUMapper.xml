@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "StoreGoodsSUDAO">
+
+	<select id="getStoreGoodsById" parameterType="String" resultType="storeGoodsSU">
+	
+	<![CDATA[ select g.g_code, g.s_id, g.g_content, cs.cates_name, g.cates_code, cm.catemm_name, cm.catemm_code, c.catem_name, c.catem_code, g.g_pname
+		from goods g, cate_sub cs, cate_mid cm, cate_main c 
+		where s_id= #{s_id} 
+		and g.cates_code=cs.cates_code 
+		and cs.catemm_code=cm.catemm_code 
+		and cm.catem_code=c.catem_code
+		and rownum <= 10 ]]>
+		
+	</select>
+	
+<update id="updateGoodsSU" parameterType="storeGoodsSU" >
+    UPDATE goods
+    SET cates_code = #{cates_code}, g_content = #{g_content}
+    WHERE g_code = #{g_code}
+</update>
+
+
+
+
+</mapper>

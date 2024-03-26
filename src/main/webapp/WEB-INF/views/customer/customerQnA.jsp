@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html>
@@ -56,39 +61,16 @@
 						<td>답변일자</td>
 						<td>답변 조회</td>
 					</tr>
-
-					<tr>
-						<td>000000001</td>
-						<td>3/14까지 주문 가능할까요?</td>
-						<td>2024/03/01</td>
-						<td>2024/03/02</td>
-						<td><input class="answer" type="button" value="조회"></td>
-					</tr>
-
-					<tr>
-						<td>000000002</td>
-						<td>특이한 색상도 제작 가능한가요?</td>
-						<td>2024/03/02</td>
-						<td>2024/03/03</td>
-						<td><input class="answer" type="button" value="조회"></td>
-					</tr>
-
-					<tr>
-						<td>000000003</td>
-						<td>제작 범위 관련해서 문의 드립니다!</td>
-						<td>2024/03/03</td>
-						<td>2024/03/04</td>
-						<td><input class="answer" type="button" value="조회"></td>
-					</tr>
 					
+					<c:forEach items="${vo}" var="vo">
 					<tr>
-						<td>000000004</td>
-						<td>배송 송장번호 언제 나와요?</td>
-						<td>2024/03/04</td>
-						<td>2024/03/05</td>
+						<td>${vo.qna_code }</td>
+						<td>${vo.qna_title }</td>
+						<td>${vo.qna_qdate }</td>
+						<td>${vo.qna_adate }</td>
 						<td><input class="answer" type="button" value="조회"></td>
 					</tr>
-
+					</c:forEach>
 
 				</table>
 				<div class="pageing">< 1 2 3 ></div>
@@ -105,8 +87,40 @@
 	<!-- Modal QnA 답변조회 부분 -->
   		<div class="qnaaModal">
 			<jsp:include page="/WEB-INF/views/customer/Modal/qnaaModal.jsp"></jsp:include>
-		</div>  
-	
+		</div>  	
 
 </body>
+
+<script type="text/javascript">
+
+$(function() {
+	$(".regit").click(regit);
+	$(".UrlMove").click(function(){
+		location.href = "customerQnA.do?id=<%= request.getParameter("id")%>"
+	});
+});
+
+function regit() {
+	var value = "<%= request.getParameter("id")%>";
+	$.ajax({
+		url : "customerQnAModal.do", 
+		type : "get",
+		data:{id : value},
+		dataType : "json",
+		contentType : 'application/json; charset=utf-8',
+        beforeSend : function(){
+            $(".qnaqModal").slideDown(200);            
+          },
+          success : function(data) { 
+              var dataList = data;
+              console.log(dataList);
+              $('#m_id').val(dataList[0].m_id);
+     		 
+            }
+		
+	});
+}
+
+</script>
+
 </html>

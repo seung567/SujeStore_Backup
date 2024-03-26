@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Q&A답변</title>
 <!-- 폰트링크 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,10 +55,11 @@
 
 
 			<!-- 메인 우측 Content -->
+			<form id="formSubmit" action="insertQnAA.do" method="post">
 			<div class="ContentRight">
 				<!-- Content 첫번째 라인 -->
 				<div>
-					<input type="text" />
+					<input type="text" name="q"/>
 				</div>
 				<!-- Content 두번째 라인 -->
 				<div>
@@ -65,6 +71,7 @@
 				</div>
 
 				</div>
+			</form>
 			</div>
 			
 				<!-- 등록하기 버튼 -->

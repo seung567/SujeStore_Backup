@@ -3,7 +3,6 @@ package com.suje.dao.adminviews;
 import com.suje.domain.adminviews.AdmininfoVO;
 
 public interface Admininfodao {
-    AdmininfoVO getAdminInfo(String MA_ID); 
-    void updateAdmin(AdmininfoVO adminVO); 
+    AdmininfoVO getAdminInfo(String adminId); 
     void updateAdminExceptId(AdmininfoVO adminVO);
 }

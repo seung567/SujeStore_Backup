@@ -20,22 +20,23 @@ String mainId = (String)session.getAttribute("mainId");
 <body>
 <header>
 <div class="adminHeader">
-	<div class="firstHeaderNavi">
-		<div class="adminHeaderLogo"><a href="adminMain.do"><img src="./resources/img/sujeAdminLogo.png"/></a></div>
-		
-		<!-- 세션에 계정정보가 존재할 시 계정 영역(afterLogin) 호출 -->
-		<c:if test="${mainId ne null}">
-			<div class="afterLoginArea">
-				<input type="text" disabled="disabled" value="${mainId}" class="headerId"/>
-				<span>님</span>
-				<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
-				<a href="mainLogout.do" class="headerLogoutBtn">로그아웃</a>
-			</div>
-		</c:if>
-		
-	</div>
-	<div class="firstHeaderLine"></div>
-	</div>
+    <div class="firstHeaderNavi">
+        <div class="adminHeaderLogo"><a href="adminMain.do"><img src="./resources/img/sujeAdminLogo.png"/></a></div>
+        
+        <!-- 세션에 계정정보가 존재할 시 계정 영역(afterLogin) 호출 -->
+        <c:if test="${mainId ne null}">
+            <div class="afterLoginArea">
+                <input type="text" disabled="disabled" value="${mainId}" class="headerId"/>
+                <span>님</span>
+                <a href="admininfo.do?id=${mainId}" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
+
+                <a href="mainLogout.do" class="headerLogoutBtn">로그아웃</a>
+            </div>
+        </c:if>
+        
+    </div>
+    <div class="firstHeaderLine"></div>
+    </div>
 </header>
 <div class="etcheaderWrap"></div>
 </body>

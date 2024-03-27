@@ -16,10 +16,45 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-$(function() {
-	   $(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");
-	   $(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
-	}); 
+	$(document).ready(function() {
+		$('.imgColumn-container img').click(function() {
+			var categoryNameFirst = $(this).data('category');
+			var categoryNameSecound = $(this).data('subcategory');
+			var categoryNameThird = $(this).data('thirdcategory');
+			var goodsContent = $(this).data('goodsinfocontent');
+			var imgCode = $(this).data('imgcode');
+			var mainImageSrc = $(this).attr('src');
+	
+			$('.goodsImg').attr('src', mainImageSrc);
+	
+			$(".goodsInfo_selectBox_First option").each(function() {
+				if ($(this).text() == categoryNameFirst) {
+					$(this).prop('selected', true);
+				}
+			})
+			$(".goodsInfo_selectBox_Secound option").each(function() {
+				if ($(this).text() == categoryNameSecound) {
+					$(this).prop('selected', true);
+				}
+			})
+			$(".goodsInfo_selectBox_Third option").each(function() {
+				if ($(this).text() == categoryNameThird) {
+					$(this).prop('selected', true);
+				}
+			})
+			$('.goodsInfo_content').val(goodsContent);
+	
+			$('.imgCode').val(imgCode);
+			
+		});
+		   
+	});
+
+
+	$(function() {
+		   $(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");
+		   $(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
+		}); 
 
 
 </script>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "FleaGoodsSUDAO">
+
+	<select id="getFleaGoodsById" parameterType="String" resultType="modifyGoodsSU">
+	
+	<![CDATA[ SELECT 
+    			f.f_code, f.f_date, f.f_redate, f.f_sum, f.f_pname, f.f_spname, f.f_ppath, f.f_psize, f.f_content, f.f_ck, f.f_num, f.s_id, cs.cates_code 
+			FROM 
+    			flea f, cate_sub cs, cate_mid cm, cate_main c 
+			WHERE 
+    			f.s_id = "#{s_id}" 
+			    AND f.cates_code = cs.cates_code 
+			    AND cs.catemm_code = cm.catemm_code 
+			    AND cm.catem_code = c.catem_code 
+			    AND ROWNUM <= 10; ]]>
+		
+	</select>
+	
+	<update id="modifyGoodsSU" parameterType="modifyGoodsSU" >
+	    UPDATE flea
+	    SET cates_code = #{cates_code}, f_content = #{f_content}
+	    WHERE f_code = #{f_code}
+	</update>
+
+
+
+
+</mapper>

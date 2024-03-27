@@ -22,7 +22,7 @@ public class StoreGoodsSUController {
 	
 	@Autowired
 	StoreGoodsSUService goodsService;
-
+	
 	
 	@RequestMapping(value="storeGoodsMainPage")
 	public String storeGoodsMainPage(@RequestParam("id") String id, Model model){
@@ -34,6 +34,8 @@ public class StoreGoodsSUController {
 		
 		return "/storeAdmin/storeGoodsSearchUpdate";
 	}
+	
+	
 	
     @RequestMapping(value="updateGoodsSU", method=RequestMethod.POST)
     public String updateGoodsSU(@ModelAttribute StoreGoodsSUVO updateGoodsSU) {

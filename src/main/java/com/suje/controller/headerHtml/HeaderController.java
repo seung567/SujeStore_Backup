@@ -30,9 +30,16 @@ public class HeaderController {
 		return "forward:/adminmanage.do?page=1";
 	}
 	
+	//플리마켓 페이지 이동
+	@RequestMapping("viewFleaMarket.do")
+	public String viewFleaMarket() {
+		return "forward:/fleaMarketMain.do?page=1&mCate=전체&mmCate= &orderBy=1";
+	}
+	
 	//헤더 페이지 이동
 	@RequestMapping("{step}.do")
 	public String viewPage(@PathVariable String step) {
+		logger.info("STEP 컨트롤러");
 		if(step.contains("main")) {
 			return "main/"+step;
 		} else if(step.contains("admin")) {

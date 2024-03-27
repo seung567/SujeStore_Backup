@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,12 +165,9 @@ $(function() {
 	<div class="mainTitle">실시간 스토어 피드</div>
 	<div class="storeFeedViewArea mainSlide">
 		<ul class="storeFeed">
-			<li><img src="./resources/img/exImg.png"/></li>
-			<li><img src="./resources/img/exImg.png"/></li>
-			<li><img src="./resources/img/exImg.png"/></li>
-			<li><img src="./resources/img/exImg.png"/></li>
-			<li><img src="./resources/img/exImg.png"/></li>
-			<li><img src="./resources/img/exImg.png"/></li>
+			<c:forEach items="${realTimeReview}" var="MainVO">
+					<li><img src="./resources/DB/${MainVO.g_ppath}"/></li>
+			</c:forEach>
 		</ul> <!-- "storeFeed" -->
 	</div>
 	<a href="mainPopularRank.do" class="mainMoreBtn">스토어 더보기</a>

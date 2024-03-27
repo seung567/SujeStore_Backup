@@ -14,22 +14,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript">
-$(function() {
-	   
-	   $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
-	   $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(4)").addClass("checkedStateSecondCategory");
-	   
-	}); 
-
-
-</script>
 <title>SUJE</title>
 <link rel="stylesheet"
 	href="./resources/css/storeAdmin/storeGoodsSearchUpdate.css" />
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
 <script>
 	$(document).ready(function() {
 		$('.imgColumn-container img').click(function() {
@@ -68,7 +59,17 @@ $(function() {
 			$('.imgCode').val(imgCode);
 			
 		});
+		   
 	});
+	
+	
+	$(function() {
+		   $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
+		   $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(4)").addClass("checkedStateSecondCategory");
+		}); 
+
+	
+	
 </script>
 </head>
 <body>
@@ -107,7 +108,7 @@ $(function() {
 					<label class="store_subTitle">작품 등록 번호</label>
 					<input class="imgCode" type="text" name="g_code">
 				</div>
-				<input type="hidden" value="chungchoon" name="s_id">
+				<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id">
 				<div class="store_subCategory">
 					<label class="store_subTitle">작품 카테고리</label>
 					<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
@@ -120,8 +121,8 @@ $(function() {
 						<option value="6">수공예품</option>
 						<option value="7">잡화</option>
 						<option value="8">홈리빙</option>
-					</select> <select class="goodsInfo_selectBox_Secound" name="catemm_code"
-						id="catemm_code">
+					</select> 
+					<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code">
 						<option selected="selected">중분류</option>
 						<option value="10">베이커리</option>
 						<option value="11">케이크</option>
@@ -151,8 +152,7 @@ $(function() {
 						<option value="35">패브릭</option>
 						<option value="36">방향제</option>
 					</select>
-					<select class="goodsInfo_selectBox_Third" name="cates_code"
-						id="cates_code">
+					<select class="goodsInfo_selectBox_Third" name="cates_code" id="cates_code">
 						<option selected="selected">소분류</option>
 						<option value="100">롤케이크</option>
 						<option value="101">버터크림빵</option>
@@ -241,7 +241,7 @@ $(function() {
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">작품 상세 내용</label><br />
-					<textarea class="goodsInfo_content" name="g_content">내용을 작성하세요</textarea>
+					<textarea class="goodsInfo_content" name="g_content" placeholder="내용을 입력하세요"></textarea>
 				</div>
 
 				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
@@ -250,5 +250,6 @@ $(function() {
 		<!-- storeContentsBox -->
 	</div>
 	<!-- storeContentsWrap -->
+	<footer></footer>
 </body>
 </html>

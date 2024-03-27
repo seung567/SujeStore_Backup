@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MainDao">
+
+<!-- 스토어 아이디 검색 -->
+<select id="getRecentRealTimeReview" resultType="mainVO">
+	<![CDATA[
+	select g_ppath 
+	from (select t.*, rownum as rn
+		  from (select g_ppath, g_date 
+		  		from goods 
+		  		order by g_date desc) t)
+	where rn<=6
+	]]>
+</select>
+
+
+</mapper>

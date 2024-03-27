@@ -16,7 +16,14 @@
 <meta charset="UTF-8">
 
 <script type="text/javascript">
+ 
+ $(function() {
+		 $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
+		 $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(2)").addClass("checkedStateSecondCategory");
 	
+	});
+
+ 
  $(function() {
 	    $(".noticeListDetail").click(function() {
 	        // 클릭한 공지 번호와 스토어 아이디를 가져옵니다.
@@ -30,13 +37,8 @@
 	        location.href = url;
 	    });
 	    
-	   
-		 $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
-		 $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(2)").addClass("checkedStateSecondCategory");
 	});
  
- 
-
 
 	  //공지사항 영역 미리보기
 	   $(function() {
@@ -61,7 +63,7 @@
 	<div class="storeContentsWrap">
 	 <jsp:include page="storeSubMenuBar.jsp"></jsp:include>
 		<div class="storeContentsBox">
-			<h1 class="title">스토어 공지 조회/수정</h1>
+			<h1 class="store_mainTitle">스토어 공지 조회/수정</h1>
 			<hr class="hr">
 			<div class="table-wrapper" >
 				<table name="noticeList">
@@ -164,7 +166,7 @@
 					</div>
 					<div class="store_subCategory">
 						<label class="store_subTitle">공지 내용</label><br />
-						<textarea class="notiInfo_content" name="noti_content">내용을 입력하세요</textarea>
+						<textarea class="notiInfo_content" name="noti_content" placeholder="내용을 입력하세요"></textarea>
 					</div>
 				</form>
 			</c:if>

@@ -27,10 +27,8 @@ public class StoreNotiInfoController {
 
 
 	@RequestMapping(value = "storeNotiInfo")
-	public String storeNoitUrl22() {
-
+	public String storeNotiInfo() {
 		System.out.println("storeNotiInfo 메인 실행");
-
 		return "/storeAdmin/storeNotiInfo";
 	}
 
@@ -43,7 +41,8 @@ public class StoreNotiInfoController {
 		notiService.insertStoreNotiInfo(vo);
 		model.addAttribute("notiInfoVO",vo);
 		
-		return "redirect:/storeNotiInfo.do"; 
+		/* return "redirect:/storeNotiInfo.do?id=" + vo.getS_id(); */ 
+		return "/storeAdmin/storeNotiInfo"; 
 
 	}
 }

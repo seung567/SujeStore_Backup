@@ -95,11 +95,20 @@ body {
 	border-bottom: 2px solid #ADEFD1;
 }
 
-.title {
-	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-left: 1.5%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
-	margin-top: 1.5%;
+hr {
+    border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
+    margin-top: 40px; /* 위쪽 여백 설정 */
+    margin-bottom: 20px; /* 아래쪽 여백 설정 */
 }
+
+
+.store_mainTitle {
+	font-size: 30px;
+	margin-top: 40px;
+	margin-left: 30px;
+	
+}
+
 
 .subtitle {
 	font-size: 30px; /* 화면 너비에 대해 상대적인 크기 */
@@ -107,17 +116,7 @@ body {
 	margin-top: 5%;
 }
 
-.hr {
-	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
 
-.hr2 {
-	border-top: 2px solid #ADEFD1; /* 위쪽 테두리 설정 */
-	margin-top: 20px; /* 위쪽 여백 설정 */
-	margin-bottom: 20px; /* 아래쪽 여백 설정 */
-}
 
 table {
 	width: 100%;
@@ -210,10 +209,6 @@ tr:hover {
 }
 
 
-.notiInfo_selectBox option:focus {
-	cursor: pointer;
-}
-
 .notiInfo_content {
 	border: 5px solid #ADEFD1;
 	width: 1130px; 
@@ -221,7 +216,6 @@ tr:hover {
 	margin-top: 10px;
 	margin-left: 20px;
 	font-size: 20px;
-	
 }
 
 
@@ -239,13 +233,26 @@ tr:hover {
 	background-color: #ADEFD1;
 	width: 300px;
 	height: 50px;
-	border-radius: 10px;
+	border-radius: 5px;
 	margin-top: 30px;
 	margin-left: 20px;
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 내부 여백 설정 */
+    color: black; /* 텍스트 색상 설정 */
+    cursor: pointer; /* 커서 모양 변경 */
 }
 
-.store_mainTitle {
-	font-size: 30px;
-	margin-top: 50px;
-	margin-left: 20px;
+
+.submitBtn:hover {
+    background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
 }
+
+.noticeListDetail:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+

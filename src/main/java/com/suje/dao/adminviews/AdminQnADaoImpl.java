@@ -2,44 +2,43 @@ package com.suje.dao.adminviews;
 
 import java.util.List;
 
+import com.suje.domain.adminviews.AdminQnAVO;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.suje.domain.adminviews.AdminManageVO;
-import com.suje.domain.adminviews.AdminQnAVO;
-import com.suje.service.adminviews.AdminManageServiceImple;
+@Repository
+public class AdminQnADaoImpl implements AdminQnADao {
+    
+    private static final Logger logger = LoggerFactory.getLogger(AdminQnADaoImpl.class);
+    
+    @Autowired
+    private SqlSessionTemplate sqlSession;
+    
+    @Override
+    public List<AdminQnAVO> getQnAList(AdminQnAVO vo) {
+        logger.info("QnA 목록 가져오기 - MyBatis");
+        return sqlSession.selectList("AdminQnADao.getQnAList", vo);
+    }
+    
+    @Override
+    public int getTotalCountPage() {
+        logger.info("QnA 전체 행 수 추출 - MyBatis");
+        return sqlSession.selectOne("AdminQnADao.getTotalCountPage");
+    }
 
-@Repository("AdminQnADao")
-public class AdminQnADaoImpl implements AdminQnADao{
-	
-	private static final Logger logger = LoggerFactory.getLogger(AdminQnADaoImpl.class);
-	
-	@Autowired
-	private SqlSessionTemplate mybatis;
-	
-	@Override
-	public List<AdminQnAVO> getQnAList(AdminQnAVO vo){
-		logger.info("QnA 마이바티스");
-		return (List<AdminQnAVO>)(Object) mybatis.selectList("AdminQnADao.getQnAList", vo);
-	}
-	
-	@Override
-	public int getTotalCountPage() {
-		logger.info("QnA 전체 행 수 추출 마이바티스");
-		return mybatis.selectOne("AdminQnADao.getTotalCountPage");
-	}
+    @Override
+    public AdminQnAVO getQnAInfo(String qna_code) { 
+        logger.info("QnA 상세정보 추출 - MyBatis");
+        return sqlSession.selectOne("AdminQnADao.getQnAInfo", qna_code);
+    }
+
+    @Override
+    public void updateAdminInfo(AdminQnAVO qnaInfo) {
+        logger.info("QnA 업데이트 - MyBatis");
+        sqlSession.update("AdminQnADao.updateAdminInfo", qnaInfo);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -5,8 +5,8 @@ import java.util.List;
 import com.suje.domain.adminviews.AdminQnAVO;
 
 public interface AdminQnAService {
-	public List<AdminQnAVO> getQnAList(AdminQnAVO vo);
-	public int getTotalCountPage();
-	
-	
+    List<AdminQnAVO> getQnAList(AdminQnAVO vo);
+    int getTotalCountPage();
+    AdminQnAVO getQnAInfo(String qna_code);
+    void updateAdminInfo(AdminQnAVO qnaInfo); 
 }

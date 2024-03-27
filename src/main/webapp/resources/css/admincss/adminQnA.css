@@ -80,6 +80,7 @@
 	background-color: #eee;
 	border-radius: 10px;
 	text-align: center;
+	cursor: pointer;
 }
 .formQnaTitle {
 	width: 930px;

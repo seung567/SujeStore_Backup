@@ -16,5 +16,25 @@
 
 </select>
 
+<select id="getStoreOrderEtc" parameterType="Integer" resultType="customerEtcList">
+
+	<![CDATA[
+	select  
+	et.ETC_CODE, 
+	et.ETC_SPNAME, 
+	o.O_CODE, 
+	et.ETC_TYPE_CODE, 
+	et.ETC_PPATH, 
+	et.ETC_PNAME, 
+	et.ETC_PSIZE, 
+	et.ETC_CONTENT,
+	et.ETC_DATE,
+	o.S_ID,
+	o.m_ID 
+	from orderinfo o, etc et 
+	where o.o_code = et.o_code and o.o_code = #{o_code}
+	]]>
+
+</select>
 
 </mapper>

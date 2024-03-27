@@ -162,71 +162,138 @@
 	</div>
 </body>
 <script type="text/javascript">
+
     $(function() {
 	
-	$(".storeSimpleInfo").parent().click(function() {
-
-	    $.ajax({
-			type : "post",
-			url : "orderDetailContext.do",
-			data : {
-			    orderNumReuslt : $(this).find("input").val()
-			},
-			dataType : "json",
-			contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
-			beforeSend : function(){
-			    
-			    if( $(".orderMainDetail") != ""){
-					$(".orderMainDetail").remove();
-					console.log($(".orderMainDetail").val());
-			    } 
-			},
-			success : function(data) {
-			    
-			    	$(".customerInfo div:first-child div:nth-child(2)").text(data[0].s_id);
-			    
-					$(data).each(function(index,item){
-						
-					    $(".orderNum").val(item.o_code);
-					    
-					    var mainDiv = $(".orderMainContentInner");
-					    var mainDetailDiv = $("<div class=orderMainDetail></div>");
+		$(".storeSimpleInfo").parent().click(function() {
+		
+		    console.log($(this).find("input").val());
+		    	
+		    $.ajax({
+				type : "post",
+				url : "orderDetailContext.do",
+				data : {
+				    orderNumReuslt : $(this).find("input").val()
+				},
+				dataType : "json",
+				contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+				beforeSend : function(){
 				    
-					    var chatDetail = $("<div class=charDetail></div>");
+	 			    if( $(".orderMainDetail") != ""){
+						$(".orderMainDetail").remove();
+				    }
+				},
+				success : function(data) {
 				    
-				    	mainDiv.append(mainDetailDiv);
-				    	mainDetailDiv.append(chatDetail);
+				    /* 상단 메인 스토어명 표기 */
+				   	$(".customerInfo div:first-child div:nth-child(2)").text(data['etcList'][0].s_id); 
 				    	
-				    	// 대화 사용자 사진
-				    	if(item.etc_type_code == 77000){
-					    	chatDetail.append("	<div><img src='./resources/img/custmerLogo.png'></div>");
-				    	}else{
-				    		chatDetail.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>");    
-				    	}
-				    	
-				    	//대화 사용자명
-				    	if(item.etc_type_code == 77000){
-				    		chatDetail.append("	<div>" + item.m_id + "</div>");
-				    	}else{
-				    		chatDetail.append("<div>" + item.s_id + "</div>");    
-				    	}	
+				    /* 최초 주문사항 출력 */
+				    firstOrder(data['etcList']);
 						
-				    	mainDetailDiv.append("<div><input id='orderCheck' type='button' value='"+item.etc_content+"' /></div>");
-				    	mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>");
-				    	mainDetailDiv.append("<div class='dateDetail'>2024-03-19</div>");
-				    	
-				    	
-				    	$(".orderMainContent").css("overflow" , "auto");
-					});
-
-			},
-			error : function(status) {
-			    console.log(status);
-			}
+				    /* 주문 요청 사항 메인 출력*/
+				    $(data['etcList']).each(function(index,item){
+				        if(item.etc_content != null){
+				    		mainContent(item);
+				    	 }
+					}); 
+			    	/*최종 주문서 출력*/
+			    	if(data['finalVO'] !=null){
+				    	finalOrder(data['finalVO'],data['etcList'][0].s_id);
+			    	}
+				},
+				error : function(status) {
+				    console.log(status);
+				}
+			});
+		});
 	});
 
-});
-});
+	function firstOrder(data){
+		    
+		    var mainDiv = $(".orderMainContentInner");
+		    var mainDetailDiv = $("<div class=orderMainDetail></div>");
+	    
+		    var chatDetail = $("<div class=charDetail></div>");
+	    
+	    	mainDiv.append(mainDetailDiv);
+	    	mainDetailDiv.append(chatDetail);
+	    	
+	    	chatDetail.append("	<div><img src='./resources/img/custmerLogo.png'></div>");
+	    	
+	    	chatDetail.append("<div>" + data[0].m_id + "</div>");    
+	    	
+	    	mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+data[0].o_content+"' /></div>"); 
+	    	mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>");
+	    	mainDetailDiv.append("<div class='dateDetail'>주문 제작 요청</div>");
+	    	
+	    	$(".orderMainContent").css("overflow" , "auto");
+	    	$(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
+
+	 }
+	
+	
+	    
+	function mainContent(item){
+	    
+		    $(".orderNum").val(item.o_code);
+		    
+		    var mainDiv = $(".orderMainContentInner");
+		    var mainDetailDiv = $("<div class=orderMainDetail></div>");
+	    
+		    var chatDetail = $("<div class=charDetail></div>");
+	    
+	    	mainDiv.append(mainDetailDiv);
+	    	mainDetailDiv.append(chatDetail);
+	    	
+	    	// 대화 사용자 사진
+	    	if(item.etc_type_code == 77001){
+	    		chatDetail.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>");   
+	    	}else{
+	    		chatDetail.append("	<div><img src='./resources/img/custmerLogo.png'></div>");
+	    	}
+	    	
+	    	//대화 사용자명
+	    	if(item.etc_type_code == 77001){
+	    		chatDetail.append("	<div>" + item.s_id + "</div>");
+	    	}else{
+	    		chatDetail.append("<div>" + item.m_id + "</div>");    
+	    	}	
+			
+	    	/* mainDetailDiv.append("<div><input id='orderCheck' type='button' value='"+item.content+"' /></div>"); */
+	    	
+	    	mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+item.content+"' /></div>"); 
+	    	mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>");
+	    	mainDetailDiv.append("<div class='dateDetail'>" + item.etc_date + "</div>");
+	    	
+	    	
+	    	$(".orderMainContent").css("overflow" , "auto");
+	    	$(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
+		}
+	 
+	function finalOrder(data,storeID){
+	    
+ 	    var mainDiv = $(".orderMainContentInner");
+	    var mainDetailDiv = $("<div class=orderMainDetail></div>");
+    
+	    var chatDetail = $("<div class=charDetail></div>");
+    
+    	mainDiv.append(mainDetailDiv);
+    	mainDetailDiv.append(chatDetail);
+    	
+    	chatDetail.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>"); 
+    	
+    	chatDetail.append("<div>" + storeID + "</div>");    
+    	
+    	mainDetailDiv.append("<div><input id='orderCheck' type='button' value='최종 주문서 확인' /></div>");
+    	mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>");
+    	mainDetailDiv.append("<div class='dateDetail'>주문 제작서 확인 요청</div>");
+    	
+    	$(".orderMainContent").css("overflow" , "auto");
+    	$(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
+
+ }
+	
 </script>
 </html>
 

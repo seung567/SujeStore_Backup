@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.suje.domain.customer.EtcVO;
+import com.suje.domain.customer.FinalOrderVO;
 import com.suje.domain.customer.OrderListVO;
 import com.suje.service.customer.CustomerOrderServiceImpl;
 
@@ -46,5 +47,11 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 		logger.info("getEtcList // Repository");
 		return mybatis.selectList("customerOrderDAO.getEtcList",o_code);
 		
+	}
+	
+	@Override
+	public FinalOrderVO getFinalOrder(int storeOrderNO) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("customerOrderDAO.getFinalOrder",storeOrderNO);
 	}
 }

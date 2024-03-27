@@ -44,11 +44,20 @@
 	et.ETC_PNAME, 
 	et.ETC_PSIZE, 
 	et.ETC_CONTENT, 
+	et.ETC_DATE,
 	o.s_id,
-	o.m_id 
+	o.m_id,
+	o.O_CONTENT
 	from orderinfo o, etc et 
-	where o.o_code = et.o_code and o.o_code = #{o_code}
+	where o.o_code = et.o_code(+) and o.o_code = #{o_code}
 ]]>
+
+</select>
+
+
+<select id="getFinalOrder" parameterType="Integer" resultType="customerFinalOrder">
+
+	select * from final_order where o_code = #{o_code}
 
 </select>
 </mapper>

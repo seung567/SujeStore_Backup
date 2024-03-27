@@ -7,5 +7,6 @@ import com.suje.domain.storeOrder.StoreOrderListVO;
 public interface StoreOrderListDAO {
 	
 	public List<StoreOrderListVO> getStoreOrderList(String storeID);
+	public List<StoreOrderListVO> getStoreOrderEtc(int storeOrderNO);
 	
 }

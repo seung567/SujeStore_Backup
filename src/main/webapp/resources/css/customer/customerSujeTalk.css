@@ -122,10 +122,10 @@ body {
 	margin-left: 30px;
 }
 
-.activeTalk input {
+/* .activeTalk input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
-}
+} */
 
 .activeTalkTitle {
 	display: flex;
@@ -143,6 +143,20 @@ body {
 	height: 30px;
 }
 
+.activeTalkMain>div:nth-child(4) input{
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+.activeTalkMain>div:nth-child(5) input{
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+.activeTalkTitle>div:nth-child(2) input{
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
 /* 스토어 목록 메인 */
 .TalkListMain {
 	margin-top: 55px;
@@ -220,7 +234,7 @@ body {
 .activeTalkMain>div:nth-child(3) {
 	margin-top: 10px;
 	width: auto;
-	height: 560px;
+	/* height: 560px; */
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -279,12 +293,11 @@ body {
 	font-size: 15px;
 	width: 706px;
 	height: 560px;
-	/* overflow: auto;  */
+	overflow: auto;
 }
 
 .orderMainContentInner{
-	height: 1000px;
-	/* padding-bottom: 30px; */
+	max-height: 580px;
 	position: absolute;
 	bottom: 0;
 }
@@ -337,11 +350,12 @@ display: flex;
 .orderMainDetail input[type=button]{
 	width: 429px;
 	height: 50px;
-	/* background-color: #00203F; */
+	background-color: #00203F;
 	font-size: 15px;
 	font-weight: bold;
-	color:black;
+	color:white;
 	border: 0px;
+	border-radius: 5px;
 }
 
 .orderMainDetail>div:first-child>div:first-child {
@@ -372,3 +386,5 @@ display: flex;
 	display: none;
 	text-align: center;
 }
+
+/* 백엔드 작업을 위해 만들어진 CSS */

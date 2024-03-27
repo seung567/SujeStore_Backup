@@ -17,8 +17,13 @@ public class StoreOrderListDAOImpl implements StoreOrderListDAO {
 	// Suje 톡톡 주문 내역
 	@Override
 	public List<StoreOrderListVO> getStoreOrderList(String storeID) {
-		
 		return mybatis.selectList("storeOrderListDao.getStoreOrderList",storeID);
+	}
+	
+	// SUJE 톡톡 주문 상세 요청 사항
+	@Override
+	public List<StoreOrderListVO> getStoreOrderEtc(int storeOrderNO) {
+		return mybatis.selectList("storeOrderListDao.getStoreOrderEtc",storeOrderNO);
 	}
 	
 }

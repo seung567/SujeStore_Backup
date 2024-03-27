@@ -60,6 +60,7 @@
 									<div>${storeVO.m_id}</div>
 								</div> 
 								<div>${storeVO.o_date}</div>
+								<input type="hidden" value="${storeVO.o_code }" />
 							</div>
 							<!-- 주문 요청 내역 -->
 							<div class="listBar"></div>
@@ -85,7 +86,9 @@
 
 					<!-- 메인 -->
 					<div class="activeTalkMain">
+						
 						<!-- 상단 사용자 정보 -->
+						
 						<div class="storeTopInfo">
 							<div>
 								<div>
@@ -95,81 +98,37 @@
 							</div>
 							<div>2024/03/13 09:00</div>
 						</div>
-						<!-- 상단 사용자 정보 -->
-
 						<div class="listBarOrder"></div>
-
+						
+						<!-- 상단 사용자 정보 -->
+						
 						<!-- 요청내용 -->
 						<div class="orderMainContent">
 							<div class="orderMainContentInner">
+							
 								<!-- 대화출력 -->
+								
 								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div>
+								
+									<div class=chatDetail>
 										<div>
 											<img src="./resources/img/custmerLogo.png" />
 										</div>
 										<div>구매 고객</div>
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div>안녕하세요! 3월 14일 화이트데이에 케잌을 주문하려고 하는데 가능할까요? 시간이 촉박한 점
-										저도 인지하고 있으며 최대한 가능한 제작옵션만 소개 부탁드려요!</div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png" />
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div>2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-
-								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
+									</div><!-- 대화 사용자 정보 -->
+									
+									
 									<div>
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png" />
-										</div>
-										<div>CAKE FACTORY</div>
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div>안녕하세요! 3월 14일 화이트데이에 케잌을 주문하려고 하는데 가능할까요? 시간이 촉박한 점
-										저도 인지하고 있으며 최대한 가능한 제작옵션만 소개 부탁드려요!</div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png" />
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div>2024-03-19</div>
-									<!-- 날짜 -->
+										안녕하세요! 3월 14일 화이트데이에 케잌을 주문하려고 하는데 가능할까요? 시간이 촉박한 점
+										저도 인지하고 있으며 최대한 가능한 제작옵션만 소개 부탁드려요!
+									</div>	<!-- 대화 내용 -->
+									
+									<img src="./resources/img/wordballoon.png" />	<!-- 뒷 배경 그림 -->
+									<div>2024-03-19</div><!-- 날짜 -->
 								</div>
+								
 								<!-- 대화출력 -->
-								<!-- 대화출력 -->
-								<div class="orderMainDetail">
-									<!-- 대화 사용자 정보 -->
-									<div>
-										<div>
-											<img alt="" src="./resources/img/sujetalkstoreimg.png" />
-										</div>
-										<div>CAKE FACTORY</div>
-									</div>
-									<!-- 대화 사용자 정보 -->
-									<!-- 대화 내용 -->
-									<div>
-										<input type="button" value="최종 주문서 확인" />
-									</div>
-									<!-- 대화 내용 -->
-									<!-- 뒷 배경 그림 -->
-									<img src="./resources/img/wordballoon.png" />
-									<!-- 뒷 배경 그림 -->
-									<!-- 날짜 -->
-									<div>2024-03-19</div>
-									<!-- 날짜 -->
-								</div>
-								<!-- 대화출력 -->
+					
 							</div>
 						</div>
 						<!-- 요청내용 -->
@@ -194,6 +153,12 @@
 		</div>
 	</div>
 	<!-- storeContentsBox -->
+	<form action="flieTest.do" method="post" enctype="multipart/form-data">
+	
+		<input type="file" name="etc_date">
+		<input type="submit">
+	
+	</form>
 	<!-- storeContentsWrap -->
 	<footer></footer>
 </body>
@@ -202,16 +167,72 @@
 $(function() {
 	    
     $(".customerInfoList").parent().click(function(){
-	
-		console.log("111111111111");
 		
+		/* 주문 상세 요청 내역 비동기 처리 */
+		$.ajax({
+		    type : "post",
+			url : "storeSujeTalkEtc.do",
+			data : {
+			    storeOrderNO : $(this).find("input").val()
+			},
+			dataType : "json",
+			contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+			success : function(data){
+				
+				$(data).each(function(index,item){
+				    console.log(item);
+				    var orderDetailMainFram = $(".orderMainContentInner");
+				    
+				    var mainContent = $("<div class=orderMainDetail></div>");
+				    var chatContent = $("<div class=chatDetail></div>");
+				    
+				    orderDetailMainFram.append(mainContent);
+				    mainContent.append(chatContent);
+				    
+			    	// 대화 사용자 사진
+			    	if(item.etc_type_code == 77000){
+			    		chatContent.append("	<div><img src='./resources/img/custmerLogo.png'></div>");
+			    	}else{
+			    		chatContent.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>");    
+			    	}
+			    	
+			    	//대화 사용자명
+			    	if(item.etc_type_code == 77000){
+			    		chatContent.append("	<div>" + item.m_id + "</div>");
+			    	}else{
+			    		chatContent.append("<div>" + item.s_id + "</div>");    
+			    	}
+
+				    mainContent.append("<div><input id='orderCheck' type='button' value='"+item.content+"' /></div>");
+				    mainContent.append("<img src='./resources/img/wordballoon.png'>");
+				    mainContent.append("<div class='dateDetail'>" + item.etc_date + "</div>");
+				    
+				    $(".orderMainContent").css("overflow" , "auto");
+				    $(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
+				});
+			   	
+			},
+			error : function(status){
 	
-	
-	
+			}   
+		});
 	
     });
+    
 });
 
+/* 최종 주문서가 입력이 되었을 경우 */
+function orderFinal(data){
+    
+    
+    
+}
 
+/* 최종 주문서가 없을 경우 */
+function oderInfo(data){
+    
+    
+    
+}
 </script>
 </html>

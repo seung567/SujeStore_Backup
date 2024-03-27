@@ -4,7 +4,7 @@
 
 <mapper namespace = "FleaGoodsSUDAO">
 
-	<select id="getFleaGoodsById" parameterType="String" resultType="modifyGoodsSU">
+	<select id="getFleaGoodsById" parameterType="String" resultType="fleaGoodsSU">
 	
 	<![CDATA[ SELECT 
     			f.f_code, f.f_date, f.f_redate, f.f_sum, f.f_pname, f.f_spname, f.f_ppath, f.f_psize, f.f_content, f.f_ck, f.f_num, f.s_id, cs.cates_code 
@@ -19,7 +19,7 @@
 		
 	</select>
 	
-	<update id="modifyGoodsSU" parameterType="modifyGoodsSU" >
+	<update id="modifyGoodsSU" parameterType="fleaGoodsSU" >
 	    UPDATE flea
 	    SET cates_code = #{cates_code}, f_content = #{f_content}
 	    WHERE f_code = #{f_code}

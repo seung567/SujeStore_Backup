@@ -16,7 +16,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-	$(document).ready(function() {
+	/* $(document).ready(function() {
 		$('.imgColumn-container img').click(function() {
 			var categoryNameFirst = $(this).data('category');
 			var categoryNameSecound = $(this).data('subcategory');
@@ -48,7 +48,7 @@
 			
 		});
 		   
-	});
+	}); */
 
 
 	$(function() {
@@ -57,6 +57,18 @@
 		}); 
 
 
+	
+	  //공지사항 영역 미리보기
+	   $(function() {
+	    $('.goodsContent').each(function() {
+	        var text = $(this).text();
+	        if (text.length > 60) {
+	            text = text.substring(0, 30) + '...';
+	            $(this).text(text);
+	        }
+	    });
+	  });
+	  
 </script>
 </head>
 <body>
@@ -82,15 +94,19 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>카테고리 1</td>
-                     <td>공지 내용이 여기에 들어갑니다.</td>
-                     <td>11,000</td>
-                     <td>10</td>
-                     <td>2024-03-16</td>
-                     <td>2024-03-16</td>
-                     <td>판매중</td>
+               <c:forEach items="${goodsList}" var="goodsList">
+                  <tr class="goodsListDetail" data-s_id="${goodsList.s_id}" >
+                     <td>
+                     <c:forEach begin="100" end="173" var="cates_code">"${goodsList.cates_code}"</c:forEach>
+                     </td>
+                     <td class="goodsContent">"${goodsList.f_content}"</td>
+                     <td>"${goodsList.f_sum}"</td>
+                     <td>"${goodsList.f_num}"</td>
+                     <td>"${goodsList.f_date}"</td>
+                     <td>"${goodsList.f_redate}"</td>
+                     <td>"${goodsList.f_ck}"</td>
                   </tr>
+                </c:forEach>
                </tbody>
             </table>
          </div> <!-- table-wrapper -->
@@ -98,7 +114,8 @@
 
 			<hr/>
 			<h1 class="store_maintitle">상품 수정</h1>
-			<form class="store_mainInfo">
+			<form class="store_mainInfo" action="modifyGoodsSU.do" method="post">
+			<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id">
 			<div class= "store_subCategory">
 				<label class="store_subTitle">상품 카테고리</label> 
 				<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
@@ -231,17 +248,17 @@
 				
 				<div class= "store_subCategory">
 				<label class="store_subTitle">상품 가격</label>
-				<input type="text" class="text-box"/>원
+				<input type="text" class="text-box"/>"${goodsList.f_sum}"원
 				</div>
 				
 				<div class= "store_subCategory">
 				<label class="store_subTitle">상품 총 수량</label>
-				<input type="text" class="text-box"/>개
+				<input type="text" class="text-box"/>"${goodsList.f_num}"개
 				</div>
 				
 				<div class= "store_subCategory">
 				<label class="store_subTitle">상품 내용</label><br />
-				<textarea class="goodsInfo_content" placeholder="내용을 입력하세요"></textarea>
+				<textarea class="goodsInfo_content" placeholder="내용을 입력하세요">${goodsList.f_content}</textarea>
 				</div>
 				
 				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MainFleaMarketDao">
+
+<!-- flea 전체 행수 -->
+<select id="getTotalAllCountPage" resultType="integer">
+	select count(*) as cnt from flea
+</select>
+
+<!-- flea 조건 포함 행수 -->
+<select id="getLimitTotalCountPage" resultType="integer">
+	select count(*) as cnt
+	from flea f, cate_sub cs, cate_mid cmm, cate_main cm
+	where f.cates_code=cs.cates_code 
+	  and cs.catemm_code=cmm.catemm_code 
+	  and cmm.catem_code=cm.catem_code
+	  and cm.catem_name=#{catem_name} and cmm.catemm_name=#{catemm_name}
+</select>
+
+<!-- Flea 테이블 호출 -->
+<resultMap id="fleaResult" type="mainFleaMarketVO">
+	<result property="f_code" column="f_code" />
+	<result property="s_name" column="s_name" />
+	<result property="f_content" column="f_content" />
+	<result property="f_sum" column="f_sum" />
+	<result property="f_ppath" column="f_ppath" />
+	<result property="catem_name" column="catem_name" />
+	<result property="catemm_name" column="catemm_name" />
+	<result property="cates_name" column="cates_name" />
+	<result property="rnum" column="rnum" />
+</resultMap>
+<select id="getFleaAllList" parameterType="mainFleaMarketVO" resultMap="fleaResult" >
+	<![CDATA[
+	select *
+	from ( select t.*, rownum as rnum
+		   from ( select f.f_code, s.s_name, f.f_content, f.f_sum, f.f_ppath, cm.catem_name, cmm.catemm_name, cs.cates_name
+				  from flea f, store s, cate_sub cs, cate_mid cmm, cate_main cm
+				  where f.s_id=s.s_id and f.cates_code=cs.cates_code and cs.catemm_code=cmm.catemm_code and cmm.catem_code=cm.catem_code
+	]]>
+				<if test="catem_name!=null">
+					and cm.catem_name=#{catem_name} and cmm.catemm_name=#{catemm_name}
+				</if>  
+				<if test="orderBy == 1">
+				  order by f_code desc ) t)
+				</if>
+				<if test="orderBy == 2">
+				  order by f_sum desc ) t)
+				</if>
+				<if test="orderBy == 3">
+				  order by f_sum asc ) t)
+				</if>
+	<![CDATA[
+				
+	where rnum>=#{firstNum} and rnum<=#{endNum}
+	]]>
+</select>
+
+</mapper>

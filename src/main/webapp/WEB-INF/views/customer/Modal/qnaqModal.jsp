@@ -64,7 +64,7 @@
 					<div>
 						<input type="text" name="qna_content"/>
 					</div>
-					<input type="hidden" id="m_id" name="m_id"/>
+					<input type="hidden" value="<%=request.getParameter("id")%>" name="m_id"/>
 				</div>
 				</form>
 			</div>

@@ -27,5 +27,10 @@ public class CustomerQnAServiceImpl implements CustomerQnAService {
 		dao.insertQnA(vo);
 	}
 	
-
+	@Override
+	public QnAVO getCustomerQnAA(int qna_code) {
+		System.out.println("=> CustomerQnAAService 실행");
+		QnAVO vo = dao.getCustomerQnAA(qna_code);
+		return vo;
+	}
 }

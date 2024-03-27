@@ -35,7 +35,6 @@
 		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
 		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
 
-
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
     	<typeAlias alias="adminQnAVO" type="com.suje.domain.adminviews.AdminQnAVO"/>

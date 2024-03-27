@@ -26,5 +26,11 @@ public class CustomerQnADAOImpl implements CustomerQnADAO {
 		mybatis.insert("CustomerDAO.insertQnA", vo);
 		System.out.println("insertQnA vo : " + vo);
 	}
+	
+	@Override
+	public QnAVO getCustomerQnAA(int qna_code) {
+		System.out.println("CustomerQnADAOImpl => getCustmerQnAA 실행");
+		return mybatis.selectOne("CustomerDAO.getCustomerQnAA", qna_code);
+	}
 
 }

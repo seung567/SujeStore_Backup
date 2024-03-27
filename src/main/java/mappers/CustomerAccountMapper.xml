@@ -6,15 +6,12 @@
 
 <!-- 계좌정보 조회 -->
 <select id="getCustomerAccount" parameterType="String" resultType="customerAccount">
-
 	select m_id,m_acc_num,m_acc_bank from member_acc where m_id = #{id}
-
 </select>
 
-<update id="updateAccount" parameterType="customerAccountInfo">
-	
-	update member_acc set M_ACC_BANK = #{m_acc_bank} ,M_ACC_NUM = #{m_acc_num}
-	where M_ID = #{m_id}
-
+<update id="updateAccount" parameterType="customerAccountInfo">	
+	update member_acc set m_acc_bank = #{m_acc_bank} ,m_acc_num = #{m_acc_num}
+	where m_id = #{m_id}
 </update>
+
 </mapper>

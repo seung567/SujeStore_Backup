@@ -23,20 +23,25 @@
 	select p.p_code, p.p_date, p.p_sum, p.p_ck, re.rv_date from pay_test p, review_test re where p.p_code = re.p_code
 </select>
 
-<!-- 고객QnA 리스트 조회 -->
+<!-- 고객QnA DB 리스트 조회 -->
 <select id="getCustomerQnA" parameterType="String" resultType="customerQnA">
-	select m_id, qna_code, qna_title, qna_qdate, qna_adate from qna where m_id = #{id}
+	select m_id, qna_code, qna_title, qna_qdate, qna_adate from qna where m_id = #{m_id} order by qna_code desc
 </select>
 
 <!-- 고객QnA 작성하기 insert -->
-<insert id="insertQnA" parameterType="customerQnA">
-	  insert into qna(qna_code, qna_title, qna_content, qna_qdate, m_id) values (qna_code_sqn.nextval, #{qna_title}, #{qna_content}, sysdate, #{m_id})
+<insert id="insertQnA" parameterType="String">
+	insert into qna(qna_code, qna_title, qna_content, qna_qdate, m_id) values (qna_code_sqn.nextval, #{qna_title}, #{qna_content}, sysdate, #{m_id})
 </insert>
 
-<!-- 고객QnA 답변 리스트 조회 -->
-<select id="getQnAA" parameterType="String" resultType="customerQnA">
-	  select m_id, qna_code, qna_title, qna_adate, qna_reply from qna where m_id = #{id}
+<!-- 고객QnA 답변 조회 -->
+<select id="getCustomerQnAA" parameterType="Integer" resultType="customerQnA">
+	select qna_code, qna_title, qna_adate, qna_reply from qna where qna_code = #{qna_code}
 </select>
+
+<!-- 고객후기(review) 작성하기 insert -->
+<insert id="insertReview" parameterType="String">
+	insert  into review(p_code, rv_star, rv_date, rv_content) values (p_code_sqn.nextval, #{p_code}, #{rv_star}, #{rv_date}, #{rv_content})
+</insert>
 
 
 

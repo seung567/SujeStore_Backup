@@ -88,7 +88,6 @@
 					                <c:otherwise>선택사항없음</c:otherwise>
 					            </c:choose>
 					            </td>
-								<%-- <td>${listAll.notit_code }</td> --%>
 								<td class="notiContent">${listAll.noti_content }</td>
 								<td>${listAll.notir_date }</td>
 								<td>${listAll.notim_date }</td>

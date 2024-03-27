@@ -56,7 +56,7 @@ String mainId = (String)session.getAttribute("mainId");
 		<a href="#" class="headerRankingPageBtn">인기랭킹</a>
 		<a href="#" class="headerReviewPageBtn">실시간 후기</a>
 		<a href="#" class="headerCommunityPageBtn">커뮤니티</a>
-		<a href="#" class="headerFleaMarketPageBtn">플리마켓</a>
+		<a href="viewFleaMarket.do" class="headerFleaMarketPageBtn">플리마켓</a>
 	</div>
 	<div class="secondHeaderLine"></div>
 	<div class="headerSubMenu">

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.suje.dao.customer.CustomerOrderDAO;
 import com.suje.domain.customer.EtcVO;
+import com.suje.domain.customer.FinalOrderVO;
 import com.suje.domain.customer.OrderListVO;
 
 @Service
@@ -45,5 +46,10 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		logger.info("getEtcList // Service");
 		List<EtcVO> getEtcList = orderDAO.getEtcList(o_code);
 		return getEtcList;
+	}
+	
+	@Override
+	public FinalOrderVO getFinalOrder(int storeOrderNO) {
+		return orderDAO.getFinalOrder(storeOrderNO);
 	}
 }

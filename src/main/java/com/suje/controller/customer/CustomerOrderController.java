@@ -1,5 +1,6 @@
 package com.suje.controller.customer;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,13 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.suje.domain.customer.EtcVO;
+import com.suje.domain.customer.FinalOrderVO;
 import com.suje.domain.customer.OrderListVO;
 import com.suje.service.customer.CustomerOrderService;
 
@@ -77,13 +78,27 @@ public class CustomerOrderController {
 	//주문요청사항 - 비동기
 	@RequestMapping(value="orderDetailContext", method = RequestMethod.POST, produces={"application/json"})
 	@ResponseBody
-	public List<EtcVO> orderEtcContext(@RequestParam  Map<String,String> oCode) {
+	public Map<String,Object> orderEtcContext(@RequestParam  Map<String,String> oCode) {
 		
 		logger.trace("orderEtcContext");
 		
+		Map<String,Object> resultMap= new HashMap<String,Object>();
 		List<EtcVO> etcVO = orderService.getEtcList(Integer.parseInt(oCode.get("orderNumReuslt")));
 		
-		return etcVO;
+		for(EtcVO vo : etcVO) {
+			if(vo.getEtc_content() == null) {
+				vo.setContent(vo.getO_content());
+			}else {
+				vo.setContent(vo.getEtc_content());
+			}
+		}
+		
+		FinalOrderVO finalVO = orderService.getFinalOrder(Integer.parseInt(oCode.get("orderNumReuslt")));
+		
+		resultMap.put("etcList", etcVO);
+		resultMap.put("finalVO", finalVO);
+		
+		return resultMap;
 		
 	}
 }

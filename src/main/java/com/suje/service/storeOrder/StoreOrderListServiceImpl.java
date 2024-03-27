@@ -20,6 +20,16 @@ public class StoreOrderListServiceImpl implements StoreOrderListService {
 		return storeOrderListDao.getStoreOrderList(storeID);
 	}
 	
+	// SUJE 톡톡 주문 상세 요청 사항
+	@Override
+	public List<StoreOrderListVO> getStoreOrderEtc(int storeOrderNO) {
+		return storeOrderListDao.getStoreOrderEtc(storeOrderNO);
+	}
 	
+	@Override
+	public List<StoreOrderListVO> getStoreFinalOrder(int storeOrderNO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

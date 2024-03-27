@@ -8,6 +8,7 @@ public interface StoreOrderListService {
 
 	
 	public List<StoreOrderListVO> getStoreOrderList(String storeID);
-	
+	public List<StoreOrderListVO> getStoreOrderEtc(int storeOrderNO);
+	public List<StoreOrderListVO> getStoreFinalOrder(int storeOrderNO);
 	
 }

@@ -56,7 +56,8 @@ public class MainLoginController {
 		}
 		else {   
 			session.setAttribute("mainId", login.getS_id());   
-			return "storeAdmin/storeProfile";
+			/* return "storeAdmin/storeProfile"; */
+			return "forward:/storeProfile.do?id=" + vo.getS_id();
 		}
 	}
 	//관리자 로그인

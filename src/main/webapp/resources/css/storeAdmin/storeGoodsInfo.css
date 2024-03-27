@@ -42,24 +42,28 @@ hr {
 
 }
 
-.goodsInfo_selectBox {
+.goodsInfo_selectBox_Secound {
 	font-size: 20px;
 	width: 200px;
 	height: 50px;
 	border: 5px solid #ADEFD1;
 	border-radius: 5px;
-	text-align:center;
-	margin-left: 50px;
+	text-align: center;
+	margin-left: 100px;
+}
+.goodsInfo_selectBox_Third {
+	font-size: 20px;
+	width: 200px;
+	height: 50px;
+	border: 5px solid #ADEFD1;
+	border-radius: 5px;
+	text-align: center;
+	margin-left: 100px;
 }
 
-.goodsInfo_selectBox:focus, .goodsInfo_selectBox_First:focus {
+.goodsInfo_selectBox_First:focus, .goodsInfo_selectBox_Secound:focus, .goodsInfo_selectBox_Third:focus {
 	outline: 2px solid #ADEFD1;
 	border: 1px solid #ADEFD1;
-	cursor: pointer;
-}
-
-
-.goodsInfo_selectBox option:focus, .goodsInfo_selectBox_First option:focus {
 	cursor: pointer;
 }
 

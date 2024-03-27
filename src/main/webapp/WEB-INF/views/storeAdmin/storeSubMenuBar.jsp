@@ -24,8 +24,8 @@ String user = (String) obj;
 
 	<!-- <div class="storeContentsWrap"> -->
 	<div class="storeSubMenuBox">
-		<a href="#" class="storeProfileBox"><img
-			src="./resources/img/basicProfileIconBig.png" /></a>
+		<a href="#" class="storeProfileBox">
+		<img src="./resources/img/basicProfileIconBig.png" /></a>
 		<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
 		<ul class="storeCategoryArea">
 			<li class="storeFirstCategoryArea">
@@ -34,28 +34,28 @@ String user = (String) obj;
 					
 					<!-- 스토어 페이지 관리 -->
 					<li class="storeSecondCategoryBtn">
-						<a href="#"> 
+						<a href="storeProfile.do?id=<%=user%>"> 
 							<span>스토어 페이지 관리</span>
 						</a>
 					</li>
 					
 					<!-- 스토어 공지 조회 / 수정 -->
 					<li class="storeSecondCategoryBtn">
-						<a href="storeNoticeListAll.do?id=doglove">
+						<a href="storeNoticeListAll.do?id=<%=user%>">
 							<span>스토어 공지 조회/수정</span>
 						</a>
 					</li>
 					
 					<!-- 스토어 공지 등록 -->
 					<li class="storeSecondCategoryBtn ">
-						<a href="storeNotiInfo.do?id=doglove"> 
+						<a href="storeNotiInfo.do?id=<%=user%>"> 
 							<span>스토어 공지 등록</span>
 						</a>
 					</li>
 					
 					<!-- 스토어 작품 조회 / 수정 -->
 					<li class="storeSecondCategoryBtn ">
-						<a href="storeGoodsMainPage.do?id=<%=user%>"> 
+					 <a href="storeGoodsMainPage.do?id=<%=user%>"> 
 							<span>스토어 작품 조회/수정</span>
 						</a>
 					</li>
@@ -74,7 +74,7 @@ String user = (String) obj;
 				<ul class="storeSecondCategoryArea">
 				
 					<li class="storeSecondCategoryBtn">
-						<a href="#"> 
+						<a href="fleaGoodsMainPage.do?id=<%=user%>"> 
 							<span>플리마켓 상품 조회/수정</span>
 						</a>
 					</li>

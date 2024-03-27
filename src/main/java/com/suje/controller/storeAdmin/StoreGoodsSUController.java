@@ -22,7 +22,7 @@ public class StoreGoodsSUController {
 	
 	@Autowired
 	StoreGoodsSUService goodsService;
-
+	
 	
 	@RequestMapping(value="storeGoodsMainPage")
 	public String storeGoodsMainPage(@RequestParam("id") String id, Model model){
@@ -30,13 +30,13 @@ public class StoreGoodsSUController {
 		// id 값을 가지고 service
 		List<StoreGoodsSUVO> goods = goodsService.storeGoodsMainPage(id);
 		
-		logger.info(String.valueOf(goods.get(1).getG_pname()));
-		
 		model.addAttribute("goodVO", goods);
 		model.addAttribute("id",id);
 		
 		return "/storeAdmin/storeGoodsSearchUpdate";
 	}
+	
+	
 	
     @RequestMapping(value="updateGoodsSU", method=RequestMethod.POST)
     public String updateGoodsSU(@ModelAttribute StoreGoodsSUVO updateGoodsSU) {

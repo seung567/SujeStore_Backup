@@ -159,7 +159,7 @@
 					<option>커스텀텀블러</option>
 					<option>커스텀시계</option>
 					<option>침대</option>
-					<option>의자</option>
+					<option>의자</option>ㄴ
 					<option>쇼파</option>
 					<option>쿠션</option>
 					<option>방석</option>

@@ -13,65 +13,21 @@
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/fleaMarket/fleaGoodsSearchUpdate.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	   $(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");
+	   $(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
+	}); 
+
+
+</script>
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
 <div class="storeContentsWrap">
-<div class="storeSubMenuBox">
-	<a href="#" class="storeProfileBox"><img src="./resources/img/basicProfileIconBig.png"/></a>
-	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
-	<ul class="storeCategoryArea">
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 페이지 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 등록</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn checkedStateSecondCategory"><a href="#">
-					<span>플리마켓 상품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 주문요청 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 최종주문 조회</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 주문 조회</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a>
-		</li>
-	</ul>
-</div> <!-- storeSubMenuBox -->
-
+ 	<jsp:include page="../storeAdmin/storeSubMenuBar.jsp"></jsp:include> 
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">플리마켓 상품 조회/수정</h1>
 			<hr/>
@@ -100,34 +56,6 @@
                      <td>2024-03-16</td>
                      <td>판매중</td>
                   </tr>
-                  <tr>
-                     <td>카테고리 2</td>
-                     <td>공지 내용이 여기에 들어갑니다.</td>
-                     <td>11,000</td>
-                     <td>10</td>
-                     <td>2024-03-15</td>
-                     <td>2024-03-15</td>
-                     <td>판매중단</td>
-                  </tr>
-                  <tr>
-                     <td>카테고리 3</td>
-                     <td>공지 내용이 여기에 들어갑니다.</td>
-                     <td>11,000</td>
-                     <td>10</td>
-                     <td>2024-03-14</td>
-                     <td>2024-03-14</td>
-                     <td>판매완료</td>
-                  </tr>
-                  <tr>
-                     <td>카테고리 4</td>
-                     <td>공지 내용이 여기에 들어갑니다.</td>
-                     <td>11,000</td>
-                     <td>10</td>
-                     <td>2024-03-14</td>
-                     <td>2024-03-14</td>
-                     <td>판매완료</td>
-                  </tr>
-                  <!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
                </tbody>
             </table>
          </div> <!-- table-wrapper -->
@@ -138,7 +66,7 @@
 			<form class="store_mainInfo">
 			<div class= "store_subCategory">
 				<label class="store_subTitle">상품 카테고리</label> 
-				<select	class="goodsInfo_selectBox_First">
+				<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
 					<option selected="selected">대분류</option>
 					<option>디저트</option>
 					<option>전통간식</option>
@@ -149,7 +77,7 @@
 					<option>잡화</option>
 					<option>홈리빙</option>
 				</select> 
-				<select class="goodsInfo_selectBox">
+				<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code">
     				<option selected="selected">중분류</option>
     				<option>베이커리</option>
     				<option>케이크</option>
@@ -179,7 +107,7 @@
     				<option>패브릭</option>
     				<option>방향제</option>
 				</select> 
-				<select class="goodsInfo_selectBox">
+				<select class="goodsInfo_selectBox_Third" name="cates_code" id="cates_code">
 					<option selected="selected">소분류</option>
 					<option>롤케이크</option>
 					<option>버터크림빵</option>
@@ -278,7 +206,7 @@
 				
 				<div class= "store_subCategory">
 				<label class="store_subTitle">상품 내용</label><br />
-				<textarea class="goodsInfo_content">내용을 작성하세요</textarea>
+				<textarea class="goodsInfo_content" placeholder="내용을 입력하세요"></textarea>
 				</div>
 				
 				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>

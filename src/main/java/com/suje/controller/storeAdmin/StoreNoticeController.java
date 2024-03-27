@@ -25,14 +25,6 @@ public class StoreNoticeController {
 	@Autowired
 	StoreNoticeService noticeService;
 
-	@RequestMapping(value = "storeNotice")
-	public String storeNoitUrl33() {
-
-		logger.info("storeNotice 메인 실행");
-		System.out.println(" storeNotice 메인 실행");
-
-		return "/storeAdmin/storeNotice";
-	}
 
 
 	@RequestMapping(value = "storeNoticeListAll")
@@ -101,7 +93,7 @@ public class StoreNoticeController {
 		  model.addAttribute("StoreNoticeList", list);
 		 
 		
-        return "/storeAdmin/storeNotice"; // 삭제 후 화면 이동 경로
+        return "/storeAdmin/storeNotice"; 
     }
 	
 	

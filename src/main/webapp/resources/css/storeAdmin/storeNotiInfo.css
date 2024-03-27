@@ -49,11 +49,6 @@ hr {
 }
 
 
-.notiInfo_selectBox option:focus {
-	cursor: pointer;
-}
-
-
 .notiInfo_content {
 	border: 5px solid #ADEFD1;
 	width: 1130px; 
@@ -76,12 +71,21 @@ hr {
 }
 
 .submitBtn {
+	float: left;
 	background-color: #ADEFD1;
 	width: 300px;
 	height: 50px;
-	border-radius: 10px;
+	border-radius: 5px;
 	margin-top: 30px;
 	margin-left: 20px;
-	
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 내부 여백 설정 */
+    color: black; /* 텍스트 색상 설정 */
+    cursor: pointer; /* 커서 모양 변경 */
+}
+
+
+.submitBtn:hover {
+    background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
 }
 

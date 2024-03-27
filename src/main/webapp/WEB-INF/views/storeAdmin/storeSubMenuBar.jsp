@@ -62,7 +62,7 @@ String user = (String) obj;
 					
 					<!-- 스토어 작품 등록 -->
 					<li class="storeSecondCategoryBtn">
-						<a href="#">
+						<a href="storeGoodsInfo.do?id=<%=user%>">
 							<span>스토어 작품 등록</span>
 						</a>
 					</li>

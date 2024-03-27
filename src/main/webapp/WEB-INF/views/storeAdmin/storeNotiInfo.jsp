@@ -31,7 +31,6 @@ $(function() {
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
  <div class="storeContentsWrap">
  <jsp:include page="storeSubMenuBar.jsp"></jsp:include>
-
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">스토어 공지 등록</h1>
 			<hr>

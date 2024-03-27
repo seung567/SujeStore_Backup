@@ -29,7 +29,6 @@ public class StoreGoodsSUController {
 		
 		// id 값을 가지고 service
 		List<StoreGoodsSUVO> goods = goodsService.storeGoodsMainPage(id);
-		
 		model.addAttribute("goodVO", goods);
 		model.addAttribute("id",id);
 		
@@ -44,5 +43,7 @@ public class StoreGoodsSUController {
 		logger.info(updateGoodsSU.getS_id());
         return "redirect:/storeGoodsMainPage.do?id=" + updateGoodsSU.getS_id();
     }
+    
+
 	
 }

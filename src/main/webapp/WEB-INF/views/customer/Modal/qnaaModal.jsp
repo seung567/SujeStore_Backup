@@ -41,7 +41,7 @@
 			<div class="qnaInsertTitle">
 				<div>SUJE</div>
 				<div>Q&A 답변</div>
-				<div>게시물번호 <input type="text" /></div>
+				<div>게시물번호 <input class="contentNO" type="text" /></div>
 			</div>
 
 				<!-- Modal 메인 Content -->
@@ -59,15 +59,15 @@
 			<div class="ContentRight">
 				<!-- Content 첫번째 라인 -->
 				<div>
-					<input type="text" name="q"/>
+					<input class="contentTitle" type="text" name="q"/>
 				</div>
 				<!-- Content 두번째 라인 -->
 				<div>
-					<input type="text" />
+					<input class="contentDate" type="text" />
 				</div>
 				<!-- Content 세번째 라인 -->
 				<div>
-					<input type="text" />
+					<input class="content" type="text" />
 				</div>
 
 				</div>
@@ -75,13 +75,10 @@
 			</div>
 			
 				<!-- 등록하기 버튼 -->
-				<div class="insertbtn">
+				<div class="insertbtn">			
 					<div>
-						<input type="button" value="확인">
-					</div>				
-					<div>
-					<a href=testPageSet.do?page=ysj&site=customer/customerQnA> <input
-						type="button" value="취소">
+							<a class="UrlMove" href="#"> 
+							<input type="submit" value="확인" />
 					</a>
 				</div>
 			</div>

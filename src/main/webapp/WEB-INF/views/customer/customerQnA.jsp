@@ -93,6 +93,7 @@
 
 <script type="text/javascript">
 
+/* QnA 작성하기 */
 $(function() {
 	$(".regit").click(regit);
 	$(".UrlMove").click(function(){
@@ -101,23 +102,35 @@ $(function() {
 });
 
 function regit() {
-	var value = "<%= request.getParameter("id")%>";
+            $(".qnaqModal").slideDown(200);
+}
+
+ /* QnA 답변 불러오기 */
+$(function() {
+	$(".answer").click(answer);
+	$(".UrlMove").click(function(){
+		location.href = "customerQnA.do?id=<%= request.getParameter("id")%>"
+	});
+});
+
+function answer() {
+	var resultAnserNo = $(this).parent().parent().children().eq(0).text();
 	$.ajax({
-		url : "customerQnAModal.do", 
+		url : "customerQnAAModal.do", 
 		type : "get",
-		data:{id : value},
+		data : {resultAnserNo:resultAnserNo},
 		dataType : "json",
-		contentType : 'application/json; charset=utf-8',
+		contentType : 'application/json; charset=UTF-8',
         beforeSend : function(){
-            $(".qnaqModal").slideDown(200);            
+            $(".qnaaModal").slideDown(200);            
           },
           success : function(data) { 
-              var dataList = data;
-              console.log(dataList);
-              $('#m_id').val(dataList[0].m_id);
-     		 
-            }
-		
+				console.log(data.qna_code);
+				$(".contentNO").val(data.qna_code);
+				$(".contentTitle").val(data.qna_title);
+				$(".contentDate").val(data.qna_adate);
+				$(".content").val(data.qna_reply);
+            }		
 	});
 }
 

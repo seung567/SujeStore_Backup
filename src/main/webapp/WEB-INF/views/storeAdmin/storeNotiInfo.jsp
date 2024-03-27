@@ -29,17 +29,15 @@ $(function() {
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
-
  <div class="storeContentsWrap">
  <jsp:include page="storeSubMenuBar.jsp"></jsp:include>
-
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">스토어 공지 등록</h1>
-			<hr />
+			<hr>
 
 			<div>
 				<form class="store_mainInfo" action="insertStoreNotiInfo.do" method="post">
-					<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id" />
+					<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id" /> 
 					<div class="store_subCategory">
 						<label class="store_subTitle">공지 유형</label> 
 						<select class="notiInfo_selectBox" name="notit_code" id="notit_code">
@@ -51,7 +49,7 @@ $(function() {
 					</div>
 					<div class="store_subCategory">
 						<label class="store_subTitle">공지 작성 내용</label><br />
-						<textarea class="notiInfo_content" name="noti_content">내용을 작성하세요</textarea>
+						<textarea class="notiInfo_content" name="noti_content" placeholder="내용을 입력하세요"></textarea>
 					</div>
 						
 					<button class="submitBtn" name="submitBtn">등록하기</button>

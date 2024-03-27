@@ -15,7 +15,6 @@
 <link href="./resources/css/admincss/adminmanage.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <% 
-String pageTotalCount = (String)session.getAttribute("pageTotalCount");
 String adminId = (String)session.getAttribute("mainId");
 %>
 <!-- <script src="./resources/js/adminjs/adminModalJs.js"></script> -->

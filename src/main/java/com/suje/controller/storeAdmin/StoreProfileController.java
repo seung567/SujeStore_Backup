@@ -25,7 +25,7 @@ public class StoreProfileController {
     public String showStoreProfile(@RequestParam String id, Model model) {
         StoreProfileVO store = storeService.getStoreById(id);
         model.addAttribute("vo", store);
-        return "/storeAdmin/storeProfile"; // ÇØ´ç JSP ÆÄÀÏ ÀÌ¸§ ¸®ÅÏ
+        return "/storeAdmin/storeProfile"; // ï¿½Ø´ï¿½ JSP ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
     
     @RequestMapping(value="updateStoreProfile", method=RequestMethod.POST)

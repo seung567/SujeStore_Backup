@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.suje.dao.storeOrder.StoreOrderListDAO;
+import com.suje.domain.customer.EtcVO;
+import com.suje.domain.customer.FinalOrderVO;
 import com.suje.domain.storeOrder.StoreOrderListVO;
 
 @Service
@@ -14,22 +16,28 @@ public class StoreOrderListServiceImpl implements StoreOrderListService {
 	@Autowired
 	StoreOrderListDAO storeOrderListDao;
 	
+	// Store - Suje Talk 전체 행 개수 구하기
+	@Override
+	public int getStoreOrderListCount(String storeID) {
+		return storeOrderListDao.getStoreOrderListCount(storeID);
+	}
+	
 	// Suje 톡톡 주문 내역
 	@Override
-	public List<StoreOrderListVO> getStoreOrderList(String storeID) {
-		return storeOrderListDao.getStoreOrderList(storeID);
+	public List<StoreOrderListVO> getStoreOrderList(StoreOrderListVO vo) {
+		return storeOrderListDao.getStoreOrderList(vo);
 	}
 	
 	// SUJE 톡톡 주문 상세 요청 사항
 	@Override
-	public List<StoreOrderListVO> getStoreOrderEtc(int storeOrderNO) {
+	public List<EtcVO> getStoreOrderEtc(int storeOrderNO) {
 		return storeOrderListDao.getStoreOrderEtc(storeOrderNO);
 	}
 	
+	// 최종 주문서 불러오기
 	@Override
-	public List<StoreOrderListVO> getStoreFinalOrder(int storeOrderNO) {
-		// TODO Auto-generated method stub
-		return null;
+	public FinalOrderVO getFinalOrder(int storeOrderNO) {
+		return storeOrderListDao.getFinalOrder(storeOrderNO);
 	}
 	
 }

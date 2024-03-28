@@ -437,3 +437,11 @@ hr {
 	
 }
 
+select[readonly] {
+  background-color: #ddd;
+  pointer-events: none;
+}
+
+input{
+	text-align: center;
+}

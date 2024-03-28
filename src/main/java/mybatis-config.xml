@@ -15,6 +15,7 @@
 		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
 		<typeAlias alias="customerEtcList" type="com.suje.domain.customer.EtcVO"/>
 		<typeAlias alias="customerFinalOrder" type="com.suje.domain.customer.FinalOrderVO"/>
+		<typeAlias alias="customerPurchase" type="com.suje.domain.customer.PurchaseVO"/>
 		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
 	
 		<!-- 장경희 설정 부분 -->
@@ -41,6 +42,7 @@
 		<typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
 		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
 		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
+
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>

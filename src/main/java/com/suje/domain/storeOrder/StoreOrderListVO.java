@@ -13,5 +13,6 @@ public class StoreOrderListVO {
 	// 페이징 관련 메소드
 	private int totalPageCount,firstNum,endNum;
 	
-	
+	//요청사항 내용 관련 메소드
+	private String content;
 }

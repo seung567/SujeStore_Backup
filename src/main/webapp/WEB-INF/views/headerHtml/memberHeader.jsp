@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="./resources/img/faviconLogoIcon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/menuForm/headerStyle.css" rel="stylesheet" type="text/css">
@@ -53,9 +54,9 @@ String mainId = (String)session.getAttribute("mainId");
 	<div class="firstHeaderLine"></div>
 	<div class="secondHeaderNavi">
 		<button class="headerCategoryBtn"><img src="./resources/img/headeHambergerMenu.png"/><span>전체 카테고리</span></button>
-		<a href="#" class="headerRankingPageBtn">인기랭킹</a>
+		<a href="mainPopularRank.do" class="headerRankingPageBtn">인기랭킹</a>
 		<a href="viewRealTimeReview.do" class="headerReviewPageBtn">실시간 후기</a>
-		<a href="#" class="headerCommunityPageBtn">커뮤니티</a>
+		<a href="viewMainComm.do" class="headerCommunityPageBtn">커뮤니티</a>
 		<a href="viewFleaMarket.do" class="headerFleaMarketPageBtn">플리마켓</a>
 	</div>
 	<div class="secondHeaderLine"></div>

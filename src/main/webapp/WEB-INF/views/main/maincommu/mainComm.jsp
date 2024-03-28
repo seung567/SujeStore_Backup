@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +12,69 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/main/maincommu/mainCommStyle.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./resources/js/main/mainCommmainNaviJs.js"></script>
+<!-- <script src="./resources/js/main/mainCommmainNaviJs.js"></script> -->
+<script type="text/javascript">
+$(function() {
+	
+<% String cCate = (String)request.getAttribute("cCate"); %>
+	
+	var selectedMainNaviText;
+	var selectedSubNaviText;
+	
+	//카테고리 선택 초기화
+	$('.mainNavi li').removeClass('selectedMainNavi');
+	
+	//카테고리 선택상태 활성화
+	$('.mainNavi li').each(function() {
+		var mainNaviText = $(this).children('a').text().trim();
+		if (mainNaviText === '<%= cCate %>') {
+			$(this).addClass('selectedMainNavi');
+			if(mainNaviText === "전체") {
+	            $(".categoryArea img, .categoryArea .mainCategory").hide();
+			} else {
+	            $(".mainCategory").text(mainNaviText);
+	            $(".categoryArea img, .categoryArea .mainCategory").show();
+			}
+		}
+	});
+	
+	//카테고리 클릭 이벤트
+	$('.mainNavi li').click(function() {
+		// 선택된 메뉴 항목 가져오기
+		selectedNaviText = $(this).children('a').text().trim();
+		
+    	var url = "communityMain.do?page=1&cCate="+selectedNaviText;
+    	location.href = url;
+    });
+	
+	/*
+	$('.mainNavi li').click(function() {
+		$('.mainNavi').children('li').removeClass('selectedMainNavi');
+		$(this).addClass('selectedMainNavi');
+		
+		// 선택된 메뉴 항목 가져오기
+		selectedMainNaviText = $(this).children('a').text().trim();
+		
+		// 선택 항목으로 제목 텍스트 변경
+        if(selectedMainNaviText === "전체") {
+            $(".mainCategory").text(selectedMainNaviText);
+            $(".categoryArea img, .categoryArea .mainCategory").hide();
+        } else {
+            $(".mainCategory").text(selectedMainNaviText);
+            $(".categoryArea img, .categoryArea .mainCategory").show();
+        }
+    });
+	*/
+	
+});
+</script>
 </head>
 <body>
 <%@ include file="../../headerHtml/memberHeader.jsp" %>
 <div class="contentsWrap">
 <div class="subMenuArea">
 	<ul class="mainNavi">
-		<li class="selectedMainNavi"><a href="#">전체</a></li>
+		<li><a href="viewMainComm.do">전체</a></li>
 		<li><a href="#">궁금해요</a></li>
 		<li><a href="#">추천해요</a></li>
 		<li><a href="#">꿀팁공유</a></li>
@@ -38,80 +94,46 @@
 	</div>
 	<div class="AreaLine"></div>
 	<div class="contentsArea">
-		<a href="#" class="contentsLinkArea">
-			<table class="EachContents">
-				<tr><td class="contentsCategoryTd" colspan="5">CATEGORY</td></tr>
-				<tr><td class="contentsTitleTd" colspan="5">커뮤니티 콘텐츠 제목 영역 입니다.</td></tr>
-				<tr>
-					<td class="contentsWriterTd">SUJE123</td>
-					<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">0</td>
-					<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">0</td>
-					<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
-					<td class="commDateTd">2024/01/01</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="contentsLinkArea">
-			<table class="EachContents">
-				<tr><td class="contentsCategoryTd" colspan="5">CATEGORY</td></tr>
-				<tr><td class="contentsTitleTd" colspan="5">커뮤니티 콘텐츠 제목 영역 입니다.</td></tr>
-				<tr>
-					<td class="contentsWriterTd">SUJE123</td>
-					<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">0</td>
-					<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">0</td>
-					<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
-					<td class="commDateTd">2024/01/01</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="contentsLinkArea">
-			<table class="EachContents">
-				<tr><td class="contentsCategoryTd" colspan="5">CATEGORY</td></tr>
-				<tr><td class="contentsTitleTd" colspan="5">커뮤니티 콘텐츠 제목 영역 입니다.</td></tr>
-				<tr>
-					<td class="contentsWriterTd">SUJE123</td>
-					<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">0</td>
-					<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">0</td>
-					<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
-					<td class="commDateTd">2024/01/01</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="contentsLinkArea">
-			<table class="EachContents">
-				<tr><td class="contentsCategoryTd" colspan="5">CATEGORY</td></tr>
-				<tr><td class="contentsTitleTd" colspan="5">커뮤니티 콘텐츠 제목 영역 입니다.</td></tr>
-				<tr>
-					<td class="contentsWriterTd">SUJE123</td>
-					<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">0</td>
-					<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">0</td>
-					<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
-					<td class="commDateTd">2024/01/01</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="contentsLinkArea">
-			<table class="EachContents">
-				<tr><td class="contentsCategoryTd" colspan="5">CATEGORY</td></tr>
-				<tr><td class="contentsTitleTd" colspan="5">커뮤니티 콘텐츠 제목 영역 입니다.</td></tr>
-				<tr>
-					<td class="contentsWriterTd">SUJE123</td>
-					<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">0</td>
-					<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">0</td>
-					<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
-					<td class="commDateTd">2024/01/01</td>
-				</tr>
-			</table>
-		</a>
-
+		
+		<!-- total 콘텐츠가 존재할 시 호출 -->
+		<c:if test="${pageTotalCount ne 0}">
+			<c:forEach items="${commList}" var="MainCommVO">
+				<a href="#" class="contentsLinkArea">
+					<table class="EachContents">
+						<tr><td class="contentsCategoryTd" colspan="5">${MainCommVO.comuc_name}</td></tr>
+						<tr><td class="contentsTitleTd" colspan="5">${MainCommVO.comup_title}</td></tr>
+						<tr>
+							<td class="contentsWriterTd">${MainCommVO.m_id}</td>
+							<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">${MainCommVO.comup_count}</td>
+							<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">${MainCommVO.comup_like}</td>
+							<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
+							<td class="commDateTd">
+								<fmt:parseDate value="${MainCommVO.comup_date}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
+								<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
+							</td>
+						</tr>
+					</table>
+				</a>
+			</c:forEach>
+		</c:if>
+		
+		<!-- total 콘텐츠가 존재하지 않을 시 호출 -->
+		<c:if test="${pageTotalCount eq 0}">
+			<div class="noneItemArea">콘텐츠가 존재하지 않습니다.</div>
+		</c:if>
+		
 	</div>
-	<div class="pageingArea">
-		<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
-		<a href="#">1</a>
-		<a href="#">2</a>
-		<a href="#">3</a>
-		<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
-	</div>
+	
+	<!-- total 콘텐츠가 존재할 시 호출 -->
+	<c:if test="${pageTotalCount ne 0}">
+		<div class="pageingArea">
+			<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
+				<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
+					<a href="communityMain.do?page=${i}">${i}</a>
+				</c:forEach>
+			<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
+		</div>
+	</c:if>
 </div>
 </div> <!-- contentsWrap -->
 <footer></footer>

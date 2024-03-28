@@ -7,6 +7,7 @@
 <!-- flea 전체 행수 -->
 <select id="getTotalAllCountPage" resultType="integer">
 	select count(*) as cnt from flea
+	where f_ck='판매중'
 </select>
 
 <!-- flea 조건 포함 행수 -->
@@ -16,6 +17,7 @@
 	where f.cates_code=cs.cates_code 
 	  and cs.catemm_code=cmm.catemm_code 
 	  and cmm.catem_code=cm.catem_code
+	  and f_ck='판매중'
 	  and cm.catem_name=#{catem_name} and cmm.catemm_name=#{catemm_name}
 </select>
 
@@ -38,6 +40,7 @@
 		   from ( select f.f_code, s.s_name, f.f_content, f.f_sum, f.f_ppath, cm.catem_name, cmm.catemm_name, cs.cates_name
 				  from flea f, store s, cate_sub cs, cate_mid cmm, cate_main cm
 				  where f.s_id=s.s_id and f.cates_code=cs.cates_code and cs.catemm_code=cmm.catemm_code and cmm.catem_code=cm.catem_code
+				    and f_ck='판매중'
 	]]>
 				<if test="catem_name!=null">
 					and cm.catem_name=#{catem_name} and cmm.catemm_name=#{catemm_name}
@@ -52,9 +55,57 @@
 				  order by f_sum asc ) t)
 				</if>
 	<![CDATA[
-				
 	where rnum>=#{firstNum} and rnum<=#{endNum}
 	]]>
 </select>
+
+<!-- Flea 상세 상품 테이블(메인정보) 호출 -->
+<select id="getfleaDetail" parameterType="String" resultType="mainFleaMarketVO">
+	select f.f_code, s.s_name, f.f_content, f.f_sum, f_num, f.f_ppath, cm.catem_name, cmm.catemm_name, cs.cates_name
+	from flea f, store s, cate_sub cs, cate_mid cmm, cate_main cm
+	where f.s_id=s.s_id and f.cates_code=cs.cates_code and cs.catemm_code=cmm.catemm_code and cmm.catem_code=cm.catem_code
+	and f.f_code=#{fCode}
+</select>
+
+<!-- Flea 상세 상품 서브 이미지 호출 -->
+<select id="getfleaDetailSubImg" parameterType="String" resultType="mainFleaMarketVO">
+	select fs_ppath 
+	from flea_sub
+	where f_code=#{fCode}
+</select>
+
+<!-- Member 정보 불러오기 -->
+<select id="getFleaBuyingMemberInfo" parameterType="mainFleaMarketVO" resultType="mainFleaMarketVO">
+	select m_name, m_tel
+	from member
+	where m_id=#{m_id}
+</select>
+
+<!-- Flea_pay 시퀀스 조회 -->
+<select id="getFleaPaySeq" resultType="String">
+	select fp_code_sqn.nextval from dual
+</select>
+
+
+<!-- Flea_pay Insert -->
+<insert id="fleaPayInsert" parameterType="mainFleaMarketVO" >
+	INSERT INTO flea_pay(fp_code, f_code, m_id, pt_code, fp_sum, fp_count, fp_date, fp_ck) 
+	VALUES (#{fp_code}, #{f_code}, #{m_id}, #{pt_code}, #{fp_sum}, #{fp_count}, sysdate, 'N')
+</insert>
+
+<!-- flea_delivery Insert -->
+<insert id="fleaDeliveryInsert" parameterType="mainFleaMarketVO" >
+	INSERT INTO flea_delivery(fd_code, fp_code, fd_name, fd_tel, fd_addr, fd_memo, fd_state) 
+	VALUES (fd_code_sqn.nextval, #{fp_code}, #{fd_name}, #{fd_tel}, #{fd_addr}, #{fd_memo}, '발송 전')
+</insert>
+
+<!-- flea Update -->
+<update id="fleaUpdate" parameterType="mainFleaMarketVO" >
+	update flea
+	set f_num=#{f_num}, f_ck=#{f_ck}
+	where f_code=#{f_code}
+</update>
+
+
 
 </mapper>

@@ -15,23 +15,18 @@
     $(function() {
         $('.adminCategoryArea li:last-child a').addClass('checkedStateFirstCategory');
 
-        // qnaInfo.qna_code 클릭 시 getQnAinfo 실행
-        $(".formQnaNum").click(function(event) {
-            // qna 코드값 가져오기
-            const qnaCode = $(this).text(); // 수정된 부분
+     // qnaTableRow 전체를 클릭 시 getQnAinfo 실행
+        $(".qnaTableRow").click(function(event) {
+            // 클릭된 행의 qna 코드값 가져오기
+            const qna_Code = $(this).find('.qnaTableRowNumber a').text(); 
             // getQnAinfo 실행하는 URL 생성
             const url = "getQnAinfo.do?qna_code=" + qnaCode;
            
             // 해당 URL로 이동
             window.location.href = url;
-           
         });
 
-        // 등록하기 버튼 클릭시 팝업창 실행 
-        $(".edit-button").click(function(event) {
-            alert("등록이 완료되었습니다.");
-            event.preventDefault(); // 기본 동작 막기
-        });
+         
     });
 
 
@@ -61,7 +56,7 @@
                     <tbody>
                         <c:forEach var="qna" items="${QnAList}">
                             <tr class="qnaTableRow" data-qna_id="${qna.qna_code}">
-                                <td class="qnaTableRowNumber"><a class="formQnaNum">${qna.qna_code}</a></td> 
+                                <td class="qnaTableRowNumber"><a>${qna.qna_code}</a></td> 
                                 <td>${qna.m_id}</td>
                                 <td>${qna.qna_title}</td>
                                 <td>${qna.qna_qdate}</td>
@@ -100,7 +95,7 @@
                     <label class="formInfoTitle" for="qnaReason">답변</label>
                     <textarea id="qnaReason" class="formQnaTextArea formQnaAnswer" name="qna_reply">${qnaInfo.qna_reply}</textarea>
                 </div>
-                <button type="submit" class="edit-button">등록하기</button>
+                <button class="edit-button">등록하기</button>
             </form>
         </div>
         <!-- adminContentsBox -->

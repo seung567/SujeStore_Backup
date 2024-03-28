@@ -71,9 +71,9 @@
 							<td></td>
 							<td>${vo.p_date }</td>
 							<td>${vo.p_sum }</td>
-							<td>N</td>
+							<td>Y</td>
 							<td>2024/03/01</td>
-							<td><input type="button" value="작성"></td>
+							<td><input class="regit" type="button" value="작성"></td>
 							<td>2024/03/01</td>
 						</tr>
 					</c:forEach>
@@ -89,4 +89,22 @@
 	</div>
 
 </body>
+
+<script type="text/javascript">
+
+/* 후기 작성하기 */
+$(function() {
+	$(".regit").click(regit);
+	$(".UrlMove").click(function() {
+		location.href = "customerReview.do?id=<%= request.getParameter("id")%>"				
+	});
+});
+
+function regit() {
+	$(".review").slideDown(200);
+}
+
+</script>
+
+
 </html>

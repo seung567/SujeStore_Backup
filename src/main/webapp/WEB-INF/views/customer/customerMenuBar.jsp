@@ -59,7 +59,7 @@
 			</div><!-- suje 톡톡 -->
 			
 			<div class="subTitle qna">
-				<a href="customerQnA.do?id=<%=user %>">Q&A 작성</a>
+				<a href="customerQnA.do?id=<%=user %>&page=1">Q&A 작성</a>
 			</div><!-- Q&A 작성 -->
 		</div>
 </body>

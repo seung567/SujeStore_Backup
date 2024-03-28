@@ -66,20 +66,18 @@ public class AdminQnAController {
     }
     
     @RequestMapping(value = "updateadmininfo", method = RequestMethod.POST)
-    public String updateAdminInfo(@ModelAttribute("qnaInfo") AdminQnAVO qnaInfo, Model model) {
+    public String updateAdminInfo(@ModelAttribute("vo") AdminQnAVO qnaInfo, Model model) {
         logger.info("Q&A 정보 업데이트 컨트롤러");
 
         // Q&A 정보를 업데이트하는 서비스 메소드 호출
         adminQnAService.updateAdminInfo(qnaInfo);
         
-        // 업데이트 후에 상세 정보를 다시 불러옵니다.
-        AdminQnAVO updatedQnaInfo = adminQnAService.getQnAInfo(qnaInfo.getQna_code());
-        model.addAttribute("qnaInfo", updatedQnaInfo);
-        
         // 업데이트 후 메시지 추가
         model.addAttribute("message", "Q&A 정보가 업데이트되었습니다.");
-
-        // 결과를 보여줄 뷰로 이동
-        return "redirect:/getQnAinfo?qna_code=" + qnaInfo.getQna_code();
+        
+        // 리다이렉트하여 adminQnA 페이지로 이동
+        return "redirect:/adminQnA.do?page=1";
     }
+
+    
 }

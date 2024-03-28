@@ -37,8 +37,15 @@
 	line-height: 30px;
 	text-align: center;
 }
+.qnaTableRow td{
+	padding: 5px 0;
+	cursor: pointer;
+}
+.qnaTableRow:hover {
+    background-color: #eee;
+}
 .qnaTableRowNumber {
-	text-decoration: underline;
+	text-decoration: underline;	
 }
 
 .pageingArea {
@@ -80,7 +87,6 @@
 	background-color: #eee;
 	border-radius: 10px;
 	text-align: center;
-	cursor: pointer;
 }
 .formQnaTitle {
 	width: 930px;

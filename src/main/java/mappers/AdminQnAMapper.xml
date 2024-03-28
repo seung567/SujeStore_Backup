@@ -18,24 +18,25 @@
 	</resultMap>
 
 	<!-- QnA 목록 조회 -->
-	<select id="getQnAList" parameterType="AdminQnAVO"
-		resultMap="QnAResult">
-		SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY,
-		TO_CHAR(QNA_QDATE, 'DD/MM/YY') AS QNA_QDATE,
-		TO_CHAR(QNA_ADATE, 'DD/MM/YY') AS QNA_ADATE,
-		M_ID
-		FROM (
-		SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY,
-		QNA_QDATE, QNA_ADATE, M_ID, ROWNUM AS RN
-		FROM (
-		SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY,
-		QNA_QDATE, QNA_ADATE, M_ID
-		FROM QNA
-		ORDER BY QNA_QDATE DESC
-		)
-		)
-		WHERE RN BETWEEN #{firstNum} AND #{endNum}
-	</select>
+	<select id="getQnAList" parameterType="AdminQnAVO" resultMap="QnAResult">
+    SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY,
+           TO_CHAR(QNA_QDATE, 'DD/MM/YY') AS QNA_QDATE,
+           TO_CHAR(QNA_ADATE, 'DD/MM/YY') AS QNA_ADATE,
+           M_ID
+    FROM (
+        SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY,
+               QNA_QDATE, QNA_ADATE, M_ID, ROWNUM AS RN
+        FROM (
+            SELECT QNA_CODE, QNA_TITLE, QNA_CONTENT, QNA_REPLY,
+                   QNA_QDATE, QNA_ADATE, M_ID
+            FROM QNA
+            ORDER BY NVL(QNA_REPLY, '0') ASC, QNA_QDATE DESC -- NVL 함수를 사용하여 QNA_REPLY가 NULL인 경우 '0'으로 대체하여 오름차순 정렬 후, QNA_QDATE 기준으로 내림차순 정렬
+        )
+    )
+    WHERE RN BETWEEN #{firstNum} AND #{endNum}
+</select>
+
+
 
 
 	<!-- QnA 전체 행 수 조회 -->

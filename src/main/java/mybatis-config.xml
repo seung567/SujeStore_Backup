@@ -34,7 +34,9 @@
 		<typeAlias alias="storeGoodsInfo" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeOrderCheck" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		
-		  <!-- 최수빈 설정 부분 -->
+
+		      <!-- 최수빈 설정 부분 -->
+
       <typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
       <typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
       <typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
@@ -44,6 +46,7 @@
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
     	<typeAlias alias="adminQnAVO" type="com.suje.domain.adminviews.AdminQnAVO"/>
+		<typeAlias alias="realtimeVO" type="com.suje.domain.main.MainRealTimeReviewVO"/>
 	</typeAliases>
 	
 

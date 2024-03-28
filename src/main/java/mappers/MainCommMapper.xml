@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MainCommDao">
+
+<!-- comu_post 전체 행수 -->
+<select id="getTotalAllCountPage" resultType="integer">
+	select count(*) as cnt from comu_post
+</select>
+
+<!-- comu_post 테이블 호출 -->
+<resultMap id="commResult" type="mainCommVO">
+	<result property="comup_code" column="comup_code" />
+	<result property="m_id" column="m_id" />
+	<result property="comuc_name" column="comuc_name" />
+	<result property="comup_title" column="comup_title" />
+	<result property="comup_date" column="comup_date" />
+	<result property="comup_count" column="comup_count" />
+	<result property="comup_like" column="comup_like" />
+</resultMap>
+<select id="getCommList" parameterType="mainCommVO" resultMap="commResult" >
+	select cp.comup_code, cp.m_id, cc.comuc_name, cp.comup_title, cp.comup_date, cp.comup_count, cp.comup_like
+	from comu_post cp, comu_cate cc
+	where cp.comuc_code=cc.comuc_code
+</select>
+
+
+</mapper>

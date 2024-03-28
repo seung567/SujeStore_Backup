@@ -17,13 +17,13 @@ public class CustomerReviewDAOImpl implements CustomerReviewDAO {
 	@Override
 	public List<ReviewVO> getCustomerReview(String id) {
 		System.out.println("CustomerReviewDAOImpl => getCustomerReview 실행");
-		return mybatis.selectList("CustomerReviewDAO.getCustomerReview", id);
+		return mybatis.selectList("CustomerDAO.getCustomerReview", id);
 	}
 	
 	@Override
 	public void insertReview(ReviewVO vo) {
 		System.out.println("=> Review 작성 Repository");
-		mybatis.insert("CustomerReviewDAO.insertReview", vo);
+		mybatis.insert("CustomerDAO.insertReview", vo);
 		System.out.println("insertReview vo : " + vo);	
 	}
 	

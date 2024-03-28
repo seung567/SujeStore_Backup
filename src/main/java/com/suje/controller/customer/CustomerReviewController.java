@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,11 +33,20 @@ public class CustomerReviewController {
 	}
 
 	// 리뷰 작성하기 (insert = 신규 글 저장 처리 요청)
-	/*
-	 * @RequestMapping(value ="insertReview", method = RequestMethod.POST) public
-	 * String insertReview(@ModelAttribute("vo") ReviewVO, Model model) {
-	 * System.out.println(vo.get); }
-	 */
+	@RequestMapping(value ="insertReview", method = RequestMethod.POST) 
+	public String insertReview(@ModelAttribute("vo") ReviewVO vo, Model model) {
+	 System.out.println(vo.getRv_star());
+	 System.out.println(vo.getRv_content());
+	 
+	 service.insertReview(vo);
+	 model.addAttribute("vo", vo);
+	 
+	 System.out.println("insertReview 컨트롤러 실행");
+	 
+	 return "redirect:/customerReview.do?id=" + vo.getM_id();	 
+	 }
+
+	// 
 	
 
 }

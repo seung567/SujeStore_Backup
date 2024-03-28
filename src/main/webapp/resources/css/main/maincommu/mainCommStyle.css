@@ -131,6 +131,16 @@ body {
 	margin-top: 20px;
 	margin-left: 40px;
 }
+
+.noneItemArea {
+	width: 1020px;
+	height: auto;
+	margin: 100px 0 100px 0;
+	font-size: 30px;
+	font-weight:bold;
+	text-align: center;
+}
+
 .EachContents, .contentsLinkArea {
 	width: 1020px;
 	height: auto;

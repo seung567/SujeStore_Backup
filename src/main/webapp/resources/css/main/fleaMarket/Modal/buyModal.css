@@ -348,3 +348,6 @@ hr {
 input:focus, .ContentRight2>div>select:focus {
 	outline: 1px solid #ADEFD1;
 }
+input[readonly] {
+    background-color: #eee;
+}

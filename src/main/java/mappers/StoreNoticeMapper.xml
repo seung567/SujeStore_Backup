@@ -26,6 +26,7 @@
 	 where noti_code = #{noti_code}
 </update>
 
+<!-- 공지 삭제 -->
 <delete id="deleteNotiInfo" parameterType="storeNotice">
     DELETE FROM noti_info WHERE noti_code = #{noti_code}
 </delete>

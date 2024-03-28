@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="StoreOrderCheckDAO">
+
+	<select id="getStoreOrderCheck" parameterType="String" resultType="storeOrderCheck">
+
+<!-- 	select
+	o_code,
+	o_content,
+	m_id,
+	to_char(o_date,'yyyy-mm-dd') as o_date,
+	s_id 
+	from orderinfo where s_id = #{s_id} -->
+	
+ 	select p.p_code,f.fo_code,p.p_date, p.p_sum, p.p_ck,p. p_ck_date, o.s_id,d.deli_type,o.o_code,o.o_date 
+from pay_test p, orderinfo o, final_order f, deli d 
+where o.s_id =#{s_id}
+and o.o_code=f.o_code
+and f.fo_code=p.fo_code
+and d.deli_code=f.deli_code 
+	</select>
+
+</mapper>

@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.suje.domain.customer.EtcVO;
+import com.suje.domain.customer.FinalOrderVO;
 import com.suje.domain.storeOrder.StoreOrderListVO;
 
 @Repository
@@ -14,16 +16,27 @@ public class StoreOrderListDAOImpl implements StoreOrderListDAO {
 	@Autowired
 	SqlSessionTemplate mybatis;
 	
-	// Suje 톡톡 주문 내역
+	// Store - Suje Talk 전체 행 개수 구하기
 	@Override
-	public List<StoreOrderListVO> getStoreOrderList(String storeID) {
-		return mybatis.selectList("storeOrderListDao.getStoreOrderList",storeID);
+	public int getStoreOrderListCount(String storeID) {
+		return mybatis.selectOne("storeOrderListDao.getStoreOrderListCount",storeID);
 	}
 	
-	// SUJE 톡톡 주문 상세 요청 사항
+	// Store - Suje 톡톡 주문 내역
 	@Override
-	public List<StoreOrderListVO> getStoreOrderEtc(int storeOrderNO) {
+	public List<StoreOrderListVO> getStoreOrderList(StoreOrderListVO vo) {
+		return mybatis.selectList("storeOrderListDao.getStoreOrderList",vo);
+	}
+	
+	// Store - Suje 톡톡 주문 상세 요청 사항
+	@Override
+	public List<EtcVO> getStoreOrderEtc(int storeOrderNO) {
 		return mybatis.selectList("storeOrderListDao.getStoreOrderEtc",storeOrderNO);
 	}
 	
+	// 최종 주문서 불러오기
+	@Override
+	public FinalOrderVO getFinalOrder(int storeOrderNO) {
+		return mybatis.selectOne("storeOrderListDao.getFinalOrder",storeOrderNO);
+	}
 }

@@ -12,5 +12,5 @@ public class EtcVO {
 	String s_id,m_id;
 	
 	// 요청사항 출력용
-	String content;
+	String content, o_date;
 }

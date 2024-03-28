@@ -247,3 +247,12 @@
 	border-radius: 5px;
 	margin-left: 20px;
 }
+
+
+.OrderInfoContentRight input{
+	text-align: center;
+}
+
+.OrderInfoinsertbtn input[type=button]{
+	font-weight: bold;
+}

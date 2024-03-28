@@ -18,9 +18,12 @@
 <link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css" />
 <link href="./resources/css/storeOrder/storeSujeTallk.css" rel="stylesheet" type="text/css" />
 
+<link rel="stylesheet" href="./resources/css/storeAdmin/storeNotiInfo.css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="./resources/js/storeOrder/storeSujeTalk.js"></script>
+
 <title>SUJE</title>
-<link rel="stylesheet"
-	href="./resources/css/storeAdmin/storeNotiInfo.css" />
 </head>
 <body>
 	<!-- 상단 메뉴 , 좌측 메뉴  -->
@@ -68,7 +71,16 @@
 
 						</div>
 						<!-- 목록정보 -->
-						<div>< 1 2 3 ></div>
+						<div>
+							<!-- ◀ -->
+							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
+								[<a href="storeSujeTalk.do?id=${id }&page=${i+1}">${i+1}</a>]
+							</c:forEach>
+					<!-- 		▶ -->
+						</div>
+						<div>
+							<input class="orderInsertBtn" type="button" value="버튼"/>
+						</div>
 					</div>
 				</div>
 
@@ -80,7 +92,8 @@
 							<span>주문 요청 내역</span>
 						</div>
 						<div>
-							<span>주문 요청 번호</span> <span><input type="text" /></span>
+							<span>주문 요청 번호</span> 
+							<span><input type="text" /></span>
 						</div>
 					</div>
 
@@ -94,9 +107,9 @@
 								<div>
 									<img src="./resources/img/custmerLogo.png" />
 								</div>
-								<div>abc123</div>
+								<div><!-- 상단 고객명 입력 부분 --></div>
 							</div>
-							<div>2024/03/13 09:00</div>
+							<div><!-- 상단 날짜 정보 입력 부분 --></div>
 						</div>
 						<div class="listBarOrder"></div>
 						
@@ -108,24 +121,7 @@
 							
 								<!-- 대화출력 -->
 								
-								<div class="orderMainDetail">
-								
-									<div class=chatDetail>
-										<div>
-											<img src="./resources/img/custmerLogo.png" />
-										</div>
-										<div>구매 고객</div>
-									</div><!-- 대화 사용자 정보 -->
-									
-									
-									<div>
-										안녕하세요! 3월 14일 화이트데이에 케잌을 주문하려고 하는데 가능할까요? 시간이 촉박한 점
-										저도 인지하고 있으며 최대한 가능한 제작옵션만 소개 부탁드려요!
-									</div>	<!-- 대화 내용 -->
-									
-									<img src="./resources/img/wordballoon.png" />	<!-- 뒷 배경 그림 -->
-									<div>2024-03-19</div><!-- 날짜 -->
-								</div>
+
 								
 								<!-- 대화출력 -->
 					
@@ -153,86 +149,13 @@
 		</div>
 	</div>
 	<!-- storeContentsBox -->
-	<form action="flieTest.do" method="post" enctype="multipart/form-data">
 	
-		<input type="file" name="etc_date">
-		<input type="submit">
-	
-	</form>
 	<!-- storeContentsWrap -->
 	<footer></footer>
 </body>
 <script type="text/javascript">
 
-$(function() {
-	    
-    $(".customerInfoList").parent().click(function(){
-		
-		/* 주문 상세 요청 내역 비동기 처리 */
-		$.ajax({
-		    type : "post",
-			url : "storeSujeTalkEtc.do",
-			data : {
-			    storeOrderNO : $(this).find("input").val()
-			},
-			dataType : "json",
-			contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
-			success : function(data){
-				
-				$(data).each(function(index,item){
-				    console.log(item);
-				    var orderDetailMainFram = $(".orderMainContentInner");
-				    
-				    var mainContent = $("<div class=orderMainDetail></div>");
-				    var chatContent = $("<div class=chatDetail></div>");
-				    
-				    orderDetailMainFram.append(mainContent);
-				    mainContent.append(chatContent);
-				    
-			    	// 대화 사용자 사진
-			    	if(item.etc_type_code == 77000){
-			    		chatContent.append("	<div><img src='./resources/img/custmerLogo.png'></div>");
-			    	}else{
-			    		chatContent.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>");    
-			    	}
-			    	
-			    	//대화 사용자명
-			    	if(item.etc_type_code == 77000){
-			    		chatContent.append("	<div>" + item.m_id + "</div>");
-			    	}else{
-			    		chatContent.append("<div>" + item.s_id + "</div>");    
-			    	}
 
-				    mainContent.append("<div><input id='orderCheck' type='button' value='"+item.content+"' /></div>");
-				    mainContent.append("<img src='./resources/img/wordballoon.png'>");
-				    mainContent.append("<div class='dateDetail'>" + item.etc_date + "</div>");
-				    
-				    $(".orderMainContent").css("overflow" , "auto");
-				    $(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
-				});
-			   	
-			},
-			error : function(status){
-	
-			}   
-		});
-	
-    });
-    
-});
 
-/* 최종 주문서가 입력이 되었을 경우 */
-function orderFinal(data){
-    
-    
-    
-}
-
-/* 최종 주문서가 없을 경우 */
-function oderInfo(data){
-    
-    
-    
-}
 </script>
 </html>

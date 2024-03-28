@@ -15,12 +15,13 @@
 		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
 		<typeAlias alias="customerEtcList" type="com.suje.domain.customer.EtcVO"/>
 		<typeAlias alias="customerFinalOrder" type="com.suje.domain.customer.FinalOrderVO"/>
+		<typeAlias alias="customerPurchase" type="com.suje.domain.customer.PurchaseVO"/>
 		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
 	
 		<!-- 장경희 설정 부분 -->
 		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO"/>
 		<typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO"/>
-		<typeAlias alias="modifyGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO"/>
+		<typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO"/>
 		
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO"/>

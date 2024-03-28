@@ -55,10 +55,10 @@
 	margin-left: 30px;
 }
 
-.activeTalk input {
+/* .activeTalk input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
-}
+} */
 
 .activeTalkTitle {
 	display: flex;
@@ -74,8 +74,23 @@
 .activeTalkTitle>div:nth-child(2)>span:nth-child(2) input {
 	width: 100px;
 	height: 30px;
+	text-align: center;
 }
 
+.activeTalkTitle>div:nth-child(2) input{
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+.activeTalkMain>div:nth-child(4) input{
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
+
+.activeTalkMain>div:nth-child(5) input{
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
+}
 /* 스토어 목록 메인 */
 .TalkListMain {
 	margin-top: 55px;
@@ -84,6 +99,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+}
+
+.orderInsertBtn{
+	position: absolute;	
+    top: 715px;
+    left: 11px;
+    width: 250px;
+    height: 50px;
 }
 
 .TalkListMain>div>div{
@@ -271,9 +295,32 @@ display: flex;
 	font-weight: bold;
 	color:white;
 	border: 0px;
+	border-radius: 5px;
+}
+
+.orderMainDetail input[type=text]{
+	width: 429px;
+	height: 50px;
+	font-size: 15px;
+	font-weight: bold;
+	color:black;
+	border: 0px;
+	border-radius: 5px;
 }
 
 .orderMainDetail>div:first-child>div:first-child {
 	margin-right: 10px;
 
 }
+
+
+/* Back-end 작업 이후 추가 CSS */
+
+/* #orderCheck{
+   max-width: 429px;
+    width: 429px;
+    height: auto;
+} */
+
+
+

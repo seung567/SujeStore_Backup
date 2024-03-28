@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -16,6 +15,7 @@
 		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
 		<typeAlias alias="customerEtcList" type="com.suje.domain.customer.EtcVO"/>
 		<typeAlias alias="customerFinalOrder" type="com.suje.domain.customer.FinalOrderVO"/>
+		<typeAlias alias="customerPurchase" type="com.suje.domain.customer.PurchaseVO"/>
 		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
 	
 		<!-- 장경희 설정 부분 -->
@@ -38,6 +38,8 @@
 		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
 		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
 		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
+		<typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
+		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>

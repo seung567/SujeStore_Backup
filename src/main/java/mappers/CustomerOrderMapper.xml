@@ -32,6 +32,7 @@
  	
 </select>
 
+<!-- 주문 상세요청(기타) 사항 조회 SQL문 -->
 <select id="getEtcList" parameterType="Integer" resultType="customerEtcList">
 
 <![CDATA[
@@ -47,17 +48,83 @@
 	et.ETC_DATE,
 	o.s_id,
 	o.m_id,
-	o.O_CONTENT
+	o.O_CONTENT,
+	o.o_date
 	from orderinfo o, etc et 
 	where o.o_code = et.o_code(+) and o.o_code = #{o_code}
 ]]>
 
 </select>
 
-
+<!-- 주문번호 기준으로 최종 주문서 조회 SQL문 -->
 <select id="getFinalOrder" parameterType="Integer" resultType="customerFinalOrder">
 
-	select * from final_order where o_code = #{o_code}
+	select * from final_order where o_code = #{o_code} and rownum = 1 order by FO_DATE desc
 
 </select>
+
+<!-- 최종 주문서 번호 기준으로 최종 주문서 조회 SQL문 -->
+<select id="getFinalOrderInfo" parameterType="Integer" resultType="customerFinalOrder">
+<![CDATA[
+	select 
+	cm.catemm_name, 
+	cs.cates_name,
+	fo.fo_code,
+	fo.o_code,
+	fo.cates_code,
+	fo.deli_code,
+	fo.fo_date,
+	fo.fo_sum,
+	fo.fo_num,
+	fo.fo_size,
+	fo.fo_etc 
+	from final_order fo, cate_sub cs, cate_mid cm 
+	where fo_code = #{foCode} 
+	and fo.cates_code = cs.cates_code 
+	and cs.catemm_code = cm.catemm_code
+]]>
+</select>
+
+<!-- 결제정보 입력 -->
+<insert id="insertPayInfo" parameterType="customerPurchase">
+	
+	insert into pay(
+		p_code,
+		fo_code,
+		pt_code,
+		p_date,
+		p_sum)
+	values(
+		p_code_sqn.nextval,
+		#{fo_code},
+		#{pt_code},
+		#{p_date},
+		#{p_sum})
+		
+
+
+</insert>
+
+<!-- 배송정보 입력 -->
+<insert id="insertDeliveryInfo" parameterType="customerPurchase">
+
+	insert into delivery(
+		d_code,
+		p_code,
+		d_name,
+		d_tel,
+		d_addr,
+		d_memo,
+		d_date)
+	values(
+		d_code_sqn.nextval,
+		(select p_code from pay where fo_code = #{fo_code}),
+		#{d_name},
+		#{d_tel},
+		#{d_addr},
+		#{d_memo},
+		sysdate
+	)
+
+</insert>
 </mapper>

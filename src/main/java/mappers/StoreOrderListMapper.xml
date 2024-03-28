@@ -4,18 +4,33 @@
 <!-- 유승민 사용 매퍼 -->
 <mapper namespace="storeOrderListDao">
 
-<select id="getStoreOrderList" parameterType="String" resultType="storeOrderList">
+<!-- 페이징을 위한 전체 행 개수 구하는 SQL 문 -->
+<select id="getStoreOrderListCount" parameterType="String" resultType="Integer">
 
+	select count(*) from orderinfo where s_id = #{storeID}
+
+</select>
+
+<!-- 해당 하는 페이지에 출력할 행을 구하는 SQL문 -->
+<select id="getStoreOrderList" parameterType="storeOrderList" resultType="storeOrderList">
+
+<![CDATA[
 	select
 	o_code,
 	o_content,
 	m_id,
 	to_char(o_date,'yyyy-mm-dd') as o_date,
 	s_id 
-	from orderinfo where s_id = #{storeID}
+	from orderinfo
+	where o_code in ( select o_code
+ 		from (select rownum as r_num, o_code from (select rownum,o_code from orderinfo where s_id = #{s_id} order by o_code desc))
+ 		where r_num >= #{firstNum} and r_num <= #{endNum})
+ 	order by o_code desc
+]]>
 
 </select>
 
+<!-- 주문 상세 요청(기타) 리스트 구하는 SQL문  -->
 <select id="getStoreOrderEtc" parameterType="Integer" resultType="customerEtcList">
 
 	<![CDATA[
@@ -27,14 +42,22 @@
 	et.ETC_PPATH, 
 	et.ETC_PNAME, 
 	et.ETC_PSIZE, 
-	et.ETC_CONTENT,
+	et.ETC_CONTENT, 
 	et.ETC_DATE,
-	o.S_ID,
-	o.m_ID 
+	o.s_id,
+	o.m_id,
+	o.O_CONTENT,
+	o.o_date
 	from orderinfo o, etc et 
-	where o.o_code = et.o_code and o.o_code = #{o_code}
+	where o.o_code = et.o_code(+) and o.o_code = #{o_code}
 	]]>
 
 </select>
 
+<!-- 최종 주문서를 구하는 SQL문  -->
+<select id="getFinalOrder" parameterType="Integer" resultType="customerFinalOrder">
+	
+	select * from final_order where o_code = #{o_code}
+
+</select>
 </mapper>

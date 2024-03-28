@@ -26,7 +26,7 @@ String user = (String) obj;
 	<div class="storeSubMenuBox">
 		<a href="#" class="storeProfileBox">
 		<img src="./resources/img/basicProfileIconBig.png" /></a>
-		<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
+		<textarea rows="2" disabled="disabled" class="storeNameBox"><%=user%></textarea>
 		<ul class="storeCategoryArea">
 			<li class="storeFirstCategoryArea">
 				<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어관리</a>
@@ -93,13 +93,13 @@ String user = (String) obj;
 				<ul class="storeSecondCategoryArea">
 				
 					<li class="storeSecondCategoryBtn">
-						<a href="storeSujeTalk.do?id=<%=user%>">
+						<a href="storeSujeTalk.do?id=<%=user%>&page=1">
 							<span>스토어 주문요청 관리</span>
 						</a>
 					</li>
 					
 					<li class="storeSecondCategoryBtn">
-						<a href="#">
+						<a href="storeOrderCheck.do?id=<%=user%>">
 							 <span>스토어	최종주문 조회</span>
 						</a>
 					</li>

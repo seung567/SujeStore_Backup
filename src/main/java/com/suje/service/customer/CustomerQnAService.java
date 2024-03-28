@@ -11,5 +11,7 @@ public interface CustomerQnAService {
 	public void insertQnA(QnAVO vo);
 	
 	public QnAVO getCustomerQnAA(int qna_code);
+	
+	public int getCountPageTotal(String id);
 
 }

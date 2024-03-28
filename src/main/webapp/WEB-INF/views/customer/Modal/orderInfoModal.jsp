@@ -58,9 +58,9 @@
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<div>
-							<select>
+							<select class="cateFirst">
 								<option>베이커리</option>
-								<option selected="selected">케이크</option>
+								<option >케이크</option>
 								<option>마카롱</option>
 								<option>타르트</option>
 								<option>쿠키</option>
@@ -68,7 +68,7 @@
 						</div>
 
 						<div>
-							<select>
+							<select class="cateSecond">
 								<option>롤케이크</option>
 								<option>버터크림빵</option>
 								<option>마늘빵</option>
@@ -76,7 +76,7 @@
 								<option>프레지에</option>
 								<option>생크림케이크</option>
 								<option>쉬폰케이크</option>
-								<option selected="selected">치즈케이크</option>
+								<option >치즈케이크</option>
 								<option>일반마카롱</option>
 								<option>뚱카롱</option>
 							</select>
@@ -85,7 +85,7 @@
 					<!-- Content 두번째 라인 -->
 					<div>
 						<div>
-							<input id="testinput" type="text" />
+							<input id="countInput" type="text" />
 
 						</div>
 						<div>개</div>
@@ -98,21 +98,21 @@
 					<!-- Content 세번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input id="price" type="text" />
 						</div>
 						<div>원</div>
 
 						<div>배송형태</div>
 						<div>
 							<select>
-								<option selected="selected">배송</option>
-								<option>픽업</option>
+								<option id="delivery">배송</option>
+								<option id="pickup">픽업</option>
 							</select>
 						</div>
 					</div>
 					<!-- Content 네번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="content" type="text" />
 					</div>
 				</div>
 			</div>
@@ -122,6 +122,7 @@
 					<input class="insertBtnRes" type="button" value="등록하기">
 				</div>
 				<div>
+					<a href=""></a>
 						<input class="viewCancel" type="button" value="취소">
 				</div>
 			</div>

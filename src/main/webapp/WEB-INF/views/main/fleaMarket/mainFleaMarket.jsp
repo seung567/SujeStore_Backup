@@ -15,9 +15,15 @@
 <!-- <script src="./resources/js/main/mainFleaMarketmainNaviJs.js"></script> -->
 <script type="text/javascript">
 $(function() {
-	<% String mCate = (String)request.getAttribute("mCate"); %>
-	<% String mmCate = (String)request.getAttribute("mmCate"); %>
-	<% String orderBy = (String)request.getAttribute("orderBy"); %>
+	
+<% if (request.getAttribute("buyComplete") != null) { %>
+	var buyComplete = "<%= request.getAttribute("buyComplete") %>";
+	alert(buyComplete);
+<% } %>
+	
+<% String mCate = (String)request.getAttribute("mCate"); %>
+<% String mmCate = (String)request.getAttribute("mmCate"); %>
+<% String orderBy = (String)request.getAttribute("orderBy"); %>
 	
 	//카테고리 선택 초기화
 	$('.mainNavi').removeClass('selectedMainNavi');
@@ -178,7 +184,7 @@ $(function() {
 	<c:if test="${pageTotalCount ne 0}">
 		<div class="itemArea">
 			<c:forEach items="${fleaList}" var="MainFleaMarketVO">
-				<a href="#" class="EachItemLinkArea">
+				<a href="fleaMarketDetail.do?fCode=${MainFleaMarketVO.f_code}" class="EachItemLinkArea">
 					<input type="hidden" value="${MainFleaMarketVO.f_code}"/>
 					<table class="EachItem">
 						<tr class="itemImgTr"><td><div class="itemImgArea"><img src="././resources/DB/${MainFleaMarketVO.f_ppath}"/></div></td></tr>

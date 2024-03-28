@@ -8,18 +8,14 @@
 <!-- 폰트링크 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
-<link rel="stylesheet"
-	href="./resources/css/customer/Modal/payModal.css" />
+<link rel="stylesheet" href="./resources/css/customer/Modal/payModal.css" />
 
 <!-- 데이터피커 CSS 연결 -->
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <!-- 자바스크립트 연결 -->
 <!-- 자바 라이브러리 -->
@@ -27,13 +23,13 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- JS 연결 -->
-<script type="text/javascript"
-	src="./resources/js/customer/customerReview.js"></script>
+<script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
 </head>
 
 <body>
 	<!-- Modal 출력 부분 -->
 	<!-- Order join content 부분 -->
+	<form action="payDeliveryInsert.do" method="post">
 	<div class="payMent">
 		<div class="payMentListModalBody">
 			<!-- 상단 제목 부분 -->
@@ -61,14 +57,14 @@
 				<div class="payMentContentRight">
 					<!-- Content 1번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="foCode" type="text" name="fo_code" readonly/><!-- 최종주문번호 -->
 					</div>
 					<!-- Content 2번째 라인 -->
 					<div>
 						<div>
-							<select>
+							<select class="cateFirst" readonly><!-- 상품 카테고리 1 -->
 								<option>베이커리</option>
-								<option selected="selected">케이크</option>
+								<option >케이크</option>
 								<option>마카롱</option>
 								<option>타르트</option>
 								<option>쿠키</option>
@@ -76,7 +72,7 @@
 						</div>
 
 						<div>
-							<select>
+							<select class="cateSecond" readonly><!-- 상품 카테고리 1 -->
 								<option>롤케이크</option>
 								<option>버터크림빵</option>
 								<option>마늘빵</option>
@@ -84,7 +80,7 @@
 								<option>프레지에</option>
 								<option>생크림케이크</option>
 								<option>쉬폰케이크</option>
-								<option selected="selected">치즈케이크</option>
+								<option >치즈케이크</option>
 								<option>일반마카롱</option>
 								<option>뚱카롱</option>
 							</select>
@@ -93,33 +89,33 @@
 					<!-- Content 3번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input id="foCount" type="text" readonly/><!-- 수량 -->
 						</div>
 						<div>개</div>
 
 						<div>주문 사이즈</div>
 						<div>
-							<input type="text" />
+							<input id="foSize" type="text" readonly/><!-- 사이즈 -->
 						</div>
 					</div>
 					<!-- Content 4번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input id="foPrice" type="text" name="p_sum" readonly/><!-- 결제금액 -->
 						</div>
 						<div>원</div>
 
 						<div>배송 형태</div>
 						<div>
-							<select>
-								<option selected="selected">배송</option>
-								<option>픽업</option>
+							<select ><!-- 배송형태 -->
+								<option id="payDelivery" selected="selected">배송</option>
+								<option id="payPickup">픽업</option>
 							</select>
 						</div>
 					</div>
 					<!-- Content 5번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="payEtc" type="text" readonly/><!-- 요구사항 -->
 					</div>
 				</div>
 			</div>
@@ -139,9 +135,9 @@
 				<div class="payMentContentRight2">
 					<!-- Content 1번째 라인 -->
 					<div>
-						<select>
-							<option selected="selected">카드</option>
-							<option>계좌이체</option>
+						<select name="pt_code"><!-- 결제방식 -->
+							<option value="1">카드</option>
+							<option value="2">계좌이체</option>
 						</select>
 					</div>
 
@@ -149,13 +145,13 @@
 
 					<div>
 						<div>
-							<input type="text" />
+							<input id="payMentPrice" type="text" readonly/><!-- 결제금액 -->
 						</div>
 						<div>원</div>
 
 						<div>결제일자</div>
 						<div>
-							<input type="text" />
+							<input id="payMentDate" type="text" name="p_date" readonly/><!-- 결제일자 -->
 						</div>
 					</div>
 
@@ -181,31 +177,35 @@
 				<div class="payMentContentRight3">
 					<!-- Content 1번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="deliName" name="d_name" type="text" /><!-- 수령자명 -->
 					</div>
 					<!-- Content 2번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="deliTel" name="d_tel" type="text" /><!-- 수령자 전화번호 -->
 					</div>
 					<!-- Content 3번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="deliAddr" name="d_addr" type="text" /><!-- 배송주소 -->
 					</div>
 					<!-- Content 4번째 라인 -->
 					<div>
-						<input type="text" />
+						<input id="deliMamo" name="d_memo" type="text" /><!-- 배송메모 -->
 					</div>
 					<!-- 버튼-->
 				</div>
 			</div>
 			<div class="payMentinsertbtn">
 				<div>
-					<input type="button" value="결제하기">
+					<input type="submit" value="결제하기">
 				</div>
 				<div>
 					<input class="viewCancel" type="button" value="취소">
 				</div>
 			</div>
 			<!-- Order join content 부분 -->
+			</div>
+			<input type="hidden" class="idInfoPay" name="m_id" />
+		</div>
+		</form>
 </body>
 </html>

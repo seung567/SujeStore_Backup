@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.suje.domain.main.MainFleaMarketVO;
 import com.suje.service.main.MainFleaMarketService;
@@ -66,4 +67,52 @@ public class MainFleaMarketController {
 		
 		return "main/fleaMarket/mainFleaMarket";
 	}
+	
+	//플리마켓 상품 상세 페이지
+	@RequestMapping("fleaMarketDetail.do")
+	public String fleaMarketDetail(@RequestParam("fCode") String fCode, Model model) {
+		logger.info("플리마켓 상품 상세 컨트롤러 "+fCode);
+		
+		model.addAttribute("fleaDetail", mainFleaMarkeService.getfleaDetail(fCode));
+		model.addAttribute("fleaDetailSubImg", mainFleaMarkeService.getfleaDetailSubImg(fCode));
+		return "main/fleaMarket/mainFleaMarketDetail";
+	}
+	
+	//플리마켓 모달 구매자 정보 불러오기
+	@RequestMapping(value="fleaBuyingMemberInfo.do", produces="application/json; charset=utf8")
+	@ResponseBody
+	public MainFleaMarketVO fleaBuyingMemberInfo(MainFleaMarketVO vo) {
+		logger.info("플리마켓 모달 구매자 정보 컨트롤러 "+vo.getM_id());
+		MainFleaMarketVO memberInfo = mainFleaMarkeService.getFleaBuyingMemberInfo(vo);
+		return memberInfo;
+	}
+	
+	//플리마켓 상품 구매
+	@RequestMapping("fleaItemBuy.do")
+	public String fleaItemBuy(MainFleaMarketVO vo, Model model) {
+		logger.info("플리마켓 상품 구매 컨트롤러"+vo.getF_code());
+		
+		String finalPrice = vo.getFp_sum();
+		vo.setFp_sum(finalPrice.replaceAll(",",""));
+		
+		int leftCount = Integer.parseInt(vo.getF_num())-Integer.parseInt(vo.getFp_count());
+		vo.setF_num(String.valueOf(leftCount));
+		
+		if(leftCount==0) {
+			vo.setF_ck("판매완료");
+		} else {
+			vo.setF_ck("판매중");
+		}
+		
+		vo.setFp_code(mainFleaMarkeService.getFleaPaySeq());
+		
+		mainFleaMarkeService.fleaPayInsert(vo);
+		mainFleaMarkeService.fleaDeliveryInsert(vo);
+		mainFleaMarkeService.fleaUpdate(vo);
+		
+		model.addAttribute("buyComplete", "상품 구매가 완료되었습니다");
+		return "forward:/viewFleaMarket.do";
+	}
+	
+	
 }

@@ -46,9 +46,11 @@ $(function() {
 	/* 아이템 카운트 변경 */
 	
 	var itemCount = 1;
+	var itemNum = parseInt($('.itemNum').val());  //아이템 수량 가져오기
 	var itemPrice = parseInt($('.itemPrice span:first-child').text()); // itemPrice 초깃값 가져오기
     $('.itemPrice span:first-child').text(itemPrice.toLocaleString()); // 초기 itemPrice 설정
     $('.finalPrice span:first-child').text(itemPrice.toLocaleString()); // 초기 finalPrice 설정
+	
 	
 	// CountMinus 버튼 클릭 시
 	$('.CountMinus').click(function() {
@@ -60,8 +62,13 @@ $(function() {
 	});
     // CountPlus 버튼 클릭 시
     $('.CountPlus').click(function() {
-        itemCount++; // itemCount 1 증가
-        updateItemCount(); // itemCount 업데이트
+		if (itemCount < itemNum) {
+	        itemCount++; // itemCount 1 증가
+	        updateItemCount(); // itemCount 업데이트
+		} else {
+		    // 초과할 경우 alert 창 표시
+		    alert("최대 구매 가능한 수량은 " + itemNum + " 개 입니다.");
+		}
     });
     
 	// itemCount 업데이트 함수

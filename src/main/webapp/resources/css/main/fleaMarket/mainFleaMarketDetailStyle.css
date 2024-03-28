@@ -29,15 +29,22 @@ body {
 	height: 500px;
 }
 .itemImage li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 500px;
 	height: 500px;
-	display: block;
 	float: left;
 	border-radius: 10px;
+	background-color: #eee;
 	overflow: hidden;
 }
 .itemImage li img {
-	height: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	display: block;
+	margin: auto;
 }
 
 .imgLeftMove {
@@ -75,7 +82,8 @@ body {
 	margin-right: 10px;
 }
 .category {
-	width: 150px;
+	width: auto;
+	margin-right: 20px;
 	height: 40px;
 	font-size: 15px;
 	line-height: 40px;

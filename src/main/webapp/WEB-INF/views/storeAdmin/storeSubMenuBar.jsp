@@ -74,7 +74,7 @@ String user = (String) obj;
 				<ul class="storeSecondCategoryArea">
 				
 					<li class="storeSecondCategoryBtn">
-						<a href="fleaGoodsMainPage.do?id=<%=user%>"> 
+						<a href="fleaGoodsListAll.do?id=<%=user%>"> 
 							<span>플리마켓 상품 조회/수정</span>
 						</a>
 					</li>

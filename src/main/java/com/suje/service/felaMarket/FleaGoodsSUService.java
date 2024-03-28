@@ -6,6 +6,7 @@ import com.suje.domain.fleaMarket.FleaGoodsVO;
 
 public interface FleaGoodsSUService {
 
-    public List<FleaGoodsVO> fleaGoodsMainPage(String id);
+	List<FleaGoodsVO> fleaGoodsListAll(FleaGoodsVO vo);
+	FleaGoodsVO getFleaInfo(FleaGoodsVO vo);
 	void modifyGoodsSU(FleaGoodsVO modifyGoodsSU);
 }

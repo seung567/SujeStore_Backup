@@ -1,14 +1,13 @@
 package com.suje.dao.fleaMarket;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.suje.domain.fleaMarket.FleaGoodsVO;
-import com.suje.domain.storeAdmin.StoreGoodsSUVO;
-import com.suje.domain.storeAdmin.StoreProfileVO;
 
 @Repository
 public class FleaGoodsSUDAOImpl implements FleaGoodsSUDAO {
@@ -17,12 +16,18 @@ public class FleaGoodsSUDAOImpl implements FleaGoodsSUDAO {
 	SqlSessionTemplate mybatis;
 	
 	@Override
-	// 1.메소드 이름 맞추기
-	public List<FleaGoodsVO> fleaGoodsMainPage(String id) {
+	public List<FleaGoodsVO> fleaGoodsListAll(FleaGoodsVO vo) {
 		
-		return mybatis.selectList("FleaGoodsSUDAO.getFleaGoodsById", id);
+		return mybatis.selectList("FleaGoodsSUDAO.fleaGoodsListAll", vo);
 	}
-    @Override
+
+	@Override
+	public FleaGoodsVO getFleaInfo(FleaGoodsVO vo) {
+		return mybatis.selectOne("FleaGoodsSUDAO.getFleaInfo", vo);
+	}
+	
+    
+	@Override
     public void modifyGoodsSU(FleaGoodsVO modifyGoodsSU) {
         mybatis.update("FleaGoodsSUDAO.modifyGoodsSU", modifyGoodsSU);
     }

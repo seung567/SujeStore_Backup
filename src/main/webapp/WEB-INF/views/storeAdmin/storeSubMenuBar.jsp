@@ -99,7 +99,7 @@ String user = (String) obj;
 					</li>
 					
 					<li class="storeSecondCategoryBtn">
-						<a href="#">
+						<a href="storeOrderCheck.do?id=<%=user%>">
 							 <span>스토어	최종주문 조회</span>
 						</a>
 					</li>

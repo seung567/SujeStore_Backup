@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -38,12 +37,13 @@
 		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
 		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
 		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
+		<typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
+		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
+		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
     	<typeAlias alias="adminQnAVO" type="com.suje.domain.adminviews.AdminQnAVO"/>
 	</typeAliases>
 	
-
 </configuration> 
-

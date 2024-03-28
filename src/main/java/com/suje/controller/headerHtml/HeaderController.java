@@ -31,6 +31,12 @@ public class HeaderController {
 	}
 	
 	//플리마켓 페이지 이동
+	@RequestMapping("viewMainComm.do")
+	public String viewMainComm() {
+		return "forward:/communityMain.do?page=1&cCate=전체";
+	}
+	
+	//플리마켓 페이지 이동
 	@RequestMapping("viewFleaMarket.do")
 	public String viewFleaMarket() {
 		return "forward:/fleaMarketMain.do?page=1&mCate=전체&mmCate= &orderBy=1";

@@ -44,9 +44,6 @@
 </select>
 
 <!-- 스토어 벌점 등록 -->
-<insert id=""></insert>
-
-<!-- store_avail insert -->
 <insert id="pntInsert" parameterType="adminPntVO" >
 	INSERT INTO degrade(de_code, ma_id, s_id, de_score, de_why, de_date) 
 	VALUES (de_code_sqn.nextval, #{ma_id}, #{s_id}, #{de_score}, #{de_why}, sysdate)

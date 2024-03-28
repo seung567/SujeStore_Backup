@@ -73,7 +73,13 @@
 					</c:forEach>
 
 				</table>
-				<div class="pageing">< 1 2 3 ></div>
+						<div>
+							◀
+							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
+								<a href="customerQnA.do?id=${id }&page=${i+1}">${i+1}</a>
+							</c:forEach>
+							▶
+						</div>
 			</div>
 		</div>
 	</div>
@@ -102,7 +108,7 @@ $(function() {
 });
 
 function regit() {
-            $(".qnaqModal").slideDown(200);
+   $(".qnaqModal").slideDown(200);
 }
 
  /* QnA 답변 불러오기 */

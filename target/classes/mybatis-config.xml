@@ -20,7 +20,7 @@
 		<!-- 장경희 설정 부분 -->
 		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO"/>
 		<typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO"/>
-		<typeAlias alias="modifyGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO"/>
+		<typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO"/>
 		
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO"/>
@@ -33,12 +33,12 @@
 		<typeAlias alias="storeGoodsSU" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeGoodsInfo" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		
-		<!-- 최수빈 설정 부분 -->
-		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
-		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
-		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
-		<typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
-		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
+		  <!-- 최수빈 설정 부분 -->
+      <typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
+      <typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
+      <typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
+      <typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
+      <typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>

@@ -1,6 +1,10 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!DOCTYPE html>
 <html>
@@ -35,36 +39,32 @@
 				<!-- 메인 좌측 Content Title -->
 				<div class="ContentLefit">
 					<div>
-						<img width="30px" height="30px" alt=""
-							src="./resources/img/Star1Customer.png" />
+						<img width="30px" height="30px" alt="" src="./resources/img/Star1Customer.png" />
 					</div>
 					<div>이미지 등록</div>
 					<div>내용</div>
 				</div>
 
 				<!-- 메인 우측 Content -->
+				<form id="formSubmit" action="insertReview.do" method="post">
 				<div class="ContentRight">
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<div>
-							<select>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option selected="selected">5</option>
+							<select name="rv_star">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5" selected="selected">5</option>
 							</select>
 						</div>
 						<div>점</div>
-						<label for="date">작성일자</label> <input id="date" type="text" />
-						<div>
-							<input id="datepicker" type="text" />
-						</div>
 					</div>
 					<!-- Content 두번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input type="text"  />
 						</div>
 						<div>
 							<input type="button" value="불러오기" />
@@ -73,24 +73,29 @@
 					<!-- Content 세번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input type="text" name="rv_content"/>
 						</div>
 					</div>
+					<input type="hidden" value="<%=request.getParameter("id")%> name="m_id"/>
 				</div>
+			</form>
 			</div>
 
 			<!-- 등록하기 버튼 -->
 			<div class="insertbtn">
 				<div>
-					<input type="button" value="등록하기">
+					<input type="submit" value="등록하기" form="formSubmit">
 				</div>
+				
 				<div>
-					<a href="testPageSet.do?page=ysm&site=customer/customerReview">
-						<input type="button" value="취소">
+					<a class="UrlMove" href="#"> 
+						<input type="submit" value="취소" />
 					</a>
+					
 				</div>
 			</div>
 		</div>
 	</div>	
+	
 </body>
 </html>

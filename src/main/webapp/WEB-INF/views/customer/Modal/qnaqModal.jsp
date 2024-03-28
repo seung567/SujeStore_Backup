@@ -69,23 +69,21 @@
 				</form>
 			</div>
 
-					<!-- 등록하기 버튼 -->
-	
+			<!-- 등록하기 버튼 -->
 			<div class="insertbtn">
 						<div>
 							<input type="submit" value="등록하기" form="formSubmit">
-
 						</div>
+						
 						<div>
 							<a class="UrlMove" href="#"> 
 							<input type="submit" value="취소" />
 							</a>
-						</div>
-					</div>	
+							
+				</div>
+			</div>	
 		</div>
 	</div>
-
-
 
 </body>
 </html>

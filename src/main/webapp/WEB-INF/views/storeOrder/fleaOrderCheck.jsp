@@ -21,58 +21,7 @@
 <body>
    <%@ include file="../../views/headerHtml/storeHeader.jsp"%>
    <div class="storeContentsWrap">
-      <div class="storeSubMenuBox">
-         <a href="#" class="storeProfileBox"><img
-            src="./resources/img/basicProfileIconBig.png" /></a>
-         <textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
-         <ul class="storeCategoryArea">
-            <li class="storeFirstCategoryArea"><a href="#"
-               class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
-               <ul class="storeSecondCategoryArea">
-                  <li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
-                           페이지 관리</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-                           공지 조회/수정</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-                           공지 등록</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-                           작품 조회/수정</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-                           작품 등록</span>
-                  </a></li>
-               </ul></li>
-            <li class="storeFirstCategoryArea"><a href="#"
-               class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
-               <ul class="storeSecondCategoryArea">
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
-                           상품 조회/수정</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
-                           상품 등록</span>
-                  </a></li>
-               </ul></li>
-            <li class="storeFirstCategoryArea"><a href="#"
-               class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;주문
-                  관리</a>
-               <ul class="storeSecondCategoryArea">
-                  <li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
-                           주문요청 관리</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
-                           최종주문 조회</span>
-                  </a></li>
-                  <li class="storeSecondCategoryBtn checkedStateSecondCategory"><a
-                     href="#"> <span>플리마켓 주문 조회</span>
-                  </a></li>
-               </ul></li>
-            <li class="storeFirstCategoryArea"><a href="#"
-               class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a></li>
-         </ul>
-      </div>
+   <jsp:include page="../../views/storeAdmin/storeSubMenuBar.jsp"></jsp:include>
       <!-- storeSubMenuBox -->
       <div class="storeContentsBox">
          <h1 class="title">플리마켓 주문 조회</h1>
@@ -92,86 +41,18 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
+				<c:forEach items="${FleaOrderCheckList}" var="fleaorderCheck" >
+					<tr data-s_id="${fleaorderCheck.s_id}">
+                     <td>${fleaorderCheck.fp_code}</td>
+                     <td>${fleaorderCheck.f_content}</td>
+                     <td>${fleaorderCheck.fp_count}</td>
+                     <td>${fleaorderCheck.fp_sum}</td>
+                     <td>${fleaorderCheck.fp_date}</td>
+                     <td>${fleaorderCheck.fp_ck}</td>
+                     <td>${fleaorderCheck.fp_ckdate}</td>
                      <td><button class="check-delivery">조회</button></td>
                   </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
-                  <tr>
-                     <td>123456</td>
-                     <td>빵빵이</td>
-                     <td>1</td>
-                     <td>11,900</td>
-                     <td>2024-03-16</td>
-                     <td>N</td>
-                     <td>2024-03-16</td>
-                     <td><button class="check-delivery">조회</button></td>
-                  </tr>
+                 </c:forEach>
                   <!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
                </tbody>
             </table>

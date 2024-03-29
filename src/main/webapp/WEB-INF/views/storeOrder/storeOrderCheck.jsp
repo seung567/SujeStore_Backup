@@ -46,7 +46,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${orderCheck}" var="orderCheck" >
+					<c:forEach items="${orderCheckList}" var="orderCheck" >
 						<tr data-s_id="${orderCheck.s_id}">
 							<td>${orderCheck.o_code}</td>
 							<td>${orderCheck.p_code}</td>
@@ -56,7 +56,7 @@
 							<td>${orderCheck.p_ck}</td>
 							<td></td>
 							<td><button class="check">조회</button></td>
-							<td>픽업</td>
+							<td>${orderCheck.deli_type}</td>
 							<td><button class="check-delivery">조회</button></td>
 						</tr>
 						</c:forEach>
@@ -78,24 +78,15 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>123456</td>
-							<td>123456</td>
-							<td>2024-03-16</td>
-							<td>그냥</td>
+					<c:forEach items="${cancelList}" var="cancel" >
+						<tr data-s_id="${cancel.s_id}">
+							<td>${cancel.can_code}</td>
+							<td>${cancel.fo_code}</td>
+							<td>${cancel.can_date}</td>
+							<td>${cancel.can_why}</td>
 						</tr>
-						<tr>
-							<td>123456</td>
-							<td>123456</td>
-							<td>2024-03-16</td>
-							<td>그냥</td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>123456</td>
-							<td>2024-03-16</td>
-							<td>그냥</td>
-						</tr>
+
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -112,24 +103,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>123456</td>
-							<td>123456</td>
-							<td>2024-03-16</td>
-							<td>그냥</td>
+					<c:forEach items="${returnList}" var="returnOrder" >
+						<tr data-s_id="${returnOrder.s_id}">
+							<td>${returnOrder.rt_code}</td>
+							<td>${returnOrder.p_code}</td>
+							<td>${returnOrder.rt_date}</td>
+							<td>${returnOrder.rt_why}</td>
 						</tr>
-						<tr>
-							<td>123456</td>
-							<td>123456</td>
-							<td>2024-03-16</td>
-							<td>그냥</td>
-						</tr>
-						<tr>
-							<td>123456</td>
-							<td>123456</td>
-							<td>2024-03-16</td>
-							<td>그냥</td>
-						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>

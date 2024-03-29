@@ -19,4 +19,14 @@ public class StoreOrderCheckDAOImpl implements StoreOrderCheckDAO {
 		
 		return mybatis.selectList("StoreOrderCheckDAO.getStoreOrderCheck", id);
 	}
+	@Override
+	public  List<StoreOrderCheckVO> getCancelOrderCheck(String id) { 
+		
+		return mybatis.selectList("StoreOrderCheckDAO.getCancelOrderCheck", id);
+	}
+	@Override
+	public  List<StoreOrderCheckVO> getReturnOrderCheck(String id) { 
+		
+		return mybatis.selectList("StoreOrderCheckDAO.getReturnOrderCheck", id);
+	}
 }

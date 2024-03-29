@@ -39,11 +39,11 @@
 </select>
 
 <!--  고객 QnA 전체 페이지 수 계산 -->
-<select id="getQnAListCount" parameterType="String" resultType="Integer">
+<!-- <select id="getQnAListCount" parameterType="String" resultType="Integer">
 	select count(*) as totalPageCount from qna where m_id = #{id}
 </select>
 
-<!-- 페이지에 해당 하는 데이터 추출 -->
+페이지에 해당 하는 데이터 추출
 <select id="getQnAList" parameterType="customerQnAList" resultType="customerQnAList">
  	
 <![CDATA[
@@ -61,7 +61,7 @@
  	
 </select>
 
-
+ -->
 
 <!-- 고객후기(review) 작성하기 insert -->
 <insert id="insertReview" parameterType="customerReview">

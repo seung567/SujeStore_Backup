@@ -64,11 +64,11 @@
 						<td>후기작성</td>
 						<td>후기작성일자</td>
 					</tr>
-					<c:forEach items="${vo}" var="vo">
+					<c:forEach items="${listVO}" var="vo">
 						<tr>
 							<td>${vo.p_code }</td>
 							<td></td>
-							<td></td>
+							<td>${vo.rv_code }</td>
 							<td>${vo.p_date }</td>
 							<td>${vo.p_sum }</td>
 							<td>Y</td>
@@ -78,7 +78,11 @@
 						</tr>
 					</c:forEach>
 				</table>
-				<div class="pageing">< 1 2 3 ></div>
+				<div class="pageing">
+				<c:forEach var="i" begin="1" end="${totalCountRow }" step="1">
+					[<a href="customerReview.do?id=${id}&page=${i}">${i }</a>]
+				</c:forEach>
+				</div>
 			</div>
 		</div>
 	</div>

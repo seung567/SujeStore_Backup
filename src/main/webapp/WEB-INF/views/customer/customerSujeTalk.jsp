@@ -163,6 +163,7 @@ $(function(){
     // 최종 주문서 조회 취소 이벤트
     $('.viewCancel').click(function(){location.href = "customerSujeTalk.do?id=${id}&page=1";});
     
+
     
 });
 	

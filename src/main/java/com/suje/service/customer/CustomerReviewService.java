@@ -9,5 +9,9 @@ public interface CustomerReviewService {
 	public List<ReviewVO> getCustomerReview(String id);
 	
 	public void insertReview(ReviewVO vo);
+	
+	public int getTotalCountPage(String id); // 전체 페이지 수 계산
+	
+	public List<ReviewVO> getPageList(ReviewVO vo); // 페이지에 맞는 리스트 가져오기
 
 }

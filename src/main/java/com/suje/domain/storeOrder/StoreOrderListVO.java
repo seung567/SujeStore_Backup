@@ -15,4 +15,10 @@ public class StoreOrderListVO {
 	
 	//요청사항 내용 관련 메소드
 	private String content;
+	
+//	// Final_Order 테이블 관련
+//	private int fo_code, fo_sum, fo_num, cates_code, deli_code;
+//	private String fo_date, fo_size,  fo_etc;
+//	
+//	private String catemm_name, cates_name;
 }

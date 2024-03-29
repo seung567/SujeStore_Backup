@@ -57,6 +57,7 @@ public class CustomerQnAController {
 		QnAVO vo = service.getCustomerQnAA(id);
 		return vo;
 	}
+
 	
 	// Q&A 페이지 연결(초기 페이징)
 	@RequestMapping(value= "getQnAList")
@@ -92,5 +93,6 @@ public class CustomerQnAController {
 	return "/customer/customerQnA";
 
 	}
+
 
 }

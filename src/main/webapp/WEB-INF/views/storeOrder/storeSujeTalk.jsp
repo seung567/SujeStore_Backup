@@ -93,7 +93,7 @@
 						</div>
 						<div>
 							<span>주문 요청 번호</span> 
-							<span><input type="text" /></span>
+							<span><input class="orderNum" type="text" /></span>
 						</div>
 					</div>
 
@@ -149,13 +149,72 @@
 		</div>
 	</div>
 	<!-- storeContentsBox -->
-	
 	<!-- storeContentsWrap -->
+	<div class="modalWrap">
+
+		<div class="storeOrderInsertModal">
+			<jsp:include page="./Modal/storeSujeTalkModal.jsp"></jsp:include>
+		</div>
+
+		<input type="hidden" class="idInfo" value="${id }"/>
+	</div>
 	<footer></footer>
 </body>
 <script type="text/javascript">
 
+$(function(){
+    
+    $(".orderInsertBtn").click(function(){
+		
+	 	// 최종 주문서 조회 취소 버튼 이벤트
+	    $('.viewCancel').click(function(){location.href = "storeSujeTalk.do?id=${id}&page=1";});
+		
+	 	// 모달 출력 이벤트
+	    $(".modalWrap").fadeIn(200);
+	    $(".storeOrderInsertModal").slideDown(200);
+	    
+/* 	    // 최종주문번호가 있을 경우 타이틀, 등록버튼 이름 변경
+	    if($('.finalOrderNo').val() != null){
+			// 명칭변경
+			$('.modalTitle').text("최종 주문서 등록");
+			$('.modalSubmitBtn').eq(0).val("등록");
+			 */
+			// 주문 접수 번호 입력
+			let orderNO = $(".activeTalkTitle>div:nth-child(2) input").val();
+			$('.modalNo_textbox').val(orderNO);
+			
+/* 			
+	    } */
+	    
+	    // 주문 요청 번호
 
+    });
+    
+});
+
+function getFinalOrder(){
+		console.log($('.orderNum').val());
+		$.ajax({
+		    type : "post",
+		    url : "getStoreFinalOrder.do",
+		    data : {
+				orderNO : $('.orderNum').val()
+		    },
+		    dataType : "json",
+		    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+			beforeSend : function(){
+				    $(".modalWrap").fadeIn(200);
+				    $(".storeOrderInsertModal").slideDown(200); 
+			},
+			success : function(data){
+			    $("#countInput").val(data.fo_num); // 주문 수량
+			    $("#sizeInput").val(data.)
+			},
+			error: function(request, status, error) {
+				alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+			}
+		});
+}
 
 </script>
 </html>

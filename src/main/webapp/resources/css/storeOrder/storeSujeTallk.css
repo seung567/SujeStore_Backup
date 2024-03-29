@@ -103,11 +103,15 @@
 }
 
 .orderInsertBtn{
-	position: absolute;	
-    top: 715px;
-    left: 11px;
-    width: 250px;
-    height: 50px;
+    position: absolute;
+    top: 705px;
+    left: -19px;
+    width: 310px;
+    height: 60px;
+    background-color: #00203F;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
 }
 
 .TalkListMain>div>div{
@@ -313,6 +317,18 @@ display: flex;
 
 }
 
+/* 모달 작업 */
+
+.modalWrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	text-align: center;
+}
 
 /* Back-end 작업 이후 추가 CSS */
 

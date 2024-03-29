@@ -1,19 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    
-<%--     <%
-    
-    String result = "";
-    
-    result += "<data>";
-    result += "<first>"+  ${home.textval }+ "</first>";
-    result += "</data>"
-    
-    
-    out.write(result);
-    
-    %> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +24,7 @@
 			<!-- 상단 제목 부분 -->
 			<div class="customerOrderListTitle">
 				<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
+									
 				<div>최종 주문서 조회</div>
 				<div>
 					최종주문번호 <input type="text" />

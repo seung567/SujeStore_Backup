@@ -92,4 +92,5 @@ public class CustomerQnAController {
 	return "/customer/customerQnA";
 
 	}
+
 }

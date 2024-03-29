@@ -43,6 +43,9 @@
 	select qna_code, qna_title, qna_adate, qna_reply from qna where qna_code = #{qna_code}
 </select>
 
+
+
+
 <!-- Q&A 전체 페이지 수 계산 -->
 <select id="getCountPageTotal" parameterType="String" resultType="Integer">
 	select count(*) from qna where m_id = #{m_id}
@@ -64,6 +67,7 @@
 		order by qna_code desc
 ]]>
 </select>
+
 
 
 </mapper>

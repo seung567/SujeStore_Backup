@@ -24,7 +24,7 @@ public class AdminQnAController {
     private int pageTotalCount; // 전체 페이지 수
     private int countPerPage = 5; // 한페이지당 레코드 수
     
-    // QnA 관리 (MAIN)
+    // QnA 불러오기 (MAIN)
     @RequestMapping(value = "adminQnA")
     public String adminqna(@RequestParam("page") int page, Model model ) {
         logger.info("스토어 QnA 컨트롤러");

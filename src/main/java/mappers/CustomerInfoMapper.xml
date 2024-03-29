@@ -9,7 +9,7 @@
 	select * from member where m_id = #{id}
 </select>
 
-<!-- 고객정보 업데이트-->
+<!-- 마이페이지 고객정보 업데이트-->
 <update id="updateMypageInfo" parameterType="customerMyPage" >
 	update member set
 	m_pass = #{m_pass},
@@ -23,10 +23,15 @@
 	select p.p_code, p.p_date, p.p_sum, p.p_ck, re.rv_date from pay_test p, review_test re where p.p_code = re.p_code
 </select>
 
+<!-- 고객후기(review) 작성하기 insert -->
+<insert id="insertReview" parameterType="customerReview">
+	insert  into review_test(rv_code, rv_star, rv_content, rv_date, p_code) values (rv_code_sqn.nextval, #{rv_star}, #{rv_content}, sysdate, #{p_code})
+</insert>
+
 <!-- 고객QnA DB 리스트 조회 -->
-<select id="getCustomerQnA" parameterType="String" resultType="customerQnA">
+<!-- <select id="getCustomerQnA" parameterType="String" resultType="customerQnA">
 	select m_id, qna_code, qna_title, qna_qdate, qna_adate from qna where m_id = #{m_id} order by qna_code desc
-</select>
+</select> -->
 
 <!-- 고객QnA 작성하기 insert -->
 <insert id="insertQnA" parameterType="String">
@@ -41,11 +46,27 @@
 
 
 
+<!-- Q&A 전체 페이지 수 계산 -->
+<select id="getCountPageTotal" parameterType="String" resultType="Integer">
+	select count(*) from qna where m_id = #{m_id}
+</select>
 
-<!-- 고객후기(review) 작성하기 insert -->
-<insert id="insertReview" parameterType="customerReview">
-	insert  into review_test(rv_code, rv_star, rv_content, rv_date, p_code) values (rv_code_sqn.nextval, #{rv_star}, #{rv_content}, sysdate, #{p_code})
-</insert>
+<!-- Q&A 페이지에 해당 하는 데이터 추출-->
+<select id="getQnAList" parameterType="customerQnA" resultType="customerQnA">
+
+<![CDATA[
+		select 
+			qna_code
+		     , qna_title
+		     , qna_qdate
+		     , qna_adate
+		from qna
+		where qna_code in (select qna_code
+		from (select rownum as r_num, qna_code from (select rownum, qna_code from qna where m_id = #{m_id} order by qna_code desc))
+		where r_num >= #{firstNum} and r_num <= #{endNum})
+		order by qna_code desc
+]]>
+</select>
 
 
 

@@ -6,12 +6,14 @@ import com.suje.domain.customer.QnAVO;
 
 public interface CustomerQnAService {
 	
-	public List<QnAVO> getCustomerQnA(String id);
+//	public List<QnAVO> getCustomerQnA(String id);
 	
 	public void insertQnA(QnAVO vo);
 	
 	public QnAVO getCustomerQnAA(int qna_code);
 	
 	public int getCountPageTotal(String id);
+	
+	public List<QnAVO> getQnAList(QnAVO vo);
 
 }

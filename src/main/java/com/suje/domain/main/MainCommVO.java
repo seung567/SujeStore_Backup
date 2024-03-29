@@ -10,6 +10,9 @@ public class MainCommVO {
 	//comu_post
 	public String comup_code, m_id, comuc_code, comup_title, comup_content, comup_date, comup_redate, comup_count, comup_like;
 	
+	//replyCount
+	public String reCnt;
+	
 	//comu_cate
 	public String comuc_name;
 	

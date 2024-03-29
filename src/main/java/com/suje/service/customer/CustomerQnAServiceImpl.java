@@ -1,6 +1,7 @@
 package com.suje.service.customer;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,12 +19,12 @@ public class CustomerQnAServiceImpl implements CustomerQnAService {
 	@Autowired
 	CustomerQnADAO dao;
 	
-	@Override
-	public List<QnAVO> getCustomerQnA(String id) {
-		System.out.println("=> CustomerQnAService 실행");
-		List<QnAVO> vo = dao.getCustomerQnA(id);
-		return vo;
-	}
+//	@Override
+//	public List<QnAVO> getCustomerQnA(String id) {
+//		System.out.println("=> CustomerQnAService 실행");
+//		List<QnAVO> vo = dao.getCustomerQnA(id);
+//		return vo;
+//	}
 	
 	@Override
 	public void insertQnA(QnAVO vo) {
@@ -37,12 +38,17 @@ public class CustomerQnAServiceImpl implements CustomerQnAService {
 		QnAVO vo = dao.getCustomerQnAA(qna_code);
 		return vo;
 	}
-	
+
 	@Override
 	public int getCountPageTotal(String id) {
-		logger.info("=> getCountPageTotal Service 실행");
-		int countPage = dao.getCountPageTotal(id);
-		return countPage;
+		logger.info("getCountPageTotal // Service");
+		return dao.getCountPageTotal(id);
+	}
+	
+	@Override
+	public List<QnAVO> getQnAList(QnAVO vo) {
+		logger.info("getQnAList // Service");
+		return dao.getQnAList(vo);
 	}
 	
 }

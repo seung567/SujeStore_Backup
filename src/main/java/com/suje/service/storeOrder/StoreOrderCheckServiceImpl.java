@@ -20,4 +20,18 @@ public class StoreOrderCheckServiceImpl implements StoreOrderCheckService {
 	        
 	        return orderCheck;
 	}
+	@Override
+	public  List<StoreOrderCheckVO> getCancelOrderCheck(String id) { 
+		
+		 List<StoreOrderCheckVO> cancel = dao.getCancelOrderCheck(id); // 단일 객체 대신 리스트로 받기
+	        
+	        return cancel;
+	}
+	@Override
+	public  List<StoreOrderCheckVO> getReturnOrderCheck(String id) { 
+		
+		 List<StoreOrderCheckVO> returnOrder = dao.getReturnOrderCheck(id); // 단일 객체 대신 리스트로 받기
+	        
+	        return returnOrder;
+	}
 }

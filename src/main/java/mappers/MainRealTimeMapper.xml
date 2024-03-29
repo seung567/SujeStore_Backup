@@ -3,9 +3,22 @@
 
 <mapper namespace="MainRealTimeReviewDao">
 
+	
+<select id="getreviewList" resultType="realtimeVO">
+    SELECT * FROM review_test rt
+    JOIN photo_review_test prt ON rt.RV_CODE = prt.RV_CODE
+    WHERE rownum &lt;= #{endNum} AND rownum >= #{firstNum} 
+</select>
 
 
 
+
+
+<!-- realtime 전체 행 수 조회 -->
+	<select id="getTotalCountPage" resultType="integer">
+		SELECT COUNT(*) AS cnt
+		FROM riview_test
+	</select>
 
 
 

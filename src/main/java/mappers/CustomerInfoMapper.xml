@@ -38,28 +38,7 @@
 	select qna_code, qna_title, qna_adate, qna_reply from qna where qna_code = #{qna_code}
 </select>
 
-<!--  고객 QnA 전체 페이지 수 계산 -->
-<select id="getQnAListCount" parameterType="String" resultType="Integer">
-	select count(*) as totalPageCount from qna where m_id = #{id}
-</select>
 
-<!-- 페이지에 해당 하는 데이터 추출 -->
-<select id="getQnAList" parameterType="customerQnAList" resultType="customerQnAList">
- 	
-<![CDATA[
-	select
-	qna_code,
-	qna_title,
-	to_char(qna_qdate,'yyyy-mm-dd') as qna_qdate,
-	to_char(qna_adate,'yyyy-mm-dd') as qna_adate,
-	from qna
-	where qna_code in ( select qna_code
- 	from (select rownum as r_num, qna_code from (select rownum, qna_code from qna where m_id = #{m_id} order by qna_code desc))
- 	where r_num >= #{firstNum} and r_num <= #{endNum})
- 	order by qna_code desc
-]]>
- 	
-</select>
 
 
 

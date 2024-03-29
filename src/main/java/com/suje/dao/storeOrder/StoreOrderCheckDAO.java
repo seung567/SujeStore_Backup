@@ -6,4 +6,6 @@ import com.suje.domain.storeOrder.StoreOrderCheckVO;
 
 public interface StoreOrderCheckDAO {
 	public List<StoreOrderCheckVO> getStoreOrderCheck(String id);
+	public List<StoreOrderCheckVO> getCancelOrderCheck(String id);
+	public List<StoreOrderCheckVO> getReturnOrderCheck(String id);
 }

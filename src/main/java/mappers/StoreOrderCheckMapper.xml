@@ -4,21 +4,29 @@
 <mapper namespace="StoreOrderCheckDAO">
 
 	<select id="getStoreOrderCheck" parameterType="String" resultType="storeOrderCheck">
+		select p.p_code,f.fo_code,p.p_date, p.p_sum, p.p_ck,p.p_ck_date, o.s_id, d.deli_type, o.o_code, o.o_date
+		from pay p, orderinfo o, final_order f, deli d
+		where o.s_id =#{s_id}
+		and o.o_code=f.o_code
+		and f.fo_code=p.fo_code
+		and d.deli_code=f.deli_code
+	</select>
+	<select id="getCancelOrderCheck" parameterType="String" resultType="cancelOrder">
 
-<!-- 	select
-	o_code,
-	o_content,
-	m_id,
-	to_char(o_date,'yyyy-mm-dd') as o_date,
-	s_id 
-	from orderinfo where s_id = #{s_id} -->
-	
- 	select p.p_code,f.fo_code,p.p_date, p.p_sum, p.p_ck,p. p_ck_date, o.s_id,d.deli_type,o.o_code,o.o_date 
-from pay_test p, orderinfo o, final_order f, deli d 
-where o.s_id =#{s_id}
-and o.o_code=f.o_code
-and f.fo_code=p.fo_code
-and d.deli_code=f.deli_code 
+		select c.can_code, c.can_date, c.can_why, o.s_id, f.fo_code
+		from cancel_test c, orderinfo o, final_order f, pay p
+		where o.s_id=#{s_id}
+		and o.o_code=f.o_code
+		and f.fo_code=p.fo_code
+		and p.p_code=c.p_code
+	</select>
+	<select id="getReturnOrderCheck" parameterType="String" resultType="returnOrder">
+		select r.rt_code, r.p_code, r.rt_date, r.rt_why,o.s_id, o.o_code
+		from return_test r, orderinfo o, final_order f, pay p
+		where o.s_id=#{s_id}
+		and o.o_code=f.o_code
+		and f.fo_code=p.fo_code
+		and p.p_code=r.p_code
 	</select>
 
 </mapper>

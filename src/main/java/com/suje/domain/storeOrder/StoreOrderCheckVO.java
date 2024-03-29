@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 public class StoreOrderCheckVO {
 	int fo_code,cates_code ,deli_code,fo_sum,fo_num,o_code;
-	String fo_date,fo_size,fo_etc,cates_name,deli_type,s_id,o_content, m_id, o_date;
+	String fo_date,fo_size,fo_etc,cates_name, deli_type,s_id,o_content, m_id, o_date;
 	int p_code,p_sum;
 	String p_date,p_ck, p_ck_date;
 	int can_code;

@@ -30,7 +30,7 @@ public class HeaderController {
 		return "forward:/adminmanage.do?page=1";
 	}
 	
-	//플리마켓 페이지 이동
+	//커뮤니티 페이지 이동
 	@RequestMapping("viewMainComm.do")
 	public String viewMainComm() {
 		return "forward:/communityMain.do?page=1&cCate=전체";

@@ -51,7 +51,7 @@
 			</div><!-- 주문 내역 조회-->
 			
 			<div class="subTitle reviews">
-				<a href="customerReview.do?id=<%=user%>">후기 작성</a>
+				<a href="customerReview.do?id=<%=user%>&page=1">후기 작성</a>
 			</div><!-- 후기 작성 -->
 			
 			<div class="subTitle sujeTalk">

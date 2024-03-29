@@ -34,9 +34,16 @@ public class StoreOrderListDAOImpl implements StoreOrderListDAO {
 		return mybatis.selectList("storeOrderListDao.getStoreOrderEtc",storeOrderNO);
 	}
 	
-	// 최종 주문서 불러오기
+	//최종주문서 insert
 	@Override
-	public FinalOrderVO getFinalOrder(int storeOrderNO) {
-		return mybatis.selectOne("storeOrderListDao.getFinalOrder",storeOrderNO);
+	public int insertFinalOrderInfo(FinalOrderVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.insert("storeOrderListDao.insertFinalOrderInfo",vo);
+	}
+	
+	// 최종 주문서 정보 불러오기
+	@Override
+	public FinalOrderVO getStoreFinalOrder(int orderNO) {
+		return mybatis.selectOne("storeOrderListDao.getStoreFinalOrder",orderNO);
 	}
 }

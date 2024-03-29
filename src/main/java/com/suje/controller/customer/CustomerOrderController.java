@@ -49,6 +49,7 @@ public class CustomerOrderController {
 			OrderListVO vo) {
 		
 		logger.info("sujeTalkTalk");
+		logger.info(id);
 		
 		// 전체 페이지 수 계산
 		int totalCountPage = orderService.getCountPageTotal(id);		

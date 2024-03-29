@@ -39,7 +39,7 @@
 			   	
 			    // 최종 주문서 출력
 			    if(data['finalOrder'] != null){
-				
+						finalOrderEtc(data['finalOrder'],data['etcList'][0].s_id);
 			    }
 			},
 			error : function(status){
@@ -124,7 +124,7 @@ function orderEtc(item){
 }
 
 // 최종 주문서 출력 부분
-function orderEtc(item){
+function finalOrderEtc(item,storeID){
     
     /* 메인 프레임 */
     var orderDetailMainFram = $(".orderMainContentInner");
@@ -140,10 +140,10 @@ function orderEtc(item){
 	chatContent.append("	<div><img alt='' src='./resources/img/sujetalkstoreimg.png'></div>"); 
 	
 	//대화 사용자명
-	chatContent.append("<div>" + item.s_id + "</div>");    
+	chatContent.append("<div>" + storeID + "</div>");    
 	
 	//최종 주문서 확인 버튼
-    mainContent.append("<div><input id='orderCheck' type='button' value='최종 주문서 확인' /></div>");
+    mainContent.append("<div><input id='orderCheck' type='button' value='최종 주문서 확인' onclick='getFinalOrder()'/></div>");
 	
 	//뒷 말풍선 배경
     mainContent.append("<img src='./resources/img/wordballoon.png'>");

@@ -60,4 +60,37 @@
 	select * from final_order where o_code = #{o_code}
 
 </select>
+
+<!-- 최종 주문서 insert -->
+<insert id="insertFinalOrderInfo" parameterType="customerFinalOrder">
+
+	insert into final_order(
+		fo_code,
+		o_code,
+		cates_code,
+		deli_code,
+		fo_date,
+		fo_sum,
+		fo_num,
+		fo_size,
+		fo_etc
+	) values(
+		fo_code_sqn .nextval,
+		#{o_code},
+		#{cates_code},
+		#{deli_code},
+		to_date(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+		#{fo_sum},
+		#{fo_num},
+		#{fo_size},
+		#{fo_etc}		
+	)
+
+</insert>
+
+<select id="getStoreFinalOrder" parameterType="Integer" resultType="customerFinalOrder">
+
+	select * from final_order where fo_code in (select max(fo_code) from final_order where o_code = #{o_code})
+
+</select>
 </mapper>

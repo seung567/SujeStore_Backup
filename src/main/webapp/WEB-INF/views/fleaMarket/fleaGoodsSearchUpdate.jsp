@@ -29,58 +29,13 @@
 	
 <script type="text/javascript">
 
-/* 	 $(function() {
-		    $(".goodsListDetail").click(function() {
-		    	const fleaNum = $(this).find("td:first-child").text();
-		        const id = $(this).data("s_id"); 
-		        const categoryFirst = $(this).data("category_first");
-		        const categorySecond = $(this).data("category_second");
-		        const categoryThird = $(this).data("category_third");
-   		        
-				$(".goodsInfo_selectBox_First").val(categoryFirst);
-				$(".goodsInfo_selectBox_Secound").val(categorySecond);
-				$(".goodsInfo_selectBox_Third").val(categoryThird);
-
-				/* const url = "getFleaInfo.do?fleaNum=" + fleaNum + "&id=" + id;
-				location.href = url; 
-		});
- 
-	});*/
-
 	$(function() {
 		
+		// 서브 메뉴바 클래스명 추가 // CSS 적용
 		$(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");	
 		$(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
-
-		<% String categoryFirst = (String)request.getAttribute("categoryFirst"); %>
-		<% String categorySecond = (String)request.getAttribute("categorySecond"); %>
-		<% String categoryThird = (String)request.getAttribute("categoryThird"); %>
 		
-		$(".goodsInfo_selectBox_First").val("<%= categoryFirst %>");
-		$(".goodsInfo_selectBox_Secound").val("<%= categorySecond %>");
-		$(".goodsInfo_selectBox_Third").val("<%= categoryThird %>");
-		
-		alert(<%= categoryFirst %>);
-		
-		/* $(".goodsInfo_selectBox_First option").each(function({
-			if("${getListVO.catemm_name}" != ""){
-				if($(this).text == "${getListVO.catemm_name}"){
-					console.log("${getListVO.catemm_name}");
-				}
-			}
-		})(0); */
-		
-		$(".goodsListDetail").click(function() {
-			const fleaNum = $(this).find("td:first-child").text();
-			const id = $(this).data("s_id"); 
-			const url = "getFleaInfo.do?fleaNum=" + fleaNum + "&id=" + id;
-			location.href = url; 
-			
-		});
-	});
-
-	//공지사항 영역 미리보기
-	$(function() {
+		// 상단 공지 리스트 글자 압축 // 30글자
 		$('.goodsContent').each(function() {
 			var text = $(this).text();
 			if (text.length > 60) {
@@ -88,7 +43,86 @@
 				$(this).text(text);
 			}
 		});
+		
+		// 상단 공지 행 클릭 이벤트
+		$('.goodsListDetail').click(function(){
+			
+			const idValue = $(this).data('s_id'); // id값
+			const fCodeValue = $(this).children().eq(0).text(); // 플리마켓 상품번호
+			
+			var catemName = "${getListVO.catem_name}";
+			
+			 $.ajax({
+				type : "get",
+				url : "getFleaInfo.do",
+				data : {
+				    id : idValue,
+				    fleaNum : fCodeValue
+				},
+				dataType : "json",
+				contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+				success : function(data) {
+					
+					console.log(data);
+					
+		 			$(".goodsInfo_selectBox_First option").each(function(){
+						if($(this).text() == data["getListVO"].catem_name){
+							$(this).prop('selected', true);
+						}
+					});
+		 			
+		 			$(".goodsInfo_selectBox_Secound option").each(function(){
+						if($(this).text() == data["getListVO"].catemm_name){
+							$(this).prop('selected', true);
+						}
+					});
+		 			
+		 			$(".goodsInfo_selectBox_Third option").each(function(){
+						if($(this).text() == data["getListVO"].cates_name){
+							$(this).prop('selected', true);
+						}
+					});
+
+		 			
+		 			// 상품 메인 이미지 설정
+		 	        const mainImgSrc = data["getListVO"].f_pname;
+		 	         $(".goodsImg").attr("src", mainImgSrc);
+
+		 	        console.log(mainImgSrc);
+		 	      
+		 	        // 상품 서브 이미지 설정
+		 	        const subImgSrc = data["getListVO"].f_spname;
+		 	          $(".goodsImgSub").eq(0).attr("src", subImgSrc); 
+		 	          $(".goodsImgSub").eq(1).attr("src", subImgSrc); 
+
+		 	        console.log(subImgSrc);
+		 	         
+		 			//상품 가격
+		 			const fSum = data["getListVO"].f_sum;
+		 			 $("input[name='goodsPrice']").val(fSum);
+		 			
+		 			 
+		 			//상품 총 수량
+		 			const fNum = data["getListVO"].f_num;
+		 			 $("input[name='goodsNum']").val(fNum);
+		 			
+		 			 
+		 			//상품내용 
+		 			const fContent = data["getListVO"].f_content;
+		 			 $(".goodsInfo_content").val(fContent);
+		 			
+		 			 
+		 			 
+		 			
+		 			
+				} 
+			});
+		}); // end
+			
+
+		
 	});
+		
 </script>
 </head>
 <body>
@@ -116,20 +150,21 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${fleaGoodsListAll}" var="listAll">
-								<tr class="goodsListDetail" data-s_id="${listAll.s_id}"
-								        data-category_first="${listAll.catem_name}"
-								        data-category_second="${listAll.catemm_name}"
-								        data-category_third="${listAll.cates_name}">
-								        
+								<tr class="goodsListDetail" data-s_id="${listAll.s_id}">
 									<td>${listAll.f_code}</td>
 									<td>${listAll.cates_name}</td>
 									<td class="goodsContent">${listAll.f_content}</td>
 									<td>${listAll.f_sum}</td>
 									<td>${listAll.f_num}</td>
-									<td>${listAll.f_date}</td>
-									<td>${listAll.f_redate}</td>
+									<td>
+										<fmt:parseDate value="${listAll.f_date}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
+										<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
+									</td>
+									<td>
+										<fmt:parseDate value="${listAll.f_redate}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
+										<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
+									</td>	
 									<td>${listAll.f_ck}</td>
-									
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -143,8 +178,6 @@
 			<hr />
 			<h1 class="store_maintitle">상품 수정</h1>
 			<form class="store_mainInfo" action="modifyGoodsSU.do" method="post" >
-				<input type="text" value="<%=request.getParameter("id")%>" name="s_id">
-				<input type="text" value="" name="s_code">
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 카테고리</label> 
 					<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
@@ -261,52 +294,38 @@
 						<option>방석</option>
 					</select>
 				</div>
+				
+				
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 메인 이미지</label> 
-					<img class="goodsImg" src="./resources/img/goodsImgArea.png">
+					<img class="goodsImg" alt="mainImg" src="./resources/img/goodsImgArea.png">
 					<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
 				</div>
 				
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 서브 이미지</label> 
-					<img class="goodsImg" src="./resources/img/goodsImgArea.png"> 
-					<img class="goodsImgSub" src="./resources/img/goodsImgArea.png">
-					<img class="goodsImgSub" src="./resources/img/goodsImgArea.png">
+					<img class="goodsImg" alt="mainImg" src="./resources/img/goodsImgArea.png" > 
+					<img class="goodsImgSub" alt="subImg" src="./resources/img/goodsImgArea.png">
+					<img class="goodsImgSub" alt="subImg" src="./resources/img/goodsImgArea.png">
 					<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
 				</div>
-
+				
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 가격</label>
-					<%-- <c:choose>
-						<c:when test="${getListVO.f_sum == null}">
-							<input type="text" class="text-box" name="goodsPrice" />원
-						</c:when>
-						<c:when test="${getListVO.f_sum != null}">
-							<input type="text" class="text-box" name="goodsPrice"
-								value="${getListVO.f_sum}" />원
-						</c:when>
-					</c:choose> --%>
+					<input type="text" class="text-box" name="goodsPrice" />원
 				</div>
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 총 수량</label>
-					<%-- <c:choose>
-						<c:when test="${getListVO.f_num == null}">
-							<input type="text" class="text-box" name="goodsNum" />개
-					</c:when>
-						<c:when test="${getListVO.f_num != null}">
-							<input type="text" class="text-box" name="goodsNum"
-								value="${getListVO.f_num}" />개
-					</c:when>
-					</c:choose> --%>
+					<input type="text" class="text-box" name="goodsNum" />개
 				</div>
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 내용</label><br />
-					<textarea class="goodsInfo_content" name="goodsInfoContent" placeholder="내용을 입력하세요"></textarea>
+					<textarea class="goodsInfo_content" name="goodsInfoContent" ></textarea>
 				</div>
 
-				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
+				<button type="submit" class="submitBtn" name="modifyBtn">수정하기</button>
 			</form>
 			
 		</div>

@@ -17,6 +17,12 @@
 $(function() {
 	
 <% String cCate = (String)request.getAttribute("cCate"); %>
+<% String customerId = (String)session.getAttribute("mainId"); %>
+	
+<% if (request.getAttribute("replyComple") != null) { %>
+var replyComple = "<%= request.getAttribute("replyComple") %>";
+alert(replyComple);
+<% } %>
 	
 	var selectedMainNaviText;
 	var selectedSubNaviText;
@@ -47,24 +53,15 @@ $(function() {
     	location.href = url;
     });
 	
-	/*
-	$('.mainNavi li').click(function() {
-		$('.mainNavi').children('li').removeClass('selectedMainNavi');
-		$(this).addClass('selectedMainNavi');
-		
-		// 선택된 메뉴 항목 가져오기
-		selectedMainNaviText = $(this).children('a').text().trim();
-		
-		// 선택 항목으로 제목 텍스트 변경
-        if(selectedMainNaviText === "전체") {
-            $(".mainCategory").text(selectedMainNaviText);
-            $(".categoryArea img, .categoryArea .mainCategory").hide();
-        } else {
-            $(".mainCategory").text(selectedMainNaviText);
-            $(".categoryArea img, .categoryArea .mainCategory").show();
-        }
-    });
-	*/
+	//포스트 작성하기
+	$('.contentsWriteBtn').click(function() {
+		if("<%= customerId %>" == "null" ) {
+			alert("로그인 후 이용 가능합니다.");
+			location.href="mainLogin.do";
+		} else {
+			location.href="postInsertPage.do";
+		}
+	});
 	
 });
 </script>
@@ -98,7 +95,8 @@ $(function() {
 		<!-- total 콘텐츠가 존재할 시 호출 -->
 		<c:if test="${pageTotalCount ne 0}">
 			<c:forEach items="${commList}" var="MainCommVO">
-				<a href="#" class="contentsLinkArea">
+				<a href="commuContent.do?comupCode=${MainCommVO.comup_code}" class="contentsLinkArea">
+					<input class="comupCode" type="hidden" value="${MainCommVO.comup_code}">
 					<table class="EachContents">
 						<tr><td class="contentsCategoryTd" colspan="5">${MainCommVO.comuc_name}</td></tr>
 						<tr><td class="contentsTitleTd" colspan="5">${MainCommVO.comup_title}</td></tr>
@@ -106,7 +104,7 @@ $(function() {
 							<td class="contentsWriterTd">${MainCommVO.m_id}</td>
 							<td class="commViewsTd"><img src="././resources/img/commViewsIcon.png">${MainCommVO.comup_count}</td>
 							<td class="commLikeTd"><img src="././resources/img/commLikeBeforeIcon.png">${MainCommVO.comup_like}</td>
-							<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">0</td>
+							<td class="commCommentTd"><img src="././resources/img/commCommentIcon.png">${MainCommVO.reCnt}</td>
 							<td class="commDateTd">
 								<fmt:parseDate value="${MainCommVO.comup_date}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
 								<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
@@ -129,7 +127,7 @@ $(function() {
 		<div class="pageingArea">
 			<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
 				<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
-					<a href="communityMain.do?page=${i}">${i}</a>
+					<a href="communityMain.do?page=${i}&cCate=${cCate}">${i}</a>
 				</c:forEach>
 			<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
 		</div>

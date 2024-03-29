@@ -25,8 +25,62 @@ public class MainCommServiceImpl implements MainCommService {
 	}
 	
 	@Override
+	public int getLimitTotalCountPage(MainCommVO vo) {
+		logger.info("커뮤니티 조건 포함 행수 서비스");
+		return mainCommDao.getLimitTotalCountPage(vo);
+	}
+	
+	@Override
 	public List<MainCommVO> getCommList(MainCommVO vo) {
 		logger.info("커뮤니티 전체 게시글 서비스");
 		return mainCommDao.getCommList(vo);
+	}
+	
+	@Override
+	public void updateContentView(MainCommVO vo) {
+		logger.info("커뮤니티 조회수 업데이트 서비스"+vo.comup_code);
+		mainCommDao.updateContentView(vo);
+	}
+	
+	@Override
+	public MainCommVO getCommContent(MainCommVO vo) {
+		logger.info("커뮤니티 상세 게시글 내용 서비스");
+		return mainCommDao.getCommContent(vo);
+	}
+	
+	@Override
+	public void updateLike(MainCommVO vo) {
+		logger.info("좋아요 서비스 "+vo.getComup_code());
+		mainCommDao.updateLike(vo);
+	}
+	
+	@Override
+	public String likeReView(MainCommVO vo) {
+		logger.info("좋아요수 불러오기 서비스 "+vo.getComup_code());
+		return mainCommDao.likeReView(vo);
+	}
+	
+	@Override
+	public void replyWrite(MainCommVO vo) {
+		logger.info("댓글 작성 서비스");
+		mainCommDao.replyWrite(vo);
+	}
+	
+	@Override
+	public List<MainCommVO> getReplyList(MainCommVO vo) {
+		logger.info("커뮤니티 댓글 리스트 호출 서비스");
+		return mainCommDao.getReplyList(vo);
+	}
+	
+	@Override
+	public void replyDelete(MainCommVO vo) {
+		logger.info("댓글 삭제 서비스");
+		mainCommDao.replyDelete(vo);
+	}
+	
+	@Override
+	public void postDelete(MainCommVO vo) {
+		logger.info("포스트 삭제 서비스");
+		mainCommDao.postDelete(vo);
 	}
 }

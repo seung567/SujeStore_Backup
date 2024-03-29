@@ -8,6 +8,11 @@
 <select id="getTotalAllCountPage" resultType="integer">
 	select count(*) as cnt from comu_post
 </select>
+<!-- comu_post 조건 포함 행수 -->
+<select id="getLimitTotalCountPage" parameterType="mainFleaMarketVO" resultType="integer">
+	select count(*) as cnt from comu_post
+	where comuc_code=#{comuc_code}
+</select>
 
 <!-- comu_post 테이블 호출 -->
 <resultMap id="commResult" type="mainCommVO">
@@ -18,12 +23,84 @@
 	<result property="comup_date" column="comup_date" />
 	<result property="comup_count" column="comup_count" />
 	<result property="comup_like" column="comup_like" />
+	<result property="reCnt" column="reCnt" />
 </resultMap>
 <select id="getCommList" parameterType="mainCommVO" resultMap="commResult" >
-	select cp.comup_code, cp.m_id, cc.comuc_name, cp.comup_title, cp.comup_date, cp.comup_count, cp.comup_like
-	from comu_post cp, comu_cate cc
-	where cp.comuc_code=cc.comuc_code
+	<![CDATA[
+	SELECT *
+	FROM ( SELECT t.*, rownum AS rnum
+		   FROM (
+		   SELECT cp.comup_code, cp.m_id, cc.comuc_name, cp.comup_title, cp.comup_date, cp.comup_count, cp.comup_like, 
+		   		  (SELECT count(*) as cnt FROM comu_reply WHERE comup_code=cp.comup_code) AS reCnt
+				  FROM comu_post cp, comu_cate cc
+				  WHERE cp.comuc_code=cc.comuc_code
+	]]>
+				<if test="comuc_code!=null">
+					and cp.comuc_code=#{comuc_code}
+				</if>  
+	<![CDATA[
+	ORDER BY cp.comup_code desc ) t 
+	) WHERE rnum >= #{firstNum} AND rnum <= #{endNum}
+	]]>
 </select>
 
+<!-- 조회수 업데이트 -->
+<update id="updateContentView" parameterType="mainCommVO">
+	update comu_post
+	set comup_count=comup_count+1
+	where comup_code=#{comup_code}
+</update>
+
+<!-- comu_post 상세 정보 -->
+<select id="getCommContent" parameterType="mainCommVO" resultType="mainCommVO">
+	select cp.*, cc.*, (SELECT count(*) as cnt FROM comu_reply WHERE comup_code=cp.comup_code) AS reCnt 
+	from comu_post cp, comu_cate cc
+	WHERE cp.comuc_code=cc.comuc_code and cp.comup_code=#{comup_code}
+</select>
+
+<!-- 좋아요 업데이트 -->
+<update id="updateLike" parameterType="mainCommVO">
+	update comu_post
+	set comup_like=comup_like+1
+	where comup_code=#{comup_code}
+</update>
+
+<!-- 좋아요수 불러오기 -->
+<select id="likeReView" parameterType="mainCommVO" resultType="String">
+	select comup_like
+	from comu_post
+	WHERE comup_code=#{comup_code}
+</select>
+
+<!-- 댓글 작성 -->
+<insert id="replyWrite" parameterType="mainCommVO" >
+	INSERT INTO comu_reply(comur_code, m_id, comup_code, comur_content, comur_date) 
+	VALUES (cumu_reply_sqn.nextval, #{m_id}, #{comup_code}, #{comur_content}, sysdate)
+</insert>
+
+<!-- comu_reply 정보 -->
+<resultMap id="replyResult" type="mainCommVO">
+	<result property="comur_code" column="comur_code" />
+	<result property="comup_code" column="comup_code" />
+	<result property="m_id" column="m_id" />
+	<result property="comur_content" column="comur_content" />
+	<result property="comur_date" column="comur_date" />
+</resultMap>
+<select id="getReplyList" parameterType="mainCommVO" resultMap="replyResult" >
+	SELECT comur_code, comup_code, m_id, comur_content, comur_date
+	FROM comu_reply
+	where comup_code=#{comup_code}
+	order by 1 desc
+</select>
+
+<!-- 댓글 삭제 -->
+<delete id="replyDelete" parameterType="MainCommVO">
+	delete comu_reply where comur_code=#{comur_code}
+</delete>
+
+<!-- 포스트 삭제 -->
+<delete id="postDelete" parameterType="MainCommVO">
+	delete comu_post where comup_code=#{comup_code}
+</delete>
 
 </mapper>

@@ -17,34 +17,32 @@
 <div class="contentsWrap">
 	<h2 class="writeTitle">글쓰기</h2>
 	<hr class="writeHr">
-	<form action="postAction.jsp" method="post"
-		enctype="multipart/form-data" class="writeForm">
+	<form action="postAction.jsp" method="post" enctype="multipart/form-data" class="writeForm">
 		<div class="inputGroup">
 			<div class="categoryLabel inputLabel">
-				<label for="category">카테고리</label> <select id="category"
-					name="category" class="selectBox">
-					<option value="curious">궁금해요</option>
-					<option value="recommend">추천해요</option>
-					<option value="tip">꿀팁공유</option>
-					<option value="behind">비하인드</option>
-					<option value="daily">일상</option>
+				<label for="category">카테고리</label> 
+				<select id="category" name="category" class="selectBox">
+					<option selected="selected">====== 카테고리 선택 ======</option>
+					<option value="88000">궁금해요</option>
+					<option value="88001">추천해요</option>
+					<option value="88002">꿀팁공유</option>
+					<option value="88003">비하인드</option>
+					<option value="88004">일상</option>
 				</select>
 			</div>
 			<div class="titleLabel inputLabel">
-				<label for="title">제목</label> <input type="text" id="title"
-					name="title" class="inputField">
+				<label for="title">제목</label> <input type="text" id="title" name="title" class="inputField">
 			</div>
 			<div class="imageContainer">
-				<label for="imgname">사진</label> <img
-					src="./resources/img/cummuupload.png" alt="이미지 1"> <img
-					src="./resources/img/cummuupload.png" alt="이미지 2"> <img
-					src="./resources/img/cummuupload.png" alt="이미지 3">
+				<label for="imgname">사진</label> 
+				<img src="./resources/img/cummuupload.png" alt="이미지 1"> 
+				<img src="./resources/img/cummuupload.png" alt="이미지 2">
+				<img src="./resources/img/cummuupload.png" alt="이미지 3">
 			</div>
 			<button type="button" id="loadImage" class="loadButton">불러오기</button>
 			<div class="contentLabel inputLabel">
 				<label for="content">내용</label>
-				<textarea id="content" name="content" rows="10" cols="50"
-					class="textField"></textarea>
+				<textarea id="content" name="content" rows="10" cols="50" class="textField"></textarea>
 			</div>
 		</div>
 		<button type="submit" class="submitButton">등록하기</button>

@@ -62,7 +62,7 @@
 						<td>답변 조회</td>
 					</tr>
 					
-					<c:forEach items="${vo}" var="vo">
+					<c:forEach items="${qnaListTotal}" var="vo">
 					<tr>
 						<td>${vo.qna_code }</td>
 						<td>${vo.qna_title }</td>
@@ -73,13 +73,14 @@
 					</c:forEach>
 
 				</table>
-						<div>
+
+				<div>
 							◀
 							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
-								<a href="customerQnA.do?id=${id }&page=${i+1}">${i+1}</a>
+								[<a href="getQnAList.do?id=${id }&page=${i+1}">${i+1}</a>]
 							</c:forEach>
 							▶
-						</div>
+				</div>
 			</div>
 		</div>
 	</div>

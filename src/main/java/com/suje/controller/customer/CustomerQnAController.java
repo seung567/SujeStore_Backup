@@ -22,16 +22,17 @@ public class CustomerQnAController {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerQnAController.class);
 
 	@Autowired
-	private CustomerQnAService service;
-
-	// Q&A DB 리스트 불러오기
-	@RequestMapping(value = "customerQnA")
-	public String getCustomerQnA(@RequestParam String id, Model model) {
-		logger.info("getCustomerQnA");
-		List<QnAVO> vo = service.getCustomerQnA(id);
-		model.addAttribute("vo", vo);
-		return "/customer/customerQnA";
-	}
+	private CustomerQnAService service;	
+	private final int pageCountNum = 5; // 각 페이지별 출력되는 목록의 수
+	
+//	// Q&A DB 리스트 불러오기
+//	@RequestMapping(value = "customerQnA")
+//	public String getCustomerQnA(@RequestParam String id, Model model) {
+//		logger.info("getCustomerQnA");
+//		List<QnAVO> vo = service.getCustomerQnA(id);
+//		model.addAttribute("vo", vo);
+//		return "/customer/customerQnA";
+//	}
 
 	// Q&A 작성하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertQnA", method = RequestMethod.POST)
@@ -57,41 +58,41 @@ public class CustomerQnAController {
 		return vo;
 	}
 
-//	// Q&A 페이징 처리
-//	@Autowired
-//	final int pageCountNum = 5; // 각 페이지별 출력되는 목록의 수
-//
-//	// Q&A 내역 조회 페이지 연결
-//	@RequestMapping(value = "customerQnA")
-//	public String qnaList(@RequestParam("id") String id, @RequestParam("page") int page, Model model, QnAVO vo) {
-//		
-//		
-//		logger.info("qnaList");
-//
-//		// 전체 페이지 수 계산
-//		int totalCountPage = service.getCountPageTotal(id);
-//
-//		if ((totalCountPage / pageCountNum) < 0) {
-//			totalCountPage = 1;
-//		} else {
-//			totalCountPage = totalCountPage / pageCountNum;
-//		}
-//
-//		// 부분 페이지 수 계산
-//		int firstNum = (page - 1) * pageCountNum + 1;
-//		int endNum = page * pageCountNum;
-//
-//		vo.setM_id(id);
-//		vo.setFirstNum(firstNum);
-//		vo.setEndNum(endNum);
-//		List<QnAVO> qnaList = service.getCustomerQnA(id);
-//
-//		// 출력용 부분 페이지 출력
-//		model.addAttribute("totalCountPage", totalCountPage);
-//		model.addAttribute("qnaListTotal", qnaList);
-//		model.addAttribute("id", id);
-//
-//		return "/customer/customerQnA";
-//	}
+	
+	// Q&A 페이지 연결(초기 페이징)
+	@RequestMapping(value= "getQnAList")
+	public String customerQnA(
+			@RequestParam("id") String id,
+			@RequestParam("page") int page,
+			Model model,
+			QnAVO vo) {
+		logger.info("getQnAList");
+	
+	  // Q&A 전체 페이지 수 계산
+	int totalCountPage = service.getCountPageTotal(id);
+	
+	if((totalCountPage/pageCountNum)<0) {
+		totalCountPage = 1;
+	}else {
+		totalCountPage = totalCountPage/pageCountNum;
+	}
+		
+	// 부분 페이지 수 계산
+	int firstNum = (page-1) * pageCountNum + 1;
+	int endNum = page * pageCountNum;
+	
+	vo.setM_id(id);
+	vo.setFirstNum(firstNum);
+	vo.setEndNum(endNum);
+	List<QnAVO> qnaList = service.getQnAList(vo);
+	
+	model.addAttribute("totalCountPage", totalCountPage);
+	model.addAttribute("qnaListTotal", qnaList);
+	model.addAttribute("id", id);
+	
+	return "/customer/customerQnA";
+
+	}
+
 
 }

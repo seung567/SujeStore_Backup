@@ -20,7 +20,8 @@
 		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
 	
 		<!-- 장경희 설정 부분 -->
-		<typeAlias alias="storeNotiInfo"  type="com.suje.domain.storeAdmin.StoreNoticeVO" />
+
+		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
 		<typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
 		<typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
 
@@ -36,6 +37,9 @@
 		<typeAlias alias="storeGoodsSU" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeGoodsInfo" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeOrderCheck" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
+		<typeAlias alias="cancelOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
+		<typeAlias alias="returnOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
+		<typeAlias alias="fleaOrderCheck" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
 		
 		<!-- 최수빈 설정 부분 -->
 		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>

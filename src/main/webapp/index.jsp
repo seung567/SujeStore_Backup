@@ -5,8 +5,7 @@
 <html>
 <head>
 
-<meta charset="U
-TF-8">
+<meta charset="UTF-8">
 
 </head>
 

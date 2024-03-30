@@ -93,14 +93,46 @@
 	order by 1 desc
 </select>
 
+<!-- comu_post_photo 정보 -->
+<select id="getCommContentImg" parameterType="mainCommVO" resultType="mainCommVO" >
+	SELECT *
+	FROM comu_post_photo
+	where comup_code=#{comup_code}
+	order by 1 desc
+</select>
+
 <!-- 댓글 삭제 -->
-<delete id="replyDelete" parameterType="MainCommVO">
+<delete id="replyDelete" parameterType="mainCommVO">
 	delete comu_reply where comur_code=#{comur_code}
 </delete>
 
 <!-- 포스트 삭제 -->
-<delete id="postDelete" parameterType="MainCommVO">
+<delete id="postDelete" parameterType="mainCommVO">
 	delete comu_post where comup_code=#{comup_code}
 </delete>
+
+<!-- 포스트 수정 -->
+<update id="postModify" parameterType="mainCommVO">
+	update comu_post 
+	set comuc_code=#{comuc_code}, comup_title=#{comup_title}, comup_content=#{comup_content}, comup_redate=sysdate
+	where comup_code=#{comup_code}
+</update>
+
+<!-- cumu_cate 시퀀스 조회 -->
+<select id="getComuPostSeq" resultType="String">
+	select cumu_post_sqn.nextval from dual
+</select>
+
+<!-- 포스트 작성 -->
+<insert id="postInsert" parameterType="mainCommVO" >
+	INSERT INTO comu_post(comup_code, m_id, comuc_code, comup_title, comup_content, comup_date, comup_redate, comup_count, comup_like) 
+	VALUES (#{comup_code}, #{m_id}, #{comuc_code}, #{comup_title}, #{comup_content}, sysdate, null, 0, 0)
+</insert>
+
+<!-- 포스트 이미지 삽입 -->
+<insert id="postImgInsert" parameterType="mainCommVO" >
+	INSERT INTO comu_post_photo(cpp_code, comup_code, cpp_pname, cpp_spname) 
+	VALUES (cumu_post_photo_sqn.nextval, #{comup_code}, #{cpp_pname}, #{cpp_spname})
+</insert>
 
 </mapper>

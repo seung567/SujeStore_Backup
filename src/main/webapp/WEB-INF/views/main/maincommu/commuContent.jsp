@@ -83,6 +83,15 @@ $(function() {
 		}
 	});
 	
+	$('.myCommentText').on('input', function() {
+		var text = $(this).val();
+		var maxLength = 50;
+		if (text.length > maxLength) {
+			alert("댓글의 글자 수는 50자를 초과할 수 없습니다.");
+			$(this).val(text.substring(0, maxLength));
+		}
+	});
+	
 	//포스트 팝업 열기
 	$(document).on('click', '.postSubmenu', function() {
 		var postwriterArea = $(this).closest('.postwriterArea');
@@ -153,9 +162,14 @@ $(function() {
 			<!-- postwriterArea -->
 			
 			<div class="postbar"></div>
-			<div class="postMainImg">
-				<img alt="POST 사진" src="./resources/img/commuTestimage.png"><!-- 나중에 FOR문으로 삽입 -->
-			</div>
+			<!-- 이미지 정보가 존재할시 호출 -->
+			<c:if test="${commContentImgList ne null}">
+				<div class="postMainImg">
+					<c:forEach items="${commContentImgList}" var="MainCommVO">
+						<img alt="POST 사진" src="./resources/DB/${MainCommVO.cpp_spname}">
+					</c:forEach>
+				</div>
+			</c:if>
 			<div class="postContent">${commContent.comup_content}</div>
 			
 			<div class="postEtc">

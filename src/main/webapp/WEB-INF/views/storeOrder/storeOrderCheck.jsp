@@ -19,6 +19,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/storeOrder/storeOrderCheckModal.js"></script>
 <script type="text/javascript" src="./resources/js/storeOrder/deliveryModal.js"></script>
+<script type="text/javascript" src="./resources/js/paging/paging.js"></script>
+
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -63,6 +65,7 @@
 						<!-- 추가적인 공지사항 행을 필요한 만큼 추가할 수 있습니다 -->
 					</tbody>
 				</table>
+				<div class="orderTablePaging pageing"></div>
 			</div>
 			<br /> <br />
 			<hr class="hr">
@@ -89,6 +92,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<div class="cancelTablePaging pageing"></div>
 			</div>
 			<hr class="hr">
 			<h2 class="title">반품요청정보</h2>
@@ -113,6 +117,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<div class="returnTablePaging pageing"></div>
 			</div>
 		</div>
 	</div>

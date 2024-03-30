@@ -69,6 +69,13 @@ tbody>tr>td {
 .check-delivery:hover {
    background-color: #7BB5AF; /* 마우스를 올렸을 때의 배경색 */
 }
+.pageing {
+    display: flex;
+    justify-content: center;
+}
+.pageing button {
+    margin: 10px; /* 좌우 여백을 5px로 설정합니다. */
+}
 
 
 

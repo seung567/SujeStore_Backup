@@ -196,7 +196,7 @@ function getFinalOrder(){
 		console.log($('.orderNum').val());
 		$.ajax({
 		    type : "post",
-		    url : "getStoreFinalOrder.do",
+		    url : "getStoreFinalOrder.do",+
 		    data : {
 				orderNO : $('.orderNum').val()
 		    },

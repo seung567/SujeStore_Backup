@@ -2,7 +2,10 @@
     $(function() {
 	
 		$(".storeSimpleInfo").parent().click(function() {
-		    	
+		    
+		    $('#talkImgUpload').val('');
+		    $(".filebox input[type='text']").val('');
+		    
 		    $.ajax({
 				type : "post",
 				url : "orderDetailContext.do",
@@ -21,10 +24,10 @@
 				    
 				    /* 상단 메인 스토어명 표기 */
 				   	$(".customerInfo>div:first-child>div:nth-child(2)").text(data['etcList'][0].s_id); 
+				   	
 				    $(".customerInfo>div:nth-child(2)").text(data['etcList'][0].o_date); // 주문 요청일
 				    $(".activeTalkTitle>div:nth-child(2) input").val(data['etcList'][0].o_code); // 주문번호
-				    
-				    
+				    $(".orderNO").val(data['etcList'][0].o_code); // 주문번호
 				    
 				    /* 최초 주문사항 출력 */
 				    firstOrder(data['etcList']);

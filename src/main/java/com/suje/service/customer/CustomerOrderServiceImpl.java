@@ -62,4 +62,11 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		logger.info("insertPurchaseInfo // Service");
 		return orderDAO.insertPurchaseInfo(vo);
 	}
+	
+	// 주문 요청 사항 등록
+	@Override
+	public int insertEtcContent(EtcVO vo) {
+		logger.info("insertEtcContent // Service");
+		return orderDAO.insertEtcContent(vo);
+	}
 }

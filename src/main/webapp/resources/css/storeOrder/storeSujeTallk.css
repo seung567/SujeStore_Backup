@@ -314,7 +314,6 @@ display: flex;
 
 .orderMainDetail>div:first-child>div:first-child {
 	margin-right: 10px;
-
 }
 
 /* 모달 작업 */
@@ -338,5 +337,40 @@ display: flex;
     height: auto;
 } */
 
+.orderInsertBtn{
+	display: none;
+}
+
+/* 파일 입력창 CSS 구성 */
+
+.filebox .upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 78%;
+    color: #999999;
+}
+
+.filebox label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #999999;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
 
 

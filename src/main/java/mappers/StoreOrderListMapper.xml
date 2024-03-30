@@ -90,7 +90,37 @@
 
 <select id="getStoreFinalOrder" parameterType="Integer" resultType="customerFinalOrder">
 
-	select * from final_order where fo_code in (select max(fo_code) from final_order where o_code = #{o_code})
+	select 
+	fo.fo_code,
+	fo.o_code,
+	cs.cates_name,
+	cm.catemm_name,
+	de.deli_type,
+	fo.fo_date,
+	fo.fo_sum,
+	fo.fo_num,
+	fo.fo_size,
+	fo.fo_etc 
+	from final_order fo, cate_sub cs, cate_mid cm, deli de 
+	where 
+	fo.cates_code = cs.cates_code 
+	and cs.catemm_code = cm.catemm_code 
+	and fo.deli_code = de.deli_code 
+	and fo.fo_code in (select max(fo_code) from final_order where o_code= #{o_code})
 
 </select>
+
+<update id="updateFinalOrderinfo" parameterType="customerFinalOrder" >
+
+	update final_order
+	set 
+		deli_code = #{deli_code},
+		fo_date = sysdate,
+		fo_sum = #{fo_sum},
+		fo_num = #{fo_num},
+		fo_size = #{fo_size},
+		fo_etc = #{fo_etc}
+	where fo_code = #{fo_code}
+	
+</update>
 </mapper>

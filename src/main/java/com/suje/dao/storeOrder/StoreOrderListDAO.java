@@ -13,5 +13,6 @@ public interface StoreOrderListDAO {
 	public List<EtcVO> getStoreOrderEtc(int storeOrderNO); // SUJE 톡톡 주문 상세 요청 사항
 	public int insertFinalOrderInfo(FinalOrderVO vo); // 최종 주문서 insert
 	public FinalOrderVO getStoreFinalOrder(int orderNO); // 최종 주문서 정보 불러오기
+	public int updateFinalOrderinfo(FinalOrderVO vo); // 최종 주문서 수정하기
 	
 }

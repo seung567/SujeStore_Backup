@@ -142,7 +142,7 @@ table input {
 /* 테이블 공통 속성 end*/
 
 /*페이징 css*/
- .pageing {
+ .paging {
 	width: auto;
 	margin-top: 40px;
 	text-align: center;

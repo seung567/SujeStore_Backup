@@ -19,12 +19,6 @@ public class CustomerQnADAOImpl implements CustomerQnADAO {
 	@Autowired
 	SqlSessionTemplate mybatis;
 	
-//	@Override
-//	public List<QnAVO> getCustomerQnA(String id) {
-//		System.out.println("CustomerQnADAOImpl => getCustmerQnA 실행");
-//		return mybatis.selectList("CustomerDAO.getCustomerQnA", id);
-//	}
-	
 	@Override
 	public void insertQnA(QnAVO vo) {
 		System.out.println("=> Q&A 작성 Repository");

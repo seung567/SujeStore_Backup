@@ -87,7 +87,6 @@
 	select fp_code_sqn.nextval from dual
 </select>
 
-
 <!-- Flea_pay Insert -->
 <insert id="fleaPayInsert" parameterType="mainFleaMarketVO" >
 	INSERT INTO flea_pay(fp_code, f_code, m_id, pt_code, fp_sum, fp_count, fp_date, fp_ck) 

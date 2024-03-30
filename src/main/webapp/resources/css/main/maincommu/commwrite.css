@@ -116,32 +116,35 @@ label[for="title"] {
 /* �̹��� �����̳� �󺧰� �̹��� ���� ���� */
 .imageContainer label {
 	margin-right: 108px; /* �� ������ ���� ���� */
+	float: left;
 }
 
 /* �̹��� ��Ÿ�� */
-.imageContainer img {
+.imgPreview {
+	float: left;
+}
+.imgPreview img {
 	width: 120px; /* �̹��� �ʺ� ���� */
 	height: 120px; /* �̹��� ���� �ڵ� ���� */
-	margin-left: 30px;
+	margin-left: 40px;
+	border-radius: 10px;
+	border: 1px solid #ADEFD1;
 }
 
 /* �̹��� �ε� ��ư ��Ÿ�� */
-#loadImage.loadButton {
-	margin-top: 83px; /* ���� ���� ���� */
+.loadButton {
+	margin-top: 30px; /* ���� ���� ���� */
 	margin-left: 20px; /* ���� ���� ���� */
-	width: 100px;
-	height: 30px;
+	width: auto;
+	height: auto;
 	background-color: #ADEFD1; /* ���� ���� */
-	border: none; /* �׵θ� ���� */
 	color: #000; /* ���ڻ� ���� */
-	border-radius: 10px; /* �ձ� �𼭸� ���� */
 	font-size: 15px;
 	transition: background-color 0.2s ease, border 0.2s ease;
-	/* ���� �� �׵θ� ��ȯ ȿ�� �߰� */
 }
 
 /* �̹��� �ε� ��ư ��Ŀ�� ��Ÿ�� */
-#loadImage.loadButton:hover {
+.loadButton:hover {
 	background-color: #fff;
 	border: 2px solid #ADEFD1;
 	font-weight: bold;; /* ȣ�� �� ���� ���� */

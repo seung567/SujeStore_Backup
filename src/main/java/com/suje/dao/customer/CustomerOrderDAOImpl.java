@@ -72,4 +72,13 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 		
 		return stateMap;
 	}
+	
+	// 주문 요청 사항 등록
+	@Override
+	public int insertEtcContent(EtcVO vo) {
+		logger.info("insertPurchaseInfo // Repository");
+		return mybatis.insert("customerOrderDAO.insertEtcContent",vo);
+	}
+	
+	
 }

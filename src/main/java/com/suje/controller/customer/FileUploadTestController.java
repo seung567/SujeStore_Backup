@@ -59,6 +59,7 @@ public class FileUploadTestController {
 		String baseDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
 		file.transferTo(new File(baseDir + uploadImg));
 		
+		// DB 이미지 파일 정보 저장
 		int state = service.uploadTest(uploadImg);
 		logger.info("업데이트 상태 = {}",state);
 		

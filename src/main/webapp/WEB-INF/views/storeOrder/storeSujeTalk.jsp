@@ -120,10 +120,6 @@
 							<div class="orderMainContentInner">
 							
 								<!-- 대화출력 -->
-								
-
-								
-								<!-- 대화출력 -->
 					
 							</div>
 						</div>
@@ -131,16 +127,19 @@
 
 						<!-- 이미지 불러오기 -->
 						<div class="filebox">
-							<input type="file" />
-							<button value="이미지 불러오기">이미지 불러오기</button>
+<!-- 							<label for="talkImgUpload">
+								이미지 불러오기
+							</label>
+							<input type="file" accept=".jpg,.png,.gif" name="talkImgUpload" id="talkImgUpload"/>
+							<input type="text"> -->
 						</div>
 						<!-- 이미지 불러오기 -->
-						<!-- 이미지 불러오기 -->
+						<!-- 요청사항 전송 -->
 						<div>
 							<input type="text" />
 							<button value="이미지 불러오기">전송</button>
 						</div>
-						<!-- 이미지 불러오기 -->
+						<!-- 요청사항 전송 -->
 					</div>
 				</div>
 
@@ -166,7 +165,10 @@ $(function(){
     
  	// 최종 주문서 조회 취소 버튼 이벤트
     $('.viewCancel').click(function(){location.href = "storeSujeTalk.do?id=${id}&page=1";});
-	 	
+	// 이미지 파일명 불러오기
+	$('#talkImgUpload').change(function(){
+		$(".filebox input[type='text']").val($(this).val());
+	});
 });
 
 </script>

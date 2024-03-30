@@ -1,8 +1,11 @@
 package com.suje.controller.customer;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.suje.domain.customer.EtcVO;
 import com.suje.domain.customer.FinalOrderVO;
@@ -124,5 +128,34 @@ public class CustomerOrderController {
 		Map<String, Integer> state = orderService.insertPurchaseInfo(purchaseVO);
 
 		return "redirect:customerSujeTalk.do?id=" + purchaseVO.getM_id() + "&page=1";
+	}
+	
+	//상세 요청 사항 등록
+	@RequestMapping(value="insertEtcContent", method=RequestMethod.POST)
+	public String insertEtcContent(@ModelAttribute EtcVO etcVO, Model model) throws IOException{
+		
+		logger.info(etcVO.getM_id());
+		logger.info(etcVO.getEtc_content());
+		logger.info("출력 = {}",etcVO.getEtcImgName());
+		
+		MultipartFile uploadFile = etcVO.getEtcImgName();
+		
+		String realImgName = uploadFile.getOriginalFilename();
+		
+		UUID uuid = UUID.randomUUID();
+		String serverUploadName = uuid.toString() + "_" + realImgName;
+		
+		String saveDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
+		uploadFile.transferTo(new File(saveDir + serverUploadName));
+		
+		etcVO.setEtc_pname(realImgName); // 실제 사진명
+		etcVO.setEtc_spname(serverUploadName); // 서버 사진명
+		etcVO.setEtc_ppath(saveDir + serverUploadName); // 실제 저장 경로
+		
+		orderService.insertEtcContent(etcVO);
+		
+		model.addAttribute("id",etcVO.getM_id());
+		
+		return "redirect:customerSujeTalk.do?page=1";
 	}
 }

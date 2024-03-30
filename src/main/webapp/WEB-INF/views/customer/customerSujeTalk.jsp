@@ -61,7 +61,7 @@
 								<div>
 									<div class="storeSimpleInfo">
 										<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										<div>${orderList. o_code}</div>
+										<div>${orderList. s_id}</div>
 									</div>
 									<div>${orderList. o_date}</div>
 									<input type="hidden" value="${ orderList. o_code}">
@@ -123,17 +123,23 @@
 						<!-- 요청내용 -->
 
 						<!-- 이미지 불러오기 -->
-						<div>
-							<input type="text" />
-							<button value="이미지 불러오기">이미지 불러오기</button>
-						</div>
-						<!-- 이미지 불러오기 -->
-						<!-- 이미지 불러오기 -->
-						<div>
-							<input type="text" />
-							<button value="이미지 불러오기">전송</button>
-						</div>
-						<!-- 이미지 불러오기 -->
+						<form action="insertEtcContent.do" method="post" enctype="multipart/form-data">
+							<div class="filebox">
+								<label for="talkImgUpload"> 이미지 불러오기 </label> 
+								<input type="file" accept=".jpg,.png,.gif" name="etcImgName" id="talkImgUpload" />
+								<input type="text">
+							</div>
+							<!-- 이미지 불러오기 -->
+							<!-- 요청사항 입력 -->
+							<div>
+								<textarea  name="etc_content"></textarea><!-- 요청내용 -->
+								<button value="요청사항전송">전송</button>
+							</div>
+							<input type="hidden" class="orderNO" name="o_code" /><!-- 요청번호 -->
+							<input type="hidden" value="77000" name="etc_type_code" /><!-- 요청자 유형번호 -->
+							<input type="hidden" value=${id } name="m_id" /><!-- 사용자 아이디 -->
+						</form>
+						<!-- 요청사항 입력 -->
 					</div>
 				</div>
 
@@ -159,11 +165,12 @@
 <script type="text/javascript">
 
 $(function(){
-	
     // 최종 주문서 조회 취소 이벤트
     $('.viewCancel').click(function(){location.href = "customerSujeTalk.do?id=${id}&page=1";});
-    
-
+	// 이미지 파일명 불러오기
+	$('#talkImgUpload').change(function(){
+		$(".filebox input[type='text']").val($(this).val());
+	});
     
 });
 	

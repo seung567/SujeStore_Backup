@@ -16,4 +16,5 @@ public interface CustomerOrderService {
 	public FinalOrderVO getFinalOrder(int storeOrderNO); // 최종 주문서 리스트 조회
 	public FinalOrderVO getFinalOrderInfo(int foCode); // 최종 주문서 정보 조회
 	public Map<String,Integer> insertPurchaseInfo(PurchaseVO vo); // 결제정보(결제방식 , 배송지) 입력
+	public int insertEtcContent(EtcVO vo); // 주문 요청 사항 등록
 }

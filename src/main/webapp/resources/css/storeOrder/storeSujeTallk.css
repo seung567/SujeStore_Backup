@@ -82,10 +82,6 @@
 	border-radius: 5px;
 }
 
-.activeTalkMain>div:nth-child(4) input{
-	border: 2px solid #ADEFD1;
-	border-radius: 5px;
-}
 
 .activeTalkMain>div:nth-child(5) input{
 	border: 2px solid #ADEFD1;
@@ -193,22 +189,36 @@
 	margin-top: 10px;
 }
 
-.activeTalkMain>div:nth-child(4) input{
+/* .activeTalkMain>div:nth-child(4) input{
 	width: 100%;
 	height: 50px;
 	border-radius: 0px;
+	border: 2px solid #ADEFD1;
+	border-radius: 5px;
 	
 }
+ */
 
-.activeTalkMain>div:nth-child(4) button {
-	width: 180px;
-	height: 30px;
-	border-radius: 10px;
-	position: absolute;
-	background-color: #00203F;
-	left: 517px;
-	top: 10px;
-	color: white;
+.filebox input[type='text']{
+	width: 716px;
+	height: 50px;
+	border: 2px solid #ADEFD1;
+	padding-left: 20px;
+	font-size: 20px;
+	color:#999999;
+}
+
+.activeTalkMain>div:nth-child(4) label {
+    width: 180px;
+    height: 30px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #00203F;
+    left: 517px;
+    top: 10px;
+    color: white;
+    padding-left: 17px;
+    padding-top: 7px;
 }
 
 .activeTalkMain>div:nth-child(5) {
@@ -343,7 +353,7 @@ display: flex;
 
 /* 파일 입력창 CSS 구성 */
 
-.filebox .upload-name {
+/* .filebox .upload-name {
     display: inline-block;
     height: 40px;
     padding: 0 10px;
@@ -351,9 +361,9 @@ display: flex;
     border: 1px solid #dddddd;
     width: 78%;
     color: #999999;
-}
+} */
 
-.filebox label {
+/* .filebox label {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
@@ -362,7 +372,7 @@ display: flex;
     cursor: pointer;
     height: 40px;
     margin-left: 10px;
-}
+} */
 
 .filebox input[type="file"] {
     position: absolute;
@@ -370,7 +380,7 @@ display: flex;
     height: 0;
     padding: 0;
     overflow: hidden;
-    border: 0;
+    display: none;
 }
 
 

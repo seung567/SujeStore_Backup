@@ -47,4 +47,10 @@ public class StoreOrderListServiceImpl implements StoreOrderListService {
 	public FinalOrderVO getStoreFinalOrder(int orderNO) {
 		return storeOrderListDao.getStoreFinalOrder(orderNO);
 	}
+	
+	//최종 주문서 정보 수정하기
+	@Override
+	public int updateFinalOrderinfo(FinalOrderVO vo) {
+		return storeOrderListDao.updateFinalOrderinfo(vo);
+	}
 }

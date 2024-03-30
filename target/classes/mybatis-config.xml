@@ -17,6 +17,8 @@
 		<typeAlias alias="customerFinalOrder" type="com.suje.domain.customer.FinalOrderVO"/>
 		<typeAlias alias="customerPurchase" type="com.suje.domain.customer.PurchaseVO"/>
 		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
+		
+		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
 	
 		<!-- 장경희 설정 부분 -->
 		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />

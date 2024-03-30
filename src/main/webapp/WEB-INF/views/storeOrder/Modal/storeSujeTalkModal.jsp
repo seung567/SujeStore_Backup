@@ -16,7 +16,7 @@
 <body>
 <!-- Modal 출력 부분 -->
 	<!-- Order join content 부분 -->
-	<form action="fianlOrderController.do" method="post">
+	<form class="formTagClass" method="post">
 	<div class="customerOrderListModal">
 		<div class="customerOrderListModalBody">
 			<!-- 상단 제목 부분 -->
@@ -86,7 +86,7 @@
 
 						<div>배송형태</div>
 						<div>
-							<select name="deli_code"><!-- 배송형태 -->
+							<select class="deli" name="deli_code"><!-- 배송형태 -->
 								<option value="7003" id="delivery">배송</option>
 								<option value="7001" id="pickup">픽업</option>
 							</select>
@@ -108,6 +108,7 @@
 						<input class="viewCancel" type="button" value="취소">
 				</div>
 			</div>
+			<input class="storeID" type="hidden" name="storeID"/>
 		</div>
 	</div>
 	</form>

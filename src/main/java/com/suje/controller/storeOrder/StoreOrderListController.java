@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -104,16 +105,17 @@ public class StoreOrderListController {
 		
 	}
 	
+	
 	// 최종 주문서 등록하기
 	@RequestMapping(value="fianlOrderController", method = RequestMethod.POST)
-	@ResponseBody
 	public String insertStoreFinalOrder(@ModelAttribute("vo") FinalOrderVO vo, Model model) {
 		
 		logger.info("insertStoreFinalOrder => 연결 성공");
 		storeService.insertFinalOrderInfo(vo);
 		
-		return"redirect:/storeSujeTalk.do?id=chungchoon&page=1";
+		return"redirect: storeSujeTalk.do?id="+ vo.getStoreID() +"&page=1";
 	}
+	
 	
 	// 최종 주문서 정보 불러오기
 	@RequestMapping(value="getStoreFinalOrder", method = RequestMethod.POST)
@@ -123,7 +125,19 @@ public class StoreOrderListController {
 		logger.info("getStoreFinalOrder => 연결 성공 = {}",orderNo.get("orderNO"));
 		FinalOrderVO orderVO = storeService.getStoreFinalOrder(Integer.parseInt(orderNo.get("orderNO")));
 		
-		
 		return orderVO;
 	}
+	
+	
+	//최종 주문서 정보 수정하기
+	@RequestMapping(value="updateFinalOrderinfo", method = RequestMethod.POST)
+	public String updateFinalOrderinfo(@ModelAttribute("vo") FinalOrderVO vo, Model model) {
+		
+		logger.info("updateFinalOrderinfo 실행");
+		storeService.updateFinalOrderinfo(vo);
+		
+		return"redirect: storeSujeTalk.do?id="+ vo.getStoreID() +"&page=1";
+	}
+	
+	
 }

@@ -79,7 +79,7 @@
 					<!-- 		▶ -->
 						</div>
 						<div>
-							<input class="orderInsertBtn" type="button" value="버튼"/>
+							<input class="orderInsertBtn" type="button" value="주문서 등록하기"/>
 						</div>
 					</div>
 				</div>
@@ -130,8 +130,8 @@
 						<!-- 요청내용 -->
 
 						<!-- 이미지 불러오기 -->
-						<div>
-							<input type="text" />
+						<div class="filebox">
+							<input type="file" />
 							<button value="이미지 불러오기">이미지 불러오기</button>
 						</div>
 						<!-- 이미지 불러오기 -->
@@ -164,57 +164,10 @@
 
 $(function(){
     
-    $(".orderInsertBtn").click(function(){
-		
-	 	// 최종 주문서 조회 취소 버튼 이벤트
-	    $('.viewCancel').click(function(){location.href = "storeSujeTalk.do?id=${id}&page=1";});
-		
-	 	// 모달 출력 이벤트
-	    $(".modalWrap").fadeIn(200);
-	    $(".storeOrderInsertModal").slideDown(200);
-	    
-/* 	    // 최종주문번호가 있을 경우 타이틀, 등록버튼 이름 변경
-	    if($('.finalOrderNo').val() != null){
-			// 명칭변경
-			$('.modalTitle').text("최종 주문서 등록");
-			$('.modalSubmitBtn').eq(0).val("등록");
-			 */
-			// 주문 접수 번호 입력
-			let orderNO = $(".activeTalkTitle>div:nth-child(2) input").val();
-			$('.modalNo_textbox').val(orderNO);
-			
-/* 			
-	    } */
-	    
-	    // 주문 요청 번호
-
-    });
-    
+ 	// 최종 주문서 조회 취소 버튼 이벤트
+    $('.viewCancel').click(function(){location.href = "storeSujeTalk.do?id=${id}&page=1";});
+	 	
 });
-
-function getFinalOrder(){
-		console.log($('.orderNum').val());
-		$.ajax({
-		    type : "post",
-		    url : "getStoreFinalOrder.do",+
-		    data : {
-				orderNO : $('.orderNum').val()
-		    },
-		    dataType : "json",
-		    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
-			beforeSend : function(){
-				    $(".modalWrap").fadeIn(200);
-				    $(".storeOrderInsertModal").slideDown(200); 
-			},
-			success : function(data){
-			    $("#countInput").val(data.fo_num); // 주문 수량
-			    $("#sizeInput").val(data.)
-			},
-			error: function(request, status, error) {
-				alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
-			}
-		});
-}
 
 </script>
 </html>

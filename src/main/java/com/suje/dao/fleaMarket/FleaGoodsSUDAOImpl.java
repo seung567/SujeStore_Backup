@@ -28,8 +28,8 @@ public class FleaGoodsSUDAOImpl implements FleaGoodsSUDAO {
 	
     
 	@Override
-    public void modifyGoodsSU(FleaGoodsVO modifyGoodsSU) {
-        mybatis.update("FleaGoodsSUDAO.modifyGoodsSU", modifyGoodsSU);
+    public int modifyGoodsSU(FleaGoodsVO vo) {
+      return mybatis.update("FleaGoodsSUDAO.modifyGoodsSU", vo);
     }
 
 }

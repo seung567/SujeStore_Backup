@@ -28,7 +28,8 @@
 	<select id="getFleaInfo" parameterType="fleaGoodsSU" resultType="fleaGoodsSU">
 	
 		SELECT
-            f.f_code, f.f_date, f.f_redate, f.f_sum, f.f_pname, f.f_spname, f.f_ppath, f.f_psize, f.f_content, f.f_ck, f.f_num, f.s_id, cs.cates_code, cs.cates_name,
+            f.f_code, f.f_date, f.f_redate, f.f_sum, f.f_pname, f.f_spname, f.f_ppath, 
+            f.f_psize, f.f_content, f.f_ck, f.f_num, f.s_id, cs.cates_code, cs.cates_name,
              cm.catemm_name, c.catem_name 
         FROM
             flea f, cate_sub cs, cate_mid cm, cate_main c
@@ -41,10 +42,21 @@
 	</select>
 	
 	<!-- 리스트 수정 -->
-	<update id="modifyGoodsSU" parameterType="fleaGoodsSU" >
-	    UPDATE flea
-	    SET cates_code = #{cates_code}, f_content = #{f_content}
-	    WHERE f_code = #{f_code}
+	<update id="modifyGoodsSU" parameterType="fleaGoodsSU">
+	UPDATE flea
+	SET 
+		f_date = TO_DATE(#{f_date},'YYYY-MM-DD'),
+		f_redate = sysdate,
+		f_sum = #{f_sum},
+		f_pname = #{f_pname},
+		f_spname = #{f_spname},
+		f_ppath = #{f_ppath},
+		f_psize = #{f_psize},
+		f_content = #{f_content},
+		f_ck = #{f_ck},
+		f_num = #{f_num},
+	WHERE f_code = #{f_code}
+		
 	</update>
 
 

@@ -26,18 +26,11 @@ public class FleaGoodsSUServiceImpl implements FleaGoodsSUService{
 	}
 	
 	
-	
-	
-	
-	/*
-	 * @Override public List<FleaGoodsVO> fleaGoodsMainPage(String id) {
-	 * List<FleaGoodsVO> goodsList = dao.fleaGoodsMainPage(id); // 단일 객체 대신 리스트로 받기
-	 * return goodsList; }
-	 */
-	
 	@Override
-	public void modifyGoodsSU(FleaGoodsVO modifyGoodsSU) {
+	public int modifyGoodsSU(FleaGoodsVO vo) {
 		
-		dao.modifyGoodsSU(modifyGoodsSU);
+		int result = dao.modifyGoodsSU(vo);
+		
+		return result;
 	}
 }

@@ -70,7 +70,7 @@
 							<td>${vo.fo_date}</td>
 							<td>${vo.p_date}</td>
 							<td>${vo.p_sum}</td>
-							<td>${vo.p_ck}</td>
+				 			<td><input class="joinCheck" type="button" value="확정"></td> 									
 							<td>${vo.p_ck_date}</td>
 							<td><input class="joinCheck" type="button" value="조회"></td>
 							<td><input class="payBackCall" type="button" value="요청"></td>

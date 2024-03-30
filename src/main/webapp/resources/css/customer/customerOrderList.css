@@ -90,6 +90,7 @@ body {
 
 /* 테이블 공통 속성 */
 table tr td {
+	width: auto;
 	font-size: 15px;
 }
 
@@ -109,7 +110,7 @@ tr:first-child>td {
 }
 
 table input {
-	width: 100px;
+	width: 50px;
 	height: 30px;
 	background-color: #ADEFD1;
 	border: 2px solid #ADEFD1;

@@ -8,5 +8,5 @@ public interface FleaGoodsSUDAO {
 
 	List<FleaGoodsVO> fleaGoodsListAll(FleaGoodsVO vo);
 	FleaGoodsVO getFleaInfo(FleaGoodsVO vo);
-	void modifyGoodsSU(FleaGoodsVO modifyGoodsSU);
+	int modifyGoodsSU(FleaGoodsVO vo);
 }

@@ -119,6 +119,14 @@
 			});
 		}); // end
 			
+		
+		
+		//상품 목록 수정 버튼 이벤트
+ 	function modifyBtn() {
+           
+			
+			
+        }); 
 
 		
 	});
@@ -325,7 +333,7 @@
 					<textarea class="goodsInfo_content" name="goodsInfoContent" ></textarea>
 				</div>
 
-				<button type="submit" class="submitBtn" name="modifyBtn">수정하기</button>
+				<button type="button" class="submitBtn" name="modifyBtn" onclick="modifyBtn()">수정하기</button>
 			</form>
 			
 		</div>

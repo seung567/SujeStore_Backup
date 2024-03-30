@@ -66,13 +66,20 @@ public class fleaGoodsSUController {
 		return resultMap;
 	}
 
-	// 플리마켓 상품 조회 정보 수정
+	// 플리마켓 상품 정보 수정
 	  @RequestMapping(value="modifyGoodsSU", method=RequestMethod.POST) 
 	  public  String modifyGoodsSU(FleaGoodsVO vo, Model model){ 
+		  logger.info("vo :"  + vo);
+		  System.out.println("modifyGoodsSU 실행");
 		  
-		  goodsService.modifyGoodsSU(vo);
+		  
+		  
+		int result = goodsService.modifyGoodsSU(vo);
+		model.addAttribute("result", result);
+		
+	  return "/fleaMarket/fleaGoodsSearchUpdate";
 	  
-	  return "redirect:/fleaGoodsMainPage.do?id=" + vo.getS_id(); }
+	  }
 	 
 
 }

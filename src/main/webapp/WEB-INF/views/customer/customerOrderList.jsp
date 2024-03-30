@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 	
 <!DOCTYPE html>
 <html>
@@ -57,69 +62,32 @@
 						<td>결제취소</td>
 						<td>반품요청</td>
 					</tr>
-					<tr>
-						<td>123456789</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input class="joinCheck" type="button" value="조회"></td>
-						<td><input class="payBackCall" type="button" value="요청"></td>
-						<td><input type="button" value="요청"></td>
-					</tr>
-					<tr>
-						<td>123456789</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="조회"></td>
-						<td><input type="button" value="요청"></td>
-						<td><input type="button" value="요청"></td>
-					</tr>
-					<tr>
-						<td>123456789</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="조회"></td>
-						<td><input type="button" value="요청"></td>
-						<td><input type="button" value="요청"></td>
-					</tr>
-					<tr>
-						<td>123456789</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="조회"></td>
-						<td><input type="button" value="요청"></td>
-						<td><input type="button" value="요청"></td>
-					</tr>
-					<tr>
-						<td>123456789</td>
-						<td>123456789</td>
-						<td>2024/03/01</td>
-						<td>2024/03/01</td>
-						<td>11,900</td>
-						<td>N</td>
-						<td>2024/03/01</td>
-						<td><input type="button" value="조회"></td>
-						<td><input type="button" value="요청"></td>
-						<td><input type="button" value="요청"></td>
-					</tr>
+					
+					<c:forEach items="${orderPayListTotal}" var="vo">
+						<tr>
+							<td>${vo.p_code}</td>
+							<td>${vo.fo_code}</td>
+							<td>${vo.fo_date}</td>
+							<td>${vo.p_date}</td>
+							<td>${vo.p_sum}</td>
+				 			<td><input class="joinCheck" type="button" value="확정"></td> 									
+							<td>${vo.p_ck_date}</td>
+							<td><input class="joinCheck" type="button" value="조회"></td>
+							<td><input class="payBackCall" type="button" value="요청"></td>
+							<td><input type="button" value="요청"></td>
+						</tr>
+					</c:forEach>
+					
 
 				</table>
-				<div class="pageing">< 1 2 3 ></div>
+				
+				<div class="pageing">
+				
+							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
+								[<a href="getPayList.do?id=${id }&page=${i+1}">${i+1}</a>]
+							</c:forEach>
+				
+				</div>
 			</div>
 
 			<!-- 플리마켓 결제 내역 부분 -->
@@ -301,7 +269,7 @@
 		    contentType : 'application/json; charset=utf-8',
 		    beforeSend : function(){
 				$(".orderListWrap").fadeIn(200);
-				$(".payCancelModalView").slideDown(200);				
+				$(".orderInfoModal").slideDown(200);				
 		    },
 		    success : function(data) {
 					

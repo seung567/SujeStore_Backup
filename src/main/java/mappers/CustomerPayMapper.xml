@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CustomerOrderListDAO">
+
+<!-- 주문제작 결제내역 전체 페이지 수 계산 -->
+<select id="getCountPageTotal" parameterType="String" resultType="Integer">	
+select count(*) as total_count
+from pay p
+join final_order fo on p.fo_code = fo.fo_code
+join orderinfo o on fo.o_code = o.o_code
+join member m on o.m_id = m.m_id
+where m.m_id = #{m_id}		
+</select>
+
+<!-- 주문제작 결제내역 페이지에 해당 하는 데이터 추출-->
+<select id="getPayList" parameterType="customerOrderList" resultType="customerPay">
+
+<![CDATA[	  
+select
+    p_code,
+    fo_code,
+    fo_date,
+    p_date,
+    p_sum,
+    p_ck,
+    p_ck_date
+from
+    (
+        select
+            rownum as r_num,
+            p_code,
+            fo_code,
+            fo_date,
+            p_date,
+            p_sum,
+            p_ck,
+            p_ck_date
+        from
+            (
+                select
+                    rownum,
+                    p.p_code,
+                    p.fo_code,
+                    fo.fo_date,
+                    p.p_date,
+                    p.p_sum,
+                    p.p_ck,
+                    p.p_ck_date
+                from
+                    pay p
+                join
+                    final_order fo on p.fo_code = fo.fo_code
+                join
+                    orderinfo o on fo.o_code = o.o_code
+                join
+                    member m on o.m_id = m.m_id
+                where
+                    m.m_id = #{m_id}
+                order by
+                    p.p_code desc
+            )
+    )
+where
+    r_num >= 1 and r_num <= 5
+order by
+    p_code desc
+
+]]>
+</select>
+
+
+</mapper>

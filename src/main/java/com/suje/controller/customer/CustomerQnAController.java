@@ -24,15 +24,6 @@ public class CustomerQnAController {
 	@Autowired
 	private CustomerQnAService service;	
 	private final int pageCountNum = 5; // 각 페이지별 출력되는 목록의 수
-	
-//	// Q&A DB 리스트 불러오기
-//	@RequestMapping(value = "customerQnA")
-//	public String getCustomerQnA(@RequestParam String id, Model model) {
-//		logger.info("getCustomerQnA");
-//		List<QnAVO> vo = service.getCustomerQnA(id);
-//		model.addAttribute("vo", vo);
-//		return "/customer/customerQnA";
-//	}
 
 	// Q&A 작성하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertQnA", method = RequestMethod.POST)

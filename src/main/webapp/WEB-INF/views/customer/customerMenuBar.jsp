@@ -47,7 +47,7 @@
 			</div><!-- 계좌 등록/ 수정 -->
 			
 			<div class="subTitle orderList">
-				<a href="customerOrder.do?id=<%=user %>">주문 내역 조회</a>
+				<a href="getPayList.do?id=<%=user %>&page=1">주문 내역 조회</a>
 			</div><!-- 주문 내역 조회-->
 			
 			<div class="subTitle reviews">

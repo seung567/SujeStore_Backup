@@ -49,6 +49,12 @@ public class MainCommDaoImpl implements MainCommDao {
 	}
 	
 	@Override
+	public List<MainCommVO> getCommContentImg(MainCommVO vo) {
+		logger.info("커뮤니티 상세 이미지 마이바티스");
+		return mybatis.selectList("MainCommDao.getCommContentImg", vo);
+	}
+	
+	@Override
 	public void updateLike(MainCommVO vo) {
 		logger.info("좋아요 마이바티스 "+vo.getComup_code());
 		mybatis.update("MainCommDao.updateLike", vo);
@@ -82,5 +88,29 @@ public class MainCommDaoImpl implements MainCommDao {
 	public void postDelete(MainCommVO vo) {
 		logger.info("포스트 삭제 마이바티스");
 		mybatis.delete("MainCommDao.postDelete", vo);
+	}
+	
+	@Override
+	public void postModify(MainCommVO vo) {
+		logger.info("포스트 수정 마이바티스");
+		mybatis.update("MainCommDao.postModify", vo);
+	}
+	
+	@Override
+	public String getComuPostSeq() {
+		logger.info("포스트 테이블 시퀀스 호출 마이바티스");
+		return mybatis.selectOne("MainCommDao.getComuPostSeq");
+	}
+	
+	@Override
+	public void postInsert(MainCommVO vo) {
+		logger.info("포스트 작성 마이바티스"+vo.comup_code+vo.m_id+vo.comuc_code+vo.comup_title+vo.comup_content);
+		mybatis.insert("MainCommDao.postInsert", vo);
+	}
+	
+	@Override
+	public void postImgInsert(MainCommVO vo) {
+		logger.info("포스트 이미지 삽입 서비스");
+		mybatis.insert("MainCommDao.postImgInsert", vo);
 	}
 }

@@ -14,17 +14,10 @@ import com.suje.domain.customer.QnAVO;
 @Service
 public class CustomerQnAServiceImpl implements CustomerQnAService {
 	
-	private static final Logger logger = LoggerFactory.getLogger(CustomerOrderServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerQnAServiceImpl.class);
 
 	@Autowired
 	CustomerQnADAO dao;
-	
-//	@Override
-//	public List<QnAVO> getCustomerQnA(String id) {
-//		System.out.println("=> CustomerQnAService 실행");
-//		List<QnAVO> vo = dao.getCustomerQnA(id);
-//		return vo;
-//	}
 	
 	@Override
 	public void insertQnA(QnAVO vo) {

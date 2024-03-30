@@ -49,6 +49,12 @@ public class MainCommServiceImpl implements MainCommService {
 	}
 	
 	@Override
+	public List<MainCommVO> getCommContentImg(MainCommVO vo) {
+		logger.info("커뮤니티 상세 이미지 서비스");
+		return mainCommDao.getCommContentImg(vo);
+	}
+	
+	@Override
 	public void updateLike(MainCommVO vo) {
 		logger.info("좋아요 서비스 "+vo.getComup_code());
 		mainCommDao.updateLike(vo);
@@ -82,5 +88,29 @@ public class MainCommServiceImpl implements MainCommService {
 	public void postDelete(MainCommVO vo) {
 		logger.info("포스트 삭제 서비스");
 		mainCommDao.postDelete(vo);
+	}
+	
+	@Override
+	public void postModify(MainCommVO vo) {
+		logger.info("포스트 수정 서비스");
+		mainCommDao.postModify(vo);
+	}
+	
+	@Override
+	public String getComuPostSeq() {
+		logger.info("포스트 테이블 시퀀스 호출 서비스");
+		return mainCommDao.getComuPostSeq();
+	}
+	
+	@Override
+	public void postInsert(MainCommVO vo) {
+		logger.info("포스트 작성 서비스"+vo.comup_code+vo.m_id+vo.comuc_code+vo.comup_title+vo.comup_content);
+		mainCommDao.postInsert(vo);
+	}
+	
+	@Override
+	public void postImgInsert(MainCommVO vo) {
+		logger.info("포스트 이미지 삽입 서비스");
+		mainCommDao.postImgInsert(vo);
 	}
 }

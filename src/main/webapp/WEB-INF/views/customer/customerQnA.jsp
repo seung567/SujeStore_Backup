@@ -68,18 +68,24 @@
 						<td>${vo.qna_title }</td>
 						<td>${vo.qna_qdate }</td>
 						<td>${vo.qna_adate }</td>
-						<td><input class="answer" type="button" value="조회"></td>
+						<td>
+				<c:choose>
+					<c:when test="${empty vo.qna_adate }" > </c:when> 
+					<c:otherwise><input class="answer" type="button" value="조회"></c:otherwise> 
+				</c:choose>
+						</td>
+						
 					</tr>
 					</c:forEach>
 
 				</table>
 
-				<div>
-							◀
+				<div class="paging">
+							
 							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
 								[<a href="getQnAList.do?id=${id }&page=${i+1}">${i+1}</a>]
 							</c:forEach>
-							▶
+							
 				</div>
 			</div>
 		</div>

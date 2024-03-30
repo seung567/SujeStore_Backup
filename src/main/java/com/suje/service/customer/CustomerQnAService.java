@@ -6,8 +6,6 @@ import com.suje.domain.customer.QnAVO;
 
 public interface CustomerQnAService {
 	
-//	public List<QnAVO> getCustomerQnA(String id);
-	
 	public void insertQnA(QnAVO vo);
 	
 	public QnAVO getCustomerQnAA(int qna_code);

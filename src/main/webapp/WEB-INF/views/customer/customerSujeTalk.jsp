@@ -64,7 +64,7 @@
 										<div>${orderList. s_id}</div>
 									</div>
 									<div>${orderList. o_date}</div>
-									<input type="hidden" value="${ orderList. o_code}">
+									<input type="hidden" value="${ orderList. o_code}" readonly="readonly" />
 								</div>
 								<div class="listBar"></div>
 							</c:forEach>
@@ -92,7 +92,7 @@
 						</div>
 						<div>
 							<span>주문 요청 번호</span> 
-							<span><input class="orderNum" type="text" /></span>
+							<span><input class="orderNum" type="text" readonly="readonly"/></span>
 						</div>
 					</div>
 
@@ -122,24 +122,31 @@
 						</div>
 						<!-- 요청내용 -->
 
-						<!-- 이미지 불러오기 -->
-						<form action="insertEtcContent.do" method="post" enctype="multipart/form-data">
+						<!-- 주문 요청사항 입력 -->
+						<%-- <form id="etcUploadInsert" enctype="multipart/form-data"> --%>
+						<form id="etcUploadInsert" enctype="multipart/form-data">
+						
+							<!-- 이미지 불러오기 -->
 							<div class="filebox">
 								<label for="talkImgUpload"> 이미지 불러오기 </label> 
 								<input type="file" accept=".jpg,.png,.gif" name="etcImgName" id="talkImgUpload" />
-								<input type="text">
+								<input type="text" readonly="readonly">
 							</div>
 							<!-- 이미지 불러오기 -->
+							
 							<!-- 요청사항 입력 -->
 							<div>
-								<textarea  name="etc_content"></textarea><!-- 요청내용 -->
-								<button value="요청사항전송">전송</button>
-							</div>
+								<textarea  name="etc_content" ></textarea><!-- 요청내용 -->
+								<!-- <button value="요청사항전송" onclick="">전송</button> -->
+								<input type="submit" value="전송" onclick="" />
+							</div><!-- 요청사항 입력 -->
+							
 							<input type="hidden" class="orderNO" name="o_code" /><!-- 요청번호 -->
 							<input type="hidden" value="77000" name="etc_type_code" /><!-- 요청자 유형번호 -->
 							<input type="hidden" value=${id } name="m_id" /><!-- 사용자 아이디 -->
-						</form>
-						<!-- 요청사항 입력 -->
+							
+						</form><!-- 주문 요청사항 입력 -->
+						
 					</div>
 				</div>
 
@@ -166,13 +173,20 @@
 
 $(function(){
     // 최종 주문서 조회 취소 이벤트
-    $('.viewCancel').click(function(){location.href = "customerSujeTalk.do?id=${id}&page=1";});
+    $('.viewCancel').click(function(){
+    	
+    	//location.href = "customerSujeTalk.do?id=${id}&page=1";
+		$(".orderCheckModal").slideUp(200);
+		
+		$(".payResultModal").slideUp(200);
+		$(".modalWrap").fadeOut(200);
+    	
+    });
 	// 이미지 파일명 불러오기
 	$('#talkImgUpload').change(function(){
 		$(".filebox input[type='text']").val($(this).val());
 	});
-    
 });
-	
+
 </script>
 </html>

@@ -27,7 +27,7 @@
 									
 				<div>최종 주문서 조회</div>
 				<div>
-					최종주문번호 <input type="text" />
+					최종주문번호 <input type="text" readonly />
 				</div>
 			</div>
 
@@ -73,20 +73,20 @@
 					<!-- Content 두번째 라인 -->
 					<div>
 						<div>
-							<input id="countInput" type="text" />
+							<input id="countInput" type="text" readonly/>
 
 						</div>
 						<div>개</div>
 
 						<div>주문 사이즈</div>
 						<div>
-							<input id="sizeInput" type="text" />
+							<input id="sizeInput" type="text" readonly/>
 						</div>
 					</div>
 					<!-- Content 세번째 라인 -->
 					<div>
 						<div>
-							<input id="price" type="text" />
+							<input id="price" type="text" readonly/>
 						</div>
 						<div>원</div>
 
@@ -100,7 +100,7 @@
 					</div>
 					<!-- Content 네번째 라인 -->
 					<div>
-						<input id="content" type="text" />
+						<input id="content" type="text" readonly/>
 					</div>
 				</div>
 			</div>

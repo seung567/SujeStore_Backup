@@ -136,7 +136,7 @@
 						<!-- 이미지 불러오기 -->
 						<!-- 요청사항 전송 -->
 						<div>
-							<input type="text" />
+							<textarea></textarea>
 							<button value="이미지 불러오기">전송</button>
 						</div>
 						<!-- 요청사항 전송 -->
@@ -161,15 +161,17 @@
 </body>
 <script type="text/javascript">
 
-$(function(){
-    
- 	// 최종 주문서 조회 취소 버튼 이벤트
-    $('.viewCancel').click(function(){location.href = "storeSujeTalk.do?id=${id}&page=1";});
-	// 이미지 파일명 불러오기
-	$('#talkImgUpload').change(function(){
-		$(".filebox input[type='text']").val($(this).val());
+	$(function() {
+		// 최종 주문서 조회 취소 버튼 이벤트
+		$('.viewCancel').click(function() {
+			$(".storeOrderInsertModal").slideUp(200);
+			$(".modalWrap").fadeOut(200);
+		});
+		// 이미지 파일명 불러오기
+		$('#talkImgUpload').change(function() {
+			$(".filebox input[type='text']").val($(this).val());
+		});
 	});
-});
-
+	
 </script>
 </html>

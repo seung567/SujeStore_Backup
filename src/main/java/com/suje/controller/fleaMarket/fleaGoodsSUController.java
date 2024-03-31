@@ -43,9 +43,7 @@ public class fleaGoodsSUController {
 	@RequestMapping(value = "getFleaInfo")
 	@ResponseBody
 	public Map<String,Object> getFleaInfo(
-			@RequestParam Map<String,String> valueMap,
-			FleaGoodsVO vo,
-			Model model) 
+			@RequestParam Map<String,String> valueMap, FleaGoodsVO vo, 	Model model) 
 	{
 		
 		logger.info("getFleaInfo 실행");
@@ -67,13 +65,16 @@ public class fleaGoodsSUController {
 	}
 
 	// 플리마켓 상품 정보 수정
-	  @RequestMapping(value="modifyGoodsSU", method=RequestMethod.POST) 
-	  public  String modifyGoodsSU(FleaGoodsVO vo, Model model){ 
-		  logger.info("vo :"  + vo);
+	  @RequestMapping(value="modifyGoodsSU", method = RequestMethod.POST) 
+	 // public  String modifyGoodsSU(FleaGoodsVO vo, Model model){ 
+		  public  String modifyGoodsSU(@RequestParam Map<String,String> valueMap, Model model){ 
+		  
+		  logger.info("vo :"  + valueMap);
+		  
 		  System.out.println("modifyGoodsSU 실행");
 		  
-		  
-		  
+		  FleaGoodsVO vo = new FleaGoodsVO();
+		   
 		int result = goodsService.modifyGoodsSU(vo);
 		model.addAttribute("result", result);
 		
@@ -82,7 +83,7 @@ public class fleaGoodsSUController {
 	  }
 	 
 
-}
+} 
 
 
 

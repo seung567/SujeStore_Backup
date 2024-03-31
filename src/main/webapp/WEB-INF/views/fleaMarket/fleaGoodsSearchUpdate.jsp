@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 	href="./resources/css/fleaMarket/fleaGoodsSearchUpdate.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	
+
 <script type="text/javascript">
 
 	$(function() {
@@ -88,15 +88,14 @@
 		 	        const mainImgSrc = data["getListVO"].f_pname;
 		 	         $(".goodsImg").attr("src", mainImgSrc);
 
-		 	        console.log(mainImgSrc);
 		 	      
 		 	        // 상품 서브 이미지 설정
 		 	        const subImgSrc = data["getListVO"].f_spname;
 		 	          $(".goodsImgSub").eq(0).attr("src", subImgSrc); 
 		 	          $(".goodsImgSub").eq(1).attr("src", subImgSrc); 
 
-		 	        console.log(subImgSrc);
-		 	         
+		 	
+		 			 
 		 			//상품 가격
 		 			const fSum = data["getListVO"].f_sum;
 		 			 $("input[name='goodsPrice']").val(fSum);
@@ -110,26 +109,60 @@
 		 			//상품내용 
 		 			const fContent = data["getListVO"].f_content;
 		 			 $(".goodsInfo_content").val(fContent);
-		 			
-		 			 
-		 			 
-		 			
-		 			
 				} 
 			});
 		}); // end
 			
 		
 		
-		//상품 목록 수정 버튼 이벤트
- 	function modifyBtn() {
-           
-			
-			
-        }); 
-
-		
+	
 	});
+	
+	//상품 목록 수정 버튼 이벤트
+ 	function modifyBtn() {
+		
+		// const  formData= $("form[name=modifyForm]").serialize();
+		
+		var formPrice = $("#goodsPrice").val();
+		var formNum = $("#goodsTotalNum").val();
+		var formContent = $("#goodsInfoContent").val();
+		/* var formMainImgSrc = $("#goodsMainImg").val(); */
+		/* var formSubImgSrc = $("#goodsSubImg").attr("src", subImgSrc); */
+	/* 	var fdata= $("#listFdate").val();
+		var reData= $("#listRedate").val(); */
+				
+		alert(formPrice)
+		alert(formNum)
+		alert(formContent)
+/* 		alert(formMainImgSrc)
+		alert(formSubImgSrc) */
+
+			
+		 $.ajax({
+			 	cache: false,
+				type : "POST",
+				 url : "modifyGoodsSU.do", 
+				// url : "${pageContext.request.contextPath}/modifyGoodsSU.do", 
+				//data : formData,
+				data : {
+				   // id : idValue,
+				    
+				   goodsPrice : formPrice,
+				   goodsTotalNum : formNum,
+				   goodsInfoContent : formContent,
+				 /*   goodsMainImg : formMainImgSrc,
+				   goodsSubImg : formSubImgSrc */
+				    
+				},
+				dataType : "json",
+				contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+				success : function(data) {
+	
+					
+					$(".goodsInfo_content").val(goodsInfoContent);
+				}
+        }); 
+	}
 		
 </script>
 </head>
@@ -164,14 +197,12 @@
 									<td class="goodsContent">${listAll.f_content}</td>
 									<td>${listAll.f_sum}</td>
 									<td>${listAll.f_num}</td>
-									<td>
-										<fmt:parseDate value="${listAll.f_date}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
-										<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
-									</td>
-									<td>
-										<fmt:parseDate value="${listAll.f_redate}" pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" />
-										<fmt:formatDate value="${parsedDate}" pattern="yyyy/MM/dd" />
-									</td>	
+									<td id="listfDate"><fmt:parseDate value="${listAll.f_date}"
+											pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" /> <fmt:formatDate
+											value="${parsedDate}" pattern="yyyy/MM/dd" /></td>
+									<td id="listRedate"><fmt:parseDate value="${listAll.f_redate}"
+											pattern="yyyy-MM-dd HH:mm:ss" var="parsedDate" /> <fmt:formatDate
+											value="${parsedDate}" pattern="yyyy/MM/dd" /></td>
 									<td>${listAll.f_ck}</td>
 								</tr>
 							</c:forEach>
@@ -185,7 +216,8 @@
 
 			<hr />
 			<h1 class="store_maintitle">상품 수정</h1>
-			<form class="store_mainInfo" action="modifyGoodsSU.do" method="post" >
+			<form id="modifyForm" name= "modifyForm" class="store_mainInfo" method="post">
+			<input id=>
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 카테고리</label> 
 					<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
@@ -198,7 +230,7 @@
 						<option>수공예품</option>
 						<option>잡화</option>
 						<option>홈리빙</option>
-					</select>
+					</select> 
 					<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code">
 						<option>중분류</option>
 						<option>베이커리</option>
@@ -302,40 +334,40 @@
 						<option>방석</option>
 					</select>
 				</div>
-				
-				
+
+
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 메인 이미지</label> 
-					<img class="goodsImg" alt="mainImg" src="./resources/img/goodsImgArea.png">
-					<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
-				</div>
-				
-				<div class="store_subCategory">
-					<label class="store_subTitle">상품 서브 이미지</label> 
-					<img class="goodsImg" alt="mainImg" src="./resources/img/goodsImgArea.png" > 
-					<img class="goodsImgSub" alt="subImg" src="./resources/img/goodsImgArea.png">
-					<img class="goodsImgSub" alt="subImg" src="./resources/img/goodsImgArea.png">
-					<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
-				</div>
-				
-				<div class="store_subCategory">
-					<label class="store_subTitle">상품 가격</label>
-					<input type="text" class="text-box" name="goodsPrice" />원
+						<img class="goodsImg" alt="mainImg" id= "goodsMainImg" src="./resources/img/goodsImgArea.png">
+					<button type="botton" class="uploadBtn" name="uploadBtn()">불러오기</button>
 				</div>
 
 				<div class="store_subCategory">
-					<label class="store_subTitle">상품 총 수량</label>
-					<input type="text" class="text-box" name="goodsNum" />개
+					<label class="store_subTitle">상품 서브 이미지</label> 
+						<img class="goodsImg" alt="mainImg" id= "goodsMainImg" src="./resources/img/goodsImgArea.png"> 
+						<img class="goodsImgSub" alt="subImg" id="goodsSubImg" src="./resources/img/goodsImgArea.png"> 
+						<img class="goodsImgSub" alt="subImg" id="goodsSubImg" src="./resources/img/goodsImgArea.png">
+					<button type="botton" class="uploadBtn" name="uploadBtn()">불러오기</button>
+				</div>
+
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 가격</label> <input type="text"
+						class="text-box" name="goodsPrice" id="goodsPrice"/>원
+				</div>
+
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 총 수량</label> <input type="text"
+						class="text-box" name="goodsNum" id="goodsTotalNum" />개
 				</div>
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 내용</label><br />
-					<textarea class="goodsInfo_content" name="goodsInfoContent" ></textarea>
+					<textarea class="goodsInfo_content" name="goodsInfoContent" id="goodsInfoContent"></textarea>
 				</div>
 
-				<button type="button" class="submitBtn" name="modifyBtn" onclick="modifyBtn()">수정하기</button>
+				<button type="button" class="submitBtn" onclick="modifyBtn(); return false">수정하기</button>
 			</form>
-			
+
 		</div>
 		<!-- storeContentsBox -->
 	</div>

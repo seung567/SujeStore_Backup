@@ -52,6 +52,7 @@
 	o.o_date
 	from orderinfo o, etc et 
 	where o.o_code = et.o_code(+) and o.o_code = #{o_code}
+	order by ETC_DATE
 ]]>
 
 </select>
@@ -127,28 +128,34 @@
 	)
 </insert>
 
-<!-- 주문 요청 사항 등록 -->
-<insert id="insertEtcContent" parameterType="customerEtcList">
+	<!-- 주문 요청 사항 등록 -->
+	<insert id="insertEtcContent" parameterType="customerEtcList">
 
-	insert into etc(
+		insert into etc(
 		etc_code,
 		o_code,
 		etc_type_code,
 		etc_content,
-		etc_pname,
-		etc_spname,
-		etc_ppath,
 		etc_date
-	) values(
+		<if test="etc_spname neq null">
+			,etc_pname,
+			etc_spname,
+			etc_ppath,
+			etc_psize
+		</if>
+		) values(
 		etc_code_sqn.nextval,
 		#{o_code},
 		#{etc_type_code},
 		#{etc_content},
-		#{etc_pname},
-		#{etc_spname},
-		#{etc_ppath},
 		to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')
-	)
+		<if test="etc_spname neq null">
+			,#{etc_pname},
+			#{etc_spname},
+			#{etc_ppath},
+			#{etc_psize}
+		</if>
+		)
 
-</insert>
+	</insert>
 </mapper>

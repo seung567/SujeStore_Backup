@@ -133,7 +133,8 @@ function orderEtc(item){
 		chatContent.append("<div>" + item.s_id + "</div>");    
 	}
 	
-	//최종 주문서 확인 버튼
+	// 요청 사항 Content
+	if(item.etc_spname != null){mainContent.append("<img class='etcImg' src='./resources/DB/" + item.etc_spname + "' />"); }
     mainContent.append("<div><input id='orderCheck' type='text' value='"+item.content+"' /></div>");
 	
 	//뒷 말풍선 배경

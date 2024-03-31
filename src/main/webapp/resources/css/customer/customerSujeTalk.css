@@ -331,7 +331,7 @@ display: flex;
 }
 
 .orderMainDetail input[type=button]{
-	width: 429px;
+	width: 412px;
 	height: 50px;
 	background-color: #00203F;
 	font-size: 15px;
@@ -342,7 +342,7 @@ display: flex;
 }
 
 .orderMainDetail input[type=text]{
-	width: 429px;
+	width: 410px;
 	height: 50px;
 	font-size: 15px;
 	font-weight: bold;
@@ -416,18 +416,8 @@ display: flex;
     padding-top: 7px;
 }
 
-/* .activeTalkMain>form>div:nth-child(2) button {
-	width: 180px;
-	height: 30px;
-	border-radius: 10px;
-	position: absolute;
-	background-color: #00203F;
-	left: 517px;
-	top: 10px;
-	color: white;
-} */
 
-.activeTalkMain>form>div:nth-child(2) button {
+.activeTalkMain>form>div:nth-child(2) input[type="submit"] {
 	width: 180px;
 	height: 80px;
 	border-radius: 10px;
@@ -435,5 +425,26 @@ display: flex;
 	background-color: #00203F;
 	left: 517px;
 	top: 10px;
-	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	color:white;
+}
+
+/* 요청사항 이미지 크기 제한 */
+.orderMainDetail img{
+	max-width: 450px;
+	max-height: 220px;
+}
+
+/* 요청사항 이미지 위치 조정 */
+.etcImg {
+    margin: 0px 0px 7px 38px;
+}
+
+textarea {
+	resize: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

@@ -86,26 +86,8 @@ public class CustomerOrderController {
 	@RequestMapping(value="orderDetailContext", method = RequestMethod.POST, produces={"application/json"})
 	@ResponseBody
 	public Map<String,Object> orderEtcContext(@RequestParam  Map<String,String> oCode) {
-		
-		logger.trace("orderEtcContext");
-		
-		Map<String,Object> resultMap= new HashMap<String,Object>();
-		List<EtcVO> etcVO = orderService.getEtcList(Integer.parseInt(oCode.get("customerOrderNO")));
-		
-		for(EtcVO vo : etcVO) {
-			if(vo.getEtc_content() == null) {
-				vo.setContent(vo.getO_content());
-			}else {
-				vo.setContent(vo.getEtc_content());
-			}
-		}
-		
-		FinalOrderVO finalVO = orderService.getFinalOrder(Integer.parseInt(oCode.get("customerOrderNO")));
-		
-		resultMap.put("etcList", etcVO);
-		resultMap.put("finalVO", finalVO);
-		
-		return resultMap;
+	
+		return getListInfomation(oCode.get("customerOrderNO"));
 		
 	}
 	
@@ -132,30 +114,59 @@ public class CustomerOrderController {
 	
 	//상세 요청 사항 등록
 	@RequestMapping(value="insertEtcContent", method=RequestMethod.POST)
-	public String insertEtcContent(@ModelAttribute EtcVO etcVO, Model model) throws IOException{
+	@ResponseBody
+	public Map<String,Object> insertEtcContent(@ModelAttribute EtcVO etcVO, Model model) throws IOException{
 		
 		logger.info(etcVO.getM_id());
 		logger.info(etcVO.getEtc_content());
-		logger.info("출력 = {}",etcVO.getEtcImgName());
 		
-		MultipartFile uploadFile = etcVO.getEtcImgName();
+		if(!etcVO.getEtcImgName().getOriginalFilename().isEmpty()) {
+			logger.info("출력 = {}",etcVO.getEtcImgName().getOriginalFilename());
+
+			MultipartFile uploadFile = etcVO.getEtcImgName();
+			String realImgName = uploadFile.getOriginalFilename();
+
+			UUID uuid = UUID.randomUUID();
+			String serverUploadName = uuid.toString() + "_" + realImgName;
+
+			String saveDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
+			uploadFile.transferTo(new File(saveDir + serverUploadName));
+
+			etcVO.setEtc_pname(realImgName); // 실제 사진명
+			etcVO.setEtc_spname(serverUploadName); // 서버 사진명
+
+			etcVO.setEtc_ppath(saveDir + serverUploadName); // 실제 저장 경로
+			etcVO.setEtc_psize(String.valueOf(uploadFile.getSize())); // 사이즈
+			
+		}
+		// 요청사항 등록
+		String state = String.valueOf(orderService.insertEtcContent(etcVO));
 		
-		String realImgName = uploadFile.getOriginalFilename();
+		return getListInfomation(String.valueOf(etcVO.getO_code()));
 		
-		UUID uuid = UUID.randomUUID();
-		String serverUploadName = uuid.toString() + "_" + realImgName;
+	}
+	
+	// 요청 사항 리스트 , 최종 주문서 리스트 불러오는 메소드
+	public Map<String,Object> getListInfomation(String oCode) {
 		
-		String saveDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
-		uploadFile.transferTo(new File(saveDir + serverUploadName));
+		logger.trace("orderEtcContext");
 		
-		etcVO.setEtc_pname(realImgName); // 실제 사진명
-		etcVO.setEtc_spname(serverUploadName); // 서버 사진명
-		etcVO.setEtc_ppath(saveDir + serverUploadName); // 실제 저장 경로
+		Map<String,Object> resultMap= new HashMap<String,Object>();
+		List<EtcVO> etcVO = orderService.getEtcList(Integer.parseInt(oCode));
 		
-		orderService.insertEtcContent(etcVO);
+		for(EtcVO vo : etcVO) {
+			if(vo.getEtc_content() == null) {
+				vo.setContent(vo.getO_content());
+			}else {
+				vo.setContent(vo.getEtc_content());
+			}
+		}
 		
-		model.addAttribute("id",etcVO.getM_id());
+		FinalOrderVO finalVO = orderService.getFinalOrder(Integer.parseInt(oCode));
 		
-		return "redirect:customerSujeTalk.do?page=1";
+		resultMap.put("etcList", etcVO);
+		resultMap.put("finalVO", finalVO);
+		
+		return resultMap;
 	}
 }

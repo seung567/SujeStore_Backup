@@ -43,19 +43,19 @@
 	
 	<!-- 리스트 수정 -->
 	<update id="modifyGoodsSU" parameterType="fleaGoodsSU">
-	UPDATE flea
-	SET 
-		f_date = TO_DATE(#{f_date},'YYYY-MM-DD'),
-		f_redate = sysdate,
-		f_sum = #{f_sum},
-		f_pname = #{f_pname},
-		f_spname = #{f_spname},
-		f_ppath = #{f_ppath},
-		f_psize = #{f_psize},
-		f_content = #{f_content},
-		f_ck = #{f_ck},
-		f_num = #{f_num},
-	WHERE f_code = #{f_code}
+	 UPDATE flea
+    SET 
+        <!-- f_date = TO_DATE(#{f_date},'YYYY-MM-DD HH24:mi:ss'),
+        f_redate = sysdate, -->
+        f_sum = #{f_sum},
+<!--         f_pname = #{f_pname},
+        f_spname = #{f_spname},
+        f_ppath = #{f_ppath},
+        f_psize = #{f_psize},
+        f_ck = #{f_ck}, -->
+        f_content = #{f_content},
+        f_num = #{f_num}
+    WHERE f_code = #{f_code}
 		
 	</update>
 

@@ -29,6 +29,9 @@ public class FleaGoodsSUDAOImpl implements FleaGoodsSUDAO {
     
 	@Override
     public int modifyGoodsSU(FleaGoodsVO vo) {
+		
+		System.out.println("modifyGoodsSU 수정 Repository 실행");
+		
       return mybatis.update("FleaGoodsSUDAO.modifyGoodsSU", vo);
     }
 

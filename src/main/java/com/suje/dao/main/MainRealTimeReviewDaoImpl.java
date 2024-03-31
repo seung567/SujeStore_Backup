@@ -30,6 +30,11 @@ public class MainRealTimeReviewDaoImpl implements  MainRealTimeReviewDao{
     public int getTotalCountPage() {
         logger.info("실시간후기 전체 행 수 추출(페이징) - sqlSession");
         return sqlSession.selectOne("getTotalCountPage");
+    }    
+    @Override
+    public void updateLikeCount(int reviewId) {
+        logger.info("좋아요 수 업데이트 - 서비스");
+        sqlSession.update("updateLikeCount", reviewId);
     }
 	
 	

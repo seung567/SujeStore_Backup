@@ -1,15 +1,18 @@
 package com.suje.controller.main;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.suje.controller.adminviews.AdminQnAController;
-import com.suje.domain.adminviews.AdminQnAVO;
 import com.suje.domain.main.MainRealTimeReviewVO;
 import com.suje.service.main.MainRealTimeReviewService;
 
@@ -45,5 +48,12 @@ public class MainRealTimeReviewController {
         model.addAttribute("reviewList", mainRealTimeReviewService.getreviewList(vo));
         
         return "main/mainRealTimeReview";
+    }
+    @PostMapping("reviewUpdate.do")
+    @ResponseBody
+    public void updateReview(@RequestParam("reviewId") int reviewId) {
+        logger.info("실시간 후기 Update 실행 컨트롤러");
+        
+        mainRealTimeReviewService.updateLikeCount(reviewId); 
     }
 }

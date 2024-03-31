@@ -9,5 +9,5 @@ public interface MainRealTimeReviewService {
 	
 	List<MainRealTimeReviewVO> getreviewList(MainRealTimeReviewVO vo);
     int getTotalCountPage();
-    
+    void updateLikeCount(int reviewId);
 }

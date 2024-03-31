@@ -13,6 +13,29 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./resources/js/main/mainRealTimeReviewModalJs.js"></script>
 <title>SUJE</title>
+<script type="text/javascript">
+
+//좋아요 버튼 클릭시 reviewUPdate실행
+$(document).ready(function() {
+    $(".thumbsUp").click(function(event) {
+        var reviewId = $(this).data("review-id"); 
+
+        $.ajax({
+            url: 'reviewUpdate.do',
+            type: 'POST', 
+            data: { reviewId: reviewId }, 
+            success: function(response) {
+                alert("좋아요가 업데이트 되었습니다!");
+                $(`#likeCount${reviewId}`).text(response.updatedLikeCount); 
+            },
+            error: function() {
+                alert("에러 발생");
+            }
+        });
+    });
+});
+</script>
+
 </head>
 <body>
 <%@ include file="../headerHtml/memberHeader.jsp" %>
@@ -21,42 +44,46 @@
     <div class="contentsLine"></div>
     <div class="contentsReviewArea">
         <c:forEach var="review" items="${reviewList}">
-        <table class="eachReviewTable">
-                <tr>
-                    <td rowspan="4" class="eachReviewImgTd"><div><img src="././resources/DB/photo_test/사진1.jpg"/></div></td>
-                    <td class="eachReviewStoreProfileTd" colspan="3">
-                        <img src="././resources/img/basicProfileIcon.png"/>
-                        <span>STORE NAME</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="eachReviewPayNumTd">
-                        <span>주문번호</span>
-                        <button>${review.p_code}</button>
-                    </td>
-                    <td class="eachReviewStoreBtnTd"><a href="">스토어 바로가기</a></td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="eachReviewMemberIdTd"></td>
-                </tr>
-                <tr>
-                    <td class="eachReviewScoreTd" colspan="3">
-                        <img src="././resources/img/mainReviewStarImg.png"/>
-                        <span>${review.RV_STAR}</span>
-                        <img src="././resources/img/mainReviewThumbsUpImg.png"/>
-                        <span>${review.RV_LIKE}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="eachReviewContentsTd"><c:out value='${review.RV_CONTENT}'/></td>
-                </tr>
-            </c:forEach>
-        </table>
+    <table class="eachReviewTable">
+        <tr>
+            <td rowspan="4" class="eachReviewImgTd">
+                <div><img src="././resources/DB/photo_test/사진1.jpg"/></div>
+            </td>
+            <td class="eachReviewStoreProfileTd" colspan="3">
+                <img src="././resources/img/basicProfileIcon.png"/>
+                <span>STORE NAME</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="eachReviewPayNumTd">
+                <span>주문번호</span>
+                <button>${review.p_code}</button>
+            </td>
+            <td class="eachReviewStoreBtnTd"><a href="">스토어 바로가기</a></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="eachReviewMemberIdTd"></td>
+        </tr>
+        <tr>
+            <td class="eachReviewScoreTd" colspan="3">
+                <img src="././resources/img/mainReviewStarImg.png"/>
+                <span>${review.RV_STAR}</span>
+                <img src="././resources/img/mainReviewThumbsUpImg.png" class="thumbsUp" data-review-id="${review.RV_CODE}"/>
+                <span>${review.RV_LIKE}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="eachReviewContentsTd">
+                <c:out value='${review.RV_CONTENT}'/>
+            </td>
+        </tr>
+    </table>
+</c:forEach>
     </div>
     <div class="pageingArea">
                     <a href="#"><img src="././resources/img/pageLeftBtn.png" /></a>
                     <c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
-                        <a href="adminQnA.do?page=${i}">${i}</a>
+                        <a href="mainRealTimeReview.do?page=${i}">${i}</a>
                     </c:forEach>
                     <a href="#"><img src="././resources/img/pageRightBtn.png" /></a>
                 </div>

@@ -8,28 +8,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.suje.dao.main.MainRealTimeReviewDao;
-import com.suje.dao.main.MainRealTimeReviewDaoImpl;
 import com.suje.domain.main.MainRealTimeReviewVO;
 
 @Service("MainRealTimeReviewService")
 public class MainRealTimeReviewServiceImpl implements MainRealTimeReviewService {
     
-	private static final Logger logger = LoggerFactory.getLogger(MainRealTimeReviewDaoImpl.class);	
-	
-	
-	@Autowired
-    private MainRealTimeReviewDao mainrealtimereviewdao;
+    private static final Logger logger = LoggerFactory.getLogger(MainRealTimeReviewServiceImpl.class); 
+    
+    @Autowired
+    private MainRealTimeReviewDao mainRealTimeReviewDao; 
     
     @Override
     public List<MainRealTimeReviewVO> getreviewList(MainRealTimeReviewVO vo) {
-    	logger.info("실시간 후기 view 실행 서비스임플");
-    	return mainrealtimereviewdao.getreviewList(vo);
+        logger.info("실시간 후기 view 실행 서비스임플");
+        return mainRealTimeReviewDao.getreviewList(vo); 
     }
     
     @Override
     public int getTotalCountPage() {
-    	logger.info("실시간 후기 페이징 실행 서비스임플");
-    	return mainrealtimereviewdao.getTotalCountPage();
+        logger.info("실시간 후기 페이징 실행 서비스임플");
+        return mainRealTimeReviewDao.getTotalCountPage(); 
     }
     
+    @Override
+    public void updateLikeCount(int reviewId) {
+        logger.info("실시간 후기 업데이트 실행 서비스임플");
+        mainRealTimeReviewDao.updateLikeCount(reviewId); 
+    }
 }

@@ -13,26 +13,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
     $(function() {
+        // 마지막 항목에 'checkedStateFirstCategory' 클래스 추가
         $('.adminCategoryArea li:last-child a').addClass('checkedStateFirstCategory');
 
-     // qnaTableRow 전체를 클릭 시 getQnAinfo 실행
+        // qnaTableRow 전체를 클릭 시 getQnAinfo 실행
         $(".qnaTableRow").click(function(event) {
             // 클릭된 행의 qna 코드값 가져오기
-            const qna_Code = $(this).find('.qnaTableRowNumber a').text(); 
+            var qnaCode = $(this).data('qna_id'); // data- 속성을 사용하여 qna_code 값을 가져옵니다.
+            
             // getQnAinfo 실행하는 URL 생성
-            const url = "getQnAinfo.do?qna_code=" + qnaCode;
+            var url = "getQnAinfo.do?qna_code=" + qnaCode;
            
             // 해당 URL로 이동
             window.location.href = url;
         });
-
-         
     });
-
-
-
-</script>
-
+    </script>
 </head>
 <body>
     <%@ include file="../../views/headerHtml/adminHeader.jsp"%>

@@ -35,4 +35,22 @@ public class MainStoreCategoryDaoImpl implements MainStoreCategoryDao {
 		logger.info("스토어 전체 상품 마이바티스");
 		return mybatis.selectList("MainStoreCategoryDao.getStoreAllList", vo);
 	}
+	
+	@Override
+	public MainStoreCategoryVO getStoreInfo(String sId) {
+		logger.info("스토어 상세 정보 페이지 마이바티스");
+		return mybatis.selectOne("MainStoreCategoryDao.getStoreInfo", sId);
+	}
+	
+	@Override
+	public int getReviewTotalCountPage(String sId) {
+		logger.info("리뷰 전체 행수 마이바티스");
+		return mybatis.selectOne("MainStoreCategoryDao.getReviewTotalCountPage", sId);
+	}
+	
+	@Override
+	public List<MainStoreCategoryVO> getStoreReviewList(MainStoreCategoryVO vo) {
+		logger.info("리뷰 전체 리뷰 마이바티스");
+		return mybatis.selectList("MainStoreCategoryDao.getStoreReviewList", vo);
+	}
 }

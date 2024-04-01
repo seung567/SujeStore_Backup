@@ -20,6 +20,10 @@ public class MainStoreCategoryVO {
 				  s_pname, s_spname, s_ppath, s_psize, 
 				  s_back_pname, s_back_spname, s_back_ppath, s_back_psize;
 
+	//review
+	public String rv_content, m_id, rv_star, rv_like, rvp_spname;
+	
+	
 	//Page
 	public int firstNum, endNum, rnum;
 	

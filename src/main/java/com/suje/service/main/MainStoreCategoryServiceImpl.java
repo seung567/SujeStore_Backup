@@ -35,4 +35,22 @@ public class MainStoreCategoryServiceImpl implements MainStoreCategoryService {
 		logger.info("스토어 전체 상품 서비스");
 		return mainStoreCategoryDao.getStoreAllList(vo);
 	}
+	
+	@Override
+	public MainStoreCategoryVO getStoreInfo(String sId) {
+		logger.info("스토어 상세 정보 페이지 서비스");
+		return mainStoreCategoryDao.getStoreInfo(sId);
+	}
+	
+	@Override
+	public int getReviewTotalCountPage(String sId) {
+		logger.info("리뷰 전체 행수 서비스");
+		return mainStoreCategoryDao.getReviewTotalCountPage(sId);
+	}
+	
+	@Override
+	public List<MainStoreCategoryVO> getStoreReviewList(MainStoreCategoryVO vo) {
+		logger.info("리뷰 전체 리뷰 서비스");
+		return mainStoreCategoryDao.getStoreReviewList(vo);
+	}
 }

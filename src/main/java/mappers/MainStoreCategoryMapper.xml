@@ -67,4 +67,40 @@
 ]]>
 </select>
 
+<!-- store 상세정보 호출 -->
+<select id="getStoreInfo" parameterType="String" resultType="mainStoreCategoryVO">
+	SELECT s.s_id, s.s_name, s.s_tel, s.s_addr, s.s_spname, s.s_text, COALESCE(AVG(r.rv_star), 0) AS avgRvStar, COALESCE(COUNT(r.rv_code), 0) AS countRvCode, cm.catem_name
+	FROM store s
+		 LEFT JOIN orderinfo oi ON s.S_ID = oi.S_ID
+		 LEFT JOIN final_order fo ON oi.O_CODE = fo.O_CODE
+		 LEFT JOIN pay p ON fo.FO_CODE = p.FO_CODE
+		 LEFT JOIN review r ON p.P_CODE = r.P_CODE
+		 LEFT JOIN cate_main cm ON s.catem_code=cm.catem_code
+	WHERE s.s_id=#{sId}
+	GROUP BY s.s_id, s.s_name, s.s_tel, s.s_addr, s.s_spname, s.s_text, cm.catem_name 
+</select> 
+
+<!-- review 전체 행수 -->
+<select id="getReviewTotalCountPage" resultType="integer">
+	select count(*) as cnt
+	from review r, pay p, final_order fo, orderinfo o, store s
+	where s.s_id=o.s_id
+		and o.o_code=fo.o_code
+		and fo.fo_code=p.fo_code
+		and p.p_code=r.p_code
+		and s.s_id=#{sId}
+</select>
+
+<!-- review 상세정보 호출 -->
+<select id="getStoreReviewList" resultType="mainStoreCategoryVO">
+	select r.rv_content, o.m_id, r.rv_star, r.rv_like, rp.rvp_spname
+	from review r, review_photo rp, pay p, final_order fo, orderinfo o, store s
+	where s.s_id=o.s_id
+		and r.rv_code=rp.rv_code(+)
+		and o.o_code=fo.o_code
+		and fo.fo_code=p.fo_code
+		and p.p_code=r.p_code
+		and s.s_id=#{s_id}
+</select> 
+
 </mapper>

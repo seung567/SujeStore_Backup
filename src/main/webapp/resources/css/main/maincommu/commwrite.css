@@ -104,50 +104,76 @@ label[for="title"] {
 }
 /* �̹��� �����̳� ��Ÿ�� */
 .imageContainer {
-	display: inline-block; /* �ζ��� ��� ��ҷ� �����Ͽ� ���� �ٿ� ��ġ */
-	vertical-align: top; /* ��� ���� */
-	margin-top: 30px; /* ���� ���� ���� */
-	margin-left: 20px; /* ���� ���� ���� */
+	width: 1080px;
+	display: block;
+	height: 100%;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+.nonebox {
+	width: 100%;
+	height: 30px;
+}
+
+.imageNameContainer {
+	width: 180px;
+	height: 100%;
+	float: left;
+	display: flex; /* ������ �ڽ� �� ��� */
 }
 
 .imgname {
-	margin-left: 30px;
-}
-/* �̹��� �����̳� �󺧰� �̹��� ���� ���� */
-.imageContainer label {
-	margin-right: 108px; /* �� ������ ���� ���� */
-	float: left;
+	width: 100px;
+	height: 100%;
+	line-height: 30px;
 }
 
 /* �̹��� ��Ÿ�� */
 .imgPreview {
+	float: right;
+	width: 900px;
 	float: left;
 }
 .imgPreview img {
 	width: 120px; /* �̹��� �ʺ� ���� */
 	height: 120px; /* �̹��� ���� �ڵ� ���� */
-	margin-left: 40px;
+	margin-right: 40px;
+	margin-bottom: 20px;
 	border-radius: 10px;
 	border: 1px solid #ADEFD1;
+}
+.comOpenArea {
+	float: right;
+	width: 900px;
 }
 
 /* �̹��� �ε� ��ư ��Ÿ�� */
 .loadButton {
-	margin-top: 30px; /* ���� ���� ���� */
-	margin-left: 20px; /* ���� ���� ���� */
+	display: block;
+	float:left;
+	margin-bottom: 10px; /* ���� ���� ���� */
 	width: auto;
 	height: auto;
-	background-color: #ADEFD1; /* ���� ���� */
 	color: #000; /* ���ڻ� ���� */
 	font-size: 15px;
-	transition: background-color 0.2s ease, border 0.2s ease;
 }
 
-/* �̹��� �ε� ��ư ��Ŀ�� ��Ÿ�� */
-.loadButton:hover {
+.imgPlusBtn, .imgMinusBtn {
+	width: 30px;
+	height: 30px;
+	display: block;
+	float: left;
+	background-color: #ADEFD1;
+	font-size: 15px;
+	margin-right: 50px;
+	border-radius: 15px;
+	transition: background-color 0.2s ease, border 0.2s ease;
+}
+.imgPlusBtn:hover, .imgMinusBtn:hover {
 	background-color: #fff;
 	border: 2px solid #ADEFD1;
-	font-weight: bold;; /* ȣ�� �� ���� ���� */
+	font-weight: bold; 
 }
 
 /* �ؽ�Ʈ ����� �� ��Ÿ�� */

@@ -15,6 +15,7 @@
 <script src="./resources/js/main/mainJs.js"></script>
 <script type="text/javascript">
 $(function() {
+	
 <% if (request.getAttribute("newStoreComple") != null) { %>
 	var newStoreComple = "<%= request.getAttribute("newStoreComple") %>";
 	alert(newStoreComple);
@@ -23,6 +24,12 @@ $(function() {
 	var storeAvail = "<%= request.getAttribute("storeAvail") %>";
 	alert("스토어 입점 상태가 "+storeAvail+" 상태입니다.");
 <% } %>
+
+	$(".categoryBtn button").click(function() {
+		var categoryValue = $(this).text().trim();
+		location.href="viewStoreCategory.do?page=1&mCate="+categoryValue+"&mmCate= &orderBy=1";
+	})
+
 });
 </script>
 <title>SUJE</title>

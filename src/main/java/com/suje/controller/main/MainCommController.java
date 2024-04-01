@@ -1,7 +1,7 @@
 package com.suje.controller.main;
 
 import java.io.File;
-import java.util.Random;
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.io.FilenameUtils;
@@ -177,22 +177,24 @@ public class MainCommController {
 		
 		String fileName = null;
 		String originalFileName = null;
-		MultipartFile file = vo.getComup_img();
+		List<MultipartFile> files = vo.getComup_img();
 		
 		vo.setComup_code(mainCommService.getComuPostSeq());
 		mainCommService.postInsert(vo);
 		
-		if (!file.isEmpty()) { //file객체가 비어있지 않다면
-			originalFileName = file.getOriginalFilename().substring(0, file.getOriginalFilename().lastIndexOf(".")); //파일의 실제 이름
-			String ext = FilenameUtils.getExtension(file.getOriginalFilename()); //파일의 확장자
-			UUID uuid = UUID.randomUUID(); //파일의 새로운 닉네임
-			fileName = uuid+"."+ext; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
-			file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\"+fileName));
-			
-			vo.setCpp_pname(originalFileName);
-			vo.setCpp_spname(fileName);
-			
-			mainCommService.postImgInsert(vo);
+		if (!files.isEmpty()) { //file객체가 비어있지 않다면
+			for(MultipartFile file : files) {
+				originalFileName = file.getOriginalFilename().substring(0, file.getOriginalFilename().lastIndexOf(".")); //파일의 실제 이름
+				String ext = FilenameUtils.getExtension(file.getOriginalFilename()); //파일의 확장자
+				UUID uuid = UUID.randomUUID(); //파일의 새로운 닉네임
+				fileName = uuid+"."+ext; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
+				file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\"+fileName));
+				
+				vo.setCpp_pname(originalFileName);
+				vo.setCpp_spname(fileName);
+				
+				mainCommService.postImgInsert(vo);
+			}
 		}
 		model.addAttribute("replyComple", "게시물이 등록되었습니다.");
 		

@@ -15,9 +15,37 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script type="text/javascript">
 $(function() {
+	
+	var selectedFirstNaviText;
+	var selectedSecondNaviText;
+	
 	$('.headerCategoryBtn').click(function(){
 		$('.headerSubMenu').slideToggle(200);
 	});
+	
+	//메인 카테고리 호버 이벤트
+	$('.headerFirstCategory>li>div').hover(function() {
+		$(this).css('background-color', '#ADEFD1');
+	}, function() {
+		$(this).css('background-color', '#eee');
+    });
+	//서브 카테고리 호버 이벤트
+	$('.headerSecondCategory').hover(function() {
+		$(this).closest('li').find('div').css('background-color', '#ADEFD1');
+	}, function() {
+		$(this).closest('li').find('div').css('background-color', '#eee');
+    });
+	
+	//카테고리 클릭 이벤트
+	$('.headerSecondCategory li').click(function() {
+		// 선택된 메뉴 항목 가져오기
+		selectedFirstNaviText = $(this).parent().parent().find("div").text().trim();
+		selectedSecondNaviText = $(this).text().trim();
+		
+		var url = "viewStoreCategory.do?page=1&mCate="+selectedFirstNaviText+"&mmCate="+selectedSecondNaviText+"&orderBy=1";
+    	location.href = url;
+    });
+	
 });
 </script>
 <title>SUJE</title>
@@ -62,60 +90,66 @@ String mainId = (String)session.getAttribute("mainId");
 	<div class="secondHeaderLine"></div>
 	<div class="headerSubMenu">
 		<ul class="headerFirstCategory">
-			<li>디저트</li>
-			<li>전통간식</li>
-			<li>반려동물식품</li>
-			<li>의류</li>
-			<li>주얼리</li>
-			<li>수공예품</li>
-			<li>잡화</li>
-			<li>홈리빙</li>
+			<li><div>디저트</div>
+				<ul class="headerSecondCategory">
+					<li>베이커리</li>
+					<li>케이크</li>
+					<li>마카롱</li>
+					<li>타르트</li>
+					<li>쿠키</li>
+				</ul>
+			</li>
+			<li><div>전통간식</div>
+				<ul class="headerSecondCategory">
+					<li>약과</li>
+					<li>떡</li>
+					<li>양갱</li>
+				</ul>
+			</li>
+			<li><div>반려동물식품</div>
+				<ul class="headerSecondCategory">
+					<li>애견간식</li>
+					<li>애견쿠키</li>
+					<li>애견케이크</li>
+				</ul>
+			</li>
+			<li><div>의류</div>
+				<ul class="headerSecondCategory">
+					<li>여성</li>
+					<li>남성</li>
+					<li>남녀공용</li>
+					<li>키즈</li>
+				</ul>
+			</li>
+			<li><div>주얼리</div>
+				<ul class="headerSecondCategory">
+					<li>반지</li>
+					<li>목걸이</li>
+					<li>팔찌</li>
+				</ul>
+			</li>
+			<li><div>수공예품</div>
+				<ul class="headerSecondCategory">
+					<li>생활소품</li>
+					<li>주방공예</li>
+					<li>인테리어</li>
+				</ul>
+			</li>
+			<li><div>잡화</div>
+				<ul class="headerSecondCategory">
+					<li>문구</li>
+					<li>기념일</li>
+					<li>일러스트</li>
+				</ul>
+			</li>
+			<li><div>홈리빙</div>
+				<ul class="headerSecondCategory">
+					<li>가구</li>
+					<li>패브릭</li>
+					<li>방향제</li>
+				</ul>
+			</li>
 		</ul>
-		<div class="headerSecondCategoryArea">
-			<ul class="headerSecondCategory">
-				<li>베이커리</li>
-				<li>케이크</li>
-				<li>마카롱</li>
-				<li>타르트</li>
-				<li>쿠키</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>약과</li>
-				<li>떡</li>
-				<li>양갱</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>애견간식</li>
-				<li>애견쿠키</li>
-				<li>애견케이크</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>여성</li>
-				<li>남성</li>
-				<li>남녀공용</li>
-				<li>키즈</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>반지</li>
-				<li>목걸이</li>
-				<li>팔찌</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>생활소품</li>
-				<li>주방공예</li>
-				<li>인테리어</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>문구</li>
-				<li>기념일</li>
-				<li>일러스트</li>
-			</ul>
-			<ul class="headerSecondCategory">
-				<li>가구</li>
-				<li>패브릭</li>
-				<li>방향제</li>
-			</ul>
-		</div>
 	</div>
 </div>
 </header>

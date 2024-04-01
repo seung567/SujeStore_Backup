@@ -22,7 +22,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 </script>
 <script>
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 		$('.imgColumn-container img').click(function() {
 			var categoryNameFirst = $(this).data('category');
 			var categoryNameSecound = $(this).data('subcategory');
@@ -66,8 +66,41 @@
 	$(function() {
 		   $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
 		   $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(4)").addClass("checkedStateSecondCategory");
-		}); 
+		});  */
 
+		$(function(){
+		    
+			$('.goodsInfo_selectBox_First option').each(function() {
+			    if ($(this).val() == ${cateCode}) {
+					$(this).prop('selected', true);
+			    }
+			});
+			
+			$(".goodsInfo_selectBox_Secound").change(function(){
+			    
+				let cateMidCode = $(this).val();
+				
+				$.ajax({
+				    type : "post",
+					url : "cateSubCode.do",
+					data : {
+					    cateMidCode : cateMidCode
+					},
+					dataType : "json",
+					contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+					beforeSend : function(){
+
+					},
+					success : function(data){
+					    
+					},
+					error: function(request, status, error) {
+				               alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+				   }
+				});
+			});
+
+		});
 	
 	
 </script>
@@ -84,6 +117,7 @@
 
 			<hr class="topLine_imgColumn-container">
 			<div class="imgColumn-container">
+
 				<c:forEach items="${goodVO}" var="goodVO">
 					<div class="column">
 						<img src="./resources/img/${goodVO.g_pname}"
@@ -111,47 +145,21 @@
 				<input type="hidden" value="<%=request.getParameter("id")%>" name="s_id">
 				<div class="store_subCategory">
 					<label class="store_subTitle">작품 카테고리</label>
-					<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
-						<option selected="selected">대분류</option>
-						<option value="1">디저트</option>
-						<option value="2">전통간식</option>
-						<option value="3">반려동물식품</option>
-						<option value="4">의류</option>
-						<option value="5">주얼리</option>
-						<option value="6">수공예품</option>
-						<option value="7">잡화</option>
-						<option value="8">홈리빙</option>
+					
+					<!-- 대분류 -->
+					<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code"  disabled="disabled">
+						<c:forEach items="${cateMain }" var="vo">
+							<option value="${vo.catem_code }">${vo.catem_name }</option>
+						</c:forEach>
 					</select> 
-					<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code">
-						<option selected="selected">중분류</option>
-						<option value="10">베이커리</option>
-						<option value="11">케이크</option>
-						<option value="12">마카롱</option>
-						<option value="13">타르트</option>
-						<option value="14">쿠키</option>
-						<option value="15">약과</option>
-						<option value="16">떡</option>
-						<option value="17">양갱</option>
-						<option value="18">애견간식</option>
-						<option value="19">애견쿠키</option>
-						<option value="20">애견케이크</option>
-						<option value="21">여성</option>
-						<option value="22">남성</option>
-						<option value="23">남녀공용</option>
-						<option value="24">키즈</option>
-						<option value="25">반지</option>
-						<option value="26">목걸이</option>
-						<option value="27">팔찌</option>
-						<option value="28">생활소품</option>
-						<option value="29">주방공예</option>
-						<option value="30">인테리어</option>
-						<option value="31">문구</option>
-						<option value="32">기념일</option>
-						<option value="33">일러스트</option>
-						<option value="34">가구</option>
-						<option value="35">패브릭</option>
-						<option value="36">방향제</option>
+					
+					
+					<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code" >
+						<c:forEach items="${cateMid}" var="vo">
+							<option value="${vo.catemm_code }">${vo.catemm_name }</option>
+						</c:forEach>
 					</select>
+					
 					<select class="goodsInfo_selectBox_Third" name="cates_code" id="cates_code">
 						<option selected="selected">소분류</option>
 						<option value="100">롤케이크</option>
@@ -224,6 +232,7 @@
 						<option value="167">쿠션</option>
 						<option value="168">방석</option>
 					</select>
+					
 				</div>
 				<div class="store_subCategory">
 					<label class="store_subTitle">작품 메인 이미지</label> <img
@@ -252,4 +261,16 @@
 	<!-- storeContentsWrap -->
 	<footer></footer>
 </body>
+<script type="text/javascript">
+
+$(function(){
+    
+    
+    
+});
+
+
+
+
+</script>
 </html>

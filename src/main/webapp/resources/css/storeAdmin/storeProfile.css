@@ -16,7 +16,7 @@ hr {
 }
 
 .form-container {
-	margin-left: 1%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
+	margin-left: 4%; /* 왼쪽 여백을 화면 너비의 5%로 설정 */
 	width: 90%; /* 폼의 너비를 화면 너비의 90%로 설정 */
 }
 
@@ -75,7 +75,6 @@ hr {
 
 
 .image-container {
-	margin-left: 1%;
 	margin-bottom: 100px;
 }
 

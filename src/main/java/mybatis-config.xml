@@ -18,6 +18,7 @@
 		<typeAlias alias="customerPurchase" type="com.suje.domain.customer.PurchaseVO"/>
 		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
 		
+		<typeAlias alias="categoryVO" type="com.suje.domain.category.CategoryVO"/>
 		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
 	
 		<!-- 장경희 설정 부분 -->
@@ -56,7 +57,5 @@
 		<typeAlias alias="realtimeVO" type="com.suje.domain.main.MainRealTimeReviewVO"/>
 		
 	</typeAliases>
-
-
 
 </configuration> 

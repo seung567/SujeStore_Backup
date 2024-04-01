@@ -24,11 +24,12 @@ $(function() {
 	});
 	// 스토어 회원 로그인
 	$('.storeLoginBtn').click(function(event) {
-		event.preventDefault();
+ 		event.preventDefault();
 		$('.loginIdInput').attr('name', 's_id').val(${s_id});
 		$('.loginPwInput').attr('name', 's_pass').val(${s_pass});
 		$('.loginArea').attr('action', 'mainStoreLogin.do');
 		$('.loginArea').submit();
+		console.log("1");
 	});
 	// 관리자 회원 로그인
 	$('.adminLoginBtn').click(function(event) {
@@ -62,9 +63,9 @@ alert(newMemberComple);
 		<input type="text" required="required" autofocus="autofocus" placeholder="SUJE123" class="loginInfoInput loginIdInput"/>
 		<label class="loginInfoTitle">비밀번호</label>
 		<input type="password" required="required" placeholder="비밀번호를 입력해주세요" class="loginInfoInput loginPwInput"/>
-		<input type="submit" value="개인 회원 로그인" class="memberLoginBtn" />
-		<input type="submit" value="스토어 회원 로그인" class="storeLoginBtn" />
-		<input type="submit" value="관리자 회원 로그인" class="adminLoginBtn" />
+		<input type="button" value="개인 회원 로그인" class="memberLoginBtn" />
+		<input type="button" value="스토어 회원 로그인" class="storeLoginBtn" />
+		<input type="button" value="관리자 회원 로그인" class="adminLoginBtn" />
 	</form>
 </div> <!-- contentsWrap -->
 <footer></footer>

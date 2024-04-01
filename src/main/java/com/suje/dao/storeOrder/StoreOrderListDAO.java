@@ -14,5 +14,5 @@ public interface StoreOrderListDAO {
 	public int insertFinalOrderInfo(FinalOrderVO vo); // 최종 주문서 insert
 	public FinalOrderVO getStoreFinalOrder(int orderNO); // 최종 주문서 정보 불러오기
 	public int updateFinalOrderinfo(FinalOrderVO vo); // 최종 주문서 수정하기
-	
+	public int insertStoreEtc(EtcVO etcVO); // 기타 요청 내역 답변 입력
 }

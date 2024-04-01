@@ -52,4 +52,10 @@ public class StoreOrderListDAOImpl implements StoreOrderListDAO {
 	public int updateFinalOrderinfo(FinalOrderVO vo) {
 		return mybatis.update("storeOrderListDao.updateFinalOrderinfo",vo);
 	}
+	
+	// 기타 요청 내역 답변 입력
+	@Override
+	public int insertStoreEtc(EtcVO etcVO) {
+		return mybatis.update("storeOrderListDao.insertStoreEtc",etcVO);
+	}
 }

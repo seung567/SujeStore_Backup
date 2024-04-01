@@ -20,7 +20,6 @@
 <script type="text/javascript" src="./resources/js/storeOrder/storeOrderCheckModal.js"></script>
 <script type="text/javascript" src="./resources/js/storeOrder/deliveryModal.js"></script>
 <script type="text/javascript" src="./resources/js/paging/paging.js"></script>
-
 </head>
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
@@ -51,7 +50,7 @@
 					<c:forEach items="${orderCheckList}" var="orderCheck" >
 						<tr data-s_id="${orderCheck.s_id}">
 							<td>${orderCheck.o_code}</td>
-							<td>${orderCheck.p_code}</td>
+							<td>${orderCheck.fo_code}</td>
 							<td>${orderCheck.o_date}</td> 
 							<td>${orderCheck.p_date}</td>
 							<td>${orderCheck.p_sum}</td>
@@ -138,4 +137,62 @@
 		</div>
  	</div>
 </body>
+<script>
+$(document).ready(function() {
+    // 모달이 열릴 때 실행되는 함수
+    $(".check").on("click", function() {
+        var fo_code = $(this).closest("tr").find("td:eq(1)").text(); // 해당 주문의 최종주문번호(fo_code)를 가져옵니다.
+
+        $.ajax({
+            url: "storefinalOrder.do",
+            method: "get",
+            data: { foCode: fo_code },
+            dataType: "json",
+            success: function(data) {
+                // AJAX 요청이 성공적으로 완료되면 모달에 데이터를 채웁니다.
+                fillModalWithData(data);
+                $(".storeOrderModal").modal("show"); // 모달을 엽니다.
+            },
+            error: function() {
+                alert("주문 세부 정보를 가져오는 중에 오류가 발생했습니다.");
+            }
+        });
+    });
+        // 모달에 데이터를 채우는 함수
+        function fillModalWithData(data) {
+            // 가져온 데이터를 각 필드에 채웁니다.
+		    // 최종 주문 번호
+		    $(".storeOrderModalTitle input").val(data.fo_code);
+		    
+		    //상품 카테고리 1
+		    $('.opSecond option').each(function(){
+				if($(this).text() == data.cates_name){
+				    $(this).prop('selected', true);
+				}
+		    });
+		    
+		    //상품 카테고리 2
+		    $('.opFirst option').each(function(){
+				if($(this).text() == data.catemm_name){
+				    $(this).prop('selected', true);
+				}
+		    });
+		    // 수량
+		    $('#orderCount').val(data.fo_num);
+		    
+		    // 주문 사이즈
+		    $('#orderSize').val(data.fo_size);
+		    
+		    //주문 금액
+		    $('#orderAmount').val(data.fo_sum);
+            // 배송 형태에 따라 선택 상태를 변경합니다.
+            if (data.deli_code == 7003) {
+                $("#delivery").prop("selected", true);
+            } else {
+                $("#pickup").prop("selected", true);
+            }
+		    $('#requirements').val(data.fo_etc);
+        }
+    });
+</script>
 </html>

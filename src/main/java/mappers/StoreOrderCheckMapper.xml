@@ -28,5 +28,23 @@
 		and f.fo_code=p.fo_code
 		and p.p_code=r.p_code
 	</select>
+	<select id="getStoreFinalOrder" parameterType="Integer" resultType="storeFinalOrder">
+	select 
+	d.deli_type,
+	fo.fo_code,
+	cs.cates_name,
+	cm.catemm_name,
+	fo.deli_code,
+	fo.fo_date,
+	fo.fo_sum,
+	fo.fo_num,
+	fo.fo_size,	
+	fo.fo_etc 
+	from final_order fo, deli d,cate_sub cs, cate_mid cm
+	where fo_code = #{fo_code}
+	and fo.cates_code = cs.cates_code 
+	and cs.catemm_code = cm.catemm_code
+	and fo.deli_code = d.deli_code
+</select>
 
 </mapper>

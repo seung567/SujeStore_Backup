@@ -39,6 +39,7 @@
 		<typeAlias alias="storeOrderCheck" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="cancelOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="returnOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
+		<typeAlias alias="storeFinalOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="fleaOrderCheck" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
 		
 		<!-- 최수빈 설정 부분 -->

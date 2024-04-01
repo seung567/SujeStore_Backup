@@ -136,6 +136,10 @@ order by
     fp_code desc
 ]]>
 </select>
-
+	
+<!-- 플리마켓 결제내역 결제취소 요청하기 insert -->
+<insert id="insertFleaPayCancel" parameterType="String">
+	insert into pay_cancel(fp_code, pc_code, pc_date, pc_why) values (#{fp_code}, pc_code_sqn.nextval, sysdate, #{pc_why})
+</insert>
 
 </mapper>

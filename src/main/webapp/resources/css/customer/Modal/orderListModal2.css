@@ -132,8 +132,8 @@
 
 .payCancleContentRight>div:nth-child(1)>div:nth-child(1) input {
 	margin-right: 40px;
-	width: 100px;
-	height: 30px;
+	width: 450px;
+	height: 200px;
 	text-align: center;
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
@@ -170,7 +170,7 @@
 
 /* 등록하기 버튼 CSS */
 .payCancleinsertbtn {
-	margin-top: 110px; 
+	margin-top: 180px; 
 	justify-content: center;
 	display: flex;
 	font-weight: bold;

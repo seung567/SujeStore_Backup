@@ -1,6 +1,5 @@
 package com.suje.service.customer;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -38,7 +37,11 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 		return dao.getPayList(resultMap);
 	}
 	
-	
+	@Override
+	public void insertFleaPayCancel(PayVO vo) {
+		System.out.println("=> flea결제취소요청 Service 실행");
+		dao.insertFleaPayCancel(vo);
+	}
 
 	
 }

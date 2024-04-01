@@ -1,7 +1,6 @@
 package com.suje.controller.customer;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -9,7 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.suje.domain.customer.PayVO;
@@ -74,4 +75,23 @@ public class CustomerPayController {
 		}
 		return totalCountPage;
 	}
+	
+	// 플리마켓 결제내역 결제취소 요청하기 (insert = 신규 글 저장 처리 요청)
+	@RequestMapping(value = "insertFleaPayCancel", method = RequestMethod.POST)
+	public String insertFleaPayCancel(@ModelAttribute("vo") PayVO vo, Model model) {
+		System.out.println(vo.getM_id());
+		System.out.println(vo.getPc_code());
+		System.out.println(vo.getFp_code());
+		System.out.println(vo.getPc_date());
+		System.out.println(vo.getPc_why());
+		
+		service.insertFleaPayCancel(vo);
+		model.addAttribute("vo", vo);
+		
+		System.out.println("insertFleaPayCancel 컨트롤러 실행");
+		
+		return "redirect:getFleaPayList.do?id=" + vo.getM_id() + "&page=1";
+	}
+	
+	
 }

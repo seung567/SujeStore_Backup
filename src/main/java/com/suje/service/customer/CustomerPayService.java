@@ -13,5 +13,5 @@ public interface CustomerPayService {
 	
 	public Map<String,Object> getPayList(Map<String,Object> resultMap);
 	
-
+	public void insertFleaPayCancel(PayVO vo);
 }

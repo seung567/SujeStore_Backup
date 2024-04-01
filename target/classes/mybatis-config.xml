@@ -24,6 +24,7 @@
 		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
 		<typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
 		<typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
+		<typeAlias alias="fleaGoodsInfo" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
 
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO" />

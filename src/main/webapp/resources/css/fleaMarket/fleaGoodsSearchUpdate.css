@@ -111,12 +111,14 @@ hr {
     background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
 }
 
-.goodsImg {
+.goodsMainImg {
 	margin-left: 100px;
+
 }
 
-.goodsImgSub {
+.goodsSubImg {
 	margin-left: 50px;
+
 }
 
 .text-box {

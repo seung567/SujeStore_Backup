@@ -29,7 +29,8 @@ public class fleaGoodsSUController {
 	// 플리마켓 상품 리스트 출력
 	@RequestMapping(value = "fleaGoodsListAll")
 	public String fleaGoodsListAll(@RequestParam("id") String id, FleaGoodsVO vo, Model model) {
-		logger.info("fleaGoodsListAll 실행");
+		
+		logger.info("/////////////////////////////  fleaGoodsListAll 실행");
 
 		vo.setS_id(id);
 		List<FleaGoodsVO> goodsList = goodsService.fleaGoodsListAll(vo);
@@ -42,11 +43,10 @@ public class fleaGoodsSUController {
 	// 플리마켓 상품 상세정보 조회
 	@RequestMapping(value = "getFleaInfo")
 	@ResponseBody
-	public Map<String,Object> getFleaInfo(
-			@RequestParam Map<String,String> valueMap, FleaGoodsVO vo, 	Model model) 
+	public Map<String,Object> getFleaInfo(@RequestParam Map<String,String> valueMap, FleaGoodsVO vo, Model model) 
 	{
 		
-		logger.info("getFleaInfo 실행");
+		logger.info("/////////////////////////////  getFleaInfo 실행");
 		
 		vo.setS_id(valueMap.get("id"));
 		vo.setF_code(Integer.parseInt(valueMap.get("fleaNum")));
@@ -55,7 +55,6 @@ public class fleaGoodsSUController {
 		List<FleaGoodsVO> list = goodsService.fleaGoodsListAll(vo);
 		// 상품 상세 정보 불러오기
 		FleaGoodsVO getListVO = goodsService.getFleaInfo(vo);
-		
 		Map<String,Object> resultMap = new HashMap<String, Object>();
 		
 		resultMap.put("fleaList", list);
@@ -65,23 +64,38 @@ public class fleaGoodsSUController {
 	}
 
 	// 플리마켓 상품 정보 수정
-	  @RequestMapping(value="modifyGoodsSU", method = RequestMethod.POST) 
-	 // public  String modifyGoodsSU(FleaGoodsVO vo, Model model){ 
-		  public  String modifyGoodsSU(@RequestParam Map<String,String> valueMap, Model model){ 
-		  
-		  logger.info("vo :"  + valueMap);
-		  
-		  System.out.println("modifyGoodsSU 실행");
-		  
-		  FleaGoodsVO vo = new FleaGoodsVO();
-		   
+	@RequestMapping(value = "modifyGoodsSU", method = RequestMethod.POST)
+	@ResponseBody
+	public String modifyGoodsSU(FleaGoodsVO vo, Model model) {
+		
+		logger.info("/////////////////////////////   modifyGoodsSU 실행");
+
 		int result = goodsService.modifyGoodsSU(vo);
 		model.addAttribute("result", result);
+
+		// 상품 리스트 불러오기
+		List<FleaGoodsVO> list = goodsService.fleaGoodsListAll(vo);
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+		resultMap.put("fleaList", list);
+
+		return "/fleaMarket/fleaGoodsSearchUpdate";
+	}
+	
+	
+	@RequestMapping(value= "deleteGoodsSU")
+	public String deleteGoodsSU(FleaGoodsVO vo, Model model) {
 		
-	  return "/fleaMarket/fleaGoodsSearchUpdate";
-	  
-	  }
-	 
+		logger.info("/////////////////////////////   deleteGoodsSU 실행");
+		System.out.println("delete VO      :    " + vo);
+		
+		
+		int result = goodsService.deleteGoodsSU(vo);
+		model.addAttribute("result", result);
+		
+		return "redirect:/fleaGoodsListAll.do?id=" + vo.getS_id();
+	}
+	
 
 } 
 

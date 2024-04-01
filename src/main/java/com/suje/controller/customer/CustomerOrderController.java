@@ -87,7 +87,7 @@ public class CustomerOrderController {
 	@ResponseBody
 	public Map<String,Object> orderEtcContext(@RequestParam  Map<String,String> oCode) {
 	
-		return getListInfomation(oCode.get("customerOrderNO"));
+		return getListInfomation(oCode.get("customerOrderNO"),null);
 		
 	}
 	
@@ -118,36 +118,18 @@ public class CustomerOrderController {
 	public Map<String,Object> insertEtcContent(@ModelAttribute EtcVO etcVO, Model model) throws IOException{
 		
 		logger.info(etcVO.getM_id());
-		logger.info(etcVO.getEtc_content());
-		
-		if(!etcVO.getEtcImgName().getOriginalFilename().isEmpty()) {
-			logger.info("출력 = {}",etcVO.getEtcImgName().getOriginalFilename());
+		logger.info(etcVO.getEtc_spname());
 
-			MultipartFile uploadFile = etcVO.getEtcImgName();
-			String realImgName = uploadFile.getOriginalFilename();
-
-			UUID uuid = UUID.randomUUID();
-			String serverUploadName = uuid.toString() + "_" + realImgName;
-
-			String saveDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
-			uploadFile.transferTo(new File(saveDir + serverUploadName));
-
-			etcVO.setEtc_pname(realImgName); // 실제 사진명
-			etcVO.setEtc_spname(serverUploadName); // 서버 사진명
-
-			etcVO.setEtc_ppath(saveDir + serverUploadName); // 실제 저장 경로
-			etcVO.setEtc_psize(String.valueOf(uploadFile.getSize())); // 사이즈
-			
-		}
 		// 요청사항 등록
-		String state = String.valueOf(orderService.insertEtcContent(etcVO));
+		 String state = String.valueOf(orderService.insertEtcContent(etcVO));
+		//String state = "테스트";
 		
-		return getListInfomation(String.valueOf(etcVO.getO_code()));
+		return getListInfomation(String.valueOf(etcVO.getO_code()),state);
 		
 	}
 	
 	// 요청 사항 리스트 , 최종 주문서 리스트 불러오는 메소드
-	public Map<String,Object> getListInfomation(String oCode) {
+	public Map<String,Object> getListInfomation(String oCode,String state) {
 		
 		logger.trace("orderEtcContext");
 		
@@ -166,6 +148,7 @@ public class CustomerOrderController {
 		
 		resultMap.put("etcList", etcVO);
 		resultMap.put("finalVO", finalVO);
+		resultMap.put("state", state);
 		
 		return resultMap;
 	}

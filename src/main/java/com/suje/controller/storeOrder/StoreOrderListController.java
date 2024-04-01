@@ -1,5 +1,7 @@
 package com.suje.controller.storeOrder;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -79,32 +81,25 @@ public class StoreOrderListController {
 	public Map<String,Object> getStoreOrderEtc(@RequestParam Map<String,String> storeOrderNO) {
 		
 		logger.info("정상작동확인 = getStoreOrderEtc = {}",storeOrderNO.get("storeOrderNO") );
-		
-		//Map 형식으로 JSP에 값 전달을 위해 Map 객체화
-		Map<String,Object> resultMap = new HashMap<String, Object>();
-		
-		// 주문 상세(기타) 요청 사항 리스트
-		List<EtcVO> storeOrderDetailList = storeService.getStoreOrderEtc(Integer.parseInt(storeOrderNO.get("storeOrderNO")));
-		
-		//주문 상세(기타)요청 사항이 없을 경우 최초 접수된 요청 내용을 출력 하기 위한 명령어
-		for(EtcVO vo : storeOrderDetailList) {
-			if(vo.getEtc_content() == null) {
-				vo.setContent(vo.getO_content());
-			}else {
-				vo.setContent(vo.getEtc_content());
-			}
-		}
-		
-		// 최종 주문서 불러오기
-		FinalOrderVO finalVO = storeService.getStoreFinalOrder(Integer.parseInt(storeOrderNO.get("storeOrderNO")));
-		
-		resultMap.put("etcList", storeOrderDetailList);
-		resultMap.put("finalOrder", finalVO);
-		
-		return resultMap;
+		return getOrderEtcList(Integer.parseInt(storeOrderNO.get("storeOrderNO")),0);
 		
 	}
 	
+	
+	// SUJE 톡톡 기타 요청 내역 답변 입력 - 비동기
+	@RequestMapping(value="insertStoreEtc", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> insertStoreEtc(@ModelAttribute EtcVO etcVO) {
+		
+		logger.info("정상작동확인 = insertStoreEtc" );
+		int state = storeService.insertStoreEtc(etcVO);
+		Map<String, Object> resultMap = getOrderEtcList(etcVO.getO_code(),state);
+		
+		return resultMap;
+	}
+	
+	
+
 	
 	// 최종 주문서 등록하기
 	@RequestMapping(value="fianlOrderController", method = RequestMethod.POST)
@@ -139,5 +134,34 @@ public class StoreOrderListController {
 		return"redirect: storeSujeTalk.do?id="+ vo.getStoreID() +"&page=1";
 	}
 	
+	
+	// ================================================= Controller 내부 사용 메소드 ==============
+	// 주문 요청사항 , 최종 주문서 정보 불러오는 메소드
+	private Map<String, Object> getOrderEtcList(int storeOrderNO,int state) {
+
+		// Map 형식으로 JSP에 값 전달을 위해 Map 객체화
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+		// 주문 상세(기타) 요청 사항 리스트
+		List<EtcVO> storeOrderDetailList = storeService.getStoreOrderEtc(storeOrderNO);
+
+		// 주문 상세(기타)요청 사항이 없을 경우 최초 접수된 요청 내용을 출력 하기 위한 명령어
+		for (EtcVO vo : storeOrderDetailList) {
+			if (vo.getEtc_content() == null) {
+				vo.setContent(vo.getO_content());
+			} else {
+				vo.setContent(vo.getEtc_content());
+			}
+		}
+
+		// 최종 주문서 불러오기
+		FinalOrderVO finalVO = storeService.getStoreFinalOrder(storeOrderNO);
+
+		resultMap.put("etcList", storeOrderDetailList);
+		resultMap.put("finalOrder", finalVO);
+		resultMap.put("state", state);
+		
+		return resultMap;
+	}
 	
 }

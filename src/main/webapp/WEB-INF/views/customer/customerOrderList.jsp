@@ -115,7 +115,9 @@
 					<td>${vo.fp_sum}</td>
 					<td>${vo.fp_ck}</td>
 					<td>${vo.fp_ckdate}</td>
-					<td><input type="button" value="요청"></td>
+					<td>
+						<input class="demand" type="button" value="요청">
+					</td>
 				</tr>
 			</c:forEach>
 			
@@ -194,6 +196,8 @@
     $(function() {
 		$(".joinCheck").click(setAjex);
 		$(".payBackCall").click(payback);
+		 //플리마켓 요청 버튼 이벤트
+		$(".demand").click(demandClick);
     });
 
     function setAjex() {
@@ -224,16 +228,22 @@
     
     function payback(){
 		$.ajax({
-		    url : "insert.do",
+		     url : "insert.do", 
 		    type : "get",
 		    dataType : "json",
 		    contentType : 'application/json; charset=utf-8',
 		    beforeSend : function(){
 			$(".orderListWrap").fadeIn(200);
 			$(".orderInfoModal").slideDown(200);				
-	    },   
-		    
+	    },   	    
 		});
     }
+    	 
+	function demandClick() {
+		var resultAnserNo = $(this).parent().parent().children().eq(0).text();
+		$('.payNO').val(resultAnserNo);
+	}
+    
+    
 </script>
 </html>

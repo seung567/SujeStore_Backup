@@ -8,4 +8,5 @@ public interface StoreProfileDAO {
 	
 	public StoreProfileVO getStoreById(String id);
 	void updateStoreProfile(StoreProfileVO updatedStoreProfile);
+	public int getStoreCateCode(String id); // 스토어 카테고리 가져오기
 }

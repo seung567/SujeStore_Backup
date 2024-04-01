@@ -1,5 +1,8 @@
 package com.suje.controller.storeAdmin;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.suje.domain.category.CategoryVO;
 import com.suje.domain.storeAdmin.StoreProfileVO;
+import com.suje.service.category.CategoryMainService;
 import com.suje.service.storeAdmin.StoreProfileService;
 
 @Controller 
@@ -20,12 +26,19 @@ public class StoreProfileController {
 	
     @Autowired
    StoreProfileService storeService;
-
+    @Autowired
+   CategoryMainService categoryService;
+    
     @RequestMapping(value="storeProfile")
     public String showStoreProfile(@RequestParam String id, Model model) {
+    	
         StoreProfileVO store = storeService.getStoreById(id);
+        List<CategoryVO> cateMainList = categoryService.getCateMain();
+        
         model.addAttribute("vo", store);
-        return "/storeAdmin/storeProfile"; // �ش� JSP ���� �̸� ����
+        model.addAttribute("cateMain", cateMainList);
+        
+        return "/storeAdmin/storeProfile"; 
     }
     
     @RequestMapping(value="updateStoreProfile", method=RequestMethod.POST)
@@ -33,6 +46,14 @@ public class StoreProfileController {
 		storeService.updateStoreProfile(updatedStoreProfile); 
     	System.out.println(updatedStoreProfile.getS_id());
         return "redirect:/storeProfile.do?id=" + updatedStoreProfile.getS_id();
+    }
+    
+    @RequestMapping(value="cateSubCode", method=RequestMethod.POST)
+    @ResponseBody
+    public List<CategoryVO> getCateSubList(@RequestParam Map<String, String> CodeMap){
+    	
+    	
+    	return null;
     }
 }
     

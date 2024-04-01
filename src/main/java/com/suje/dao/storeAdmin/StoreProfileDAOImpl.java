@@ -8,19 +8,23 @@ import com.suje.domain.storeAdmin.StoreProfileVO;
 
 @Repository
 public class StoreProfileDAOImpl implements StoreProfileDAO {
-	
+
 	@Autowired
 	SqlSessionTemplate mybatis;
-	
+
 	@Override
 	public StoreProfileVO getStoreById(String id) {
-		
-		return mybatis.selectOne("storeProfileDAO.getStoreById",id);
+		return mybatis.selectOne("storeProfileDAO.getStoreById", id);
 	}
-    @Override
-    public void updateStoreProfile(StoreProfileVO updatedStoreProfile) {
-    	System.out.println("·¹Æ÷ÁöÅä¸®" + updatedStoreProfile.getCatem_code());
-        mybatis.update("storeProfileDAO.updateStoreProfile", updatedStoreProfile);
-    }
 
+	@Override
+	public void updateStoreProfile(StoreProfileVO updatedStoreProfile) {
+		mybatis.update("storeProfileDAO.updateStoreProfile", updatedStoreProfile);
+	}
+	
+	// ìŠ¤í† ì–´ ì¹´í…Œê³ ë¦¬ ê°€ì ¸ì˜¤ê¸°
+	@Override
+	public int getStoreCateCode(String id) {
+		return mybatis.selectOne("storeProfileDAO.getCateMianStore",id);
+	}
 }

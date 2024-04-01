@@ -14,17 +14,18 @@ public class StoreProfileServiceImpl implements StoreProfileService {
 
 	@Override
 	public StoreProfileVO getStoreById(String id) {
-
-		StoreProfileVO vo = dao.getStoreById(id);
-		return vo;
+		return dao.getStoreById(id);
 
 	}
 
 	@Override
 	public void updateStoreProfile(StoreProfileVO updatedStoreProfile) {
-		
-		System.out.println("updateStoreProfile ���� ȣ��");
 		dao.updateStoreProfile(updatedStoreProfile);
 	}
-
+	
+	// 스토어 카테고리 가져오기
+	@Override
+	public int getStoreCateCode(String id) {
+		return dao.getStoreCateCode(id);
+	}
 }

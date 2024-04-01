@@ -16,6 +16,15 @@
 $(function() {
 	$(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
 	$(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
+	
+	var cateState = ${vo.catem_code};
+	
+	$('.CatemSelecBox option').each(function(){
+	    if($(this).val()==cateState){
+			$(this).prop('selected', true);
+	    }
+	});
+	
 }); 
 
 </script>
@@ -39,22 +48,17 @@ $(function() {
 				<br/>
 				<label for="storeCategory">스토어 카테고리</label> 
 				<select id="catem_code" name="catem_code" class="CatemSelecBox">
-					<option value="${vo.catem_code}">${vo.catem_name}</option>
-					<option value="1">디저트</option>
-					<option value="2">전통간식</option>
-					<option value="3">반려동물식품</option>
-					<option value="4">의류</option>
-					<option value="5">주얼리</option>
-					<option value="6">수공예품</option>
-					<option value="7">잡화</option>
-					<option value="8">홈리빙</option>
-					<!-- 필요한 만큼 옵션을 추가할 수 있습니다. -->
+					
+					<c:forEach items="${cateMain }" var="vo">
+						<option value="${vo.catem_code}">${vo.catem_name}</option>
+					</c:forEach><!-- 카테고리 대분류 -->
+					
 				</select>
 
 
 			<div class="image-container">
-				<label for="storeProfile">스토어 프로필 이미지</label> <img
-					id="profilePreview" src="#" alt="프로필 이미지 미리보기">
+				<label for="storeProfile">스토어 프로필 이미지</label> 
+				<img id="profilePreview" src="#" alt="프로필 이미지 미리보기">
 				<button onclick="document.getElementById('storeProfile').click()">불러오기</button>
 			</div>
 

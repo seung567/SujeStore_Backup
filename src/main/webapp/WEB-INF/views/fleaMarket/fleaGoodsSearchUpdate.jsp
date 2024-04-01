@@ -336,16 +336,29 @@
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 메인 이미지</label> 
-						<img class="goodsImg" alt="mainImg" id= "goodsMainImg" src="./resources/img/goodsImgArea.png">
-					<button type="botton" class="uploadBtn" name="uploadBtn()">불러오기</button>
+					<div class="goodsMainImg">
+						<img alt="메인이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>	
 				</div>
 
 				<div class="store_subCategory">
-					<label class="store_subTitle">상품 서브 이미지</label> 
-						<img class="goodsImg" alt="mainImg" id= "goodsMainImg" src="./resources/img/goodsImgArea.png"> 
-						<img class="goodsImgSub" alt="subImg" id="goodsSubImg" src="./resources/img/goodsImgArea.png"> 
-						<img class="goodsImgSub" alt="subImg" id="goodsSubImg" src="./resources/img/goodsImgArea.png">
-					<button type="botton" class="uploadBtn" name="uploadBtn()">불러오기</button>
+					<label class="store_subTitle">상품 서브 이미지</label>
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>s
+					
 				</div>
 
 				<div class="store_subCategory">

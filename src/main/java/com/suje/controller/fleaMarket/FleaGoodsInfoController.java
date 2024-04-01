@@ -29,7 +29,7 @@ public class FleaGoodsInfoController {
 	@RequestMapping(value="insertFleaGoodsInfo", method = RequestMethod.POST)
 	public String insertFleaGoodsInfo(@ModelAttribute("vo") FleaGoodsVO vo, Model model) {
 		fleaInfoService.insertFleaGoodsInfo(vo);
-		model.addAttribute("VO",vo);
+		model.addAttribute("insertVO",vo);
 		logger.info(vo.getS_id());
 		return "redirect:/fleaGoodsInfoMain.do?id="+ vo.getS_id();
 	}

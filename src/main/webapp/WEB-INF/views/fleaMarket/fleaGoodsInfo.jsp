@@ -23,6 +23,18 @@ $(function() {
 	$(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(2)").addClass("checkedStateSecondCategory");
 
 	
+	
+	//파일 이미지 불러오기
+	  $(document).on('change', '.fileInput', function(event) {
+	        var reader = new FileReader();
+	        reader.onload = function() {
+	            $('.goodsImg').attr('src', reader.result);
+	           /*  $('.goodsImg').attr('src', '<img src="' + reader.result + '" alt="Uploaded Image">'); */
+	        };
+	        reader.readAsDataURL(event.target.files[0]);
+	    });
+
+	
 });
 
 
@@ -39,153 +51,171 @@ $(function() {
 			<h1 class="store_mainTitle">플리마켓 상품 등록</h1>
 			<hr/>
 
-			<form class="store_mainInfo">
-			<div class= "store_subCategory">
-				<label class="store_subTitle">상품 카테고리</label> 
-				<select	class="goodsInfo_selectBox_First">
-					<option value="choice">대분류</option>
-					<option value="1">디저트</option>
-					<option value="2">전통간식</option>
-					<option value="3">반려동물식품</option>
-					<option value="4">의류</option>
-					<option value="5">주얼리</option>
-					<option value="6">수공예품</option>
-					<option value="7">잡화</option>
-					<option value="8">홈리빙</option>
-				</select> 
-				<select class="goodsInfo_selectBox">
-					<option value="choice">중분류</option>
-					<option value="1">베이커리</option>
-					<option value="2">케이크</option>
-					<option value="3">마카롱</option>
-					<option value="4">타르트</option>
-					<option value="5">쿠키</option>
-					<option value="6">약과</option>
-					<option value="7">떡</option>
-					<option value="8">양갱</option>
-					<option value="9">애견간식</option>
-					<option value="10">애견쿠키</option>
-					<option value="11">애견케이크</option>
-					<option value="12">여성</option>
-					<option value="13">남성</option>
-					<option value="14">남녀공용</option>
-					<option value="15">키즈</option>
-					<option value="16">반지</option>
-					<option value="17">목걸이</option>
-					<option value="18">팔찌</option>
-					<option value="19">생활소품</option>
-					<option value="20">주방공예</option>
-					<option value="21">인테리어</option>
-					<option value="22">문구</option>
-					<option value="23">기념일</option>
-					<option value="24">일러스트</option>
-					<option value="25">가구</option>
-					<option value="26">패브릭</option>
-					<option value="27">방향제</option>
-				</select> 
-				<select class="goodsInfo_selectBox">
-					<option value="choice">소분류</option>
-					<option value="1">롤케이크</option>
-					<option value="2">버터크림빵</option>
-					<option value="3">마늘빵</option>
-					<option value="4">슈크림빵</option>
-					<option value="5">프레지에</option>
-					<option value="6">생크림케이크</option>
-					<option value="7">쉬폰케이크</option>
-					<option value="8">치즈케이크</option>
-					<option value="9">티라미수</option>
-					<option value="10">일반마카롱</option>
-					<option value="11">뚱카롱</option>
-					<option value="12">타르틀레트</option>
-					<option value="13">에그타르트</option>
-					<option value="14">초코칩 쿠키</option>
-					<option value="15">버터쿠키</option>
-					<option value="16">치즈쿠키</option>
-					<option value="17">땅콩쿠키</option>
-					<option value="18">바닐라쿠키</option>
-					<option value="19">황치즈쿠키</option>
-					<option value="20">조청</option>
-					<option value="21">꿀</option>
-					<option value="22">전통약과</option>
-					<option value="23">이벤트떡</option>
-					<option value="24">떡케이크</option>
-					<option value="25">팥</option>
-					<option value="26">말차</option>
-					<option value="27">밤</option>
-					<option value="28">고구마</option>
-					<option value="29">강아지 껌</option>
-					<option value="30">육포</option>
-					<option value="31">고구마치킨</option>
-					<option value="32">두부쿠키</option>
-					<option value="33">황태쿠키</option>
-					<option value="34">당근쿠키</option>
-					<option value="35">두부케이크</option>
-					<option value="36">참치케이크</option>
-					<option value="37">비프케이크</option>
-					<option value="38">티셔츠</option>
-					<option value="39">맞춤정장</option>
-					<option value="40">맨투맨</option>
-					<option value="41">커플룩</option>
-					<option value="42">신발</option>
-					<option value="43">커플링</option>
-					<option value="44">각인반지</option>
-					<option value="45">커플목걸이</option>
-					<option value="46">커플팔찌</option>
-					<option value="47">머그컵</option>
-					<option value="48">열쇠고리</option>
-					<option value="49">연필꽂이</option>
-					<option value="50">주병</option>
-					<option value="51">그릇</option>
-					<option value="52">수저</option>
-					<option value="53">화병</option>
-					<option value="54">오브제</option>
-					<option value="55">러그</option>
-					<option value="56">커스텀앨범</option>
-					<option value="57">커스텀스티커</option>
-					<option value="58">커스텀다이어리</option>
-					<option value="59">커스텀풍선</option>
-					<option value="60">커스텀박스</option>
-					<option value="61">커스텀카드</option>
-					<option value="62">커스텀폰케이스</option>
-					<option value="63">커스텀텀블러</option>
-					<option value="64">커스텀시계</option>
-					<option value="65">침대</option>
-					<option value="66">의자</option>
-					<option value="67">쇼파</option>
-					<option value="68">쿠션</option>
-					<option value="69">방석</option>
-				</select> 
-				</div>
-				<div class= "store_subCategory"> 
-				<label class="store_subTitle">상품 메인 이미지</label>
-				<img class="goodsImg" src="./resources/img/goodsImgArea.png">
-				<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
-				</div>
-				
-				<div class= "store_subCategory">
-				<label class="store_subTitle">상품 서브 이미지</label>
-				<img class="goodsImg" src="./resources/img/goodsImgArea.png">
-				<img class="goodsImgSub" src="./resources/img/goodsImgArea.png">
-				<img class="goodsImgSub" src="./resources/img/goodsImgArea.png">
-				<button type="submit" class="uploadBtn" name="submitBtn">불러오기</button>
+			<form method="post"  class="store_mainInfo"  enctype="multipart/form-data">
+			<input name="f_code" id="f_code" type="hidden" value="${insertVO.f_code}">
+			<input name="s_id" id="s_id" type="hidden" value="${insertVO.s_id}">
+			
+			
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 카테고리</label> 
+					<select class="goodsInfo_selectBox_First" name="catem_name" id="catemName">
+						<option>대분류</option>
+						<option>디저트</option>
+						<option>전통간식</option>
+						<option>반려동물식품</option>
+						<option>의류</option>
+						<option>주얼리</option>
+						<option>수공예품</option>
+						<option>잡화</option>
+						<option>홈리빙</option>
+					</select> 
+					<select class="goodsInfo_selectBox_Secound" name="catemm_name" id="catemmName">
+						<option>중분류</option>
+						<option>베이커리</option>
+						<option>케이크</option>
+						<option>마카롱</option>
+						<option>타르트</option>
+						<option>쿠키</option>
+						<option>약과</option>
+						<option>떡</option>
+						<option>양갱</option>
+						<option>애견간식</option>
+						<option>애견쿠키</option>
+						<option>애견케이크</option>
+						<option>여성</option>
+						<option>남성</option>
+						<option>남녀공용</option>
+						<option>키즈</option>
+						<option>반지</option>
+						<option>목걸이</option>
+						<option>팔찌</option>
+						<option>생활소품</option>
+						<option>주방공예</option>
+						<option>인테리어</option>
+						<option>문구</option>
+						<option>기념일</option>
+						<option>일러스트</option>
+						<option>가구</option>
+						<option>패브릭</option>
+						<option>방향제</option>
+					</select> 
+					<select class="goodsInfo_selectBox_Third" name="cates_name" id="catesName">
+						<option>소분류</option>
+						<option>롤케이크</option>
+						<option>버터크림빵</option>
+						<option>마늘빵</option>
+						<option>슈크림빵</option>
+						<option>프레지에</option>
+						<option>생크림케이크</option>
+						<option>쉬폰케이크</option>
+						<option>치즈케이크</option>
+						<option>티라미수</option>
+						<option>일반마카롱</option>
+						<option>뚱카롱</option>
+						<option>타르틀레트</option>
+						<option>에그타르트</option>
+						<option>초코칩 쿠키</option>
+						<option>버터쿠키</option>
+						<option>치즈쿠키</option>
+						<option>땅콩쿠키</option>
+						<option>바닐라쿠키</option>
+						<option>황치즈쿠키</option>
+						<option>조청</option>
+						<option>꿀</option>
+						<option>전통약과</option>
+						<option>이벤트떡</option>
+						<option>떡케이크</option>
+						<option>팥</option>
+						<option>말차</option>
+						<option>밤</option>
+						<option>고구마</option>
+						<option>강아지 껌</option>
+						<option>육포</option>
+						<option>고구마치킨</option>
+						<option>두부쿠키</option>
+						<option>황태쿠키</option>
+						<option>당근쿠키</option>
+						<option>두부케이크</option>
+						<option>참치케이크</option>
+						<option>비프케이크</option>
+						<option>티셔츠</option>
+						<option>맞춤정장</option>
+						<option>맨투맨</option>
+						<option>커플룩</option>
+						<option>신발</option>
+						<option>커플링</option>
+						<option>각인반지</option>
+						<option>커플목걸이</option>
+						<option>커플팔찌</option>
+						<option>머그컵</option>
+						<option>열쇠고리</option>
+						<option>연필꽂이</option>
+						<option>주병</option>
+						<option>그릇</option>
+						<option>수저</option>
+						<option>화병</option>
+						<option>오브제</option>
+						<option>러그</option>
+						<option>커스텀앨범</option>
+						<option>커스텀스티커</option>
+						<option>커스텀다이어리</option>
+						<option>커스텀풍선</option>
+						<option>커스텀박스</option>
+						<option>커스텀카드</option>
+						<option>커스텀폰케이스</option>
+						<option>커스텀텀블러</option>
+						<option>커스텀시계</option>
+						<option>침대</option>
+						<option>의자</option>
+						<option>쇼파</option>
+						<option>쿠션</option>
+						<option>방석</option>
+					</select>
 				</div>
 				
-				<div class= "store_subCategory">
-				<label class="store_subTitle">상품 가격</label>
-				<input type="text" class="text-box">원
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 메인 이미지</label> 
+					<div class="goodsMainImg">
+						<img alt="메인이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>	
 				</div>
-				
-				<div class= "store_subCategory">
-				<label class="store_subTitle">상품 총 수량</label>
-				<input type="text" class="text-box">개
+
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 서브 이미지</label>
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
 				</div>
-				
-				<div class= "store_subCategory">
-				<label class="store_subTitle">상품 내용</label><br />
-				<textarea class="goodsInfo_content">내용을 작성하세요</textarea>
+
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 가격</label> 
+					<input type="text" class="text-box" name="goodsPrice" id="goodsPrice">원
 				</div>
-				
-				<button type="submit" class="submitBtn" name="submitBtn">등록하기</button>
+
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 총 수량</label> 
+					<input type="text" class="text-box" name="goodsNum" id="goodsNum">개
+				</div>
+
+				<div class="store_subCategory">
+					<label class="store_subTitle">상품 내용</label><br />
+					<textarea class="goodsInfo_content" name="goodsInfoContent" id="goodsInfoContent"></textarea>
+				</div>
+
+				<button class="insertBtn" name="insertBtn">등록하기</button>
 			</form>
 		</div>
 		<!-- storeContentsBox -->

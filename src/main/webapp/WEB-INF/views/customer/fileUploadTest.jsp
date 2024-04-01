@@ -29,7 +29,6 @@
 	
 	<input type="file" name="file"/>
 	<input type="text" name="textTest1"/>
-	<input type="text" name="textTest2"/>
 	<input type="text" name="textTest3"/>
 
 	<input type="submit" value="전송 테스트"/> 

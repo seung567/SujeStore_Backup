@@ -26,6 +26,7 @@
 			    $(".storeTopInfo>div:nth-child(1)>div:nth-child(2)").text(data['etcList'][0].m_id); // 고객명
 			    $(".storeTopInfo>div:nth-child(2)").text(data['etcList'][0].o_date); // 주문 요청일
 			    $(".activeTalkTitle>div:nth-child(2) input").val(data['etcList'][0].o_code); // 주문번호
+			    $(".orderNum").val(data['etcList'][0].o_code); // 주문번호
 			    
 				 // 주문 접수 요청 사항
 				orderRegedit(data['etcList']);    
@@ -51,6 +52,57 @@
 		});
 	
     });
+    
+    // 기타 요청 사항 답변 입력 이벤트
+	$('#etcStoreInsert').submit(function(){
+	
+	    var formData = new FormData(this);
+	    
+	    $.ajax({
+			type : "post",
+			url : "insertStoreEtc.do",
+			data : formData,
+			dataType : "json",
+			processData : false,
+			contentType : false,
+			beforeSend : function(){
+			    
+			},
+			success : function(data){
+			    
+				if(data['state'] == 1){
+					alert("등록이 성공 하였습니다");
+				}
+			    
+			    // 주문 접수 요청 사항
+				orderRegedit(data['etcList']);    
+				    
+			    /* 주문 요청사항 출력 함수 */
+				$(data['etcList']).each(function(index,item){
+				    if(item.etc_content != null){
+						orderEtc(item);
+				    }
+				});
+			   	
+			    // 최종 주문서 출력
+			    if(data['finalOrder'] != null){
+			    	 $(".orderInsertBtn").css("display","none");
+					finalOrderEtc(data['finalOrder'],data['etcList'][0].s_id);
+			    }else{
+			    	 $(".orderInsertBtn").css("display","block");
+			    }
+			    
+			    $('#etcStoreInsert textarea').val('');
+			    
+			},
+			error: function(request, status, error) {
+               alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+            }
+		
+	    });
+	    
+	    return false;
+	}); 
     
     // 최종 주문서 등록 이벤트
 	 $(".orderInsertBtn").click(function(){

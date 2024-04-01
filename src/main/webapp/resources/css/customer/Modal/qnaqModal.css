@@ -161,7 +161,7 @@
 	border-radius: 5px;
 }
 
-.insertbtn div:nth-child(2)>a>input {
+.insertbtn div:nth-child(2) input {
 	width: 200px;
 	height: 30px;
 	background-color: white;

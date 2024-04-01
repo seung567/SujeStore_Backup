@@ -83,7 +83,7 @@
 }
 
 
-.activeTalkMain>div:nth-child(5) textarea{
+.activeTalkMain>form>div textarea{
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
     padding: 15px 212px 15px 15px;
@@ -227,7 +227,7 @@
     padding-top: 7px;
 }
 
-.activeTalkMain>div:nth-child(5) {
+.activeTalkMain>form>div {
 	width: 100%;
 	height: 100px;
 	position: relative;
@@ -235,7 +235,7 @@
 
 
 
-.activeTalkMain>div:nth-child(5) button {
+.activeTalkMain>form>div input[type="submit"] {
 	width: 180px;
 	height: 80px;
 	border-radius: 10px;
@@ -244,6 +244,7 @@
 	left: 517px;
 	top: 10px;
 	color: white;
+	font-size: 20px;
 }
 
 .orderMainContent{
@@ -408,6 +409,7 @@ display: flex;
 	left: 517px;
 	top: 10px;
 	color: white;
+	font-size: 20px;
 }
 
 textarea {

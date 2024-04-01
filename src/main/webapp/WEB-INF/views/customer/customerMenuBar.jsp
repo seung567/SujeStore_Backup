@@ -47,7 +47,7 @@
 			</div><!-- 계좌 등록/ 수정 -->
 			
 			<div class="subTitle orderList">
-				<a href="getPayList.do?id=<%=user %>&page=1">주문 내역 조회</a>
+				<a href="getPayList.do?id=<%=user %>&orderPage=1&fleaPage=1">주문 내역 조회</a>
 			</div><!-- 주문 내역 조회-->
 			
 			<div class="subTitle reviews">
@@ -62,7 +62,7 @@
 				<a href="getQnAList.do?id=<%=user %>&page=1">Q&A 작성</a>
 			</div><!-- Q&A 작성 -->
 			
-			<!-- <div class="subTitle file">
+<!-- 			<div class="subTitle file">
 				<a href="flieUpload.do">파일 첨부 테스트 버튼</a>
 			</div>Q&A 작성 -->
 		</div>

@@ -67,8 +67,9 @@
 					    }
 					},
 					success : function(data){
-						alert("연결성공!");
-						console.log(data);
+					
+						if(data['state'] == '1'){alert("요청사항 등록 성공!")}
+						else{alert("등록실패 - 내부문제 관리자 문의해주세요");}
 						
 					    /* 최초 주문사항 출력 */
 					    firstOrder(data['etcList']);

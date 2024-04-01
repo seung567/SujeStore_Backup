@@ -2,9 +2,12 @@ package com.suje.controller.customer;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,34 +37,18 @@ public class FileUploadTestController {
 		FileUploadTestVO vo = service.getFileName(10);
 		
 		model.addAttribute("vo",vo);
-		
+		System.out.println();
 		return "/customer/fileUploadTest";
 	}
 	
 	@RequestMapping(value = "getFileValue", method = RequestMethod.POST)
-	public String getFIle(@ModelAttribute FileUploadTestVO form) throws IOException, ServletException{
+	public String getFIle(@ModelAttribute FileUploadTestVO form) throws IOException{
 		
-		logger.info(form.getTextTest1());
-		logger.info(form.getTextTest2());
-		logger.info(form.getTextTest3());
-		
-		// 파일정보 변수에 저장
-		MultipartFile file = form.getFile();
-		
-		// 업로드 파일명 변수에 저장
-		String imgRealName = file.getOriginalFilename();
-		
-		// DB 저장명 생성
-		UUID uuid = UUID.randomUUID();
-		String uploadImg = uuid.toString() + "_" + imgRealName;
-		
-		// 서버에 파일 저장
-		String baseDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
-		file.transferTo(new File(baseDir + uploadImg));
-		
-		// DB 이미지 파일 정보 저장
-		int state = service.uploadTest(uploadImg);
-		logger.info("업데이트 상태 = {}",state);
+		System.out.println(form.getS_ppname());
+//		
+//		// DB 이미지 파일 정보 저장
+//		int state = service.uploadTest(uploadImg);
+//		logger.info("업데이트 상태 = {}",state);
 		
 		return "/customer/fileUploadTest";
 	}

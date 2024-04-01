@@ -127,18 +127,19 @@
 
 						<!-- 이미지 불러오기 -->
 						<div class="filebox">
-<!-- 							<label for="talkImgUpload">
-								이미지 불러오기
-							</label>
-							<input type="file" accept=".jpg,.png,.gif" name="talkImgUpload" id="talkImgUpload"/>
-							<input type="text"> -->
+								<!-- 안쓰는 공간 CSS 때문에 유지중 -->
 						</div>
 						<!-- 이미지 불러오기 -->
 						<!-- 요청사항 전송 -->
-						<div>
-							<textarea></textarea>
-							<button value="이미지 불러오기">전송</button>
-						</div>
+						<form id="etcStoreInsert" action="insertStoreEtc.do" enctype="multipart/form-data">
+							<div>
+								<textarea name="etc_content"></textarea>
+								<input type="submit" value="전송" />
+								<input type="hidden" class="orderNum" name="o_code"/>
+								<input type="hidden" value="77001" name="etc_type_code"/>
+								<input type="hidden" value=${id } name="s_id" />
+							</div>
+						</form>
 						<!-- 요청사항 전송 -->
 					</div>
 				</div>
@@ -159,6 +160,7 @@
 	</div>
 	<footer></footer>
 </body>
+
 <script type="text/javascript">
 
 	$(function() {
@@ -171,6 +173,9 @@
 		$('#talkImgUpload').change(function() {
 			$(".filebox input[type='text']").val($(this).val());
 		});
+		
+
+		
 	});
 	
 </script>

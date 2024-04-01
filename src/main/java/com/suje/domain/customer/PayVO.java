@@ -12,4 +12,10 @@ public class PayVO {
 	// 페이징 관련 메소드
 	private int totalPageCount, firstNum, endNum;
 
+	// 플리마켓 결제내역 VO
+	int fp_code, f_code, fp_sum, fp_count;
+	String fp_date, fp_ck, fp_ckdate, cates_name;
+	
+	// 페이징 관련 메소드
+	private int totalPageCount2, firstNum2, endNum2;
 }

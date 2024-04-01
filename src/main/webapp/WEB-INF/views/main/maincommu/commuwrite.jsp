@@ -15,11 +15,31 @@
 <script type="text/javascript">
 $(function() {
 	
+	//input file 추가
+	$('.imgPlusBtn').click(function() {
+		event.preventDefault();
+		var inputField = '<div class="inputBox"><input type="file" name="comup_img" class="loadButton" accept=".jpg, .png"/><button class="imgMinusBtn">-</button></div>';
+		$('.comOpenArea').append(inputField);
+	});
+	
+	//input file 삭제
+	$(document).on('click', '.imgMinusBtn', function() {
+    	$(this).closest('.inputBox').remove();
+	});
+	
 	//파일 이미지 불러오기
-	$('.loadButton').change(function(event) {
+	$(document).on('change', '.loadButton', function(event) {
 		var reader = new FileReader();
 		reader.onload = function() {
-			$('.imgPreview').html('<img src="' + reader.result + '" alt="Uploaded Image">');
+			$('.imgPreview').append('<img src="' + reader.result + '" alt="Uploaded Image">');
+		};
+	});
+	
+	//파일 이미지 불러오기
+	$(document).on('change', '.loadButton', function(event) {
+		var reader = new FileReader();
+		reader.onload = function() {
+			$('.imgPreview').append('<img src="' + reader.result + '" alt="Uploaded Image">');
 		};
 		reader.readAsDataURL(event.target.files[0]);
 	});
@@ -102,7 +122,13 @@ $(function() {
 				<input type="text" id="title" name="comup_title" class="inputField" value="${commContent.comup_title}">
 			</div>
 			<div class="imageContainer">
-				<label for="imgname">사진</label> 
+				<div class="imageNameContainer">
+					<label class="imgname">사진</label> 
+					<!-- 이미지 정보가 존재하지 않을시 호출 -->
+					<c:if test="${commContentImgList eq null}">
+						<button class="imgPlusBtn">+</button>
+					</c:if>
+				</div>
 				<div class="imgPreview"><!-- 불러온 파일 미리보기 -->
 					<!-- 이미지 정보가 존재할시 호출 -->
 					<c:if test="${commContentImgList ne null}">
@@ -111,11 +137,9 @@ $(function() {
 						</c:forEach>
 					</c:if>
 				</div>
+				<div class="comOpenArea"><!-- 파일 불러오기 버튼 --></div>
+				<div class="nonebox"></div>
 			</div>
-			<!-- 이미지 정보가 존재하지 않을시 호출 -->
-			<c:if test="${commContentImgList eq null}">
-				<input type="file" name="comup_img" id="loadImage" class="loadButton" accept=".jpg, .png"/>
-			</c:if>
 			<div class="contentLabel inputLabel">
 				<label for="content">내용</label>
 				<textarea id="content" name="comup_content" rows="10" cols="50" class="textField">${commContent.comup_content}</textarea>

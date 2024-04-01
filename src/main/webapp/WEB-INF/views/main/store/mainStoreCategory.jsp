@@ -170,8 +170,7 @@ $(function() {
 	<c:if test="${pageTotalCount ne 0}">
 		<div class="StoreArea">
 			<c:forEach items="${storeCateList}" var="storeCate">
-				<a href="#" class="EachStoreLinkArea">
-					<input type="hidden" value="${storeCate.s_id}"/>
+				<a href="viewStoreInfo.do?sId=${storeCate.s_id}&page=1" class="EachStoreLinkArea">
 					<table class="EachStore">
 						<tr>
 							<td class="storeNameTd">${storeCate.s_name}</td>
@@ -190,7 +189,6 @@ $(function() {
 						</tr>
 					</table>
 				</a>
-				
 			</c:forEach>
 		</div>
 	</c:if>

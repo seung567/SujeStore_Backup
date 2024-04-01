@@ -71,5 +71,36 @@ public class MainStoreCategoryController {
 		return "main/store/mainStoreCategory";
 	}
 	
+	//스토어 상세 정보 페이지 이동
+	@RequestMapping(value = "viewStoreInfo")
+	public String viewStoreInfo(@RequestParam("sId") String sId, @RequestParam("page") int page, Model model) {
+		MainStoreCategoryVO vo = new MainStoreCategoryVO();
+		
+		logger.info("리뷰 전체 행수 컨트롤러");
+		// 전체 테이블 행 수
+		totalRowCount = mainStoreCategoryService.getReviewTotalCountPage(sId);
+		
+		//전체 페이지 수
+		pageTotalCount = totalRowCount / countPerPage;
+		if(totalRowCount == 0) pageTotalCount = 0;
+		if(totalRowCount%countPerPage > 0) pageTotalCount++;
+		
+		// 부분 페이지 수 계산
+		firstNum = (page - 1) * countPerPage + 1;
+		endNum = page * countPerPage;
+		
+		vo.setS_id(sId);
+		vo.setFirstNum(firstNum);
+		vo.setEndNum(endNum);
+		
+		model.addAttribute("pageTotalCount", pageTotalCount);
+		
+		logger.info("스토어 전체 리뷰 컨트롤러 "+vo.getFirstNum()+"/"+vo.getEndNum());
+		model.addAttribute("storeReviewList", mainStoreCategoryService.getStoreReviewList(vo));
+		
+		logger.info("스토어 상세 정보 페이지 컨트롤러");
+		model.addAttribute("storeInfo", mainStoreCategoryService.getStoreInfo(sId));
+		return "main/store/storeInfo";
+	}
 	
 }

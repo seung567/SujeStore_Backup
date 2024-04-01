@@ -26,13 +26,18 @@ public class MainRealTimeReviewServiceImpl implements MainRealTimeReviewService 
     
     @Override
     public int getTotalCountPage() {
-        logger.info("실시간 후기 페이징 실행 서비스임플");
+        logger.info("실시간 후기 페이징(총 페이지 수) 실행 서비스임플");
         return mainRealTimeReviewDao.getTotalCountPage(); 
     }
-    
+   
     @Override
     public void updateLikeCount(int reviewId) {
         logger.info("실시간 후기 업데이트 실행 서비스임플");
         mainRealTimeReviewDao.updateLikeCount(reviewId); 
+    }
+    @Override
+    public int getUpdatedLikes(int reviewId) {
+    	logger.info("실시간 후기 업데이트 실행후 좋아요 뷰 서비스임플");
+    	return mainRealTimeReviewDao.getUpdatedLikes(reviewId);
     }
 }

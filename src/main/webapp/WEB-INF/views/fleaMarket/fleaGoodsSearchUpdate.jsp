@@ -6,26 +6,20 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-	rel="stylesheet">
-<link href="./resources/css/resetStyle.css" rel="stylesheet"
-	type="text/css">
-<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet"
-	type="text/css">
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
 <title>SUJE</title>
 <link rel="stylesheet"
 	href="./resources/css/fleaMarket/fleaGoodsSearchUpdate.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 
@@ -35,22 +29,23 @@
 		$(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");	
 		$(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
 		
+		
 		// 상단 공지 리스트 글자 압축 // 30글자
-		$('.goodsContent').each(function() {
+		$('.goodsContentList').each(function() {
 			var text = $(this).text();
-			if (text.length > 60) {
-				text = text.substring(0, 30) + '...';
-				$(this).text(text);
+			if (text.length > 10) {
+				text = text.substring(0, 10) + '...';
+				$(this).text(text); 
 			}
 		});
+		
+		
 		
 		// 상단 공지 행 클릭 이벤트
 		$('.goodsListDetail').click(function(){
 			
 			const idValue = $(this).data('s_id'); // id값
 			const fCodeValue = $(this).children().eq(0).text(); // 플리마켓 상품번호
-			
-			var catemName = "${getListVO.catem_name}";
 			
 			 $.ajax({
 				type : "get",
@@ -94,6 +89,11 @@
 		 	          $(".goodsImgSub").eq(0).attr("src", subImgSrc); 
 		 	          $(".goodsImgSub").eq(1).attr("src", subImgSrc); 
 
+		 	          
+		 	          //상품 코드/아이디값(히든)
+		 			 $("input[name='f_code']").val(fCodeValue);
+		 			 $("input[name='s_id']").val(idValue);
+		 	          
 		 	
 		 			 
 		 			//상품 가격
@@ -113,56 +113,50 @@
 			});
 		}); // end
 			
-		
-		
-	
 	});
 	
 	//상품 목록 수정 버튼 이벤트
  	function modifyBtn() {
 		
-		// const  formData= $("form[name=modifyForm]").serialize();
+		var formFcode = $("#f_code").val();
+		var formsId = $("#s_id").val();
+		var formCateMname = $(".goodsInfo_selectBox_First option:selected").val();
+	    var formCateMMname = $(".goodsInfo_selectBox_Secound option:selected").val();
+	    var formCateSname = $(".goodsInfo_selectBox_Third option:selected").val();
+	    var formPrice = $("#goodsPrice").val();
+	    var formNum = $("#goodsTotalNum").val();
+	    var formContent = $("#goodsInfoContent").val();
+        
 		
-		var formPrice = $("#goodsPrice").val();
-		var formNum = $("#goodsTotalNum").val();
-		var formContent = $("#goodsInfoContent").val();
-		/* var formMainImgSrc = $("#goodsMainImg").val(); */
-		/* var formSubImgSrc = $("#goodsSubImg").attr("src", subImgSrc); */
-	/* 	var fdata= $("#listFdate").val();
-		var reData= $("#listRedate").val(); */
-				
-		alert(formPrice)
-		alert(formNum)
-		alert(formContent)
-/* 		alert(formMainImgSrc)
-		alert(formSubImgSrc) */
-
-			
-		 $.ajax({
-			 	cache: false,
-				type : "POST",
-				 url : "modifyGoodsSU.do", 
-				// url : "${pageContext.request.contextPath}/modifyGoodsSU.do", 
-				//data : formData,
-				data : {
-				   // id : idValue,
-				    
-				   goodsPrice : formPrice,
-				   goodsTotalNum : formNum,
-				   goodsInfoContent : formContent,
-				 /*   goodsMainImg : formMainImgSrc,
-				   goodsSubImg : formSubImgSrc */
-				    
-				},
-				dataType : "json",
-				contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
-				success : function(data) {
-	
+	    /* var formMainImg = $("#goodsMainImg")[0].files[0]; // 첫 번째 이미지 파일 선택
+	    var formSubImg = $("#goodsSubImg")[0].files; // 모든 서브 이미지 파일 선택 */
+	    
+		/* alert(formFcode); */
+		
+		$.ajax({
+			url : "modifyGoodsSU.do",
+			type : "post",
+			data : {f_code : formFcode,
+					s_id :formsId,
+					cates_name : formCateSname,
+					f_sum : formPrice,
+					f_num : formNum,
+					f_content : formContent},
 					
-					$(".goodsInfo_content").val(goodsInfoContent);
-				}
-        }); 
-	}
+			success : function(data){
+				alert("수정되었습니다.")
+				
+				location.reload();
+			},
+			error: function(request, status, error) {
+				alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+			}
+		});
+		
+		
+	} //modifyBtn()
+	
+	
 		
 </script>
 </head>
@@ -176,7 +170,7 @@
 			<h1 class="store_mainTitle">상품 조회</h1>
 			<div class="fleaSearch-table">
 				<div class="table-wrapper">
-					<table>
+					<table id=>
 						<thead>
 							<tr>
 								<th>상품등록번호</th>
@@ -191,10 +185,10 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${fleaGoodsListAll}" var="listAll">
-								<tr class="goodsListDetail" data-s_id="${listAll.s_id}">
+								<tr class="goodsListDetail" data-s_id="${listAll.s_id}" data-f_code="${listAll.f_code}">
 									<td>${listAll.f_code}</td>
 									<td>${listAll.cates_name}</td>
-									<td class="goodsContent">${listAll.f_content}</td>
+									<td class="goodsContentList">${listAll.f_content}</td>
 									<td>${listAll.f_sum}</td>
 									<td>${listAll.f_num}</td>
 									<td id="listfDate"><fmt:parseDate value="${listAll.f_date}"
@@ -217,10 +211,14 @@
 			<hr />
 			<h1 class="store_maintitle">상품 수정</h1>
 			<form id="modifyForm" name= "modifyForm" class="store_mainInfo" method="post">
-			<input id=>
+			
+			<input type="hidden" name="f_code" id="f_code"/>
+			<input type="hidden" name="s_id" id="s_id"/>
+			
+			
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 카테고리</label> 
-					<select class="goodsInfo_selectBox_First" name="catem_code" id="catem_code">
+					<select class="goodsInfo_selectBox_First" name="catem_name" id="catem_name">
 						<option>대분류</option>
 						<option>디저트</option>
 						<option>전통간식</option>
@@ -231,7 +229,7 @@
 						<option>잡화</option>
 						<option>홈리빙</option>
 					</select> 
-					<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code">
+					<select class="goodsInfo_selectBox_Secound" name="catemm_name" id="catemm_name">
 						<option>중분류</option>
 						<option>베이커리</option>
 						<option>케이크</option>
@@ -261,7 +259,7 @@
 						<option>패브릭</option>
 						<option>방향제</option>
 					</select> 
-					<select class="goodsInfo_selectBox_Third" name="cates_code" id="cates_code">
+					<select class="goodsInfo_selectBox_Third" name="cates_name" id="cates_name">
 						<option>소분류</option>
 						<option>롤케이크</option>
 						<option>버터크림빵</option>
@@ -338,16 +336,29 @@
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 메인 이미지</label> 
-						<img class="goodsImg" alt="mainImg" id= "goodsMainImg" src="./resources/img/goodsImgArea.png">
-					<button type="botton" class="uploadBtn" name="uploadBtn()">불러오기</button>
+					<div class="goodsMainImg">
+						<img alt="메인이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>	
 				</div>
 
 				<div class="store_subCategory">
-					<label class="store_subTitle">상품 서브 이미지</label> 
-						<img class="goodsImg" alt="mainImg" id= "goodsMainImg" src="./resources/img/goodsImgArea.png"> 
-						<img class="goodsImgSub" alt="subImg" id="goodsSubImg" src="./resources/img/goodsImgArea.png"> 
-						<img class="goodsImgSub" alt="subImg" id="goodsSubImg" src="./resources/img/goodsImgArea.png">
-					<button type="botton" class="uploadBtn" name="uploadBtn()">불러오기</button>
+					<label class="store_subTitle">상품 서브 이미지</label>
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>
+					
+					<div class="goodsSubImg">
+						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
+						<input type="file" class="fileInput">
+					</div>s
+					
 				</div>
 
 				<div class="store_subCategory">
@@ -365,8 +376,17 @@
 					<textarea class="goodsInfo_content" name="goodsInfoContent" id="goodsInfoContent"></textarea>
 				</div>
 
-				<button type="button" class="submitBtn" onclick="modifyBtn(); return false">수정하기</button>
+				<button type="button" class="submitBtn" onclick="modifyBtn()">수정하기</button>
 			</form>
+			
+			<!-- 삭제하기 -->
+			<form action="deleteGoodsSU.do" >
+				<input type="hidden" name="f_code" value="${goodsList.f_code }">
+				<input type="hidden" name="s_id" value="${goodsList.s_id }"/>
+				
+				<button class="submitBtn" name="deleteBtn" id="deleteBtn">삭제하기</button>
+			</form>
+			
 
 		</div>
 		<!-- storeContentsBox -->

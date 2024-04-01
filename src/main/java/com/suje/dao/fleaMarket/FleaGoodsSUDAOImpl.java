@@ -23,6 +23,7 @@ public class FleaGoodsSUDAOImpl implements FleaGoodsSUDAO {
 
 	@Override
 	public FleaGoodsVO getFleaInfo(FleaGoodsVO vo) {
+		
 		return mybatis.selectOne("FleaGoodsSUDAO.getFleaInfo", vo);
 	}
 	
@@ -30,9 +31,16 @@ public class FleaGoodsSUDAOImpl implements FleaGoodsSUDAO {
 	@Override
     public int modifyGoodsSU(FleaGoodsVO vo) {
 		
-		System.out.println("modifyGoodsSU 수정 Repository 실행");
-		
       return mybatis.update("FleaGoodsSUDAO.modifyGoodsSU", vo);
     }
+
+	
+	@Override
+	public int deleteGoodsSU(FleaGoodsVO vo) {
+		
+		System.out.println("deleteGoodsSU 삭제 Repository 실행");
+		
+		return mybatis.delete("FleaGoodsSUDAO.deleteGoodsSU", vo);
+	}
 
 }

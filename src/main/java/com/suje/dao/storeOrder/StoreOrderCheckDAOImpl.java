@@ -29,4 +29,9 @@ public class StoreOrderCheckDAOImpl implements StoreOrderCheckDAO {
 		
 		return mybatis.selectList("StoreOrderCheckDAO.getReturnOrderCheck", id);
 	}
+	// 최종 주문서 정보 조회
+	@Override
+	public StoreOrderCheckVO getStoreFinalOrder(int foCode) {
+		return mybatis.selectOne("StoreOrderCheckDAO.getStoreFinalOrder",foCode);
+	}
 }

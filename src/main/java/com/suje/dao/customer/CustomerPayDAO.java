@@ -1,6 +1,7 @@
 package com.suje.dao.customer;
 
 import java.util.List;
+import java.util.Map;
 
 import com.suje.domain.customer.PayVO;
 
@@ -8,6 +9,10 @@ public interface CustomerPayDAO {
 	
 	public int getCountPageTotal(String id);
 	
-	public List<PayVO> getPayList(PayVO vo);
-
+	public int getFleaCountPageTotal(String id);
+	
+	public Map<String,Object> getPayList(Map<String,Object> resultMap);
+	
+	public void insertFleaPayCancel(PayVO vo);
+	
 }

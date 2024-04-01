@@ -20,7 +20,6 @@
 		
 		<typeAlias alias="categoryVO" type="com.suje.domain.category.CategoryVO"/>
 		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
-		
 	
 		<!-- 장경희 설정 부분 -->
 		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
@@ -41,6 +40,7 @@
 		<typeAlias alias="storeOrderCheck" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="cancelOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="returnOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
+		<typeAlias alias="storeFinalOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="fleaOrderCheck" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
 		
 		<!-- 최수빈 설정 부분 -->
@@ -57,6 +57,5 @@
 		<typeAlias alias="realtimeVO" type="com.suje.domain.main.MainRealTimeReviewVO"/>
 		
 	</typeAliases>
-
 
 </configuration> 

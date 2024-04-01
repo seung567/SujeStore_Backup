@@ -80,7 +80,7 @@ String user = (String) obj;
 					</li>
 					
 					<li class="storeSecondCategoryBtn">
-						<a href="#">
+						<a href="fleaGoodsInfoMain.do?id=<%=user%>">
 							<span>플리마켓 상품 등록</span>
 						</a>
 					</li>

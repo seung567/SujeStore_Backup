@@ -1,6 +1,6 @@
 package com.suje.service.customer;
 
-import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +26,22 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 	}
 	
 	@Override
-	public List<PayVO> getPayList(PayVO vo) {
-		logger.info("getPayList // Service");
-		return dao.getPayList(vo);
+	public int getFleaCountPageTotal(String id) {
+		logger.info("getFleaCountPageTotal // Service");
+		return dao.getFleaCountPageTotal(id);
 	}
+	
+	@Override
+	public Map<String,Object> getPayList(Map<String,Object> resultMap) {
+		logger.info("getPayList // Service");
+		return dao.getPayList(resultMap);
+	}
+	
+	@Override
+	public void insertFleaPayCancel(PayVO vo) {
+		System.out.println("=> flea결제취소요청 Service 실행");
+		dao.insertFleaPayCancel(vo);
+	}
+
 	
 }

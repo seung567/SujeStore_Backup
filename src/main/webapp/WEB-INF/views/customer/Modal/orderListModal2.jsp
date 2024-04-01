@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +28,7 @@
 				</div>
 				<div>결제 취소 요청</div>
 				<div>
-					결제번호 <input type="text" />
+					결제번호 <input class="payNO" type="text" />
 				</div>
 			</div>
 
@@ -30,31 +36,27 @@
 			<div class="modalMainContent">
 				<!-- 메인 좌측 Content Title -->
 				<div class="payCancleContentLefit">
-					<div>취소일자</div>
 					<div>취소사유</div>
 				</div>
 
 				<!-- 메인 우측 Content -->
+				<form id="formSubmit" action="insertFleaPayCancel.do" method="post">
 				<div class="payCancleContentRight">
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<div>
-							<input type="text" />
+							<input type="text" name="pc_why"/>
 						</div>
+						<input type="hidden" value="<%=request.getParameter("id")%>" name="m_id"/>
 					</div>
-					<!-- Content 두번째 라인 -->
-					<div>
-						<div>
-							<input type="text" />
-						</div>
 
-					</div>
 				</div>
+				</form>
 			</div>
 
 			<div class="payCancleinsertbtn">
 				<div>
-					<input type="button" value="요청하기">
+					<input type="submit" value="요청하기" form="formSubmit">
 				</div>
 				<div>
 						<input class="viewCancel" type="button" value="취소">

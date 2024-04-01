@@ -77,13 +77,12 @@
 				<!-- 등록하기 버튼 -->
 				<div class="insertbtn">			
 					<div>
-							<a class="UrlMove" href="#"> 
-							<input type="submit" value="확인" />
-					</a>
+							<input class="viewCancel" type="button" value="확인" />
 				</div>
 			</div>
 		</div>
 	</div>
 			
 </body>
+
 </html>

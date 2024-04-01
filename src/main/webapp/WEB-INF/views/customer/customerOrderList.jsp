@@ -63,7 +63,7 @@
 						<td>반품요청</td>
 					</tr>
 					
-					<c:forEach items="${orderPayListTotal}" var="vo">
+					<c:forEach items="${mapValue.orderList}" var="vo">
 						<tr>
 							<td>${vo.p_code}</td>
 							<td>${vo.fo_code}</td>
@@ -78,16 +78,14 @@
 						</tr>
 					</c:forEach>
 					
-
 				</table>
 				
-				<div class="pageing">
-				
+				<div class="pageing">				
 							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
-								[<a href="getPayList.do?id=${id }&page=${i+1}">${i+1}</a>]
-							</c:forEach>
-				
+								[<a href="getPayList.do?id=${id }&orderPage=${i+1}&fleaPage=1">${i+1}</a>]
+							</c:forEach>				
 				</div>
+				
 			</div>
 
 			<!-- 플리마켓 결제 내역 부분 -->
@@ -106,63 +104,30 @@
 					<td>구매확정일자</td>
 					<td>결제취소</td>
 				</tr>
+
+			<c:forEach items="${mapValue.fleaList}" var="vo">
 				<tr>
-					<td>123456789</td>
-					<td>아띠랑스</td>
-					<td>천연담수진주 귀걸이, 피어싱</td>
-					<td>1</td>
-					<td>2024/03/01</td>
-					<td>60,000</td>
-					<td>N</td>
-					<td>2024/03/31</td>
-					<td><input type="button" value="요청"></td>
+					<td>${vo.fp_code}</td>
+					<td>${vo.s_name}</td>
+					<td>${vo.cates_name}</td>
+					<td>${vo.fp_count}</td>
+					<td>${vo.fp_date}</td>
+					<td>${vo.fp_sum}</td>
+					<td>${vo.fp_ck}</td>
+					<td>${vo.fp_ckdate}</td>
+					<td>
+						<input class="demand" type="button" value="요청">
+					</td>
 				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>아띠랑스</td>
-					<td>천연담수진주 귀걸이, 피어싱</td>
-					<td>1</td>
-					<td>2024/03/01</td>
-					<td>60,000</td>
-					<td>N</td>
-					<td>2024/03/31</td>
-					<td><input type="button" value="요청"></td>
-				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>아띠랑스</td>
-					<td>천연담수진주 귀걸이, 피어싱</td>
-					<td>1</td>
-					<td>2024/03/01</td>
-					<td>60,000</td>
-					<td>N</td>
-					<td>2024/03/31</td>
-					<td><input type="button" value="요청"></td>
-				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>아띠랑스</td>
-					<td>천연담수진주 귀걸이, 피어싱</td>
-					<td>1</td>
-					<td>2024/03/01</td>
-					<td>60,000</td>
-					<td>N</td>
-					<td>2024/03/31</td>
-					<td><input type="button" value="요청"></td>
-				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>아띠랑스</td>
-					<td>천연담수진주 귀걸이, 피어싱</td>
-					<td>1</td>
-					<td>2024/03/01</td>
-					<td>60,000</td>
-					<td>N</td>
-					<td>2024/03/31</td>
-					<td><input type="button" value="요청"></td>
-				</tr>
+			</c:forEach>
+			
 			</table>
-			<div class="pageing">< 1 2 3 ></div>
+			
+				<div class="pageing">				
+							<c:forEach var="i" begin="0" end="${totalCountPage }" step="1">
+								[<a href="getPayList.do?id=${id }&orderPage=1&fleaPage=${i+1}">${i+1}</a>]
+							</c:forEach>				
+				</div>
 
 			<!-- 결제 취소 부분 -->
 			<div class="subtitle2">결제취소 내역</div>
@@ -180,18 +145,7 @@
 					<td>2024/03/01</td>
 					<td>재결제를 위해 결제 취소</td>
 				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>123456789</td>
-					<td>2024/03/01</td>
-					<td>재결제를 위해 결제 취소</td>
-				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>123456789</td>
-					<td>2024/03/01</td>
-					<td>재결제를 위해 결제 취소</td>
-				</tr>
+
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
 
@@ -211,18 +165,7 @@
 					<td>2024/03/01</td>
 					<td>주문한 디자인과 실물 디자인이 너무 다름</td>
 				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>123456789</td>
-					<td>2024/03/01</td>
-					<td>주문한 디자인과 실물 디자인이 너무 다름</td>
-				</tr>
-				<tr>
-					<td>123456789</td>
-					<td>123456789</td>
-					<td>2024/03/01</td>
-					<td>주문한 디자인과 실물 디자인이 너무 다름</td>
-				</tr>
+
 			</table>
 			<div class="pageing">< 1 2 3 ></div>
 		</div>
@@ -253,6 +196,8 @@
     $(function() {
 		$(".joinCheck").click(setAjex);
 		$(".payBackCall").click(payback);
+		 //플리마켓 요청 버튼 이벤트
+		$(".demand").click(demandClick);
     });
 
     function setAjex() {
@@ -283,16 +228,22 @@
     
     function payback(){
 		$.ajax({
-		    url : "insert.do",
+		     url : "insert.do", 
 		    type : "get",
 		    dataType : "json",
 		    contentType : 'application/json; charset=utf-8',
 		    beforeSend : function(){
 			$(".orderListWrap").fadeIn(200);
 			$(".orderInfoModal").slideDown(200);				
-	    },   
-		    
+	    },   	    
 		});
     }
+    	 
+	function demandClick() {
+		var resultAnserNo = $(this).parent().parent().children().eq(0).text();
+		$('.payNO').val(resultAnserNo);
+	}
+    
+    
 </script>
 </html>

@@ -104,49 +104,4 @@
 
 </body>
 
-<script type="text/javascript">
-
-/* QnA 작성하기 */
-$(function() {
-	$(".regit").click(regit);
-	$(".UrlMove").click(function(){
-		location.href = "customerQnA.do?id=<%= request.getParameter("id")%>"
-	});
-});
-
-function regit() {
-   $(".qnaqModal").slideDown(200);
-}
-
- /* QnA 답변 불러오기 */
-$(function() {
-	$(".answer").click(answer);
-	$(".UrlMove").click(function(){
-		location.href = "customerQnA.do?id=<%= request.getParameter("id")%>"
-	});
-});
-
-function answer() {
-	var resultAnserNo = $(this).parent().parent().children().eq(0).text();
-	$.ajax({
-		url : "customerQnAAModal.do", 
-		type : "get",
-		data : {resultAnserNo:resultAnserNo},
-		dataType : "json",
-		contentType : 'application/json; charset=UTF-8',
-        beforeSend : function(){
-            $(".qnaaModal").slideDown(200);            
-          },
-          success : function(data) { 
-				console.log(data.qna_code);
-				$(".contentNO").val(data.qna_code);
-				$(".contentTitle").val(data.qna_title);
-				$(".contentDate").val(data.qna_adate);
-				$(".content").val(data.qna_reply);
-            }		
-	});
-}
-
-</script>
-
 </html>

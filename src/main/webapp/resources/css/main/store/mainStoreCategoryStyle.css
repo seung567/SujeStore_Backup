@@ -31,7 +31,7 @@ body {
 	 width: 1180px;
 	 height: auto;
 }
-.mainNavi>a, .subNaviWrap a {
+.mainNavi>a, .mainNavi>div, .subNaviWrap a {
 	display:block;
 	width: 170px;
 	height: 40px;
@@ -40,20 +40,21 @@ body {
 	font-size: 15px;
 	line-height: 40px;
 }
-.mainNavi>a img {
+.mainNavi>div img {
 	width: 15px;
 	height: 15px;
 	display: block;
 	float: right;
 	margin-top: 12px;
 }
-.mainNavi>a {
+.mainNavi>a, .mainNavi>div {
 	color: #00203F;
 	font-weight: bold;
 	padding: 0 10px;
 	transition: background-color 0.2s ease;
+	cursor: pointer;
 }
-.mainNavi>a:hover {
+.mainNavi>a:hover, .mainNavi>div:hover {
 	background-color: #ADEFD1;
 }
 .subNaviWrap {
@@ -71,7 +72,7 @@ body {
 }
 
 /*선택상태*/
-.selectedMainNavi>a {
+.selectedMainNavi>div, .selectedMainNavi>a {
 	background-color: #ADEFD1;
 }
 .selectedSubNavi {
@@ -176,7 +177,7 @@ body {
 
 /*페이징 처리*/
 .pageingArea {
-	width: 150px;
+	width: 210px;
 	height: 20px;
 	margin: 40px auto 0;
 }
@@ -195,6 +196,14 @@ body {
 	height: 20px;
 }
 
+.noneItemArea {
+	width: 920px;
+	height: auto;
+	margin: 100px 0 100px 100px;
+	font-size: 30px;
+	font-weight:bold;
+	text-align: center;
+}
 
 /*Footer*/
 footer {

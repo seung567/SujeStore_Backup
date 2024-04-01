@@ -13,6 +13,29 @@
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeAdmin/storeGoodsInfo.css" />
+<script>
+    // 선택한 카테고리에 따라 요소를 표시/숨김하는 함수
+    function filterByCategory() {
+        var category = document.getElementById('catem_code').value;
+        var subcategories = document.querySelectorAll('.goodsInfo_selectBox');
+        
+        // 모든 하위 카테고리 드롭다운을 반복
+        subcategories.forEach(function(subcategory) {
+            var option = subcategory.querySelector('option[value="' + category + '"]');
+            if (option && option.selected) {
+                subcategory.style.display = 'block';
+            } else {
+                subcategory.style.display = 'none';
+            }
+        });
+    }
+
+    // 카테고리 드롭다운 변경 이벤트에 필터 함수를 연결
+    document.getElementById('catem_code').addEventListener('change', filterByCategory);
+    
+    // 초기에 필터 함수 호출하여 초기 카테고리에 따라 요소를 표시/숨김
+    filterByCategory();
+</script>
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>

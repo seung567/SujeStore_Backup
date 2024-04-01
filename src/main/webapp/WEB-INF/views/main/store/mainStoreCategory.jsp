@@ -11,15 +11,91 @@
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/main/store/mainStoreCategoryStyle.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./resources/js/main/mainStoreCategorymainNaviJs.js"></script>
+<!-- <script src="./resources/js/main/mainStoreCategorymainNaviJs.js"></script> -->
+<script type="text/javascript">
+$(function() {
+	
+<% String mCate = (String)request.getAttribute("mCate"); %>
+<% String mmCate = (String)request.getAttribute("mmCate"); %>
+<% String orderBy = (String)request.getAttribute("orderBy"); %>
+	
+	//카테고리 선택 초기화
+	$('.mainNavi').removeClass('selectedMainNavi');
+	$('.subNaviWrap a').removeClass('selectedSubNavi');
+	
+	//정렬 초기화
+	var orderBy = '<%= orderBy %>';
+	$('.mainFilter option').removeAttr('selected');
+	$('.mainFilter option').eq(orderBy - 1).attr('selected', 'selected');
+
+	//카테고리 선택상태 활성화
+	if ($('.mainNavi>a').text().trim() === '<%= mCate %>') {
+		$('.mainNavi:nth-child(1)').addClass('selectedMainNavi');
+	}
+	$('.mainNavi').each(function() {
+		var mainNaviText = $(this).children('div').text().trim();
+		if (mainNaviText === '<%= mCate %>') {
+			$(this).addClass('selectedMainNavi');
+			$('.subNaviWrap').slideUp();
+			$(this).children('.subNaviWrap').slideDown();
+		}
+	});
+	$('.subNaviWrap a').each(function() {
+		var subNaviText = $(this).text().trim();
+		if (subNaviText === '<%= mmCate %>') {
+			$(this).addClass('selectedSubNavi');
+		}
+	});
+	
+	var selectedMainNaviText;
+	var selectedSubNaviText;
+	
+	//메인 카테고리 클릭시 이벤트
+	$('.mainNavi').click(function() {
+		$('.mainNavi').removeClass('selectedMainNavi');
+		$(this).addClass('selectedMainNavi');
+		
+		// 선택된 메뉴 항목 가져오기
+		selectedMainNaviText = $(this).children('div').text().trim();
+		
+		$('.subNaviWrap').slideUp();
+		$(this).children('.subNaviWrap').slideDown();
+    });
+
+	//서브 카테고리 클릭시 이벤트
+    $('.subNaviWrap a').click(function(e) {
+		// 선택된 서브 메뉴 항목 가져오기
+		selectedSubNaviText = $(this).text().trim();
+		
+    	var url = "viewStoreCategory.do?page=1&mCate="+selectedMainNaviText+"&mmCate="+selectedSubNaviText+"&orderBy=1";
+    	location.href = url;
+    });
+	
+	//정렬 선택박스 이벤트
+	$('.mainFilter').change(function() {
+		var selectedOption = $(this).val();
+		if (selectedOption === "기본 정렬순") {
+	    	var url = "viewStoreCategory.do?page=1&mCate=${mCate}&mmCate=${mmCate}&orderBy=1";
+	    	location.href = url;
+		} else if (selectedOption === "별점 높은순") {
+	    	var url = "viewStoreCategory.do?page=1&mCate=${mCate}&mmCate=${mmCate}&orderBy=2";
+	    	location.href = url;
+		} else if (selectedOption === "후기 많은순") {
+	    	var url = "viewStoreCategory.do?page=1&mCate=${mCate}&mmCate=${mmCate}&orderBy=3";
+	    	location.href = url;
+		}
+	});
+	
+});
+</script>
 </head>
 <body>
 <%@ include file="../../headerHtml/memberHeader.jsp" %>
 <div class="contentsWrap">
 <div class="subMenuArea">
 	<ul class="mainNaviWrap">
-		<li class="mainNavi selectedMainNavi"><a href="#">전체</a></li>
-		<li class="mainNavi"><a href="#">디저트<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><a href="viewStoreCategory.do?page=1&mCate=전체&mmCate= &orderBy=1">전체</a></li>
+		<li class="mainNavi"><div>디저트<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;베이커리</a></li>
 				<li><a href="#">&nbsp;&nbsp;케이크</a></li>
@@ -28,21 +104,21 @@
 				<li><a href="#">&nbsp;&nbsp;쿠키</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">전통간식<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>전통간식<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;약과</a></li>
 				<li><a href="#">&nbsp;&nbsp;떡</a></li>
 				<li><a href="#">&nbsp;&nbsp;양갱</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">반려동물식품<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>반려동물식품<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;애견간식</a></li>
 				<li><a href="#">&nbsp;&nbsp;애견쿠키</a></li>
 				<li><a href="#">&nbsp;&nbsp;애견케이크</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">의류<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>의류<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;여성</a></li>
 				<li><a href="#">&nbsp;&nbsp;남성</a></li>
@@ -50,28 +126,28 @@
 				<li><a href="#">&nbsp;&nbsp;키즈</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">주얼리<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>주얼리<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;반지</a></li>
 				<li><a href="#">&nbsp;&nbsp;목걸이</a></li>
 				<li><a href="#">&nbsp;&nbsp;팔찌</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">수공예품<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>수공예품<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;생활소품</a></li>
 				<li><a href="#">&nbsp;&nbsp;주방공예</a></li>
 				<li><a href="#">&nbsp;&nbsp;인테리어</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">잡화<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>잡화<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;문구</a></li>
 				<li><a href="#">&nbsp;&nbsp;기념품</a></li>
 				<li><a href="#">&nbsp;&nbsp;일러스트</a></li>
 			</ul>
 		</li>
-		<li class="mainNavi"><a href="#">홈리빙<img src="././resources/img/mainSubMenuBtn.png"/></a>
+		<li class="mainNavi"><div>홈리빙<img src="././resources/img/mainSubMenuBtn.png"/></div>
 			<ul class="subNaviWrap">
 				<li><a href="#">&nbsp;&nbsp;가구</a></li>
 				<li><a href="#">&nbsp;&nbsp;패브릭</a></li>
@@ -81,121 +157,58 @@
 </div> <!-- subMenuArea -->
 <div class="mainContentsArea">
 	<div class="mainTitleArea">
-		<div class="mainTitle">전체</div>
+		<div class="mainTitle"><%= mCate %>/<%= mmCate %></div>
 		<select class="mainFilter">
-			<option selected="selected">기본 정렬순</option>
-			<option>최신순</option>
-			<option>가격 높은순</option>
-			<option>가격 낮은순</option>
+			<option>기본 정렬순</option>
+			<option>별점 높은순</option>
+			<option>후기 많은순</option>
 		</select>
 	</div>
 	<div class="AreaLine"></div>
-	<div class="StoreArea">
-		<a href="#" class="EachStoreLinkArea">
-			<table class="EachStore">
-				<tr>
-					<td class="storeNameTd">STORE NAME</td>
-					<td rowspan="3" class="storeImgTd"><img src="././resources/img/basicProfileIconBig.png" class="storeImg"/></td>
-				</tr>
-				<tr>
-					<td class="storeStarTd">
-						<img src="././resources/img/mainReviewStarImg.png"/>
-						<span>5.0</span>
-						<img src="././resources/img/mainReviewCountImg.png"/>
-						<span>0</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="storeInfoTd">STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다.</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="EachStoreLinkArea">
-			<table class="EachStore">
-				<tr>
-					<td class="storeNameTd">STORE NAME</td>
-					<td rowspan="3" class="storeImgTd"><img src="././resources/img/basicProfileIconBig.png" class="storeImg"/></td>
-				</tr>
-				<tr>
-					<td class="storeStarTd">
-						<img src="././resources/img/mainReviewStarImg.png"/>
-						<span>5.0</span>
-						<img src="././resources/img/mainReviewCountImg.png"/>
-						<span>0</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="storeInfoTd">STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다.</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="EachStoreLinkArea">
-			<table class="EachStore">
-				<tr>
-					<td class="storeNameTd">STORE NAME</td>
-					<td rowspan="3" class="storeImgTd"><img src="././resources/img/basicProfileIconBig.png" class="storeImg"/></td>
-				</tr>
-				<tr>
-					<td class="storeStarTd">
-						<img src="././resources/img/mainReviewStarImg.png"/>
-						<span>5.0</span>
-						<img src="././resources/img/mainReviewCountImg.png"/>
-						<span>0</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="storeInfoTd">STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다.</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="EachStoreLinkArea">
-			<table class="EachStore">
-				<tr>
-					<td class="storeNameTd">STORE NAME</td>
-					<td rowspan="3" class="storeImgTd"><img src="././resources/img/basicProfileIconBig.png" class="storeImg"/></td>
-				</tr>
-				<tr>
-					<td class="storeStarTd">
-						<img src="././resources/img/mainReviewStarImg.png"/>
-						<span>5.0</span>
-						<img src="././resources/img/mainReviewCountImg.png"/>
-						<span>0</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="storeInfoTd">STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다.</td>
-				</tr>
-			</table>
-		</a>
-		<a href="#" class="EachStoreLinkArea">
-			<table class="EachStore">
-				<tr>
-					<td class="storeNameTd">STORE NAME</td>
-					<td rowspan="3" class="storeImgTd"><img src="././resources/img/basicProfileIconBig.png" class="storeImg"/></td>
-				</tr>
-				<tr>
-					<td class="storeStarTd">
-						<img src="././resources/img/mainReviewStarImg.png"/>
-						<span>5.0</span>
-						<img src="././resources/img/mainReviewCountImg.png"/>
-						<span>0</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="storeInfoTd">STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다. STORE 간단 소개 영역입니다.</td>
-				</tr>
-			</table>
-		</a>
-
-
-	</div>
-	<div class="pageingArea">
-		<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
-		<a href="#">1</a>
-		<a href="#">2</a>
-		<a href="#">3</a>
-		<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
-	</div>
+	
+	<!-- total 콘텐츠가 존재할 시 호출 -->
+	<c:if test="${pageTotalCount ne 0}">
+		<div class="StoreArea">
+			<c:forEach items="${storeCateList}" var="storeCate">
+				<a href="viewStoreInfo.do?sId=${storeCate.s_id}&page=1" class="EachStoreLinkArea">
+					<table class="EachStore">
+						<tr>
+							<td class="storeNameTd">${storeCate.s_name}</td>
+							<td rowspan="3" class="storeImgTd"><img src="././resources/DB/${storeCate.s_spname}" class="storeImg"/></td>
+						</tr>
+						<tr>
+							<td class="storeStarTd">
+								<img src="././resources/img/mainReviewStarImg.png"/>
+								<span>${storeCate.avgRvStar}</span>
+								<img src="././resources/img/mainReviewCountImg.png"/>
+								<span>${storeCate.countRvCode}</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="storeInfoTd">${storeCate.s_text}</td>
+						</tr>
+					</table>
+				</a>
+			</c:forEach>
+		</div>
+	</c:if>
+	
+	
+	<!-- total 콘텐츠가 존재하지 않을 시 호출 -->
+	<c:if test="${pageTotalCount eq 0}">
+		<div class="noneItemArea">스토어가 존재하지 않습니다.</div>
+	</c:if>
+	
+	<!-- total 콘텐츠가 존재할 시 호출 -->
+	<c:if test="${pageTotalCount ne 0}">
+		<div class="pageingArea">
+			<a href="#"><img src="././resources/img/pageLeftBtn.png"/></a>
+			<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
+				<a href="viewStoreCategory.do?page=${i}&mCate=${mCate}&mmCate=${mmCate}&orderBy=${orderBy}">${i}</a>
+			</c:forEach>
+			<a href="#"><img src="././resources/img/pageRightBtn.png"/></a>
+		</div>
+	</c:if>
 </div>
 </div> <!-- contentsWrap -->
 <footer></footer>

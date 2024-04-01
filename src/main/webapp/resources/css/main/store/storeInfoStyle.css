@@ -108,7 +108,7 @@ body {
 .reviewScoreTr td:first-child span {
 	float: right;
 }
-.reviewScoreTr td:last-child img {
+.reviewScoreTr td:last-child img, .thumbsUpBtn {
 	width: 15px;
 	height: 15px;
 	float: left;
@@ -123,6 +123,15 @@ body {
 	height: 15px;
 	line-height: 15px;
 	font-size: 12px;
+}
+
+.noneItemArea {
+	width: 1040px;
+	height: auto;
+	margin: 100px 0 100px 0;
+	font-size: 30px;
+	font-weight:bold;
+	text-align: center;
 }
 
 .pageingArea {

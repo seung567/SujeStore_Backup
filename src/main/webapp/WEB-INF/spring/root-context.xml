@@ -24,7 +24,6 @@
 		<property name="typeAliases">
 		<list>
 			<!-- 타입설정 -->
-			<value>com.suje.domain.HomeVO</value>
 		</list>	
 	</property>	
 	</bean>

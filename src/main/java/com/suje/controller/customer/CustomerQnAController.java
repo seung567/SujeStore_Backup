@@ -37,7 +37,7 @@ public class CustomerQnAController {
 
 		System.out.println("insertQnA 컨트롤러 실행");
 
-		return "redirect:/customerQnA.do?id=" + vo.getM_id();
+		return "redirect:getQnAList.do?id=" + vo.getM_id() + "&page=1";
 	}
 
 	// Q&A 답변 불러오기

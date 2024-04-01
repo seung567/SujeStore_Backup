@@ -123,13 +123,12 @@
 						<!-- 요청내용 -->
 
 						<!-- 주문 요청사항 입력 -->
-						<%-- <form id="etcUploadInsert" enctype="multipart/form-data"> --%>
 						<form id="etcUploadInsert" enctype="multipart/form-data">
 						
 							<!-- 이미지 불러오기 -->
 							<div class="filebox">
 								<label for="talkImgUpload"> 이미지 불러오기 </label> 
-								<input type="file" accept=".jpg,.png,.gif" name="etcImgName" id="talkImgUpload" />
+								<input type="file" accept=".jpg,.png,.gif" name="uploadImgFile" id="talkImgUpload" />
 								<input type="text" readonly="readonly">
 							</div>
 							<!-- 이미지 불러오기 -->
@@ -138,7 +137,7 @@
 							<div>
 								<textarea  name="etc_content" ></textarea><!-- 요청내용 -->
 								<!-- <button value="요청사항전송" onclick="">전송</button> -->
-								<input type="submit" value="전송" onclick="" />
+								<input type="submit" value="전송" />
 							</div><!-- 요청사항 입력 -->
 							
 							<input type="hidden" class="orderNO" name="o_code" /><!-- 요청번호 -->
@@ -166,6 +165,7 @@
 		<div class="payResultModal">
 			<jsp:include page="./Modal/payModal.jsp"></jsp:include>
 		</div>
+		
 		<input type="hidden" class="idInfo" value="${id }"/>
 	</div>
 </body>

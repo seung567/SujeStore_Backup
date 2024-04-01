@@ -17,7 +17,6 @@ public class FleaGoodsSUServiceImpl implements FleaGoodsSUService{
 
 	@Override
 	public List<FleaGoodsVO> fleaGoodsListAll(FleaGoodsVO vo){
-		/* List<FleaGoodsVO> goodsList = dao.fleaGoodsListAll(vo); */ 
 		return dao.fleaGoodsListAll(vo); 
 	}
 	
@@ -32,5 +31,22 @@ public class FleaGoodsSUServiceImpl implements FleaGoodsSUService{
 		int result = dao.modifyGoodsSU(vo);
 		
 		return result;
+		
 	}
+	
+
+	@Override
+	public int deleteGoodsSU(FleaGoodsVO vo) {
+		
+		int result = dao.deleteGoodsSU(vo);
+		
+		return result;
+		
+	}
+	
+	
+	
+	
+	
+	
 }

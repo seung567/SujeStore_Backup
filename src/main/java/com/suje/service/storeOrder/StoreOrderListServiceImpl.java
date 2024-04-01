@@ -53,4 +53,10 @@ public class StoreOrderListServiceImpl implements StoreOrderListService {
 	public int updateFinalOrderinfo(FinalOrderVO vo) {
 		return storeOrderListDao.updateFinalOrderinfo(vo);
 	}
+	
+	// 기타 요청 내역 답변 입력
+	@Override
+	public int insertStoreEtc(EtcVO etcVO) {
+		return storeOrderListDao.insertStoreEtc(etcVO);
+	}
 }

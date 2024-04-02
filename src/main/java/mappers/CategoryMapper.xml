@@ -3,18 +3,23 @@
 
 <mapper namespace="categoryDAO">
 
-	<select id="getCateMain" resultType="categoryVO">
+   <select id="getCateMain" resultType="categoryVO">
 
-		select * from cate_main
+      select * from cate_main
 
-	</select>
+   </select>
 
-	<!-- 조건에 맞는 중분류 카테고리 리스트 가져오기 -->
-	<select id="getCateMid" parameterType="Integer" resultType="categoryVO">
+   <!-- 조건에 맞는 중분류 카테고리 리스트 가져오기 -->
+   <select id="getCateMid" parameterType="Integer" resultType="categoryVO">
 
-		select * from cate_mid where catem_code = #{cateCode}
+      select * from cate_mid where catem_code = #{cateCode}
 
-	</select>
-	
-	<select id=""></select>
+   </select>
+   
+   <!-- 조건에 맞는 소분류 카테고리 리스트 가져오기 -->
+   <select id="getCateSub" parameterType="Integer" resultType="categoryVO">
+   
+      select * from cate_sub where catemm_code = #{cateCode}
+   
+   </select>
 </mapper>

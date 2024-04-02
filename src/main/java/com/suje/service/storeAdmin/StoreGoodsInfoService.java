@@ -4,5 +4,7 @@ import com.suje.domain.storeAdmin.StoreGoodsSUVO;
 
 public interface StoreGoodsInfoService {
 
-	public void insertStoreGoodsInfo(StoreGoodsSUVO vo);
+	public void insertStoreInfo(StoreGoodsSUVO vo);
+	public void insertStoreSubInfo(StoreGoodsSUVO vo);
+	public String getGcodeSeq();
 }

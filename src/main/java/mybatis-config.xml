@@ -22,9 +22,11 @@
 		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
 	
 		<!-- 장경희 설정 부분 -->
-		<typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
-		<typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
-		<typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
+      <typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
+      <typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
+      <typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
+      <typeAlias alias="fleaGoodsInfo" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
+
 
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO" />
@@ -44,12 +46,14 @@
 		<typeAlias alias="fleaOrderCheck" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
 		
 		<!-- 최수빈 설정 부분 -->
-		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
-		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
-		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
-		<typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
-		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
-		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
+      <typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
+      <typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
+      <typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
+      <typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
+      <typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
+      <typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
+      <typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
+
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>

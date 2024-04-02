@@ -10,4 +10,5 @@ public interface StoreOrderCheckDAO {
 	public List<StoreOrderCheckVO> getCancelOrderCheck(String id);
 	public List<StoreOrderCheckVO> getReturnOrderCheck(String id);
 	public StoreOrderCheckVO getStoreFinalOrder(int foCode); // 최종 주문서 정보 조회
+	public StoreOrderCheckVO getStoreDelivery(int foCode);
 }

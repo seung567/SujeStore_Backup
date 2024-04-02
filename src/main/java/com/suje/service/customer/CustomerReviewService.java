@@ -1,12 +1,15 @@
 package com.suje.service.customer;
 
 import java.util.List;
+import java.util.Map;
 
 import com.suje.domain.customer.ReviewVO;
 
 public interface CustomerReviewService {
 	
-	public List<ReviewVO> getCustomerReview(String id);
+	public int getCountPageTotal(String id);
+	
+	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap);
 	
 	public void insertReview(ReviewVO vo);
 	

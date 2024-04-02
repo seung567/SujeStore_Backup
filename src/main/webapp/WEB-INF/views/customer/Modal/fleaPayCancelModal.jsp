@@ -10,16 +10,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>플리마켓 결제취소 요청</title>
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet"
-	href="./resources/css/customer/Modal/orderListModal2.css" />
+	href="./resources/css/customer/Modal/fleaPayCancelModal.css" />
 
 </head>
 <body>
 	<div class="payCancleModal">
+	<form id="formSubmit" action="insertFleaPayCancel.do" method="post">
 		<div class="payCancleBody">
 			<!-- 상단 제목 부분 -->
 			<div class="payCancleTitle">
@@ -28,7 +29,7 @@
 				</div>
 				<div>결제 취소 요청</div>
 				<div>
-					결제번호 <input class="payNO" type="text" />
+					결제번호 <input class="payNO" type="text" name="fp_code"/>
 				</div>
 			</div>
 
@@ -40,7 +41,7 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<form id="formSubmit" action="insertFleaPayCancel.do" method="post">
+				
 				<div class="payCancleContentRight">
 					<!-- Content 첫번째 라인 -->
 					<div>
@@ -51,20 +52,21 @@
 					</div>
 
 				</div>
-				</form>
+				
 			</div>
 
 			<div class="payCancleinsertbtn">
 				<div>
-					<input type="submit" value="요청하기" form="formSubmit">
+					<input class="demandPayCancel" type="submit" value="요청하기" form="formSubmit"/>
 				</div>
 				<div>
 						<input class="viewCancel" type="button" value="취소">
 				</div>
 			</div>
 		</div>
+		</form>
 	</div>
-	-->
-	<!-- Order join content 부분 -->
+
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 package com.suje.controller.customer;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,43 +25,50 @@ public class CustomerReviewController {
 	private CustomerReviewService service;
 	private final int  pageCountNum = 5; // 각 페이지별 출력되는 목록의 수
 	
-	// 리뷰 DB 리스트 불러오기
-	@RequestMapping(value = "customerReview")
+	// 리뷰작성을 위한 페이지 연결(초기 페이징)
+	@RequestMapping(value = "getCustomerReview")
 	public String getCustomerReview(
 			@RequestParam("id") String id, 
-			@RequestParam("page") int page, 
+			@RequestParam("reviewPage") int reviewPage, 
 			Model model,
-			ReviewVO vo) {
-		
+			ReviewVO vo) {	
 		logger.info("getCustomerReview");
-//		List<ReviewVO> vo = service.getCustomerReview(id);
+
 		
-		// 전체 페이지 수 계산
-		
-		int totalCountRow = service.getTotalCountPage(id);		
-		
-		if((totalCountRow/pageCountNum) < 0 ) {
-			totalCountRow  = 1;
-		}else {
-			totalCountRow = totalCountRow/pageCountNum;
-		}
+		// 전체 페이지 수 계산	
+		int reviewPageCount = service.getCountPageTotal(id);		
+		reviewPageCount = totalCountPage(reviewPageCount);
 		
 		// 부분 페이지 수 계산
-		int firstNum = (page-1) * pageCountNum + 1 ;
-		int endNum = page * pageCountNum;
+		int reviewFirstNum = (reviewPage-1) * pageCountNum + 1 ;
+		int reviewEndNum = reviewPage * pageCountNum;
 		
-		vo.setFirstNum(firstNum);
-		vo.setEndNum(endNum);
-		vo.setM_id(id);
-		List<ReviewVO> listVO = service.getPageList(vo);
-		// 페이지에 맞는 리스트 가져오기
+		// 맵 형식으로 Service , Repository, Mapper 값 전달
+		Map<String,Object> resultMap = new HashMap<String, Object>();
 		
-		model.addAttribute("totalCountRow",totalCountRow);
-		model.addAttribute("listVO",listVO);
+		resultMap.put("id", id);
+		resultMap.put("reviewFirstNum", reviewFirstNum);
+		resultMap.put("reviewEndNum", reviewEndNum);
+		
+		// 맵형식으로 JSP 페이지 값 전달 처리
+		
+		Map<String,Object> customerReview = service.getCustomerReview(resultMap);
+		
+		model.addAttribute("mapValue", customerReview);
 		model.addAttribute("id",id);
-
+		
 		return "/customer/customerReview";
 	}
+		
+		// 전체 페이지의 수를 반환하는 메소드
+		public int totalCountPage(int totalCountPage) {
+			if((totalCountPage/pageCountNum)<0) {
+				totalCountPage = 1;
+			}else {
+				totalCountPage = totalCountPage/pageCountNum;
+			}
+			return totalCountPage;
+		}	
 
 	// 리뷰 작성하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertReview", method = RequestMethod.POST)

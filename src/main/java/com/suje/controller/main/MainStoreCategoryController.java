@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.suje.domain.main.MainCommVO;
 import com.suje.domain.main.MainStoreCategoryVO;
 import com.suje.service.main.MainStoreCategoryService;
 
@@ -101,6 +103,22 @@ public class MainStoreCategoryController {
 		logger.info("스토어 상세 정보 페이지 컨트롤러");
 		model.addAttribute("storeInfo", mainStoreCategoryService.getStoreInfo(sId));
 		return "main/store/storeInfo";
+	}
+	
+	//리뷰 추천
+	@RequestMapping(value="reviewLike", produces="application/json; charset=utf8")
+	@ResponseBody
+	public void updateReviewLike(MainStoreCategoryVO vo) {
+		logger.info("리뷰추천 컨트롤러 "+vo.getRv_code());
+		mainStoreCategoryService.updateReviewLike(vo);
+	}
+	
+	//리뷰수 다시 불러오기
+	@RequestMapping(value="reviewLikeView", produces="application/json; charset=utf8")
+	@ResponseBody
+	public String reviewLikeView(MainStoreCategoryVO vo) {
+		logger.info("리뷰추천수 불러오기 컨트롤러 "+vo.getRv_code());
+		return mainStoreCategoryService.reviewLikeView(vo);
 	}
 	
 }

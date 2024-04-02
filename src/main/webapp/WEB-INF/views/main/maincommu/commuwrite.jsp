@@ -18,7 +18,11 @@ $(function() {
 	//input file 추가
 	$('.imgPlusBtn').click(function() {
 		event.preventDefault();
-		var inputField = '<div class="inputBox"><input type="file" name="comup_img" class="loadButton" accept=".jpg, .png"/><button class="imgMinusBtn">-</button></div>';
+		var inputField = '<div class="inputBox">'
+							+'<img src="././resources/img/cummuupload.png" alt="Uploaded Image">'
+							+'<input type="file" name="comup_img" class="loadButton" accept=".jpg, .png"/>'
+							+'<button class="imgMinusBtn">-</button>'
+						+'</div>';
 		$('.comOpenArea').append(inputField);
 	});
 	
@@ -29,17 +33,10 @@ $(function() {
 	
 	//파일 이미지 불러오기
 	$(document).on('change', '.loadButton', function(event) {
+		var imgBox = $(this).closest(".inputBox").find("img");
 		var reader = new FileReader();
 		reader.onload = function() {
-			$('.imgPreview').append('<img src="' + reader.result + '" alt="Uploaded Image">');
-		};
-	});
-	
-	//파일 이미지 불러오기
-	$(document).on('change', '.loadButton', function(event) {
-		var reader = new FileReader();
-		reader.onload = function() {
-			$('.imgPreview').append('<img src="' + reader.result + '" alt="Uploaded Image">');
+			imgBox.attr("src", reader.result);
 		};
 		reader.readAsDataURL(event.target.files[0]);
 	});

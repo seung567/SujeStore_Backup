@@ -20,8 +20,8 @@ $(function() {
 <% String customerId = (String)session.getAttribute("mainId"); %>
 	
 <% if (request.getAttribute("replyComple") != null) { %>
-var replyComple = "<%= request.getAttribute("replyComple") %>";
-alert(replyComple);
+	var replyComple = "<%= request.getAttribute("replyComple") %>";
+	alert(replyComple);
 <% } %>
 	
 	var selectedMainNaviText;

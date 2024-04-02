@@ -53,4 +53,16 @@ public class MainStoreCategoryServiceImpl implements MainStoreCategoryService {
 		logger.info("리뷰 전체 리뷰 서비스");
 		return mainStoreCategoryDao.getStoreReviewList(vo);
 	}
+	
+	@Override
+	public void updateReviewLike(MainStoreCategoryVO vo) {
+		logger.info("리뷰추천 서비스 "+vo.getRv_code());
+		mainStoreCategoryDao.updateReviewLike(vo);
+	}
+	
+	@Override
+	public String reviewLikeView(MainStoreCategoryVO vo) {
+		logger.info("리뷰추천수 불러오기 컨트롤러 "+vo.getRv_code());
+		return mainStoreCategoryDao.reviewLikeView(vo);
+	}
 }

@@ -54,7 +54,7 @@
 		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
 		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
 		<typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
-
+		<typeAlias alias="storeEachVO" type="com.suje.domain.main.StoreEachVO"/>
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
     	<typeAlias alias="adminQnAVO" type="com.suje.domain.adminviews.AdminQnAVO"/>

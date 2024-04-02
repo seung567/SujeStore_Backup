@@ -5,8 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MainStoreCategoryVO {
-
+public class StoreEachVO {
 	//cate_sub
 	public String cates_code, cates_name;
 	//cate_mid
@@ -23,13 +22,19 @@ public class MainStoreCategoryVO {
 	//review
 	public String rv_code, rv_content, m_id, rv_star, rv_like, rvp_spname;
 	
+	//goods
+	public String g_code, g_content, g_date, g_spname;
 	
-	//Page
-	public int firstNum, endNum, rnum;
+	//goods_sub
+	public String gs_code, gs_spname;
 	
-	//Limit
-	public String orderBy;
+	//goods_img
+	public String g_img;
 	
-	//통계
-	public String avgRvStar, countRvCode;
+	//Store_noti
+	public String noti_code, notit_name, noti_content, notir_date;
+	
+	//OrderInfo
+	public String o_code, o_content, o_date;
+
 }

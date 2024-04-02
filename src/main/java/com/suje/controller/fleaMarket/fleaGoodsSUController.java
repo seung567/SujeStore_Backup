@@ -49,7 +49,7 @@ public class fleaGoodsSUController {
 		logger.info("/////////////////////////////  getFleaInfo 실행");
 		
 		vo.setS_id(valueMap.get("id"));
-		vo.setF_code(Integer.parseInt(valueMap.get("fleaNum")));
+		vo.setF_code(valueMap.get("fleaNum"));
 		
 		// 상품 리스트 불러오기
 		List<FleaGoodsVO> list = goodsService.fleaGoodsListAll(vo);

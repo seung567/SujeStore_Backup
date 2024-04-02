@@ -2,14 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+<mapper namespace="FleaGoodsInfoDAO">
+
+
+<select id="getFcodeSeq" resultType="String">
+	select f_code_sqn.nextval from dual
+</select>
+
 <mapper namespace= "FleaGoodsInfoDAO">
-<!-- 
+
 <insert id="insertFleaGoodsInfo" parameterType="fleaGoodsInfo">
 
-	  INSERT INTO flea(NOTI_CODE, NOTI_CONTENT, NOTIR_DATE, NOTIT_CODE,S_ID)
-        VALUES (noti_info_sqn.nextval, #{noti_content}, sysdate, #{notit_code}, #{s_id})
 
+
+<!-- 플리마켓 상품 정보(flea)  입력 -->
+<insert id="insertFleaInfo" parameterType="fleaGoodsInfo">
+
+	INSERT INTO flea(f_code, f_date, f_sum, f_pname, f_spname, f_content, f_num, s_id, cates_code)
+	    VALUES (
+			#{f_code},
+	        sysdate,
+	        #{f_sum},
+	        #{f_pname},
+	        #{f_spname},
+	        #{f_content},
+	        #{f_num},
+	        #{s_id},
+	        #{cates_code}
+	        )
 </insert>
 
- -->
+<!-- 플리마켓 서브이미지 정보(flea_sub) 입력 --> 
+<insert id="insertFleaSubInfo" parameterType="fleaGoodsInfo">
+	INSERT INTO flea_sub(fs_code, f_code, fs_pname, fs_spname) 
+	VALUES(
+			fs_code_sqn.nextval,
+			#{f_code},
+			#{fs_pname},
+			#{fs_spname}
+			)
+</insert>
+
+
 </mapper>

@@ -51,9 +51,13 @@ public class StoreProfileController {
     @RequestMapping(value="cateSubCode", method=RequestMethod.POST)
     @ResponseBody
     public List<CategoryVO> getCateSubList(@RequestParam Map<String, String> CodeMap){
-    	
-    	
-    	return null;
+       
+       logger.info("Controller 실행 updateStoreProfile = {}",CodeMap);
+       List<CategoryVO> cateSub = categoryService.getCateSub(Integer.parseInt(CodeMap.get("cateMidCode")));
+       return cateSub;
     }
+    
+    
+    
 }
     

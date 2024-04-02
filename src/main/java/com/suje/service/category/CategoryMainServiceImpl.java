@@ -22,10 +22,16 @@ public class CategoryMainServiceImpl implements CategoryMainService {
 
 	// 중분류 카테고리 리스트
 	@Override
+	public List<CategoryVO> getCateMidList() {
+		return cateMainDAO.getCateMidList();
+	}
+
+	// 조건에 맞는 중분류 카테고리 리스트
+	@Override
 	public List<CategoryVO> getCateMid(int cateCode) {
 		return cateMainDAO.getCateMid(cateCode);
 	}
-	
+
 	// 조건에 맞는 소분류 카테고리 리스트 가져오기
 	@Override
 	public List<CategoryVO> getCateSub(int cateCode) {

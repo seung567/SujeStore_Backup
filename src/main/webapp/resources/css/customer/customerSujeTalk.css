@@ -276,13 +276,15 @@ body {
 	font-size: 15px;
 	width: 706px;
 	height: 560px;
-	overflow: auto;
+
+	
 }
 
 .orderMainContentInner{
 	max-height: 580px;
 	position: absolute;
 	bottom: 0;
+
 }
 .orderMainContent div{
 	max-width: 465px;

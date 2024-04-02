@@ -1,108 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-	rel="stylesheet">
-<link href="./resources/css/resetStyle.css" rel="stylesheet"
-	type="text/css">
-<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet"
-	type="text/css">
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SUJE</title>
-<link rel="stylesheet"
-	href="./resources/css/storeAdmin/storeGoodsSearchUpdate.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
+<link href="./resources/css/menuForm/subMenuStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./resources/css/storeAdmin/storeGoodsSearchUpdate.css" />
+<title>SUJE - 스토어 작품 조회/수정</title>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="./resources/js/storeAdmin/storeGoodsSearchUpdate.js"></script>
 <script>
-/* 	$(document).ready(function() {
-		$('.imgColumn-container img').click(function() {
-			var categoryNameFirst = $(this).data('category');
-			var categoryNameSecound = $(this).data('subcategory');
-			var categoryNameThird = $(this).data('thirdcategory');
-			var goodsContent = $(this).data('goodsinfocontent');
-			var imgCode = $(this).data('imgcode');
-			var mainImageSrc = $(this).attr('src');
-
-			console.log("First Category: " + categoryNameFirst);
-			console.log("Second Category: " + categoryNameSecound);
-			console.log("Third Category: " + categoryNameThird);
-			console.log("Goods Content: " + goodsContent);
-			console.log("Img Code:" + imgCode);
-
-			$('.goodsImg').attr('src', mainImageSrc);
-
-			$(".goodsInfo_selectBox_First option").each(function() {
-				if ($(this).text() == categoryNameFirst) {
-					$(this).prop('selected', true);
-				}
-			})
-			$(".goodsInfo_selectBox_Secound option").each(function() {
-				if ($(this).text() == categoryNameSecound) {
-					$(this).prop('selected', true);
-				}
-			})
-			$(".goodsInfo_selectBox_Third option").each(function() {
-				if ($(this).text() == categoryNameThird) {
-					$(this).prop('selected', true);
-				}
-			})
-			$('.goodsInfo_content').val(goodsContent);
-
-			$('.imgCode').val(imgCode);
-			
-		});
-		   
-	});
-	
-	
-	$(function() {
-		   $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
-		   $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(4)").addClass("checkedStateSecondCategory");
-		});  */
-
 		$(function(){
+			
+		    // 서브 메뉴바 CSS 관련 JS
+			$(function() {
+				   $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
+				   $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(4)").addClass("checkedStateSecondCategory");
+			});  
 		    
+		    // 카테고리 소분류 관련
 			$('.goodsInfo_selectBox_First option').each(function() {
 			    if ($(this).val() == ${cateCode}) {
 					$(this).prop('selected', true);
 			    }
 			});
-			
-			$(".goodsInfo_selectBox_Secound").change(function(){
-			    
-				let cateMidCode = $(this).val();
-				
-				$.ajax({
-				    type : "post",
-					url : "cateSubCode.do",
-					data : {
-					    cateMidCode : cateMidCode
-					},
-					dataType : "json",
-					contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
-					beforeSend : function(){
-
-					},
-					success : function(data){
-					    
-					},
-					error: function(request, status, error) {
-				               alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
-				   }
-				});
-			});
-
 		});
-	
-	
 </script>
 </head>
 <body>
@@ -133,11 +61,6 @@
 			<hr />
 			<h1 class="store_maintitle">스토어 작품 수정</h1>
 			<form action="updateGoodsSU.do" method="post" class="store_mainInfo">
-<%-- 			<input type="text" value="${goodVO.g_code}" name="g_code">
-				<input type="hidden" value="${goodVO.catemm_code}" name="catemm_code">
-				<input type="hidden" value="${goodVO.cates_code}" name="cates_code">
-				<input type="hidden" value="${goodVO.catem_code}" name="catem_code">
-				<input type="hidden" value="${goodVO.g_content}" name="g_content"> --%>
 				<div class="store_subCategory">
 					<label class="store_subTitle">작품 등록 번호</label>
 					<input class="imgCode" type="text" name="g_code">
@@ -153,87 +76,20 @@
 						</c:forEach>
 					</select> 
 					
-					
+					<!-- 중분류 -->
 					<select class="goodsInfo_selectBox_Secound" name="catemm_code" id="catemm_code" >
 						<c:forEach items="${cateMid}" var="vo">
 							<option value="${vo.catemm_code }">${vo.catemm_name }</option>
 						</c:forEach>
 					</select>
 					
+					<!-- 소분류 -->
 					<select class="goodsInfo_selectBox_Third" name="cates_code" id="cates_code">
-						<option selected="selected">소분류</option>
-						<option value="100">롤케이크</option>
-						<option value="101">버터크림빵</option>
-						<option value="102">마늘빵</option>
-						<option value="103">슈크림빵</option>
-						<option value="104">프레지에</option>
-						<option value="105">생크림케이크</option>
-						<option value="106">쉬폰케이크</option>
-						<option value="107">치즈케이크</option>
-						<option value="108">티라미수</option>
-						<option value="109">일반마카롱</option>
-						<option value="110">뚱카롱</option>
-						<option value="111">타르틀레트</option>
-						<option value="112">에그타르트</option>
-						<option value="113">초코칩 쿠키</option>
-						<option value="114">버터쿠키</option>
-						<option value="115">치즈쿠키</option>
-						<option value="116">땅콩쿠키</option>
-						<option value="117">바닐라쿠키</option>
-						<option value="118">황치즈쿠키</option>
-						<option value="119">조청</option>
-						<option value="120">꿀</option>
-						<option value="121">전통약과</option>
-						<option value="122">이벤트떡</option>
-						<option value="123">떡케이크</option>
-						<option value="124">팥</option>
-						<option value="125">말차</option>
-						<option value="126">밤</option>
-						<option value="127">고구마</option>
-						<option value="128">강아지 껌</option>
-						<option value="129">육포</option>
-						<option value="130">고구마치킨</option>
-						<option value="131">두부쿠키</option>
-						<option value="132">황태쿠키</option>
-						<option value="133">당근쿠키</option>
-						<option value="134">두부케이크</option>
-						<option value="135">참치케이크</option>
-						<option value="136">비프케이크</option>
-						<option value="137">티셔츠</option>
-						<option value="138">맞춤정장</option>
-						<option value="139">맨투맨</option>
-						<option value="140">커플룩</option>
-						<option value="141">신발</option>
-						<option value="142">커플링</option>
-						<option value="143">각인반지</option>
-						<option value="144">커플목걸이</option>
-						<option value="145">커플팔찌</option>
-						<option value="146">머그컵</option>
-						<option value="147">열쇠고리</option>
-						<option value="148">연필꽂이</option>
-						<option value="149">주병</option>
-						<option value="150">그릇</option>
-						<option value="151">수저</option>
-						<option value="152">화병</option>
-						<option value="153">오브제</option>
-						<option value="154">러그</option>
-						<option value="155">커스텀앨범</option>
-						<option value="156">커스텀스티커</option>
-						<option value="157">커스텀다이어리</option>
-						<option value="158">커스텀풍선</option>
-						<option value="159">커스텀박스</option>
-						<option value="160">커스텀카드</option>
-						<option value="161">커스텀폰케이스</option>
-						<option value="162">커스텀텀블러</option>
-						<option value="163">커스텀시계</option>
-						<option value="164">침대</option>
-						<option value="165">의자</option>
-						<option value="166">쇼파</option>
-						<option value="167">쿠션</option>
-						<option value="168">방석</option>
+							<!-- 소분류 출력 부분 -->
 					</select>
 					
 				</div>
+				<div class="cateMainCaption">대분류 수정은 스토어 페이지 관리에서 수정 하여 주세요!</div>
 				<div class="store_subCategory">
 					<label class="store_subTitle">작품 메인 이미지</label> <img
 						class="goodsImg" src="./resources/img/goodsImgArea.png">

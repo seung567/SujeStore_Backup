@@ -184,7 +184,11 @@ hr {
 	cursor: text;
 }
 	
-	
+.cateMainCaption{
+    margin-top: 10px;
+    margin-left: 318px;
+    color : #999999;
+}
 
 
 

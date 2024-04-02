@@ -62,14 +62,14 @@ $(function() {
 		$(this).children('.subNaviWrap').slideDown();
     });
 
-	//서브 카테고리 클릭시 이벤트
+/* 	//서브 카테고리 클릭시 이벤트
     $('.subNaviWrap a').click(function(e) {
 		// 선택된 서브 메뉴 항목 가져오기
 		selectedSubNaviText = $(this).text().trim();
 		
     	var url = "viewStoreCategory.do?page=1&mCate="+selectedMainNaviText+"&mmCate="+selectedSubNaviText+"&orderBy=1";
     	location.href = url;
-    });
+    }); */
 	
 	//정렬 선택박스 이벤트
 	$('.mainFilter').change(function() {
@@ -95,64 +95,28 @@ $(function() {
 <div class="subMenuArea">
 	<ul class="mainNaviWrap">
 		<li class="mainNavi"><a href="viewStoreCategory.do?page=1&mCate=전체&mmCate= &orderBy=1">전체</a></li>
-		<li class="mainNavi"><div>디저트<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;베이커리</a></li>
-				<li><a href="#">&nbsp;&nbsp;케이크</a></li>
-				<li><a href="#">&nbsp;&nbsp;마카롱</a></li>
-				<li><a href="#">&nbsp;&nbsp;타르트</a></li>
-				<li><a href="#">&nbsp;&nbsp;쿠키</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>전통간식<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;약과</a></li>
-				<li><a href="#">&nbsp;&nbsp;떡</a></li>
-				<li><a href="#">&nbsp;&nbsp;양갱</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>반려동물식품<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;애견간식</a></li>
-				<li><a href="#">&nbsp;&nbsp;애견쿠키</a></li>
-				<li><a href="#">&nbsp;&nbsp;애견케이크</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>의류<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;여성</a></li>
-				<li><a href="#">&nbsp;&nbsp;남성</a></li>
-				<li><a href="#">&nbsp;&nbsp;남녀공용</a></li>
-				<li><a href="#">&nbsp;&nbsp;키즈</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>주얼리<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;반지</a></li>
-				<li><a href="#">&nbsp;&nbsp;목걸이</a></li>
-				<li><a href="#">&nbsp;&nbsp;팔찌</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>수공예품<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;생활소품</a></li>
-				<li><a href="#">&nbsp;&nbsp;주방공예</a></li>
-				<li><a href="#">&nbsp;&nbsp;인테리어</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>잡화<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;문구</a></li>
-				<li><a href="#">&nbsp;&nbsp;기념품</a></li>
-				<li><a href="#">&nbsp;&nbsp;일러스트</a></li>
-			</ul>
-		</li>
-		<li class="mainNavi"><div>홈리빙<img src="././resources/img/mainSubMenuBtn.png"/></div>
-			<ul class="subNaviWrap">
-				<li><a href="#">&nbsp;&nbsp;가구</a></li>
-				<li><a href="#">&nbsp;&nbsp;패브릭</a></li>
-			</ul>
-		</li>
+		
+		<c:forEach items="${cateMainList}" var="mainVO">
+			<li class="mainNavi">
+			<div>${mainVO.catem_name }<img src="././resources/img/mainSubMenuBtn.png"/></div>
+				<ul class="subNaviWrap">
+				
+					<c:forEach items="${cateMidList}" var="midVO">
+					
+						<c:if test="${mainVO.catem_code eq midVO.catem_code}">
+							<li>
+								<a href="viewStoreCategory.do?page=1&mCate=${mainVO.catem_name }&mmCate=${midVO.catemm_name }&orderBy=1">
+									&nbsp;&nbsp;${midVO.catemm_name }
+								</a>
+							</li>
+						</c:if>
+						
+					</c:forEach>
+					
+				</ul>
+			</li>
+		</c:forEach>
+		
 	</ul>
 </div> <!-- subMenuArea -->
 <div class="mainContentsArea">

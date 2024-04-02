@@ -11,4 +11,6 @@ public interface MainStoreCategoryDao {
 	public MainStoreCategoryVO getStoreInfo(String sId);
 	public int getReviewTotalCountPage(String sId);
 	public List<MainStoreCategoryVO> getStoreReviewList(MainStoreCategoryVO vo);
+	public void updateReviewLike(MainStoreCategoryVO vo);
+	public String reviewLikeView(MainStoreCategoryVO vo);
 }

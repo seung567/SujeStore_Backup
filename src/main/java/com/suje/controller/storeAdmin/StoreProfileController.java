@@ -31,7 +31,7 @@ public class StoreProfileController {
     
     @RequestMapping(value="storeProfile")
     public String showStoreProfile(@RequestParam String id, Model model) {
-    	
+    	logger.info("Controller 실행 showStoreProfile");
         StoreProfileVO store = storeService.getStoreById(id);
         List<CategoryVO> cateMainList = categoryService.getCateMain();
         
@@ -43,18 +43,19 @@ public class StoreProfileController {
     
     @RequestMapping(value="updateStoreProfile", method=RequestMethod.POST)
     public String updateStoreProfile(@ModelAttribute StoreProfileVO updatedStoreProfile) {
+    	logger.info("Controller 실행 updateStoreProfile");
 		storeService.updateStoreProfile(updatedStoreProfile); 
-    	System.out.println(updatedStoreProfile.getS_id());
         return "redirect:/storeProfile.do?id=" + updatedStoreProfile.getS_id();
     }
     
     @RequestMapping(value="cateSubCode", method=RequestMethod.POST)
     @ResponseBody
     public List<CategoryVO> getCateSubList(@RequestParam Map<String, String> CodeMap){
-       
-       logger.info("Controller 실행 updateStoreProfile = {}",CodeMap);
-       List<CategoryVO> cateSub = categoryService.getCateSub(Integer.parseInt(CodeMap.get("cateMidCode")));
-       return cateSub;
+   	
+    	logger.info("Controller 실행 updateStoreProfile = {}",CodeMap);
+    	List<CategoryVO> cateSub = categoryService.getCateSub(Integer.parseInt(CodeMap.get("cateMidCode")));
+    	return cateSub;
+
     }
     
     

@@ -49,7 +49,6 @@
 		<typeAlias alias="fleaDelivery" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
 		
 		<!-- 최수빈 설정 부분 -->
-
 		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
 		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
 		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
@@ -57,9 +56,7 @@
 		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
 		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
 		<typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
-
 		<typeAlias alias="storeEachVO" type="com.suje.domain.main.StoreEachVO"/>
-
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>
@@ -67,5 +64,6 @@
 		<typeAlias alias="realtimeVO" type="com.suje.domain.main.MainRealTimeReviewVO"/>
 		
 	</typeAliases>
+
 
 </configuration> 

@@ -149,7 +149,7 @@ function mainContent(item){
     	}	
 		
 		// 요청 사항 Content
-		if(item.etc_spname != null){mainDetailDiv.append("<img class='etcImg' src='./resources/DB/" + item.etc_spname + "' />"); }
+		if(item.etc_spname != null){mainDetailDiv.append("<img class='etcImg' src='./resources/img/DBServer/" + item.etc_spname + "' />"); }
     	mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+item.content+"' readonly/></div>");  // 요청 사항 텍스트
  		mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>"); // 채팅 뒷 배경
     	mainDetailDiv.append("<div class='dateDetail'>" + item.etc_date + "</div>"); // 채팅 입력 날짜

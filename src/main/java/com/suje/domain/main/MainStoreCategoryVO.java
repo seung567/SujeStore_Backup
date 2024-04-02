@@ -31,5 +31,5 @@ public class MainStoreCategoryVO {
 	public String orderBy;
 	
 	//통계
-	public String avgRvStar, countRvCode;
+	public int avgRvStar, countRvCode;
 }

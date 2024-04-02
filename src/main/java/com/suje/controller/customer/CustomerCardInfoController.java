@@ -24,18 +24,17 @@ public class CustomerCardInfoController {
 	@RequestMapping(value = "cardInfomation")
 	public String getCardInfo(@RequestParam(value = "id") String id, Model model) {
 		
-		System.out.println("=> CardInfoController  => getCardInfo 실행");
+		logger.info("Controller 실행 getCardInfo");
 		CardInfoVO infoVO = cardInfoService.getCardInfo(id);
 		model.addAttribute("infoVO", infoVO);
-		
 		return "customer/customerCard";	
 	}
 	
 	// 회원 정보 수정 처리.
 	@RequestMapping(value = "cardModify" , method=RequestMethod.POST)
 	public String updateCardInfo(@ModelAttribute("vo") CardInfoVO vo, Model model) {
-		System.out.println(vo.getM_id());
-		System.out.println("updateCardInfo 컨트롤 실행");
+		
+		logger.info("Controller 실행 getCardInfo");
 		
 		String replaceVal = vo.getCardNum();
 		replaceVal = replaceVal.replace("-","");
@@ -44,7 +43,6 @@ public class CustomerCardInfoController {
 		
 		int infoVO = cardInfoService.updateCardInfo(vo);
 		model.addAttribute("infoVO", infoVO);
-		System.out.println(infoVO);
 		return "redirect:/cardInfomation.do?id="+vo.getM_id();
 		
 	}

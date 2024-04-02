@@ -193,7 +193,6 @@ $(function() {
 		</div>
 	</c:if>
 	
-	
 	<!-- total 콘텐츠가 존재하지 않을 시 호출 -->
 	<c:if test="${pageTotalCount eq 0}">
 		<div class="noneItemArea">스토어가 존재하지 않습니다.</div>

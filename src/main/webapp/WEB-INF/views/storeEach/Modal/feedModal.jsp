@@ -37,9 +37,9 @@
 			<!--배치된 img들을 하나의 img만 보이게 가리기 위한 태그-->
 			<div class="itemImage">
 				<!--img들을 좌우배치할 태그-->
-					<img src="./resources/img/1_main.jpg"> 
-					<img src="./resources/img/2_main.jpg"> 
-					<img src="./resources/img/3_main.jpg">
+					<div><img src="./resources/img/exImg.jpg"></div>
+					<div><img src="./resources/img/exImg.jpg"></div>
+					<div><img src="./resources/img/exImg.jpg"></div>
 			</div>
 		</div>
 		<button class="back">❮</button>
@@ -73,6 +73,7 @@
 					<option>떡</option>
 					<option>양갱</option>
 					<option>애견간식</option>
+					<option>애견쿠키</option>
 					<option>애견케이크</option>
 					<option>여성</option>
 					<option>남성</option>

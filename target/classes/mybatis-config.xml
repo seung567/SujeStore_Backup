@@ -22,6 +22,7 @@
 		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
 	
 		<!-- 장경희 설정 부분 -->
+
       <typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
       <typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
       <typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
@@ -43,16 +44,21 @@
 		<typeAlias alias="cancelOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="returnOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="storeFinalOrder" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
+		<typeAlias alias="storeDelivery" type="com.suje.domain.storeOrder.StoreOrderCheckVO"/>
 		<typeAlias alias="fleaOrderCheck" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
+		<typeAlias alias="fleaDelivery" type="com.suje.domain.storeOrder.FleaOrderCheckVO"/>
 		
 		<!-- 최수빈 설정 부분 -->
-      <typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
-      <typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
-      <typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
-      <typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
-      <typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
-      <typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
-      <typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
+
+		<typeAlias alias="mainLoginVO" type="com.suje.domain.main.MainLoginVO"/>
+		<typeAlias alias="AdminManageVO" type="com.suje.domain.adminviews.AdminManageVO"/>
+		<typeAlias alias="adminPntVO" type="com.suje.domain.adminviews.AdminPntVO"/>
+		<typeAlias alias="mainVO" type="com.suje.domain.main.MainVO"/>
+		<typeAlias alias="mainFleaMarketVO" type="com.suje.domain.main.MainFleaMarketVO"/>
+		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
+		<typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
+
+		<typeAlias alias="storeEachVO" type="com.suje.domain.main.StoreEachVO"/>
 
 
 		<!-- 이정석 설정 부분 -->

@@ -51,7 +51,7 @@ $(function() {
 			<div class="subtitle">카드 등록/수정</div>
 			<div class="myPageLine"></div>
 			
-			<form action="cardModify.do?id=123" method="post">
+			<form action="cardModify.do?id=${infoVO.m_id }" method="post">
 			<div class="mainInputFormTitle">
 				<!-- 각 입력부분 제목 -->
 				<div>

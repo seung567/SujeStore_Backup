@@ -67,8 +67,64 @@
    	<footer></footer>
 
    		<div>
-			<jsp:include page="Modal/deliveryModal.jsp"></jsp:include>
+			<jsp:include page="Modal/fleadeliveryModal.jsp"></jsp:include>
 		</div>
    
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+    // 모달이 열릴 때 실행되는 함수
+    $(".check-delivery").on("click", function() {
+        var fp_code = $(this).closest("tr").find("td:eq(0)").text(); // 해당 주문의 최종주문번호(fp_code)를 가져옵니다.
+
+        $.ajax({
+            url: "fleadelivery.do",
+            method: "get",
+            data: { fpCode: fp_code },
+            dataType: "json",
+            success: function(data) {
+                // AJAX 요청이 성공적으로 완료되면 모달에 데이터를 채웁니다.
+                fillModalWithData(data);
+                $(".fleadeliveryModal").modal("show"); // 모달을 엽니다.
+            },
+            error: function() {
+                alert("주문 세부 정보를 가져오는 중에 오류가 발생했습니다.");
+            }
+        });
+    });
+        // 모달에 데이터를 채우는 함수
+        function fillModalWithData(data) {
+            // 가져온 데이터를 각 필드에 채웁니다.
+		    // 주문 번호
+		    $("#fp_code").val(data.fp_code);
+		    
+		    // 수령인
+		    $('#fd_name').val(data.fd_name);
+		    
+		    // 수령인 번호
+		    $('#fd_tel').val(data.fd_tel);
+		    
+		    // 배송지
+		    $('#fd_addr').val(data.fd_addr);
+		    
+		    // 배송메모
+		    $('#fd_memo').val(data.fd_memo);
+
+		    // 배송 날짜
+		    $('#fd_date').val(data.fd_date);
+		    
+            if (data.fd_state === "발송 전") {
+                $("#delibefore").css("background-color", "#ADEFD1");
+                $("#deliafter").css("background-color", "white"); // 기본값으로 설정
+            } else if (data.fd_state === "발송처리") {
+                $("#delibefore").css("background-color", "white");
+                $("#deliafter").css("background-color", "#ADEFD1");
+            }
+		    
+        }
+    });
+
+
+
+</script>
 </html>

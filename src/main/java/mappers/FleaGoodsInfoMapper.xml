@@ -2,12 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="FleaGoodsInfoDAO">
 
-<!-- f_code 시퀀스 조회 -->
+
 <select id="getFcodeSeq" resultType="String">
 	select f_code_sqn.nextval from dual
 </select>
+
+<mapper namespace= "FleaGoodsInfoDAO">
+
+<insert id="insertFleaGoodsInfo" parameterType="fleaGoodsInfo">
+
 
 
 <!-- 플리마켓 상품 정보(flea)  입력 -->

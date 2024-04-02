@@ -194,5 +194,57 @@ $(document).ready(function() {
 		    $('#requirements').val(data.fo_etc);
         }
     });
+    
+$(document).ready(function() {
+    // 모달이 열릴 때 실행되는 함수
+    $(".check-delivery").on("click", function() {
+        var fo_code = $(this).closest("tr").find("td:eq(1)").text(); // 해당 주문의 최종주문번호(fo_code)를 가져옵니다.
+
+        $.ajax({
+            url: "storedelivery.do",
+            method: "get",
+            data: { foCode: fo_code },
+            dataType: "json",
+            success: function(data) {
+                // AJAX 요청이 성공적으로 완료되면 모달에 데이터를 채웁니다.
+                fillModalWithData(data);
+                $(".deliveryModal").modal("show"); // 모달을 엽니다.
+            },
+            error: function() {
+                alert("주문 세부 정보를 가져오는 중에 오류가 발생했습니다.");
+            }
+        });
+    });
+        // 모달에 데이터를 채우는 함수
+        function fillModalWithData(data) {
+            // 가져온 데이터를 각 필드에 채웁니다.
+		    // 주문 번호
+		    $("#p_code").val(data.p_code);
+		    
+		    // 수령인
+		    $('#d_name').val(data.d_name);
+		    
+		    // 수령인 번호
+		    $('#d_tel').val(data.d_tel);
+		    
+		    // 배송지
+		    $('#d_addr').val(data.d_addr);
+		    
+		    // 배송메모
+		    $('#d_memo').val(data.d_memo);
+
+		    // 배송 날짜
+		    $('#d_date').val(data.d_date);
+		    
+            if (data.d_state === "발송 전") {
+                $("#delibefore").css("background-color", "#ADEFD1");
+                $("#deliafter").css("background-color", "white"); // 기본값으로 설정
+            } else if (data.d_state === "발송처리") {
+                $("#delibefore").css("background-color", "white");
+                $("#deliafter").css("background-color", "#ADEFD1");
+            }
+		    
+        }
+    });
 </script>
 </html>

@@ -53,11 +53,24 @@ public class CustomerPayDAOImpl implements CustomerPayDAO {
 	
 	@Override
 	public void insertFleaPayCancel(PayVO vo) {
-		System.out.println("=> flea결제취소요청 Repository");
-		mybatis.insert("CustomerOrderListDAO", vo);
-		System.out.println("insertFleaPayCancel vo : " + vo);
+		logger.info("flea 결제취소요청 Repository = {}",vo.getFp_code());
+		mybatis.insert("CustomerOrderListDAO.insertFleaPayCancel", vo);
+		logger.info("insertFleaPayCancel Repository 성공");
 	}
 
+	@Override
+	public void insertOrderPayReturn(PayVO vo) {
+		logger.info("order 반품요청 Repository = {}",vo.getP_code());
+		mybatis.insert("CustomerOrderListDAO.insertOrderPayReturn", vo);
+		logger.info("insertOrderPayReturn Repository 성공");
+	}
+	
+	@Override
+	public void insertOrderPayCancel(PayVO vo) {
+		logger.info("order 결제취소요청 Repository = {}",vo.getP_code());
+		mybatis.insert("CustomerOrderListDAO.insertOrderPayCancel", vo);
+		logger.info("insertOrderPayCancel Repository 성공");
+	}
 	
 	
 }

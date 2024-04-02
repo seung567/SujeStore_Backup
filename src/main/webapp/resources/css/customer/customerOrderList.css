@@ -115,6 +115,13 @@ table input {
 	background-color: #ADEFD1;
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
+	cursor: pointer;
+   transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+table input:hover {
+   border: 2px solid #ADEFD1;
+   background-color: #fff;
 }
 
 .List {
@@ -136,6 +143,10 @@ table input {
 }
 
 .returnModalView {
+	display: none; 
+}
+
+.fleaPayCancelModalView {
 	display: none; 
 }
 

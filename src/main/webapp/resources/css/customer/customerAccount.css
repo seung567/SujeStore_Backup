@@ -182,7 +182,13 @@ body {
 	background-color: #ADEFD1;
 	border: 2px solid #ADEFD1;
 	border-radius: 10px;
+	cursor: pointer;
+   transition: background-color 0.2s ease, border 0.2s ease;
+}
 
+.modifyBtn input:hover {
+   border: 2px solid #ADEFD1;
+   background-color: #fff;
 }
 
 .mypagebtn{

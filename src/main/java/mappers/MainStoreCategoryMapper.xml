@@ -145,7 +145,7 @@
 
 <!-- review 상세정보 호출 -->
 <select id="getStoreReviewList" resultType="mainStoreCategoryVO">
-	select r.rv_content, o.m_id, r.rv_star, r.rv_like, rp.rvp_spname
+	select r.rv_code, r.rv_content, o.m_id, r.rv_star, r.rv_like, rp.rvp_spname
 	from review r, review_photo rp, pay p, final_order fo, orderinfo o, store s
 	where s.s_id=o.s_id
 		and r.rv_code=rp.rv_code(+)
@@ -154,5 +154,19 @@
 		and p.p_code=r.p_code
 		and s.s_id=#{s_id}
 </select> 
+
+<!-- 리뷰 추천 업데이트 -->
+<update id="updateReviewLike" parameterType="mainStoreCategoryVO">
+	update review
+	set rv_like=rv_like+1
+	where rv_code=#{rv_code}
+</update>
+
+<!-- 리뷰 추천수 불러오기 -->
+<select id="reviewLikeView" parameterType="mainStoreCategoryVO" resultType="String">
+	select rv_like
+	from review
+	WHERE rv_code=#{rv_code}
+</select>
 
 </mapper>

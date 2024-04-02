@@ -12,5 +12,5 @@ public class ReviewVO {
 	
 	
 	// 페이징 관련 메소드
-	private int totalPageCount,firstNum,endNum;
+	private int totalPageCount, firstNum, endNum;
 }

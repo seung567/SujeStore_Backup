@@ -37,15 +37,15 @@
 <select id="getCustomerQnAA" parameterType="Integer" resultType="customerQnA">
 	select qna_code, qna_title, qna_adate, qna_reply from qna where qna_code = #{qna_code}
 </select>
-
-<!-- 고객 Q&A 전체 페이지 수 계산 -->
+<!-- 
+ 고객 Q&A 전체 페이지 수 계산 
 <select id="getCountPageTotal" parameterType="String" resultType="Integer">
 	select count(*) from qna where m_id = #{m_id}
 </select>
-
+ -->
 <!-- 전체 페이지 수 계산 쿼리-->
-<select id="getTotalCountPage" parameterType="String" resultType="Integer">
-	select count(*) from review_test re, pay p, final_order fo, orderinfo oi 
+<select id="getCountPageTotal" parameterType="String" resultType="Integer">
+	select count(*) from review re, pay p, final_order fo, orderinfo oi 
 	where re.p_code = p.p_code 
 	and p.fo_code = fo.fo_code 
 	and fo.o_code = oi.o_code 

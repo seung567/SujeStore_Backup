@@ -49,5 +49,13 @@ public class StoreOrderCheckController {
 		
 		return storefinalVO;
 	}
-
+	@RequestMapping(value="storedelivery", method = RequestMethod.GET)
+	@ResponseBody
+	public StoreOrderCheckVO getStoreDelivery(@RequestParam Map<String,String> foCode) {
+		
+		logger.info("getStoreDelivery");
+		StoreOrderCheckVO storedeliVO = ordercheckService.getStoreDelivery(Integer.parseInt(foCode.get("foCode")));
+		
+		return storedeliVO;
+	}
 }

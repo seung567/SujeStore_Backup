@@ -12,3 +12,4 @@ public interface CategoryMainDAO  {
 	public List<CategoryVO> getCateSub(int cateCode); // 조건에 맞는 소분류 카테고리 리스트 가져오기
 	
 }
+

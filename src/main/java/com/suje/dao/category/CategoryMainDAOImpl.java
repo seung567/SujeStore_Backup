@@ -37,5 +37,6 @@ public class CategoryMainDAOImpl  implements CategoryMainDAO{
 	public List<CategoryVO> getCateSub(int cateCode) {
 		return mybatis.selectList("categoryDAO.getCateSub",cateCode);
 	}
+
 }
  

@@ -25,6 +25,15 @@
 
 	$(function() {
 		
+	<%-- 	<% 
+		String storeId = (String)session.getAttribute("mainId");
+		%>
+		
+		<% if (request.getAttribute("insertFleaInfoSuccess") != null) { %>
+		var insertFleaInfoSuccess = "<%= request.getAttribute("insertFleaInfoSuccess") %>";
+		alert(insertFleaInfoSuccess);
+	<% } %> --%>
+		
 		// 서브 메뉴바 클래스명 추가 // CSS 적용
 		$(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");	
 		$(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
@@ -127,11 +136,6 @@
 	    var formNum = $("#goodsTotalNum").val();
 	    var formContent = $("#goodsInfoContent").val();
         
-		
-	    /* var formMainImg = $("#goodsMainImg")[0].files[0]; // 첫 번째 이미지 파일 선택
-	    var formSubImg = $("#goodsSubImg")[0].files; // 모든 서브 이미지 파일 선택 */
-	    
-		/* alert(formFcode); */
 		
 		$.ajax({
 			url : "modifyGoodsSU.do",
@@ -357,9 +361,9 @@
 					<div class="goodsSubImg">
 						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
 						<input type="file" class="fileInput">
-					</div>s
+					</div>
 					
-				</div>
+				</div> 
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 가격</label> <input type="text"

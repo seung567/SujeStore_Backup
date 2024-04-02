@@ -1,6 +1,8 @@
 package com.suje.dao.customer;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -8,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.suje.domain.customer.PayVO;
 import com.suje.domain.customer.ReviewVO;
 import com.suje.service.customer.CustomerReviewServiceImpl;
 
@@ -20,9 +23,23 @@ public class CustomerReviewDAOImpl implements CustomerReviewDAO {
 	SqlSessionTemplate mybatis;
 	
 	@Override
-	public List<ReviewVO> getCustomerReview(String id) {
-		logger.info("getCustomerReview 실행");
-		return mybatis.selectList("CustomerDAO.getCustomerReview", id);
+	public int getCountPageTotal(String id) {
+		logger.info("getCountPageTotal // Repository");
+		return mybatis.selectOne("CustomerDAO.getCountPageTotal", id);
+	}
+	
+	@Override
+	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap) {
+		logger.info("getCustomerReview // Repository");
+
+		Map<String,Object> finalResultMap = new HashMap<String, Object>();
+
+		List<ReviewVO> customerReview = mybatis.selectList("CustomerDAO.getCustomerReview", resultMap);
+	
+		// 맵에 저장 하여 return
+		finalResultMap.put("customerReview", customerReview);
+		
+		return finalResultMap;
 	}
 	
 	@Override

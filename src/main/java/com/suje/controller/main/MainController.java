@@ -25,9 +25,11 @@ public class MainController {
 	public String viewIndexMain(Model model) {
 		
 		logger.info("인덱스 메인 호출 컨트롤러");
-		List<MainVO> voList = mainService.getRecentRealTimeReview();
+		List<MainVO> voReviewList = mainService.getRecentRealTimeReview();
+		List<MainVO> voFeedList = mainService.getRecentStoreFeed();
 		
-		model.addAttribute("realTimeReview", voList);
+		model.addAttribute("realTimeReview", voReviewList);
+		model.addAttribute("realTimeFeed", voFeedList);
 		
 		return "main";
 	}

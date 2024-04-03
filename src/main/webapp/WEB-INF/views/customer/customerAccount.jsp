@@ -35,7 +35,6 @@ $(function(){
 			$(this).prop('selected', true);
 	    }
 	});
-    
 	if("<%=request.getAttribute("state") %>" !="null"){
 		alert("<%=request.getAttribute("state") %>");
 		

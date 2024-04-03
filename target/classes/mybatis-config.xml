@@ -35,6 +35,7 @@
 		<typeAlias alias="customerPay" type="com.suje.domain.customer.PayVO" />
 		
 		<!-- 김동현 설정 부분 -->
+		<typeAlias alias="storeAccountInfo" type="com.suje.domain.storeAdmin.StoreAccountVO"/>
 		<typeAlias alias="storeProfile" type="com.suje.domain.storeAdmin.StoreProfileVO"/>
 		<typeAlias alias="storeGoodsSU" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeGoodsInfo" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
@@ -55,6 +56,7 @@
 		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
 		<typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
 		<typeAlias alias="storeEachVO" type="com.suje.domain.main.StoreEachVO"/>
+		<typeAlias alias="mainPopularRankVO" type="com.suje.domain.main.MainPopularRankVO"/>
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>

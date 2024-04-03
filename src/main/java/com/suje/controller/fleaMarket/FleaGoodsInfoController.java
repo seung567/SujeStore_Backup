@@ -64,7 +64,7 @@ public class FleaGoodsInfoController {
 			String ext1 = FilenameUtils.getExtension(imgFiles.getOriginalFilename()); // 파일의 확장자 
 			UUID uuid1 = UUID.randomUUID(); // 파일의 새로운 닉네임 
 			fileName = uuid1+"."+ext1; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
-			imgFiles.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\" + fileName));
+			imgFiles.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\img\\DBServer\\" + fileName));
 
 			vo.setF_pname(originalFileName);
 			vo.setF_spname(fileName);

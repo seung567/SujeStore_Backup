@@ -60,7 +60,7 @@
 							<div>
 								<div class="customerInfoList">
 									<img alt="" src="./resources/img/custmerLogo.png" />
-									<div>${storeVO.m_id}</div>
+									<div>${storeVO.m_name}</div>
 								</div> 
 								<div>${storeVO.o_date}</div>
 								<input type="hidden" value="${storeVO.o_code }" />
@@ -133,11 +133,11 @@
 						<!-- 요청사항 전송 -->
 						<form id="etcStoreInsert" action="insertStoreEtc.do" enctype="multipart/form-data">
 							<div>
-								<textarea name="etc_content"></textarea>
+								<textarea class="etcContent" name="etc_content"></textarea>
 								<input type="submit" value="전송" />
 								<input type="hidden" class="orderNum" name="o_code"/>
 								<input type="hidden" value="77001" name="etc_type_code"/>
-								<input type="hidden" value=${id } name="s_id" />
+								<input type="hidden" value=${id } name="s_id" class="s_id"/>
 							</div>
 						</form>
 						<!-- 요청사항 전송 -->
@@ -162,21 +162,21 @@
 </body>
 
 <script type="text/javascript">
-
-	$(function() {
-		// 최종 주문서 조회 취소 버튼 이벤트
-		$('.viewCancel').click(function() {
-			$(".storeOrderInsertModal").slideUp(200);
-			$(".modalWrap").fadeOut(200);
-		});
-		// 이미지 파일명 불러오기
-		$('#talkImgUpload').change(function() {
-			$(".filebox input[type='text']").val($(this).val());
-		});
-		
-
-		
+    $(function() {
+	// 최종 주문서 조회 취소 버튼 이벤트
+	$('.viewCancel').click(function() {
+	    $(".storeOrderInsertModal").slideUp(200);
+	    $(".modalWrap").fadeOut(200);
 	});
-	
+	// 이미지 파일명 불러오기
+	$('#talkImgUpload').change(function() {
+	    $(".filebox input[type='text']").val($(this).val());
+	});
+
+   });
+    
+    
+		
+
 </script>
 </html>

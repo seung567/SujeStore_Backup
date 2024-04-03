@@ -47,26 +47,13 @@
 					<div>
 						<div>
 							<select class="cateFirst">
-								<option>베이커리</option>
-								<option >케이크</option>
-								<option>마카롱</option>
-								<option>타르트</option>
-								<option>쿠키</option>
+
 							</select>
 						</div>
 
 						<div>
 							<select class="cateSecond">
-								<option>롤케이크</option>
-								<option>버터크림빵</option>
-								<option>마늘빵</option>
-								<option>슈크림빵</option>
-								<option>프레지에</option>
-								<option>생크림케이크</option>
-								<option>쉬폰케이크</option>
-								<option >치즈케이크</option>
-								<option>일반마카롱</option>
-								<option>뚱카롱</option>
+	
 							</select>
 						</div>
 					</div>

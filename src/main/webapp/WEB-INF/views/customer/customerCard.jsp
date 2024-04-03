@@ -28,6 +28,7 @@
 <script type="text/javascript" src="./resources/js/customer/customerCard.js"></script>
 <script type="text/javascript">
 
+
 $(function(){
 	
 	var selectcard="${vo.card_company}"

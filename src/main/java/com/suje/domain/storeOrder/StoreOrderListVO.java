@@ -8,7 +8,7 @@ import lombok.Setter;
 public class StoreOrderListVO {
 
 	private int o_code;
-	private String o_content, m_id, o_date, s_id;
+	private String o_content, m_id, o_date, s_id, m_name;
 	
 	// 페이징 관련 메소드
 	private int totalPageCount,firstNum,endNum;

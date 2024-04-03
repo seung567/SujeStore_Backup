@@ -24,7 +24,7 @@
 				success : function(data) {
 				    
 				    /* 상단 메인 스토어명 표기 */
-				   	$(".customerInfo>div:first-child>div:nth-child(2)").text(data['etcList'][0].s_id); 
+				   	$(".customerInfo>div:first-child>div:nth-child(2)").text(data['etcList'][0].s_name); 
 				   	
 				    $(".customerInfo>div:nth-child(2)").text(data['etcList'][0].o_date); // 주문 요청일
 				    $(".activeTalkTitle>div:nth-child(2) input").val(data['etcList'][0].o_code); // 주문번호
@@ -41,7 +41,7 @@
 					}); 
 			    	/*최종 주문서 출력*/
 			    	if(data['finalVO'] !=null){
-				    	finalOrder(data['finalVO'],data['etcList'][0].s_id);
+				    	finalOrder(data['finalVO'],data['etcList'][0].s_name);
 			    	}
 				},
 				error : function(status) {
@@ -49,50 +49,69 @@
 				}
 			});
 			
+			// 더블 submit 방지 변수
+			var doubleSubmitFlag = false;
+			
 			// 요청 사항 전송 버튼 눌렀을때 실행되는 이벤트
-			$("#etcUploadInsert").submit(function(){
+			$("#etcUploadInsert").off('submit').submit(function(){
 			
 				var formData = new FormData(this);
-					
-				$.ajax({
-					type : "post",
-					url : "insertEtcContent.do",
-					data : formData,
-					dataType : "json",
-					processData: false, // 제이쿼리 자동실행 하지 않도록 설정 - formData 그대로 전송되기 위함
-					contentType: false, // formData 에 저장되어 있는 헤더 설정 그대로 보내주기 위함
-					beforeSend : function(){
-		 			    if( $(".orderMainDetail") != ""){
-							$(".orderMainDetail").remove();
-					    }
-					},
-					success : function(data){
-					
-						if(data['state'] == '1'){alert("요청사항 등록 성공!")}
-						else{alert("등록실패 - 내부문제 관리자 문의해주세요");}
-						
-					    /* 최초 주문사항 출력 */
-					    firstOrder(data['etcList']);
-							
-					    /* 주문 요청 사항 메인 출력*/
-					    $(data['etcList']).each(function(index,item){
-					        if(item.etc_content != null){
-					    		mainContent(item);
-					    	 } 
-						}); 
-				    	/*최종 주문서 출력*/
-				    	if(data['finalVO'] !=null){
-					    	finalOrder(data['finalVO'],data['etcList'][0].s_id);
-				    	}
-						
-					},error: function(request, status, error) {
-		               alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
-		            }
-					
-				});
 				
-				return false;
+				if(doubleSubmitFlag){
+					alert("처리중입니다! 잠시만 기달려주세요 ~");
+					return false;
+				}else{
+				
+					doubleSubmitFlag = true;
+					
+					$.ajax({
+						type : "post",
+						url : "insertEtcContent.do",
+						data : formData,
+						dataType : "json",
+						processData: false, // 제이쿼리 자동실행 하지 않도록 설정 - formData 그대로 전송되기 위함
+						contentType: false, // formData 에 저장되어 있는 헤더 설정 그대로 보내주기 위함
+						beforeSend : function(){
+			 			    if( $(".orderMainDetail") != ""){
+								$(".orderMainDetail").remove();
+						    }
+						    
+						    
+						},
+						success : function(data){
+						
+							if(data['state'] == '1'){alert("요청사항 등록 성공!")}
+							else{alert("등록실패 - 내부문제 관리자 문의해주세요");}
+							
+						    /* 최초 주문사항 출력 */
+						    firstOrder(data['etcList']);
+								
+						    /* 주문 요청 사항 메인 출력*/
+						    $(data['etcList']).each(function(index,item){
+						        if(item.etc_content != null){
+						    		mainContent(item);
+						    	 } 
+							}); 
+					    	/*최종 주문서 출력*/
+					    	if(data['finalVO'] !=null){
+						    	finalOrder(data['finalVO'],data['etcList'][0].s_name);
+					    	}
+							
+							// 초기화
+							$(".etcContent").val("");
+							$(".filebox input[type='text']").val("");
+							
+						},error: function(request, status, error) {
+			               alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+			            }
+						
+					});
+					
+					doubleSubmitFlag = false;
+					return false;
+				}
 			});
+			
 		});
 	});
 	
@@ -111,7 +130,8 @@ function firstOrder(data){
     	
     	chatDetail.append("<div>" + data[0].m_id + "</div>");    
     	
-    	mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+data[0].o_content+"'  readonly/></div>"); 
+    	// mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+data[0].o_content+"'  readonly/></div>");
+    	mainDetailDiv.append("<div><textarea id='orderCheck'  readonly>" + data[0].o_content + "</textarea>");  // 요청 사항 텍스트 
     	mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>");
     	mainDetailDiv.append("<div class='dateDetail'>주문 제작 요청</div>");
     	
@@ -143,16 +163,19 @@ function mainContent(item){
     	
     	//대화 사용자명
     	if(item.etc_type_code == 77001){
-    		chatDetail.append("	<div>" + item.s_id + "</div>");
+    		chatDetail.append("	<div>" + item.s_name + "</div>");
     	}else{
     		chatDetail.append("<div>" + item.m_id + "</div>");    
     	}	
 		
 		// 요청 사항 Content
 		if(item.etc_spname != null){mainDetailDiv.append("<img class='etcImg' src='./resources/img/DBServer/" + item.etc_spname + "' />"); }
-    	mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+item.content+"' readonly/></div>");  // 요청 사항 텍스트
+//	   	mainDetailDiv.append("<div><input id='orderCheck' type='text' value='"+item.content+"' readonly/></div>");  // 요청 사항 텍스트
+	   	mainDetailDiv.append("<div><textarea id='orderCheck'  readonly>" + item.content + "</textarea>");  // 요청 사항 텍스트
  		mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>"); // 채팅 뒷 배경
     	mainDetailDiv.append("<div class='dateDetail'>" + item.etc_date + "</div>"); // 채팅 입력 날짜
+    	
+    	console.log(document.querySelector('#orderCheck').offsetHeight);
     	
     	$(".orderMainContent").css("overflow" , "auto");
     	$(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
@@ -187,6 +210,9 @@ function finalOrder(data,storeID){
  // 최종 주문서 조회 함수
 function finalOroderCheck(){
     
+    $(".cateFirst option").remove();
+	$(".cateSecond option").remove();
+	
     $.ajax({
 	
 		type : "get",
@@ -205,19 +231,10 @@ function finalOroderCheck(){
 		    // 최종 주문 번호
 		    $(".customerOrderListTitle input").val(data.fo_code);
 		    
-		    //상품 카테고리 1
-		    $('.cateFirst option').each(function(){
-				if($(this).text() == data.cates_name){
-				    $(this).prop('selected', true);
-				}
-		    });
-		    
-		    //상품 카테고리 2
-		    $('.cateSecond option').each(function(){
-				if($(this).text() == data.catemm_name){
-				    $(this).prop('selected', true);
-				}
-		    });
+			$(".cateFirst").append("<option value=" + data.catemm_code + " >" + data.catemm_name + "</option>");
+			$(".cateSecond").append("<option value=" + data.cates_code + ">" + data.cates_name + "</option>");
+			$(".cateFirst").attr("disabled", "disabled");
+			$(".cateSecond").attr("disabled", "disabled");
 		    
 		    // 수량
 		    $('#countInput').val(data.fo_num);

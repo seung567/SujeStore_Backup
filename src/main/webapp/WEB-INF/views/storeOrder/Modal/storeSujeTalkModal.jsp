@@ -41,28 +41,19 @@
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<div>
-							<select class="cateFirst">
-								<option>베이커리</option>
-								<option >케이크</option>
-								<option>마카롱</option>
-								<option>타르트</option>
-								<option>쿠키</option>
+							<select class="cateFirst" disabled="disabled">
+									<!-- 중분류 카테고리 설정 -->
 							</select>
 						</div>
 
 						<div>
 							<select class="cateSecond" name="cates_code"><!-- 소 카테고리 -->
-								<option value="100">롤케이크</option>
-								<option value="101">버터크림빵</option>
-								<option value="102">마늘빵</option>
-								<option value="103">슈크림빵</option>
-								<option value="104">프레지에</option>
-								<option value="105">생크림케이크</option>
-								<option value="106">쉬폰케이크</option>
-								<option value="107">치즈케이크</option>
-								<option value="109">일반마카롱</option>
-								<option value="110">뚱카롱</option>
+									<!-- 소분류 카테고리 설정 -->
 							</select>
+						</div>
+						
+						<div>
+							<input class="updateBtn" type="button" value="카테고리수정"/>
 						</div>
 					</div>
 					<!-- Content 두번째 라인 -->

@@ -22,8 +22,7 @@
 <title>메뉴바</title>
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet" href="./resources/css/customer/customerMenuBar.css" />
-<script type="text/javascript"
-	src="./resources/js/customer/customerMenuBar.js"></script>
+<script type="text/javascript" src="./resources/js/customer/customerMenuBar.js"></script>
 </head>
 <body>
 		<div class="mainContentleft">
@@ -44,12 +43,12 @@
 				<a href="customerAccount.do?id=<%=user %>">계좌 등록/수정</a>
 			</div><!-- 계좌 등록/ 수정 -->
 			
-			<div class="subTitle orderList">
+			<div class="subTitle orderListMenubar">
 				<a href="getPayList.do?id=<%=user %>&orderPage=1&fleaPage=1">주문 내역 조회</a>
 			</div><!-- 주문 내역 조회-->
 			
 			<div class="subTitle reviews">
-				<a href="customerReview.do?id=<%=user%>&page=1">후기 작성</a>
+				<a href="getCustomerReview.do?id=<%=user%>&page=1">후기 작성</a>
 			</div><!-- 후기 작성 -->
 			
 			<div class="subTitle sujeTalk">

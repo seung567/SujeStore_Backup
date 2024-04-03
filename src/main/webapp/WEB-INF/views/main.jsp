@@ -29,6 +29,15 @@ $(function() {
 		var categoryValue = $(this).text().trim();
 		location.href="viewStoreCategory.do?page=1&mCate="+categoryValue+"&mmCate= &orderBy=1";
 	})
+	
+    //후기 미리보기
+    $('.storeReviewText').each(function() {
+        var text = $(this).text();
+        if (text.length > 40) {
+            text = text.substring(0, 40) + '...';
+            $(this).text(text);
+        }
+    });
 
 });
 </script>
@@ -76,108 +85,35 @@ $(function() {
 	<div class="mainTitle">실시간 후기</div>
 	<div class="storeReviewViewArea mainSlide">
 		<ul class="storeReview">
-			<li>
-				<div class="reviewArea">
-					<div class="reviewMainImg"><img src="./resources/img/exImg.png"/></div>
-					<div class="storeReviewTextArea">
-						<span class="storeReviewText">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</span>
-						<span class="storeReviewId">SUJE123</span>
-						<div class="reviewEvaluationArea">
-							<img src="./resources/img/mainReviewStarImg.png"/>
-							<span>5.0</span>
-							<img src="./resources/img/mainReviewThumbsUpImg.png"/>
-							<span>0</span>
+			<c:forEach items="${realTimeReview}" var="review">
+				<li>
+					<div class="reviewArea">
+						<div class="reviewMainImg"><img src="./resources/img/DBServer/${review.rvp_spname}"/></div>
+						<div class="storeReviewTextArea">
+							<span class="storeReviewText">${review.rv_content}</span>
+							<span class="storeReviewId">${review.m_id}</span>
+							<div class="reviewEvaluationArea">
+								<img src="./resources/img/mainReviewStarImg.png"/>
+								<span>${review.rv_star}</span>
+								<img src="./resources/img/mainReviewThumbsUpImg.png"/>
+								<span>${review.rv_like}</span>
+							</div>
 						</div>
 					</div>
-				</div>
-			</li>
-			<li>
-				<div class="reviewArea">
-					<div class="reviewMainImg"><img src="./resources/img/exImg.png"/></div>
-					<div class="storeReviewTextArea">
-						<span class="storeReviewText">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</span>
-						<span class="storeReviewId">SUJE123</span>
-						<div class="reviewEvaluationArea">
-							<img src="./resources/img/mainReviewStarImg.png"/>
-							<span>5.0</span>
-							<img src="./resources/img/mainReviewThumbsUpImg.png"/>
-							<span>0</span>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="reviewArea">
-					<div class="reviewMainImg"><img src="./resources/img/exImg.png"/></div>
-					<div class="storeReviewTextArea">
-						<span class="storeReviewText">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</span>
-						<span class="storeReviewId">SUJE123</span>
-						<div class="reviewEvaluationArea">
-							<img src="./resources/img/mainReviewStarImg.png"/>
-							<span>5.0</span>
-							<img src="./resources/img/mainReviewThumbsUpImg.png"/>
-							<span>0</span>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="reviewArea">
-					<div class="reviewMainImg"><img src="./resources/img/exImg.png"/></div>
-					<div class="storeReviewTextArea">
-						<span class="storeReviewText">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</span>
-						<span class="storeReviewId">SUJE123</span>
-						<div class="reviewEvaluationArea">
-							<img src="./resources/img/mainReviewStarImg.png"/>
-							<span>5.0</span>
-							<img src="./resources/img/mainReviewThumbsUpImg.png"/>
-							<span>0</span>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="reviewArea">
-					<div class="reviewMainImg"><img src="./resources/img/exImg.png"/></div>
-					<div class="storeReviewTextArea">
-						<span class="storeReviewText">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</span>
-						<span class="storeReviewId">SUJE123</span>
-						<div class="reviewEvaluationArea">
-							<img src="./resources/img/mainReviewStarImg.png"/>
-							<span>5.0</span>
-							<img src="./resources/img/mainReviewThumbsUpImg.png"/>
-							<span>0</span>
-						</div>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="reviewArea">
-					<div class="reviewMainImg"><img src="./resources/img/exImg.png"/></div>
-					<div class="storeReviewTextArea">
-						<span class="storeReviewText">정말 예쁘고 너무 맛있었습니다! 선물 받은 친구가 너무 좋아했어요~!</span>
-						<span class="storeReviewId">SUJE123</span>
-						<div class="reviewEvaluationArea">
-							<img src="./resources/img/mainReviewStarImg.png"/>
-							<span>5.0</span>
-							<img src="./resources/img/mainReviewThumbsUpImg.png"/>
-							<span>0</span>
-						</div>
-					</div>
-				</div>
-			</li>
+				</li>
+			</c:forEach>
 		</ul> <!-- storeReview -->
 	</div>
 	<a href="mainRealTimeReview.do" class="mainMoreBtn">실시간 후기 더보기</a>
 	<div class="mainTitle">실시간 스토어 피드</div>
 	<div class="storeFeedViewArea mainSlide">
 		<ul class="storeFeed">
-			<c:forEach items="${realTimeReview}" var="MainVO">
-					<li><img src="./resources/DB/${MainVO.g_ppath}"/></li>
+			<c:forEach items="${realTimeFeed}" var="MainVO">
+				<li><img src="./resources/img/DBServer/${MainVO.g_spname}"/></li>
 			</c:forEach>
 		</ul> <!-- "storeFeed" -->
 	</div>
-	<a href="mainPopularRank.do" class="mainMoreBtn">스토어 더보기</a>
+	<a href="viewPopularRank.do" class="mainMoreBtn">스토어 더보기</a>
 </div> <!-- contentsWrap -->
 <footer></footer>
 </body>

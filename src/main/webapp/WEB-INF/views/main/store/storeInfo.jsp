@@ -129,7 +129,7 @@ $(function() {
 				<tr>
 					<td colspan="2" class="reviewImgTd">
 						<c:if test="${ review.rvp_spname ne null }">
-							<div class="reviewImgArea"><img src="././resources/DB/${ review.rvp_spname }"></div>
+							<div class="reviewImgArea"><img src="././resources/img/DBServer/${ review.rvp_spname }"></div>
 						</c:if>
 					</td>
 				</tr>

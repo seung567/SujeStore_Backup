@@ -84,9 +84,9 @@ $(function() {
 <div class="contentsWrap">
 	<div class="itemImageArea">
 		<ul class="itemImage">
-			<li><img src="././resources/DB/${fleaDetail.f_ppath}"/></li>
+			<li><img src="././resources/img/DBServer/${fleaDetail.f_spname}"/></li>
 			<c:forEach items="${fleaDetailSubImg}" var="MainFleaMarketVO">
-				<li><img src="././resources/DB/${MainFleaMarketVO.fs_ppath}"/></li>
+				<li><img src="././resources/img/DBServer/${MainFleaMarketVO.fs_spname}"/></li>
 			</c:forEach>
 		</ul>
 	</div> <!-- itemImageArea -->

@@ -31,15 +31,13 @@
 				<img width=120px height=120px alt="" src="./resources/img/basicProfileIconBig.png">
 			</div>
 			<div><%=user %></div>
-
-			
+		
 			<div class="subTitle mypagebtn">
 				<a href="customerMyPage.do?id=<%=user %>">마이페이지</a>
 			</div><!-- 마이페이지 연결 -->
-			
-			
+					
 			<div class="subTitle cardInsert">
-				<a href="cardInfomation.do?id=<%=user %>">카드 등록/수정</a>
+				<a href="customerCard.do?id=<%=user %>">카드 등록/수정</a>
 			</div><!-- 카드 등록/ 수정 -->
 			
 			<div class="subTitle accountInsert">

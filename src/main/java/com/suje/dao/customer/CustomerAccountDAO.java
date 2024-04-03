@@ -1,7 +1,7 @@
 package com.suje.dao.customer;
 
 import com.suje.domain.customer.AccountVO;
-import com.suje.domain.customer.CardInfoVO;
+import com.suje.domain.customer.CardVO;
 
 public interface CustomerAccountDAO {
 

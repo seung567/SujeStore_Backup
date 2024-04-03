@@ -10,11 +10,11 @@
 	select f_code_sqn.nextval from dual
 </select>
 
-<mapper namespace= "FleaGoodsInfoDAO">
+
 
 <insert id="insertFleaGoodsInfo" parameterType="fleaGoodsInfo">
 
-
+</insert>
 
 <!-- 플리마켓 상품 정보(flea)  입력 -->
 <insert id="insertFleaInfo" parameterType="fleaGoodsInfo">

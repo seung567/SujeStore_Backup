@@ -16,15 +16,17 @@
 
 <![CDATA[
 	select
-	o_code,
-	o_content,
-	m_id,
-	to_char(o_date,'yyyy-mm-dd') as o_date,
-	s_id 
-	from orderinfo
+	oi.o_code,
+	oi.o_content,
+	oi.m_id,
+	to_char(oi.o_date,'yyyy-mm-dd') as o_date,
+	oi.s_id,
+	m.m_name 
+	from orderinfo oi, member m
 	where o_code in ( select o_code
  		from (select rownum as r_num, o_code from (select rownum,o_code from orderinfo where s_id = #{s_id} order by o_code desc))
  		where r_num >= #{firstNum} and r_num <= #{endNum})
+ 		and oi.m_id = m.m_id
  	order by o_code desc
 ]]>
 
@@ -47,9 +49,14 @@
 	o.s_id,
 	o.m_id,
 	o.O_CONTENT,
-	o.o_date
-	from orderinfo o, etc et 
-	where o.o_code = et.o_code(+) and o.o_code = #{o_code}
+	o.o_date,
+	m.m_name,
+	st.s_name
+	from orderinfo o, etc et, member m, store st 
+	where o.o_code = et.o_code(+) 
+	and o.m_id = m.m_id 
+	and o.s_id = st.s_id  
+	and o.o_code = #{o_code} 
 	order by ETC_CODE
 	]]>
 
@@ -94,6 +101,8 @@
 	select 
 	fo.fo_code,
 	fo.o_code,
+	cs.cates_code,
+	cm.catemm_code,
 	cs.cates_name,
 	cm.catemm_name,
 	de.deli_type,
@@ -120,7 +129,8 @@
 		fo_sum = #{fo_sum},
 		fo_num = #{fo_num},
 		fo_size = #{fo_size},
-		fo_etc = #{fo_etc}
+		fo_etc = #{fo_etc},
+		cates_code = #{cates_code}
 	where fo_code = #{fo_code}
 	
 </update>
@@ -143,5 +153,13 @@
 
 </insert>
 
+<select id="getCateMainName" parameterType="String" resultType="categoryVO">
+
+	select st.catem_code, cm.catem_name 
+	from store st, cate_main cm 
+	where st.catem_code = cm.catem_code
+	and st.s_id = #{id}
+	
+</select>
 
 </mapper>

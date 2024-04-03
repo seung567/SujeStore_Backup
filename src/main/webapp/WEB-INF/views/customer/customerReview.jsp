@@ -33,6 +33,16 @@
 
 <!-- JS 연결 -->
 <script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
+<script type="text/javascript">
+
+$(function(){
+    
+    
+    $('.reviews').addClass('selectMenu');
+    
+});
+
+</script>
 </head>
 <body>
 

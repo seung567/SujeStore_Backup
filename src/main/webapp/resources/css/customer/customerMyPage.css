@@ -25,14 +25,14 @@ footer {
    background-color: #ADEFD1;
 }
 
-.contentsWrap {
+/* .contentsWrap {
    flex-grow: 1;
    width: 1440px;
    padding-top: 50px;
    padding-bottom: 50px;
    margin: 0 auto;
    background-color: #fff;
-}
+} */
 
 .main>div {
 	margin-top: 20px;
@@ -192,15 +192,4 @@ footer {
 .modifyBtn input:hover {
    border: 2px solid #ADEFD1;
    background-color: #fff;
-}
-
-.mypagebtn{
-	background-color: #ADEFD1;
-	border: 2px solid #ADEFD1;
-	border-radius: 10px;
-}
-
-
-.mypagebtn>a{
-	color:white;
 }

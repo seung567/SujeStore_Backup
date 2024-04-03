@@ -190,14 +190,3 @@ body {
    border: 2px solid #ADEFD1;
    background-color: #fff;
 }
-
-.mypagebtn{
-	background-color: #ADEFD1;
-	border: 2px solid #ADEFD1;
-	border-radius: 10px;
-}
-
-
-.mypagebtn>a{
-	color:white;
-}

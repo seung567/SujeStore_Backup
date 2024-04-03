@@ -30,6 +30,8 @@
 
 $(function(){
     
+    $('.accountInsert').addClass('selectMenu');
+    
     $('#bankAccount option').each(function() {
 	    if ($(this).text() == "${vo.m_acc_bank}" + "은행") {
 			$(this).prop('selected', true);

@@ -26,6 +26,8 @@
 
 $(function() {
     
+    $('.cardInsert').addClass('selectMenu');
+    
 	$('#bankselect option').each(function() {
 	    if ($(this).text() == "${infoVO.card_company}" + "카드") {
 			$(this).prop('selected', true);

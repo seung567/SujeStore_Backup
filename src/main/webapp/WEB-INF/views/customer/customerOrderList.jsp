@@ -25,11 +25,20 @@
 	href="./resources/css/customer/customerOrderList.css" />
 
 <!-- 자바스크립트 연결 -->
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript"
-	src="./resources/js/customer/customerOrderList.js"></script>
+<script type="text/javascript" src="./resources/js/customer/customerOrderList.js"></script>
+<script type="text/javascript">
+
+$(function(){
+    
+    $('.orderListMenubar').addClass('selectMenu');
+    
+    
+});
+
+
+</script>
 
 </head>
 <body>

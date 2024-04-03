@@ -31,6 +31,9 @@
 
 $(function(){
 	
+    // 버튼 이벤트
+    $('.cardInsert').addClass('selectMenu');
+    
 	var selectcard="${vo.card_company}"
 	    $('#bankselect option').each(function() {
 		    if ($(this).text() == selectcard ) {

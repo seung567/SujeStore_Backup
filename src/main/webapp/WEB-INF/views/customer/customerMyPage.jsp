@@ -21,6 +21,14 @@
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/customer/customerMyPage.js"></script>
+<script type="text/javascript">
+$(function(){
+    
+    $('.mypagebtn').addClass('selectMenu');
+    
+    
+});
+</script>
 </head>
 <body>
 

@@ -138,7 +138,7 @@ $(function() {
 					<table class="EachStore">
 						<tr>
 							<td class="storeNameTd">${storeCate.s_name}</td>
-							<td rowspan="3" class="storeImgTd"><img src="././resources/DB/${storeCate.s_spname}" class="storeImg"/></td>
+							<td rowspan="3" class="storeImgTd"><img src="././resources/img/DBServer/${storeCate.s_spname}" class="storeImg"/></td>
 						</tr>
 						<tr>
 							<td class="storeStarTd">

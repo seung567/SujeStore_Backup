@@ -10,14 +10,12 @@
 
 		<!-- 유승민 설정 부분 -->
 		<typeAlias alias="customerMyPage" type="com.suje.domain.customer.MemberVO"/>
-		<typeAlias alias="customerCardInfo" type="com.suje.domain.customer.CardInfoVO"/>
 		<typeAlias alias="customerAccountInfo" type="com.suje.domain.customer.AccountVO"/>
 		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
 		<typeAlias alias="customerEtcList" type="com.suje.domain.customer.EtcVO"/>
 		<typeAlias alias="customerFinalOrder" type="com.suje.domain.customer.FinalOrderVO"/>
 		<typeAlias alias="customerPurchase" type="com.suje.domain.customer.PurchaseVO"/>
-		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>
-		
+		<typeAlias alias="storeOrderList" type="com.suje.domain.storeOrder.StoreOrderListVO"/>	
 		<typeAlias alias="categoryVO" type="com.suje.domain.category.CategoryVO"/>
 		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
 	
@@ -31,12 +29,13 @@
 
 		<!-- 이수정 설정 부분 -->
 		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO" />
-		<typeAlias alias="updatedCardInfo" type="com.suje.domain.customer.CardInfoVO" />
+		<typeAlias alias="customerCard" type="com.suje.domain.customer.CardVO"/>
 		<typeAlias alias="customerReview" type="com.suje.domain.customer.ReviewVO" />
 		<typeAlias alias="customerQnA" type="com.suje.domain.customer.QnAVO" />
 		<typeAlias alias="customerPay" type="com.suje.domain.customer.PayVO" />
 		
 		<!-- 김동현 설정 부분 -->
+		<typeAlias alias="storeAccountInfo" type="com.suje.domain.storeAdmin.StoreAccountVO"/>
 		<typeAlias alias="storeProfile" type="com.suje.domain.storeAdmin.StoreProfileVO"/>
 		<typeAlias alias="storeGoodsSU" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeGoodsInfo" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
@@ -57,6 +56,7 @@
 		<typeAlias alias="mainCommVO" type="com.suje.domain.main.MainCommVO"/>
 		<typeAlias alias="mainStoreCategoryVO" type="com.suje.domain.main.MainStoreCategoryVO"/>
 		<typeAlias alias="storeEachVO" type="com.suje.domain.main.StoreEachVO"/>
+		<typeAlias alias="mainPopularRankVO" type="com.suje.domain.main.MainPopularRankVO"/>
 
 		<!-- 이정석 설정 부분 -->
 		<typeAlias alias="adminVO" type="com.suje.domain.adminviews.AdmininfoVO"/>

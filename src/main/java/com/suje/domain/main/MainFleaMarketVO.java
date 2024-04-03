@@ -8,7 +8,7 @@ import lombok.Setter;
 public class MainFleaMarketVO {
 
 	//flea
-	public String f_code, s_id, catems_code, f_ck, f_sum, f_num, f_content, f_date, f_redate, f_pname, f_ppath, f_psize;
+	public String f_code, s_id, catems_code, f_ck, f_sum, f_num, f_content, f_date, f_redate, f_pname, f_spname, f_ppath, f_psize;
 	
 	//flea_sub
 	public String fs_code, fs_pname, fs_spname, fs_ppath, fs_psize;

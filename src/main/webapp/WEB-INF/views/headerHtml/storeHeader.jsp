@@ -22,7 +22,7 @@ String mainId = (String)session.getAttribute("mainId");
 <div class="storeHeader">
 	<div class="firstHeaderNavi">
 		<div class="storeHeaderLogo"><a href="storeMain.do"><img src="./resources/img/sujeStoreLogo.png"/></a></div>
-		<a href="#" class="storeHeaderCommunityPageBtn">커뮤니티</a>
+		<a href="viewStoreEach.do?sId=<%=mainId %>" class="storeHeaderCommunityPageBtn">스토어페이지</a>
 		<a href="#" class="storeHeaderFleaMarketPageBtn">플리마켓</a>
 		
 		<!-- 세션에 계정정보가 존재할 시 계정 영역(afterLogin) 호출 -->
@@ -30,7 +30,7 @@ String mainId = (String)session.getAttribute("mainId");
 			<div class="afterLoginArea">
 				<input type="text" disabled="disabled" value="${mainId}" class="headerId"/>
 				<span>님</span>
-				<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
+				<a href="storeAccountInfo.do?id=<%=mainId %>" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
 				<a href="mainLogout.do" class="headerLogoutBtn">로그아웃</a>
 			</div>
 		</c:if>

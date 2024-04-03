@@ -13,101 +13,57 @@
 <meta charset="UTF-8">
 <title>SUJE</title>
 <link rel="stylesheet" href="./resources/css/storeAdmin/storeAccountInfo.css" />
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+$(function(){
+    var selectedBank = "${vo.s_bank}";
+    $('#bankAccount option').each(function() {
+        if ($(this).text() === selectedBank + "은행") {
+            $(this).prop('selected', true);
+        }
+    });
+});
+</script>
 </head>
 <body>
 <%@ include file="../../views/headerHtml/storeHeader.jsp" %>
 <div class="storeContentsWrap">
-<div class="storeSubMenuBox">
-	<a href="#" class="storeProfileBox"><img src="./resources/img/basicProfileIconBig.png"/></a>
-	<textarea rows="2" disabled="disabled" class="storeNameBox" >STORE NAME AREA</textarea>
-	<ul class="storeCategoryArea">
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 페이지 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 공지 등록</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 작품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn ">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 조회/수정</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 상품 등록</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;주문 관리</a>
-			<ul class="storeSecondCategoryArea">
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 주문요청 관리</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>스토어 최종주문 조회</span>
-				</a></li>
-				<li class="storeSecondCategoryBtn"><a href="#">
-					<span>플리마켓 주문 조회</span>
-				</a></li>
-			</ul>
-		</li>
-		<li class="storeFirstCategoryArea">
-			<a href="#" class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;정산 관리</a>
-		</li>
-	</ul>
-</div> <!-- storeSubMenuBox -->
-
+<jsp:include page="storeSubMenuBar.jsp"></jsp:include>
 		<div class="storeContentsBox">
 			<h1 class="store_mainTitle">계정 정보</h1>
 			<hr/>
 
-			<form action="#" class="storeAcc_mainInfo">
+			<form action="updateAccount.do" method="POST" class="storeAcc_mainInfo">
 				
 				<label class="storeAcc_subTitle">아이디</label> 
-				<input type="text" required="required" autofocus="autofocus" class="storeAcc_textbox1" />
-				<button class="idCheckBtn">중복확인</button>
+				<input type="text" name="s_id"required="required" autofocus="autofocus" class="storeAcc_textbox1" value="${vo.s_id}"/>
 
 				<label class="storeAcc_subTitle">비밀번호</label> 
-				<input type="password" required="required" class="storeAcc_textbox1" /> 
+				<input type="password" id="s_pass" name="s_pass" required="required" class="storeAcc_textbox1" value="${vo.s_pass}" /> 
 				
 				<label class="storeAcc_subTitle">이메일</label> 
-				<input type="text" required="required" class="storeAcc_textbox1" /> 
+				<input type="text" id="s_email" name="s_email" required="required" class="storeAcc_textbox1" value="${vo.s_email}"/> 
 				
 				<label class="storeAcc_subTitle">전화번호</label> 
-				<input type="text" required="required" class="storeAcc_textbox1" /> 
+				<input type="text" id="s_tel" name="s_tel" required="required" class="storeAcc_textbox1" value="${vo.s_tel}"/> 
 				
 				<label class="storeAcc_subTitle">주소</label> 
-				<input type="text" required="required" class="storeAcc_textbox2" /> 
+				<input type="text" id="s_addr" name="s_addr" required="required" class="storeAcc_textbox2" value="${vo.s_addr}" /> 
 				
 				<label class="storeAcc_subTitle">사업자등록번호</label> 
-				<input type="text" required="required" class="storeAcc_textbox2" /> 
+				<input type="text" id="s_bnum" name="s_bnum" required="required" class="storeAcc_textbox2" value="${vo.s_bnum}"/> 
 				
 				<label class="storeAcc_subTitle">은행명</label> 
-					<select	class="storeAcc_selectBox">
-						<option selected="selected">=== 은행 선택 ===</option>
-						<option>우리은행</option>
-						<option>기업은행</option>
-						<option>신한은행</option>
-						<option>카카오뱅크</option>
+					<select	id="bankAccount" name="s_bank" class="storeAcc_selectBox">
+								<option value="">은행 선택</option>
+								<option value="우리">우리은행</option>
+								<option value="농협">농협은행</option>
+								<option value="기업">기업은행</option>
+								<option value="신한">신한은행</option>
+								<option value="카카오">카카오뱅크</option>
 					</select> 
 				<label class="storeAcc_subTitle">계좌번호</label> 
-				<input type="text" required="required" class="storeAcc_textbox2" /> 
+				<input type="text" id="s_acc" name="s_acc" required="required" class="storeAcc_textbox2" value="${vo.s_acc}"/> 
 				<button type="submit" class="submitBtn" name="submitBtn">수정하기</button>
 			</form>
 		</div> <!-- storeContentsBox -->

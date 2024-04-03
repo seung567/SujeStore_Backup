@@ -166,7 +166,7 @@ $(function() {
 			<c:if test="${commContentImgList ne null}">
 				<div class="postMainImg">
 					<c:forEach items="${commContentImgList}" var="MainCommVO">
-						<img alt="POST 사진" src="./resources/DB/${MainCommVO.cpp_spname}">
+						<img alt="POST 사진" src="./resources/img/DBServer/${MainCommVO.cpp_spname}">
 					</c:forEach>
 				</div>
 			</c:if>

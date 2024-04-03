@@ -119,12 +119,51 @@
 </body>
 <script type="text/javascript">
 
-$(function(){
-    
-    
-    
+    $(document).ready(function() {
+$('.imgColumn-container img').click(function() {
+   var categoryNameFirst = $(this).data('category');
+   var categoryNameSecound = $(this).data('subcategory');
+   var categoryNameThird = $(this).data('thirdcategory');
+   var goodsContent = $(this).data('goodsinfocontent');
+   var imgCode = $(this).data('imgcode');
+   var mainImageSrc = $(this).attr('src');
+
+   console.log("First Category: " + categoryNameFirst);
+   console.log("Second Category: " + categoryNameSecound);
+   console.log("Third Category: " + categoryNameThird);
+   console.log("Goods Content: " + goodsContent);
+   console.log("Img Code:" + imgCode);
+
+   $('.goodsImg').attr('src', mainImageSrc);
+
+   $(".goodsInfo_selectBox_First option").each(function() {
+      if ($(this).text() == categoryNameFirst) {
+         $(this).prop('selected', true);
+      }
+   })
+   $(".goodsInfo_selectBox_Secound option").each(function() {
+      if ($(this).text() == categoryNameSecound) {
+         $(this).prop('selected', true);
+      }
+   })
+   $(".goodsInfo_selectBox_Third option").each(function() {
+      if ($(this).text() == categoryNameThird) {
+         $(this).prop('selected', true);
+      }
+   })
+   $('.goodsInfo_content').val(goodsContent);
+
+   $('.imgCode').val(imgCode);
+   
+});
+   
 });
 
+
+$(function() {
+   $(".storeCategoryArea>li:nth-child(1)>a").addClass("checkedStateFirstCategory");
+   $(".storeCategoryArea>li:nth-child(1) .storeSecondCategoryArea li:nth-child(4)").addClass("checkedStateSecondCategory");
+});  
 
 
 

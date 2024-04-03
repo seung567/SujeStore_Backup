@@ -38,9 +38,9 @@
 		select count(st.s_id) 
 		from store st, store_avail sa, cate_main cm 
 	</if>
-	
+
 	where st.s_id = sa.s_id 
-	
+
 	<if test="catemm_name != null">
 		and cmi.catem_code = cm.catem_code 
 		and cm.catem_code = st.catem_code 
@@ -58,6 +58,15 @@
 <sql id="storeCateList">
 
 	with
+	<!-- 전체 -->
+	<if test="catem_name == null and catemm_name == null">
+		cateStoreList as ( 
+		select cmain.catem_name, st.s_id 
+		from store st, cate_main cmain
+		where 
+		cmain.catem_code = st.catem_code
+		),
+	</if>
 	<!-- 대분류 기준 -->
 	<if test="catem_name != null and catemm_name == null">
 		cateStoreList as ( 
@@ -101,21 +110,58 @@
 		<property name="catemm_name" value="#{catemm_name}"/>
 	</include>
 	
+	select r_num, s_id, s_name, s_pname, catem_name, countRvCode, avgRvStar 
+	from(
+	select rownum as r_num, s_id, s_name, s_pname, catem_name, countRvCode, avgRvStar 
+	from (
+	<!-- 전체 -->
+	<if test="catem_name == null and catemm_name == null">
+		select s.s_id, s.s_name, s.s_pname, cateList.catem_name, review.reviewCount as countRvCode, review.starSum as avgRvStar 
+		from store s, cateStoreList  cateList, reviewStoreList review 
+		where  s.s_id = review.s_id and s.s_id = cateList.s_id 
+		<if test="orderBy == 1">
+			order by s_name 
+		</if>
+		<if test="orderBy == 2">
+			order by avgRvStar desc 
+		</if>
+		<if test="orderBy == 3">
+			order by countRvCode desc
+		</if>
+	</if>
 	<!-- 대분류 기준 -->
 	<if test="catem_name != null and catemm_name == null">
 		select s.s_id, s.s_name, s.s_pname, cateList.catem_name, review.reviewCount as countRvCode, review.starSum as avgRvStar 
 		from store s, cateStoreList  cateList, reviewStoreList review 
 		where  s.s_id = review.s_id and s.s_id = cateList.s_id 
-		order by 1
+		<if test="orderBy == 1">
+			order by s_name 
+		</if>
+		<if test="orderBy == 2">
+			order by avgRvStar desc
+		</if>
+		<if test="orderBy == 3">
+			order by countRvCode desc
+		</if>
 	</if>
 	<!-- 중분류 기준 -->
 	<if test="catem_name != null and catemm_name != null">
 		select s.s_id, s.s_name, s.s_pname, cateList.catem_name,cateList.catemm_name, review.reviewCount as countRvCode, review.starSum as avgRvStar 
 		from store s, cateStoreList  cateList, reviewStoreList review 
 		where  s.s_id = review.s_id and s.s_id = cateList.s_id 
-		order by 1
+		<if test="orderBy == 1">
+			order by s_name 
+		</if>
+		<if test="orderBy == 2">
+			order by avgRvStar desc
+		</if>
+		<if test="orderBy == 3">
+			order by countRvCode desc
+		</if>
 	</if>
-
+		<![CDATA[
+	)) where r_num>=#{firstNum} and r_num<=#{endNum}
+	]]>
 </select>
 
 

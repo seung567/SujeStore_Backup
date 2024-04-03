@@ -37,6 +37,7 @@
 		<typeAlias alias="customerPay" type="com.suje.domain.customer.PayVO" />
 		
 		<!-- 김동현 설정 부분 -->
+		<typeAlias alias="storeAccountInfo" type="com.suje.domain.storeAdmin.StoreAccountVO"/>
 		<typeAlias alias="storeProfile" type="com.suje.domain.storeAdmin.StoreProfileVO"/>
 		<typeAlias alias="storeGoodsSU" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>
 		<typeAlias alias="storeGoodsInfo" type="com.suje.domain.storeAdmin.StoreGoodsSUVO"/>

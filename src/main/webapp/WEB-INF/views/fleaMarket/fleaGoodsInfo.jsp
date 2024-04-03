@@ -161,12 +161,12 @@ String storeId = (String)session.getAttribute("mainId");
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 가격</label> 
-					<input type="text" class="text-box" name="f_sum" id="goodsPrice">원
+					<input type="text" class="text-box" name="f_sum" id="goodsPrice"/>원
 				</div>
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 총 수량</label> 
-					<input type="text" class="text-box" name="f_num" id="goodsNum">개
+					<input type="text" class="text-box" name="f_num" id="goodsNum"/>개
 				</div>
 
 				<div class="store_subCategory">

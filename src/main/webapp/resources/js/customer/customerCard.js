@@ -1,6 +1,3 @@
-/*
- * 
- */
 $(function(){
 
   $(".subTitle").hover(function(){
@@ -18,7 +15,17 @@ $(function(){
     	});
     $(this).children('a').css("color" , "");
   });
+  
+  
+  	$('#bankselect option').each(function() {
+	    if ($(this).text() == "${infoVO.card_company}" + "카드") {
+			$(this).prop('selected', true);
+	    }	    
+	});
+	
+	
 
-  
-  
+	
+ 
 });
+

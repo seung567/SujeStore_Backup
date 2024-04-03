@@ -187,7 +187,7 @@ $(function() {
 				<a href="fleaMarketDetail.do?fCode=${MainFleaMarketVO.f_code}" class="EachItemLinkArea">
 					<input type="hidden" value="${MainFleaMarketVO.f_code}"/>
 					<table class="EachItem">
-						<tr class="itemImgTr"><td><div class="itemImgArea"><img src="././resources/DB/${MainFleaMarketVO.f_ppath}"/></div></td></tr>
+						<tr class="itemImgTr"><td><div class="itemImgArea"><img src="././resources/img/DBServer/${MainFleaMarketVO.f_spname}"/></div></td></tr>
 						<tr class="itemStoreTr"><td>${MainFleaMarketVO.s_name}</td></tr>
 						<tr class="itemNameTr"><td>${MainFleaMarketVO.f_content}</td></tr>
 						<tr class="itemPriceTr"><td><span>${MainFleaMarketVO.f_sum}</span>원</td></tr>

@@ -89,8 +89,8 @@ String memberId = (String)session.getAttribute("mainId");
 				$('.itemImage').empty();
 				//이미지 추가
 				$.each(goods, function(index, goodsImg) {
-					var imgSrc = "./resources/DB/" + goodsImg.g_img;
-					$('.itemImage').append('<div><img src="' + imgSrc + '"><div>');
+					var imgSrc = "./resources/img/DBServer/" + goodsImg.g_img;
+					$('.itemImage').append('<div><img src="' + imgSrc + '"></div>');
 				});
 				
 			},
@@ -171,7 +171,7 @@ String memberId = (String)session.getAttribute("mainId");
 </c:if>
 <!-- 백그라운드 이미지가 존재할 시 호출 -->
 <c:if test="${storeInfoDetail.s_back_spname ne null}">
-	<img src="././resources/DB/${storeInfoDetail.s_back_spname}" class="coverImg">
+	<img src="././resources/img/DBServer/${storeInfoDetail.s_back_spname}" class="coverImg">
 </c:if>
 	<div class="coverImgShadow"></div>
 <!-- 프로필 이미지가 존재하지 않을 시 호출 -->
@@ -180,7 +180,7 @@ String memberId = (String)session.getAttribute("mainId");
 </c:if>
 <!-- 프로필 이미지가 존재할 시 호출 -->
 <c:if test="${storeInfoDetail.s_spname ne null}">
-	<div class="storeProfileImg"><img src="././resources/DB/${storeInfoDetail.s_spname}"></div>
+	<div class="storeProfileImg"><img src="././resources/img/DBServer/${storeInfoDetail.s_spname}"></div>
 </c:if>
 	<div class="storeName">${storeInfoDetail.s_name}</div>
 	<div class="storeText">${storeInfoDetail.s_text}</div>
@@ -207,7 +207,7 @@ String memberId = (String)session.getAttribute("mainId");
 		<c:forEach items="${storeGoodsList}" var="storeGoods">
 			<a class="storeEachFeed">
 				<input type="hidden" value="${storeGoods.g_code}"/>
-				<img src="././resources/DB/${storeGoods.g_spname}"/>
+				<img src="././resources/img/DBServer/${storeGoods.g_spname}"/>
 			</a>
 		</c:forEach>
 	</div>

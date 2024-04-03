@@ -130,7 +130,7 @@ $(function() {
 					<!-- 이미지 정보가 존재할시 호출 -->
 					<c:if test="${commContentImgList ne null}">
 						<c:forEach items="${commContentImgList}" var="MainCommVO">
-							<img alt="POST 사진" src="./resources/DB/${MainCommVO.cpp_spname}">
+							<img alt="POST 사진" src="./resources/img/DBServer/${MainCommVO.cpp_spname}">
 						</c:forEach>
 					</c:if>
 				</div>

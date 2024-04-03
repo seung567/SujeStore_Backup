@@ -117,7 +117,7 @@ body {
 .reviewMainImg img {
 	max-height: 100%;
 	width: auto;
-	height: auto;
+	height: 100%;
 	display: block;
 	margin: auto;
 }
@@ -207,7 +207,7 @@ body {
 .storeFeed li>img {
 	max-height: 100%;
 	width: auto;
-	height: auto;
+	height: 100%;
 	display: block;
 	margin: auto;
 }

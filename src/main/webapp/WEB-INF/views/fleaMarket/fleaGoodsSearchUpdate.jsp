@@ -25,15 +25,7 @@
 
 	$(function() {
 		
-	<%-- 	<% 
-		String storeId = (String)session.getAttribute("mainId");
-		%>
-		
-		<% if (request.getAttribute("insertFleaInfoSuccess") != null) { %>
-		var insertFleaInfoSuccess = "<%= request.getAttribute("insertFleaInfoSuccess") %>";
-		alert(insertFleaInfoSuccess);
-	<% } %> --%>
-		
+	
 		// 서브 메뉴바 클래스명 추가 // CSS 적용
 		$(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");	
 		$(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
@@ -48,7 +40,66 @@
 			}
 		});
 		
+		// 중분류 처리
+		$(".goodsInfo_selectBox_First").change(function(){
+		    
+		    let cateMidCode = $(this).val();
+		    
+		    $.ajax({
+		       type : "post",
+		       url : "getCateMidList.do",
+		       data : {
+		           cateMidCode : cateMidCode
+		       },
+		       dataType : "json",
+		       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+		       beforeSend : function(){
+		          $(".goodsInfo_selectBox_Secound").empty();
+		       },
+		       success : function(data){
+		           
+		    	   console.log(data);
+		           for(var i = 0; i<data.length; i++){
+		             $(".goodsInfo_selectBox_Secound").append(
+		                "<option value=" + data[i].catemm_code +">" + data[i].catemm_name  + "</option>"
+		             );
+		           }
+		       },
+		       error: function(request, status, error) {
+		                   alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+		       }
+		    });
+		});
 		
+		$(".goodsInfo_selectBox_Secound").change(function(){
+		      
+		      let cateMidCode = $(this).val();
+		      
+		      $.ajax({
+		          type : "post",
+		         url : "cateSubCode.do",
+		         data : {
+		             cateMidCode : cateMidCode
+		         },
+		         dataType : "json",
+		         contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+		         beforeSend : function(){
+		            $(".goodsInfo_selectBox_Third").empty();
+		         },
+		         success : function(data){
+		             
+		             for(var i = 0; i<data.length; i++){
+		               $(".goodsInfo_selectBox_Third").append(
+		                  "<option value=" + data[i].cates_code +">" + data[i].cates_name  + "</option>"
+		               );
+		             }
+		         },
+		         error: function(request, status, error) {
+		                     alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+		         }
+		      });
+
+	});
 		
 		// 상단 공지 행 클릭 이벤트
 		$('.goodsListDetail').click(function(){
@@ -66,99 +117,168 @@
 				dataType : "json",
 				contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
 				success : function(data) {
+					var firstCate = data["getFleaListVO"].catem_code;
+					var firstCateName = data["getFleaListVO"].catem_name;
+					var secondCate = data["getFleaListVO"].catemm_code;
+					var secondCateName = data["getFleaListVO"].catemm_name;
+					var thirdCate = data["getFleaListVO"].cates_code;
+					var thirdCateName = data["getFleaListVO"].cates_name;
+					
+					//대분류
+					$(".goodsInfo_selectBox_First option").each(function(){
+						if($(this).text() == firstCateName){
+							$(this).prop('selected', true);
+						}
+					});
+					
+					//중분류
+					$.ajax({
+				       type : "post",
+				       url : "getCateMidList.do",
+				       data : {
+				           cateMidCode : firstCate
+				       },
+				       dataType : "json",
+				       contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+				       beforeSend : function(){
+				          $(".goodsInfo_selectBox_Secound").empty();
+				       },
+				       success : function(data){
+				    	   console.log(data);
+				           for(var i = 0; i<data.length; i++){
+				             $(".goodsInfo_selectBox_Secound").append(
+				                "<option value=" + data[i].catemm_code +">" + data[i].catemm_name  + "</option>"
+				             );
+				           }
+				           
+			         		//대분류
+							$(".goodsInfo_selectBox_Secound option").each(function(){
+								if($(this).text() == secondCateName){
+									$(this).prop('selected', true);
+								}
+							});
+				       },
+				       error: function(request, status, error) {
+			                   alert("중분류 통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+				       }
+				    });
+					
+					//소분류
+					$.ajax({
+			         type : "post",
+			         url : "cateSubCode.do",
+			         data : {
+			             cateMidCode : secondCate
+			         },
+			         dataType : "json",
+			         contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
+			         beforeSend : function(){
+			            $(".goodsInfo_selectBox_Third").empty();
+			         },
+			         success : function(data){
+			             for(var i = 0; i<data.length; i++){
+			               $(".goodsInfo_selectBox_Third").append(
+			                  "<option value=" + data[i].cates_code +">" + data[i].cates_name  + "</option>"
+			               );
+			             }
+			             
+						$(".goodsInfo_selectBox_Third option").each(function(){
+							if($(this).text() == thirdCateName){
+								$(this).prop('selected', true);
+							}
+						});
+			             
+			         },
+			         error: function(request, status, error) {
+			                     alert("소분류 통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
+			         }
+			      });
 					
 					console.log(data);
 					
-		 			$(".goodsInfo_selectBox_First option").each(function(){
-						if($(this).text() == data["getListVO"].catem_name){
-							$(this).prop('selected', true);
-						}
-					});
-		 			
-		 			$(".goodsInfo_selectBox_Secound option").each(function(){
-						if($(this).text() == data["getListVO"].catemm_name){
-							$(this).prop('selected', true);
-						}
-					});
-		 			
-		 			$(".goodsInfo_selectBox_Third option").each(function(){
-						if($(this).text() == data["getListVO"].cates_name){
-							$(this).prop('selected', true);
-						}
-					});
-
-		 			
-		 			// 상품 메인 이미지 설정
-		 	        const mainImgSrc = data["getListVO"].f_pname;
-		 	         $(".goodsImg").attr("src", mainImgSrc);
-
-		 	      
-		 	        // 상품 서브 이미지 설정
-		 	        const subImgSrc = data["getListVO"].f_spname;
-		 	          $(".goodsImgSub").eq(0).attr("src", subImgSrc); 
-		 	          $(".goodsImgSub").eq(1).attr("src", subImgSrc); 
-
-		 	          
-		 	          //상품 코드/아이디값(히든)
+					//상품 코드/아이디값(히든)
 		 			 $("input[name='f_code']").val(fCodeValue);
 		 			 $("input[name='s_id']").val(idValue);
-		 	          
-		 	
-		 			 
+					
 		 			//상품 가격
-		 			const fSum = data["getListVO"].f_sum;
-		 			 $("input[name='goodsPrice']").val(fSum);
+		 			const fSum = data["getFleaListVO"].f_sum;
+		 			 $("input[name='f_sum']").val(fSum);
 		 			
 		 			 
 		 			//상품 총 수량
-		 			const fNum = data["getListVO"].f_num;
-		 			 $("input[name='goodsNum']").val(fNum);
+		 			const fNum = data["getFleaListVO"].f_num;
+		 			 $("input[name='f_num']").val(fNum);
 		 			
 		 			 
 		 			//상품내용 
-		 			const fContent = data["getListVO"].f_content;
-		 			 $(".goodsInfo_content").val(fContent);
-				} 
-			});
-		}); // end
-			
-	});
+		 			const fContent = data["getFleaListVO"].f_content;
+		 			 $("textarea[name='f_content']").val(fContent);
+		 			
+		 			
+		 			 // 상품 메인 이미지 설정
+		 	        const mainImg = data["getFleaListVO"].f_spname;
+		 	         $(".goodsMainImg img").attr("src", "./resources/img/DBServer/"+mainImg);
+		 	     /*     alert(mainImg); */
+		 	         
+		 	     /* 
+			 	     var subImg = data["getSubImgListVO"];
+		 	       if (subImg != null) {
+			 	        // 상품 서브 이미지 설정
+		               $(".goodsSubImg img").each(subImg , function(index, goodsImg) {
+		 	               var subImg = goodsImg.fs_spname;
+		 	               $(this).attr("src", "./resource/img/DBServer/"+subImg);  
+		               });
+		            } */
+		 	       
+		 	        // 상품 서브 이미지 설정
+		 	        if(data["getSubImgListVO"] != null){
+		 	           // 서브 이미지가 있는 경우에만 실행
+		 	           for(var i = 0; i < data["getSubImgListVO"].length; i++) {
+		 	               var subImg = data["getSubImgListVO"][i].fs_spname;
+		 	               $(".goodsSubImg img").eq(i).attr("src", "./resources/img/DBServer/"+subImg);  
+				 	       console.log("1111111111111111111111 >>>>>>>>>>"+data["getSubImgListVO"][i].fs_spname);
+		 	           }  
+		 	       }
+		 	           
+		 			 
+				} //ajax function
+			}); //ajax
+		}); // click event function
+	}); //function
 	
 	//상품 목록 수정 버튼 이벤트
  	function modifyBtn() {
 		
-		var formFcode = $("#f_code").val();
-		var formsId = $("#s_id").val();
-		var formCateMname = $(".goodsInfo_selectBox_First option:selected").val();
-	    var formCateMMname = $(".goodsInfo_selectBox_Secound option:selected").val();
-	    var formCateSname = $(".goodsInfo_selectBox_Third option:selected").val();
+ 		var formsId = $("#s_id").val();
+	    var formCateScode = $(".goodsInfo_selectBox_Third option:selected").val();
 	    var formPrice = $("#goodsPrice").val();
-	    var formNum = $("#goodsTotalNum").val();
 	    var formContent = $("#goodsInfoContent").val();
+	    var formNum = $("#goodsNum").val();
+		var formFcode = $("#f_code").val();
         
-		
 		$.ajax({
 			url : "modifyGoodsSU.do",
 			type : "post",
 			data : {f_code : formFcode,
-					s_id :formsId,
-					cates_name : formCateSname,
+					s_id : formsId,
+					cates_code : formCateScode,
 					f_sum : formPrice,
 					f_num : formNum,
 					f_content : formContent},
 					
 			success : function(data){
 				alert("수정되었습니다.")
-				
-				location.reload();
+				location.href = "fleaGoodsListAll.do?id=<%=(String)session.getAttribute("mainId")%>"; 
 			},
 			error: function(request, status, error) {
 				alert("통신 에러가 발생했습니다 : "+request+"/"+status+"/"+error);
 			}
 		});
 		
-		
 	} //modifyBtn()
+	
+	
+		
 	
 	
 		
@@ -216,168 +336,63 @@
 			<h1 class="store_maintitle">상품 수정</h1>
 			<form id="modifyForm" name= "modifyForm" class="store_mainInfo" method="post">
 			
-			<input type="hidden" name="f_code" id="f_code"/>
+			<input type="hidden" name="f_code" id="f_code" />
 			<input type="hidden" name="s_id" id="s_id"/>
 			
 			
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 카테고리</label> 
-					<select class="goodsInfo_selectBox_First" name="catem_name" id="catem_name">
-						<option>대분류</option>
-						<option>디저트</option>
-						<option>전통간식</option>
-						<option>반려동물식품</option>
-						<option>의류</option>
-						<option>주얼리</option>
-						<option>수공예품</option>
-						<option>잡화</option>
-						<option>홈리빙</option>
+					<!-- 대분류 --> 
+					<select class="goodsInfo_selectBox_First" name="catem_name" id="catemName">
+						<c:forEach items="${cateMainList}" var="vo">
+							<option value="${vo.catem_code}">${vo.catem_name}</option>
+						</c:forEach>
 					</select> 
-					<select class="goodsInfo_selectBox_Secound" name="catemm_name" id="catemm_name">
-						<option>중분류</option>
-						<option>베이커리</option>
-						<option>케이크</option>
-						<option>마카롱</option>
-						<option>타르트</option>
-						<option>쿠키</option>
-						<option>약과</option>
-						<option>떡</option>
-						<option>양갱</option>
-						<option>애견간식</option>
-						<option>애견쿠키</option>
-						<option>애견케이크</option>
-						<option>여성</option>
-						<option>남성</option>
-						<option>남녀공용</option>
-						<option>키즈</option>
-						<option>반지</option>
-						<option>목걸이</option>
-						<option>팔찌</option>
-						<option>생활소품</option>
-						<option>주방공예</option>
-						<option>인테리어</option>
-						<option>문구</option>
-						<option>기념일</option>
-						<option>일러스트</option>
-						<option>가구</option>
-						<option>패브릭</option>
-						<option>방향제</option>
+					
+					<select class="goodsInfo_selectBox_Secound" name="catemm_name" id="catemmName">
+						<!-- 중분류 -->
 					</select> 
-					<select class="goodsInfo_selectBox_Third" name="cates_name" id="cates_name">
-						<option>소분류</option>
-						<option>롤케이크</option>
-						<option>버터크림빵</option>
-						<option>마늘빵</option>
-						<option>슈크림빵</option>
-						<option>프레지에</option>
-						<option>생크림케이크</option>
-						<option>쉬폰케이크</option>
-						<option>치즈케이크</option>
-						<option>티라미수</option>
-						<option>일반마카롱</option>
-						<option>뚱카롱</option>
-						<option>타르틀레트</option>
-						<option>에그타르트</option>
-						<option>초코칩 쿠키</option>
-						<option>버터쿠키</option>
-						<option>치즈쿠키</option>
-						<option>땅콩쿠키</option>
-						<option>바닐라쿠키</option>
-						<option>황치즈쿠키</option>
-						<option>조청</option>
-						<option>꿀</option>
-						<option>전통약과</option>
-						<option>이벤트떡</option>
-						<option>떡케이크</option>
-						<option>팥</option>
-						<option>말차</option>
-						<option>밤</option>
-						<option>고구마</option>
-						<option>강아지 껌</option>
-						<option>육포</option>
-						<option>고구마치킨</option>
-						<option>두부쿠키</option>
-						<option>황태쿠키</option>
-						<option>당근쿠키</option>
-						<option>두부케이크</option>
-						<option>참치케이크</option>
-						<option>비프케이크</option>
-						<option>티셔츠</option>
-						<option>맞춤정장</option>
-						<option>맨투맨</option>
-						<option>커플룩</option>
-						<option>신발</option>
-						<option>커플링</option>
-						<option>각인반지</option>
-						<option>커플목걸이</option>
-						<option>커플팔찌</option>
-						<option>머그컵</option>
-						<option>열쇠고리</option>
-						<option>연필꽂이</option>
-						<option>주병</option>
-						<option>그릇</option>
-						<option>수저</option>
-						<option>화병</option>
-						<option>오브제</option>
-						<option>러그</option>
-						<option>커스텀앨범</option>
-						<option>커스텀스티커</option>
-						<option>커스텀다이어리</option>
-						<option>커스텀풍선</option>
-						<option>커스텀박스</option>
-						<option>커스텀카드</option>
-						<option>커스텀폰케이스</option>
-						<option>커스텀텀블러</option>
-						<option>커스텀시계</option>
-						<option>침대</option>
-						<option>의자</option>
-						<option>쇼파</option>
-						<option>쿠션</option>
-						<option>방석</option>
+					
+					<select class="goodsInfo_selectBox_Third" name="cates_code" id="catesName">
+						<!-- 소분류 -->
 					</select>
 				</div>
 
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 메인 이미지</label> 
-					<div class="goodsMainImg">
+					<div class="goodsMainImg goodsImg">
 						<img alt="메인이미지" src="./resources/img/goodsImgArea.png">
-						<input type="file" class="fileInput">
 					</div>	
 				</div>
 
 				<div class="store_subCategory">
-					<label class="store_subTitle">상품 서브 이미지</label>
-					<div class="goodsSubImg">
+					<label class="subImgTitle">상품 서브 이미지</label>
+					<div class="goodsSubImg goodsImg">
 						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
-						<input type="file" class="fileInput">
 					</div>
-					
-					<div class="goodsSubImg">
+					<div class="goodsSubImg goodsImg">
 						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
-						<input type="file" class="fileInput">
 					</div>
-					
-					<div class="goodsSubImg">
+					<div class="goodsSubImg goodsImg">
 						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
-						<input type="file" class="fileInput">
 					</div>
 					
 				</div> 
 
 				<div class="store_subCategory">
-					<label class="store_subTitle">상품 가격</label> <input type="text"
-						class="text-box" name="goodsPrice" id="goodsPrice"/>원
+					<label class="store_subTitle">상품 가격</label> 
+					<input type="text" class="text-box" name="f_sum" id="goodsPrice"/>원
 				</div>
 
 				<div class="store_subCategory">
-					<label class="store_subTitle">상품 총 수량</label> <input type="text"
-						class="text-box" name="goodsNum" id="goodsTotalNum" />개
+					<label class="store_subTitle">상품 총 수량</label> 
+					<input type="text" class="text-box" name="f_num" id="goodsNum"/>개
 				</div>
 
 				<div class="store_subCategory">
 					<label class="store_subTitle">상품 내용</label><br />
-					<textarea class="goodsInfo_content" name="goodsInfoContent" id="goodsInfoContent"></textarea>
+					<textarea class="goodsInfo_content" name="f_content" id="goodsInfoContent"></textarea>
 				</div>
 
 				<button type="button" class="submitBtn" onclick="modifyBtn()">수정하기</button>

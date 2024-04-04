@@ -17,20 +17,19 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 	@Autowired
 	CustomerAccountDAO dao;
 	
-
 	@Override
-	public AccountVO getCustomerAccount(String id) {
-		// TODO Auto-generated method stub
-		logger.info("getCustomerAccount");
-		AccountVO vo = dao.getCustomerAccount(id);
-		return vo;
+	public AccountVO getAccount(String id) {
+		return dao.getAccount(id);
 	}
 	
 	@Override
-	public int accountUpdate(AccountVO accountVO) {
-		// TODO Auto-generated method stub
-		logger.info("accountUpdate");
-		int resultNum = dao.accountUpdate(accountVO);
-		return resultNum;
+	public void updateCAccount(AccountVO updateCAccount) {
+		dao.updateCAccount(updateCAccount);
 	}
+	
+	@Override
+	public void insertAccount(AccountVO vo) {
+		dao.insertAccount(vo);
+	}
+	
 }

@@ -14,16 +14,18 @@ public class CustomerAccountDAOImpl implements CustomerAccountDAO {
 	SqlSessionTemplate mybatis;
 
 	@Override
-	public AccountVO getCustomerAccount(String id) {
-		// TODO Auto-generated method stub
-		System.out.println("=> CustomerAccountDAOImpl  => getCustomerAccount 실행");
-		return mybatis.selectOne("CustomerAccountDAO.getCustomerAccount", id);
+	public AccountVO getAccount(String id) {
+		return mybatis.selectOne("CustomerAccountDAO.getAccount", id);
 	}
 
 	@Override
-	public int accountUpdate(AccountVO accountVO) {
-		// TODO Auto-generated method stub
-		System.out.println("=> CustomerAccountDAOImpl  => accountUpdate 실행");
-		return mybatis.update("CustomerAccountDAO.updateAccount",accountVO);
+	public void updateCAccount(AccountVO updateCAccount) {
+		mybatis.update("CustomerAccountDAO.updateCAccount", updateCAccount);
 	}
+	
+	@Override
+	public void insertAccount(AccountVO vo) {
+		mybatis.insert("CustomerAccountDAO.insertAccount", vo);
+	}
+	
 }

@@ -6,9 +6,9 @@ public interface CustomerCardService {
 
 	public CardVO getCard(String id);
 	
-	 void updateCard(CardVO updateCard);
+	public void updateCard(CardVO updateCard);
 	  
-		/* public void insertCard(CardVO vo); */
+	public void insertCard(CardVO vo);
 	 
 	
 }

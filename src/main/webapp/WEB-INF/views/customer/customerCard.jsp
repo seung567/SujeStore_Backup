@@ -5,7 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,14 +27,13 @@
 <script type="text/javascript" src="./resources/js/customer/customerCard.js"></script>
 <script type="text/javascript">
 
-
 $(function(){
 	
     // 버튼 이벤트
     $('.cardInsert').addClass('selectMenu');
     
 	var selectcard="${vo.card_company}"
-	    $('#bankselect option').each(function() {
+	    $('#cardselect option').each(function() {
 		    if ($(this).text() == selectcard ) {
 				$(this).prop('selected', true);
 		    }
@@ -58,7 +56,7 @@ $(function(){
 			<div class="subtitle">카드 등록/수정</div>
 			<div class="myPageLine"></div>
 			
-			<form action="updateCard.do" method="post">
+			<form id="submitForm" action="updateCard.do" method="post">
 			
 			<div class="mainInputFormTitle">
 				<!-- 각 입력부분 제목 -->
@@ -73,7 +71,7 @@ $(function(){
 				<div>
 					<!-- 카드사 선택부분 -->
 					<div>
-						<select id="bankselect" name="card_company">
+						<select id="cardselect" name="card_company">
 						<option value=" ">카드 선택</option>
 							<option value="우리카드">우리카드</option>
 							<option value="국민카드">국민카드</option>
@@ -85,8 +83,8 @@ $(function(){
 					
 					<!-- 카드번호 입력부분 -->
 					<div>
-						<input type="text" value="${vo.card_num}" name="card_num"
-						placeholder="예시) 123-456-7890"/>
+						<input type="text" value="${vo.card_num}" name="card_num" 
+						placeholder="예시) 1234-5678-9012-3456"/>
 					</div>
 					
 					<!-- 유효기간 입력부분 -->
@@ -108,18 +106,22 @@ $(function(){
 					</div>
 				</div>
 			</div>
-			<input type="hidden" value="${vo.m_id}" name="m_id"/>		
+			<input type="hidden" value="${id}" name="m_id"/>		
 			
 			<div class="modifyBtn">
-				<input type="submit" class ="submitBtn" name="submitBtn" value="수정하기"></input>	
+				<input type="submit" class ="submitBtn" name="submitBtn" value="등록/수정하기"></input>	
 			</div>
-
 			<div class="myPageLine"></div>
 			
+			<c:if test="${vo.card_code eq null}">
+					<input type="hidden" value="0" name="card_code">
+			</c:if>
+			<c:if test="${vo.card_code ne null}">
+					<input type="hidden" value="${vo.card_code}" name="card_code">
+			</c:if>
 			</form>
 		</div>			
 	</div>
 	
 </body>
-
 </html>

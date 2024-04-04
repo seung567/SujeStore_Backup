@@ -1,6 +1,8 @@
 
     $(function() {
 		
+		
+		
 		// 스토어 목록에서 요청건 클릭시 실행되는 이벤트
 		$(".storeSimpleInfo").parent().click(function() {
 		    
@@ -113,6 +115,31 @@
 			});
 			
 		});
+		
+		
+		// 결제정보 결제 방식 선택 이벤트
+		$('.paySelect').change(function(){
+		
+			let selectValue = $(this).val();
+			bankSelect(selectValue);
+			
+		});
+		
+		// 결제하기 버튼 클릭이벤트 - 결제정보 빈칸 검증
+		$(".payMentinsertbtn input[type='button']").eq(0).off('click').click(function(event){
+		
+			event.preventDefault();
+			
+			var str_space =  /\s/;
+			var payInfoValue = $('.payMentContentRight2 div:first-child input').eq(0).val();
+			
+			if(payInfoValue == 0){
+				alert("결제정보가 없습니다.\n결제정보를 추가 하시거나\n다른 결제 수단을 선택 하여 주세요."); 
+			}else{
+				$('#payDeliveryForm').attr('action', 'payDeliveryInsert.do');
+				$('#payDeliveryForm').submit();
+			}
+		});
 	});
 	
 // 최초 주문 요청서 출력 함수
@@ -175,8 +202,6 @@ function mainContent(item){
  		mainDetailDiv.append("<img src='./resources/img/wordballoon.png'>"); // 채팅 뒷 배경
     	mainDetailDiv.append("<div class='dateDetail'>" + item.etc_date + "</div>"); // 채팅 입력 날짜
     	
-    	console.log(document.querySelector('#orderCheck').offsetHeight);
-    	
     	$(".orderMainContent").css("overflow" , "auto");
     	$(".orderMainContent").scrollTop($(".orderMainContent")[0].scrollHeight);
  
@@ -226,6 +251,7 @@ function finalOroderCheck(){
 		},
 		success : function(data){
 		    
+		    console.log(data);
 		    const itemInfo = data;
 		    
 		    // 최종 주문 번호
@@ -255,6 +281,12 @@ function finalOroderCheck(){
 		    //요구사항
 		    $('#content').val(data.fo_etc);
 		    
+		    if(data.p_code != 0) {
+		    	$('.OrderInfoinsertbtn div').remove();
+		    	$('.OrderInfoinsertbtn').text('결제완료건 입니다 ! 주문 내역 조회에서 확인 하여주세요 ~');
+		    	$('.OrderInfoinsertbtn').css('font-weight','bold');
+		    }
+		    
 		    $('.insertBtnRes').val("결제하기");
 		    
 		    $('.insertBtnRes').click(function(){
@@ -266,6 +298,39 @@ function finalOroderCheck(){
 		}	
     });
 }
+
+var accNum;
+var accBank;
+
+var cardNum;
+var cardBank;
+
+function bankSelect(selectValue){
+	
+	$('.payMentContentRight2 div:first-child input').eq(0).val("");
+	$('.payMentContentRight2 div:first-child input').eq(1).val("");
+	if($('.paySelect option').eq(0).text() == "=선택="){$('.paySelect option').eq(0).remove();}
+	
+	if(selectValue == 1){
+		$('.payMentContentRight2 div:first-child input').eq(0).val(cardBank);
+		var no = $('.payMentContentRight2 div:first-child input').eq(1);
+		if(cardNum == null){
+			no.val("");
+		}else{
+			no.val(cardNum);
+		}
+	}else{
+		$('.payMentContentRight2 div:first-child input').eq(0).val(accBank);
+		var no = $('.payMentContentRight2 div:first-child input').eq(1);
+		if(accNum == 0){
+			no.val("");
+		}else{
+			no.val(accNum);
+		}
+	}
+
+}
+
 
 // 결제 하기 모달
 function payMent(orderInfoList){
@@ -281,6 +346,21 @@ function payMent(orderInfoList){
 		dataType : "json",
 		contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
 		success : function(data){
+		    
+		    if(data.m_acc_bank == null && data.card_company ==null){
+		    	if(confirm("등록된 결제 정보가 없습니다. \n결제정보 등록 후 이용 하여주세요\n등록 페이지로 이동 하시겠습니까?")){
+		    		location.href = "customerCard.do?id=" + data.m_id  + ">";
+		    	}else{
+		    		location.href = "customerSujeTalk.do?id=" + data.m_id + "&page=1";
+		    	}
+		    }else{
+		    	accNum = data.m_acc_num;
+		    	accBank = data.m_acc_bank;
+		    	cardNum = data.card_num;
+		    	cardBank = data.card_company;
+		    }
+		    
+		    console.log(cardNum);
 		    
 		    $("#foCode").val(data.fo_code); // 최종 주문 번호
 		    
@@ -320,6 +400,16 @@ function payMent(orderInfoList){
 		    
 		    $("#payMentDate").val(year + '/' + month + '/' + date);
 		    $(".idInfoPay").val($(".idInfo").val());
+		    
+		    if(data.deli_code == 7001){
+		    	$('.payMentsubtitle').eq(2).text('');
+		    	$('.payMentContentLefit3').remove();
+		    	$('.payMentContentRight3').remove();
+		    }
+		    
+//		    $('.payMentContentRight2 div input:nth-child(2)').val(data.)
+//		    $('.payMentContentRight2 div input:nth-child(3)').val()
+		    
 		}
 	
     });

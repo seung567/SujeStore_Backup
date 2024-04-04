@@ -2,7 +2,7 @@
  * 
  */
 $(function() {
-	$(".customerInfoList").parent().click(function() {
+	$(".customerInfoList").parent().off('click').click(function() {
 		/* 주문 상세 요청 내역 비동기 처리 */
 		$.ajax({
 			type: "post",
@@ -42,9 +42,19 @@ $(function() {
 			error: function(status) {}
 		});
 	});
+	
+	var doubleSubmitFlag = false;
+	
 	// 기타 요청 사항 답변 입력 이벤트
 	$('#etcStoreInsert').off('submit').submit(function() {
 		var formData = new FormData(this);
+		
+						if(doubleSubmitFlag){
+					alert("처리중입니다! 잠시만 기달려주세요 ~");
+					return false;
+				}else{
+				
+					doubleSubmitFlag = true;
 		$.ajax({
 			type: "post",
 			url: "insertStoreEtc.do",
@@ -77,11 +87,18 @@ $(function() {
 			error: function(request, status, error) {
 				alert("통신 에러가 발생했습니다 : " + request + "/" + status + "/" + error);
 			}
+			
 		});
+		}
+		doubleSubmitFlag = false;
 		return false;
 	});
+	
 	// 최종 주문서 등록 이벤트
 	$(".orderInsertBtn").click(function() {
+	
+		$('.storeID').val($('.s_id').val());
+		
 		let orderNO = $(".activeTalkTitle>div:nth-child(2) input").val();
 		resetSujeTalk();
 		if (orderNO != "") {

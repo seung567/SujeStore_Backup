@@ -11,10 +11,6 @@ public interface CustomerReviewService {
 	
 	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap);
 	
-	public void insertReview(ReviewVO vo);
-	
-	public int getTotalCountPage(String id); // 전체 페이지 수 계산
-	
-	public List<ReviewVO> getPageList(ReviewVO vo); // 페이지에 맞는 리스트 가져오기
+	public Map<String,Integer> reviewInsert(ReviewVO reviewVO); // 리뷰 등록
 
 }

@@ -33,21 +33,9 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
 	}
 
 	@Override
-	public void insertReview(ReviewVO vo) {
-		System.out.println("=> Review작성 Service 실행");
-		dao.insertReview(vo);
-	}
-	
-	@Override
-	public int getTotalCountPage(String id) {
-		logger.info("getTotalCountPage 실행");
-		return dao.getTotalCountPage(id);
-	}
-	
-	@Override
-	public List<ReviewVO> getPageList(ReviewVO vo) {
-		logger.info("getPageList 실행");
-		return dao.getPageList(vo);
+	public Map<String,Integer> reviewInsert(ReviewVO reviewVO) {
+		logger.info("reviewInsert // Service");
+		return dao.reviewInsert(reviewVO);
 	}
 	
 }

@@ -16,17 +16,31 @@ public class StoreGoodsSUServiceImpl implements StoreGoodsSUService{
 	StoreGoodsSUDAO dao;
 	
 	@Override
-	// 1.메소드 이름 맞추기
-	public  List<StoreGoodsSUVO> storeGoodsMainPage(String id) { 
-		
-		 List<StoreGoodsSUVO> goodsList = dao.storeGoodsMainPage(id); // 단일 객체 대신 리스트로 받기
-	        
-	        return goodsList;
+	public List<StoreGoodsSUVO> storeGoodsMainPage(StoreGoodsSUVO vo){ 
+		return dao.storeGoodsMainPage(vo);
+	}
+
+	@Override
+	public StoreGoodsSUVO getGoodsInfo(StoreGoodsSUVO vo){ 
+		return dao.getGoodsInfo(vo);
 	}
 	
 	@Override
-	public void updateGoodsSU(StoreGoodsSUVO updateGoodsSU) {
+	public List<StoreGoodsSUVO> getGoodsSubImgInfo(StoreGoodsSUVO vo){ 
+		return dao.getGoodsSubImgInfo(vo);
+	}
+	
+	@Override
+	public int updateGoodsSU(StoreGoodsSUVO vo) {
+		int result = dao.updateGoodsSU(vo);
+		return result;
+	}
 		
-		dao.updateGoodsSU(updateGoodsSU);
+	@Override
+	public int deleteStoreGoodsSU(StoreGoodsSUVO vo) {
+		int result = dao.deleteStoreGoodsSU(vo);
+		return result;
 	}
 }
+
+

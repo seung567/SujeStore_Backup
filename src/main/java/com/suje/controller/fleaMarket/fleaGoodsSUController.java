@@ -82,7 +82,7 @@ public class fleaGoodsSUController {
 	@RequestMapping(value = "modifyGoodsSU", method = RequestMethod.POST)
 	@ResponseBody
 	public String modifyGoodsSU(FleaGoodsVO vo, Model model) {
-		
+		System.out.println("스토어 작품 수정///////////////");
 		logger.info("/////////////////////////////   modifyGoodsSU 실행");
 
 		int result = goodsService.modifyGoodsSU(vo);

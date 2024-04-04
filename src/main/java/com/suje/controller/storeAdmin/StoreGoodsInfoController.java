@@ -31,32 +31,23 @@ public class StoreGoodsInfoController {
 	CategoryMainService categoryService;
 	
 
-	// 스토어 상품 등록 메인 페이지
+	// 스토어 작품 등록 메인 페이지
 		@RequestMapping(value = "storeGoodsInfo")
 		public String storeGoodsInfoMain(Model model) {
 
 			List<CategoryVO> cateMainList = categoryService.getCateMain();
 			model.addAttribute("cateMainList", cateMainList);
 
-			System.out.println("///////////////////////////////스토어 상품 등록 메인 페이지");
+			System.out.println("///////////////////////////////스토어 작품 등록 메인 페이지");
 
 			return "/storeAdmin/storeGoodsInfo";
 		}
 	
-
-		/*
-		 * @RequestMapping(value="insertStoreGoodsInfo", method = RequestMethod.POST)
-		 * public String insertStoreGoodsInfo(@ModelAttribute("vo")StoreGoodsSUVO vo,
-		 * Model model) { goodsService.insertStoreGoodsInfo(vo);
-		 * model.addAttribute("VO",vo); logger.info(vo.getS_id()); return
-		 * "redirect:/storeGoodsInfo.do?id="+ vo.getS_id(); }
-		 */
 	
-	
-	// 플리마켓 전체 상품 정보(서브이미지 포함) 등록
+	// 스토어 전체 작품 정보(서브이미지 포함) 등록
 		@RequestMapping(value = "insertStoreGoodsInfo", method = RequestMethod.POST)
 		public String insertStoreGoodsInfo(@ModelAttribute StoreGoodsSUVO vo, Model model) throws Exception {
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 컨트롤러");
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 스토어 작품 등록 컨트롤러");
 
 			
 			String fileName = null;

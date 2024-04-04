@@ -51,11 +51,7 @@
 		    f_num = #{f_num}
 		WHERE f_code = #{f_code}
 		
-		    <!-- f_pname = #{f_pname},
-		    f_spname = #{f_spname},
-		    f_ppath = #{f_ppath},
-		    f_psize = #{f_psize},
-		    f_ck = #{f_ck}, -->
+		   
 		
 	</update>
 	

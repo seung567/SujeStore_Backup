@@ -14,22 +14,18 @@ public class CustomerCardDAOImpl implements CustomerCardDAO {
 	SqlSessionTemplate mybatis;
 	
 	@Override
-	public CardVO getCard(String id) {		
-		return mybatis.selectOne("CustomerCardDAO.getCard", id);		 
+	public CardVO getCard(String id) {
+		return mybatis.selectOne("CustomerCardDAO.getCard", id);
 	}
-	
-	
-	  @Override 
-	  public void updateCard(CardVO updateCard) {
-	  System.out.println("updateCard DAO 실행");
-	 mybatis.update("CustomerCardDAO.updateCard", updateCard); }
-	  
-	/*
-	 * @Override public void insertCard(CardVO vo) {
-	 * System.out.println("insertCard DAO 실행"); mybatis.insert("cardDAO.insertCard",
-	 * vo); }
-	 */
-	 
-	
 
+	@Override
+	public void updateCard(CardVO updateCard) {
+		mybatis.update("CustomerCardDAO.updateCard", updateCard);
+	}
+
+	@Override
+	public void insertCard(CardVO vo) {
+		mybatis.insert("CustomerCardDAO.insertCard", vo);
+	}
+	 
 }

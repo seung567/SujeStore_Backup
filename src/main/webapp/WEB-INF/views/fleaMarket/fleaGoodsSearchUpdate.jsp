@@ -122,6 +122,7 @@
 				dataType : "json",
 				contentType : 'application/x-www-form-urlencoded; charset=UTF-8',
 				success : function(data) {
+					
 					var firstCate = data["getFleaListVO"].catem_code;
 					var firstCateName = data["getFleaListVO"].catem_name;
 					var secondCate = data["getFleaListVO"].catemm_code;
@@ -156,8 +157,7 @@
 				             );
 				           }
 				           
-			         		//대분류
-							$(".goodsInfo_selectBox_Secound option").each(function(){
+			         		$(".goodsInfo_selectBox_Secound option").each(function(){
 								if($(this).text() == secondCateName){
 									$(this).prop('selected', true);
 								}
@@ -199,7 +199,6 @@
 			         }
 			      });
 					
-					console.log(data);
 					
 					//상품 코드/아이디값(히든)
 		 			 $("input[name='f_code']").val(fCodeValue);
@@ -222,17 +221,7 @@
 		 			 // 상품 메인 이미지 설정
 		 	        const mainImg = data["getFleaListVO"].f_spname;
 		 	         $(".goodsMainImg img").attr("src", "./resources/img/DBServer/"+mainImg);
-		 	     /*     alert(mainImg); */
-		 	         
-		 	     /* 
-			 	     var subImg = data["getSubImgListVO"];
-		 	       if (subImg != null) {
-			 	        // 상품 서브 이미지 설정
-		               $(".goodsSubImg img").each(subImg , function(index, goodsImg) {
-		 	               var subImg = goodsImg.fs_spname;
-		 	               $(this).attr("src", "./resource/img/DBServer/"+subImg);  
-		               });
-		            } */
+		 	     
 		 	       
 		 	        // 상품 서브 이미지 설정
 		 	        if(data["getSubImgListVO"] != null){

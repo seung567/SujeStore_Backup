@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class StoreProfileVO {
-    private String s_id;
+    private String s_id,s_name;
     private String s_text;
     private String catem_name;
     private String s_pname;

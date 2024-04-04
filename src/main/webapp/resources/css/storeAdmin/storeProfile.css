@@ -43,7 +43,7 @@ hr {
 	border-radius: 10px;
 	padding: 10px 10px;
 	font-size: 20px; /* 화면 너비에 대해 상대적인 크기 */
-	margin-bottom: 50px; /* 하단 여백을 화면 너비의 1%로 설정 */
+	margin-top: 50px; /* 하단 여백을 화면 너비의 1%로 설정 */
 	margin-left: 150px;
 	width: 600px; /* 폼의 너비를 화면 너비의 90%로 설정 */
 	height: 50px;
@@ -75,7 +75,9 @@ hr {
 
 
 .image-container {
-	margin-bottom: 100px;
+	display: flex;
+    align-items: center;
+    margin-top: 10px; 
 }
 
 .image-container img, .image-container button {
@@ -92,9 +94,34 @@ hr {
     width: 100px;
 	height: 30px;
 }
+.fileInput {
+	margin-left: 50px;
+	font-size: 10px;
+    flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+    
+}
+
+
 
 .image-container button:hover{
     background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
+}
+/* 프로필 이미지 원 모양 */
+#profilePreview {
+    border-radius: 50%;
+    border: 5px solid #adefd1;
+    width: 100px; /* 프로필 이미지 너비 */
+    height: 100px; /* 프로필 이미지 높이 */
+    object-fit: cover; /* 이미지 비율 유지 및 이미지를 지정된 너비 및 높이로 자르기 */
+}
+
+/* 배경 이미지 크기 설정 */
+#backimgPreview {
+	border: 5px solid #adefd1;
+    width: 500px; /* 배경 이미지 너비 */
+    height: 120px; /* 배경 이미지 높이 */
+    object-fit: cover; /* 이미지 비율 유지 및 이미지를 지정된 너비 및 높이로 자르기 */
+     border-radius: 5px; /* 반경 변경 */
 }
 
 
@@ -108,6 +135,7 @@ hr {
     cursor: pointer; /* 커서 모양 변경 */
     width: 300px;
     height: 50px;
+    margin-top:100px;
 }
 
 .button-container button:hover {

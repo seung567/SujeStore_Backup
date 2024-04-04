@@ -6,10 +6,9 @@ public interface CustomerCardDAO {
 	
 	public CardVO getCard(String id);
 	
-	
-	  public void updateCard(CardVO updateCard);
+	public void updateCard(CardVO updateCard);
 	  
-		/* public void insertCard(CardVO vo); */
+	public void insertCard(CardVO vo); 
 	 
 	
 }

@@ -10,7 +10,6 @@
 
 		<!-- 유승민 설정 부분 -->
 		<typeAlias alias="customerMyPage" type="com.suje.domain.customer.MemberVO"/>
-		<typeAlias alias="customerAccountInfo" type="com.suje.domain.customer.AccountVO"/>
 		<typeAlias alias="customerOrderList" type="com.suje.domain.customer.OrderListVO"/>
 		<typeAlias alias="customerEtcList" type="com.suje.domain.customer.EtcVO"/>
 		<typeAlias alias="customerFinalOrder" type="com.suje.domain.customer.FinalOrderVO"/>
@@ -20,16 +19,14 @@
 		<typeAlias alias="fileTestUpload" type="com.suje.domain.customer.FileUploadTestVO"/>
 	
 		<!-- 장경희 설정 부분 -->
-
       <typeAlias alias="storeNotiInfo" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
       <typeAlias alias="storeNotice" type="com.suje.domain.storeAdmin.StoreNoticeVO" />
       <typeAlias alias="fleaGoodsSU" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
       <typeAlias alias="fleaGoodsInfo" type="com.suje.domain.fleaMarket.FleaGoodsVO" />
 
-
 		<!-- 이수정 설정 부분 -->
-		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO" />
 		<typeAlias alias="customerCard" type="com.suje.domain.customer.CardVO"/>
+		<typeAlias alias="customerAccount" type="com.suje.domain.customer.AccountVO" />
 		<typeAlias alias="customerReview" type="com.suje.domain.customer.ReviewVO" />
 		<typeAlias alias="customerQnA" type="com.suje.domain.customer.QnAVO" />
 		<typeAlias alias="customerPay" type="com.suje.domain.customer.PayVO" />

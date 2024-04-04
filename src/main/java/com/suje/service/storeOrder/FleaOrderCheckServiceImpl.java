@@ -24,5 +24,9 @@ public class FleaOrderCheckServiceImpl implements FleaOrderCheckService {
 	public FleaOrderCheckVO getFleaDelivery(int fpCode) { 
 		return dao.getFleaDelivery(fpCode);
 	}
+	@Override
+	public void fleadeliverycomplete(int fpCode) {
+		dao.fleadeliverycomplete(fpCode);
+	}
 
 }

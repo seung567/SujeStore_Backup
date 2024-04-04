@@ -110,7 +110,7 @@ $(function() {
  --%>
 	</div>
 	<div class="contentsLine"></div>
-	<a href="#" class="moreStoreBtn">스토어 더보기</a>
+	<a href="mainPopularRank.do" class="moreStoreBtn">스토어 더보기</a>
 </div> <!-- contentsWrap -->
 <footer></footer>
 </body> 

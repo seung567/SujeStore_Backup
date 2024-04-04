@@ -35,7 +35,6 @@ $(function() {
 	$('.storeMoreInfoBtn').click(function() {
 		//선택 스토어 정보 삽입
 		storeId = $(this).closest('.newStoreTableRow').find('td:first').text();
-        
 		sandPage(storeId);
 	});
 	$('.modalCloseBtn').click(function() {

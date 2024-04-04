@@ -42,4 +42,13 @@ public class FleaOrderCheckController {
 		
 		return fleadeliVO;
 	}
+	
+	@RequestMapping(value="fleadeliverycomplete", produces="application/text; charset=utf8")
+	@ResponseBody
+	public String fleadeliverycomplete(@RequestParam Map<String,String> fpCode) {
+		
+		logger.info("fleadeliverycomplete");
+		flordercheckService.fleadeliverycomplete(Integer.parseInt(fpCode.get("fpCode")));
+		return "발송 처리가 완료되었습니다.";
+	}
 }

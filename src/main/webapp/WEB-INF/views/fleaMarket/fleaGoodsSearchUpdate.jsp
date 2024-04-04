@@ -25,6 +25,11 @@
 
 	$(function() {
 		
+		
+	<% if (request.getAttribute("fleaInfoSuccess") != null) { %>
+		var fleaInfoSuccess = "<%= request.getAttribute("fleaInfoSuccess") %>";
+		alert(fleaInfoSuccess);
+	<% } %>
 	
 		// 서브 메뉴바 클래스명 추가 // CSS 적용
 		$(".storeCategoryArea>li:nth-child(2)>a").addClass("checkedStateFirstCategory");	
@@ -198,7 +203,6 @@
 					//상품 코드/아이디값(히든)
 		 			 $("input[name='f_code']").val(fCodeValue);
 		 			 $("input[name='s_id']").val(idValue);
-					
 		 			//상품 가격
 		 			const fSum = data["getFleaListVO"].f_sum;
 		 			 $("input[name='f_sum']").val(fSum);
@@ -278,9 +282,9 @@
 	<div class="storeContentsWrap">
 		<jsp:include page="../storeAdmin/storeSubMenuBar.jsp"></jsp:include>
 		<div class="storeContentsBox">
-			<h1 class="store_mainTitle">플리마켓 상품 조회/수정</h1>
+			<h1 class="store_mainFistTitle">플리마켓 상품 조회/수정</h1>
 			<hr />
-			<h1 class="store_mainTitle">상품 조회</h1>
+			<h1 class="store_maintitle">상품 조회</h1>
 			<div class="fleaSearch-table">
 				<div class="table-wrapper">
 					<table id=>
@@ -298,7 +302,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${fleaGoodsListAll}" var="listAll">
-								<tr class="goodsListDetail" data-s_id="${listAll.s_id}" data-f_code="${listAll.f_code}">
+								<tr class="goodsListDetail" data-s_id="<%= mainId %>" data-f_code="${listAll.f_code}">
 									<td>${listAll.f_code}</td>
 									<td>${listAll.cates_name}</td>
 									<td class="goodsContentList">${listAll.f_content}</td>
@@ -348,14 +352,14 @@
 				</div>
 
 
-				<div class="store_subCategory">
+				<div class="store_Box">
 					<label class="store_subTitle">상품 메인 이미지</label> 
 					<div class="goodsMainImg goodsImg">
 						<img alt="메인이미지" src="./resources/img/goodsImgArea.png">
 					</div>	
 				</div>
 
-				<div class="store_subCategory">
+				<div class="store_Box">
 					<label class="subImgTitle">상품 서브 이미지</label>
 					<div class="goodsSubImg goodsImg">
 						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
@@ -366,7 +370,6 @@
 					<div class="goodsSubImg goodsImg">
 						<img alt="서브이미지" src="./resources/img/goodsImgArea.png">
 					</div>
-					
 				</div> 
 
 				<div class="store_subCategory">
@@ -379,7 +382,7 @@
 					<input type="text" class="text-box" name="f_num" id="goodsNum"/>개
 				</div>
 
-				<div class="store_subCategory">
+				<div class="store_TextBox">
 					<label class="store_subTitle">상품 내용</label><br />
 					<textarea class="goodsInfo_content" name="f_content" id="goodsInfoContent"></textarea>
 				</div>
@@ -389,8 +392,8 @@
 			
 			<!-- 삭제하기 -->
 			<form action="deleteGoodsSU.do" >
-				<input type="hidden" name="f_code" value="${goodsList.f_code }">
-				<input type="hidden" name="s_id" value="${goodsList.s_id }"/>
+				<input type="hidden" name="f_code"/>
+				<input type="hidden" name="s_id" value="<%= mainId %>"/>
 				
 				<button class="submitBtn" name="deleteBtn" id="deleteBtn">삭제하기</button>
 			</form>

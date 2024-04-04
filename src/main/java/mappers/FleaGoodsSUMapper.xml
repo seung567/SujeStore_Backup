@@ -20,7 +20,7 @@
 	<select id="getFleaInfo" parameterType="fleaGoodsSU" resultType="fleaGoodsSU">
 	
 		SELECT
-		    f.f_code, f.f_date, f.f_redate, f.f_sum, f.f_pname, f.f_spname, f.f_content, f.f_ck, f.f_num, f.s_id, cs.cates_code, cs.cates_name,
+		    f.s_id, f.f_code, f.f_date, f.f_redate, f.f_sum, f.f_pname, f.f_spname, f.f_content, f.f_ck, f.f_num, f.s_id, cs.cates_code, cs.cates_name,
 		    cm.catemm_code, cm.catemm_name, c.catem_code, c.catem_name
 		FROM
 		    flea f

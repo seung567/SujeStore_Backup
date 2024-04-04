@@ -11,7 +11,6 @@
 </select>
 
 <insert id="insertStoreInfo" parameterType="storeGoodsInfo">
-
 	INSERT INTO GOODS(g_code, s_id, cates_code, g_date, g_pname, g_spname, g_content)
 	VALUES (
 		#{g_code},
@@ -22,7 +21,6 @@
 		#{g_spname},
 		#{g_content}
 		)
-
 </insert>
 
 <!-- 스토어 서브이미지 정보(goods_sub) 입력 --> 

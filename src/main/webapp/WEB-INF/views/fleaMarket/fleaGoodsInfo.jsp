@@ -27,7 +27,7 @@ String storeId = (String)session.getAttribute("mainId");
 	$(".storeCategoryArea>li:nth-child(2) .storeSecondCategoryArea li:nth-child(2)").addClass("checkedStateSecondCategory");
 	
 	
-	<% if (request.getAttribute("insertFleaInfoSuccess") != null) { %>
+<% if (request.getAttribute("insertFleaInfoSuccess") != null) { %>
 	var insertFleaInfoSuccess = "<%= request.getAttribute("insertFleaInfoSuccess") %>";
 	alert(insertFleaInfoSuccess);
 <% } %>

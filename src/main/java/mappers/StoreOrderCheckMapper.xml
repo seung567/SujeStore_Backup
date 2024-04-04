@@ -62,4 +62,10 @@
 	and p.p_code = d.p_code
 </select>
 
+<update id="deliverycomplete" parameterType="Integer">
+	update delivery
+	set d_state='발송완료', d_date=sysdate
+	where p_code=#{p_code}
+</update>
+
 </mapper>

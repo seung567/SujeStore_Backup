@@ -31,32 +31,23 @@ public class StoreGoodsInfoController {
 	CategoryMainService categoryService;
 	
 
-	// 스토어 상품 등록 메인 페이지
+	// 스토어 작품 등록 메인 페이지
 		@RequestMapping(value = "storeGoodsInfo")
 		public String storeGoodsInfoMain(Model model) {
 
 			List<CategoryVO> cateMainList = categoryService.getCateMain();
 			model.addAttribute("cateMainList", cateMainList);
 
-			System.out.println("///////////////////////////////스토어 상품 등록 메인 페이지");
+			System.out.println("///////////////////////////////스토어 작품 등록 메인 페이지");
 
 			return "/storeAdmin/storeGoodsInfo";
 		}
 	
-
-		/*
-		 * @RequestMapping(value="insertStoreGoodsInfo", method = RequestMethod.POST)
-		 * public String insertStoreGoodsInfo(@ModelAttribute("vo")StoreGoodsSUVO vo,
-		 * Model model) { goodsService.insertStoreGoodsInfo(vo);
-		 * model.addAttribute("VO",vo); logger.info(vo.getS_id()); return
-		 * "redirect:/storeGoodsInfo.do?id="+ vo.getS_id(); }
-		 */
 	
-	
-	// 플리마켓 전체 상품 정보(서브이미지 포함) 등록
+	// 스토어 전체 작품 정보(서브이미지 포함) 등록
 		@RequestMapping(value = "insertStoreGoodsInfo", method = RequestMethod.POST)
 		public String insertStoreGoodsInfo(@ModelAttribute StoreGoodsSUVO vo, Model model) throws Exception {
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 컨트롤러");
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 스토어 작품 등록 컨트롤러");
 
 			
 			String fileName = null;
@@ -76,7 +67,7 @@ public class StoreGoodsInfoController {
 				String ext1 = FilenameUtils.getExtension(imgFiles.getOriginalFilename()); // 파일의 확장자 
 				UUID uuid1 = UUID.randomUUID(); // 파일의 새로운 닉네임 
 				fileName = uuid1+"."+ext1; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
-				imgFiles.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\" + fileName));
+				imgFiles.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\img\\DBServer\\" + fileName));
 
 				vo.setG_pname(originalFileName);
 				vo.setG_spname(fileName);
@@ -91,7 +82,7 @@ public class StoreGoodsInfoController {
 					String ext2 = FilenameUtils.getExtension(file.getOriginalFilename()); // 파일의 확장자 
 					UUID uuid2 = UUID.randomUUID(); // 파일의 새로운 닉네임 
 					fileName = uuid2+"."+ext2; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
-					file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\" + fileName));
+					file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\img\\DBServer\\" + fileName));
 
 					vo.setGs_pname(originalFileName);
 					vo.setGs_spname(fileName);

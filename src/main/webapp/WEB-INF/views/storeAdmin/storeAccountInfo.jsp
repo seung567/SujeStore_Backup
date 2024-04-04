@@ -60,7 +60,7 @@ $(function(){
 								<option value="농협">농협은행</option>
 								<option value="기업">기업은행</option>
 								<option value="신한">신한은행</option>
-								<option value="카카오">카카오뱅크</option>
+								<option value="카카오">카카오은행</option>
 					</select> 
 				<label class="storeAcc_subTitle">계좌번호</label> 
 				<input type="text" id="s_acc" name="s_acc" required="required" class="storeAcc_textbox2" value="${vo.s_acc}"/> 

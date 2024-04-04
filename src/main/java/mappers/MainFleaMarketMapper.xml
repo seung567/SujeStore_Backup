@@ -27,7 +27,7 @@
 	<result property="s_name" column="s_name" />
 	<result property="f_content" column="f_content" />
 	<result property="f_sum" column="f_sum" />
-	<result property="f_ppath" column="f_ppath" />
+	<result property="f_spname" column="f_spname" />
 	<result property="catem_name" column="catem_name" />
 	<result property="catemm_name" column="catemm_name" />
 	<result property="cates_name" column="cates_name" />
@@ -38,7 +38,7 @@
 	<![CDATA[
 	select *
 	from ( select t.*, rownum as rnum
-		   from ( select f.f_code, s.s_name, f.f_content, f.f_sum, f.f_ppath, cm.catem_name, cmm.catemm_name, cs.cates_name
+		   from ( select f.f_code, s.s_name, f.f_content, f.f_sum, f.f_spname, cm.catem_name, cmm.catemm_name, cs.cates_name
 				  from flea f, store s, cate_sub cs, cate_mid cmm, cate_main cm
 				  where f.s_id=s.s_id and f.cates_code=cs.cates_code and cs.catemm_code=cmm.catemm_code and cmm.catem_code=cm.catem_code
 				    and f_ck='판매중'
@@ -62,7 +62,7 @@
 
 <!-- Flea 상세 상품 테이블(메인정보) 호출 -->
 <select id="getfleaDetail" parameterType="String" resultType="mainFleaMarketVO">
-	select f.f_code, s.s_name, f.f_content, f.f_sum, f_num, f.f_ppath, cm.catem_name, cmm.catemm_name, cs.cates_name
+	select f.f_code, s.s_name, f.f_content, f.f_sum, f_num, f.f_spname, cm.catem_name, cmm.catemm_name, cs.cates_name
 	from flea f, store s, cate_sub cs, cate_mid cmm, cate_main cm
 	where f.s_id=s.s_id and f.cates_code=cs.cates_code and cs.catemm_code=cmm.catemm_code and cmm.catem_code=cm.catem_code
 	and f.f_code=#{fCode}
@@ -70,7 +70,7 @@
 
 <!-- Flea 상세 상품 서브 이미지 호출 -->
 <select id="getfleaDetailSubImg" parameterType="String" resultType="mainFleaMarketVO">
-	select fs_ppath 
+	select fs_spname 
 	from flea_sub
 	where f_code=#{fCode}
 </select>
@@ -96,7 +96,7 @@
 <!-- flea_delivery Insert -->
 <insert id="fleaDeliveryInsert" parameterType="mainFleaMarketVO" >
 	INSERT INTO flea_delivery(fd_code, fp_code, fd_name, fd_tel, fd_addr, fd_memo, fd_state) 
-	VALUES (fd_code_sqn.nextval, #{fp_code}, #{fd_name}, #{fd_tel}, #{fd_addr}, #{fd_memo}, '발송 전')
+	VALUES (fd_code_sqn.nextval, #{fp_code}, #{fd_name}, #{fd_tel}, #{fd_addr}, #{fd_memo}, '주문완료')
 </insert>
 
 <!-- flea Update -->

@@ -79,7 +79,7 @@ public class FleaGoodsInfoController {
 				String ext2 = FilenameUtils.getExtension(file.getOriginalFilename()); // 파일의 확장자 
 				UUID uuid2 = UUID.randomUUID(); // 파일의 새로운 닉네임 
 				fileName = uuid2+"."+ext2; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
-				file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\" + fileName));
+				file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\img\\DBServer\\" + fileName));
 
 				vo.setFs_pname(originalFileName);
 				vo.setFs_spname(fileName);
@@ -93,7 +93,6 @@ public class FleaGoodsInfoController {
 
 		model.addAttribute("insertVO", vo);
 		model.addAttribute("insertFleaInfoSuccess", "플리마켓 상품이 등록되었습니다.");
-
 		System.out.println("///////////////////////////////플리마켓 등록 컨트롤러");
 
 		logger.info(vo.getS_id());

@@ -44,7 +44,7 @@ public class MainController {
 	//스토어 더보기 버튼(추후 사용)
 	@RequestMapping(value = "mainPopularRank.do")
 	public String moreStore() {
-		logger.info("스토어 랭킹 페이지 호출 컨트롤러");
-		return "main/mainPopularRank";
+		logger.info("스토어 전체 검색 페이지 호출 컨트롤러");
+		return "forward:/viewStoreCategory.do?page=1&mCate=전체&mmCate= &orderBy=1";
 	}
 }

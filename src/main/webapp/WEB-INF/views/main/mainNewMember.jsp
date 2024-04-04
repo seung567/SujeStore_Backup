@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link href="./resources/css/resetStyle.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/main/mainNewMemberStyle.css" rel="stylesheet" type="text/css">
-
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 

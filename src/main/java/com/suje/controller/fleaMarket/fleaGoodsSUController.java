@@ -87,14 +87,9 @@ public class fleaGoodsSUController {
 
 		int result = goodsService.modifyGoodsSU(vo);
 		model.addAttribute("result", result);
-
-		// 상품 리스트 불러오기
-		List<FleaGoodsVO> getFleaListAllVO = goodsService.fleaGoodsListAll(vo);
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-
-		resultMap.put("getListVO", getFleaListAllVO);
-
-		return "/fleaMarket/fleaGoodsSearchUpdate";
+		model.addAttribute("fleaInfoSuccess", "플리마켓 상품이 수정되었습니다.");
+		
+		return "forward:/fleaGoodsListAll.do?id="+vo.getS_id();
 	}
 	
 	
@@ -102,13 +97,12 @@ public class fleaGoodsSUController {
 	public String deleteGoodsSU(FleaGoodsVO vo, Model model) {
 		
 		logger.info("/////////////////////////////   deleteGoodsSU 실행");
-		System.out.println("delete VO      :    " + vo);
-		
-		
+		System.out.println("delete VO      :    " + vo.getS_id());
 		int result = goodsService.deleteGoodsSU(vo);
 		model.addAttribute("result", result);
+		model.addAttribute("fleaInfoSuccess", "플리마켓 상품이 삭제되었습니다.");
 		
-		return "redirect:/fleaGoodsListAll.do?id=" + vo.getS_id();
+		return "forward:/fleaGoodsListAll.do?id="+vo.getS_id();
 	}
 	
 

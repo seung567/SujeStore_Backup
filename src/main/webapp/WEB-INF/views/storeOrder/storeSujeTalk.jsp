@@ -22,7 +22,13 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/storeOrder/storeSujeTalk.js"></script>
-
+<script type="text/javascript">
+$(function() {
+	// 서브 메뉴바 클래스명 추가 // CSS 적용
+	$(".storeCategoryArea>li:nth-child(3)>a").addClass("checkedStateFirstCategory");	
+	$(".storeCategoryArea>li:nth-child(3) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
+})
+</script>
 <title>SUJE</title>
 </head>
 <body>
@@ -57,7 +63,7 @@
 						<div>
 							
 							<c:forEach items="${storeOrderList }" var="storeVO">
-							<div>
+							<div class="eachCustomer">
 								<div class="customerInfoList">
 									<img alt="" src="./resources/img/custmerLogo.png" />
 									<div>${storeVO.m_name}</div>
@@ -151,11 +157,9 @@
 	<!-- storeContentsBox -->
 	<!-- storeContentsWrap -->
 	<div class="modalWrap">
-
 		<div class="storeOrderInsertModal">
 			<jsp:include page="./Modal/storeSujeTalkModal.jsp"></jsp:include>
 		</div>
-
 		<input type="hidden" class="idInfo" value="${id }"/>
 	</div>
 	<footer></footer>

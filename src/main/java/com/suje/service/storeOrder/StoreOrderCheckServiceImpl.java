@@ -43,4 +43,9 @@ public class StoreOrderCheckServiceImpl implements StoreOrderCheckService {
 	public StoreOrderCheckVO getStoreDelivery(int foCode) { 
 		return dao.getStoreDelivery(foCode);
 	}
+	
+	@Override
+	public void deliverycomplete(int pCode) {
+		dao.deliverycomplete(pCode);
+	}
 }

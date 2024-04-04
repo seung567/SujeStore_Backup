@@ -23,4 +23,8 @@ public class FleaOrderCheckDAOImpl implements FleaOrderCheckDAO{
 	public FleaOrderCheckVO getFleaDelivery(int fpCode) {
 		return mybatis.selectOne("FleaOrderCheckDAO.getFleaDelivery",fpCode);
 	}
+	@Override
+	public void fleadeliverycomplete(int fpCode) {
+		mybatis.update("FleaOrderCheckDAO.fleadeliverycomplete", fpCode);
+	}
 }

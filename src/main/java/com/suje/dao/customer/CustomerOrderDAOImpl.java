@@ -62,13 +62,18 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 	@Override
 	public Map<String,Integer> insertPurchaseInfo(PurchaseVO vo) {
 		logger.info("insertPurchaseInfo // Repository");
-		int payState = mybatis.insert("customerOrderDAO.insertPayInfo",vo);
-		int deliveryState = mybatis.insert("customerOrderDAO.insertDeliveryInfo",vo);
 		
 		Map<String,Integer> stateMap = new HashMap<String, Integer>();
 		
-		stateMap.put("payState", payState);
-		stateMap.put("deliveryState", deliveryState);
+		if(vo.getD_name() == null) {
+			int payState = mybatis.insert("customerOrderDAO.insertPayInfo",vo);
+			stateMap.put("payState", payState);
+		} else {
+			int payState = mybatis.insert("customerOrderDAO.insertPayInfo",vo);
+			int deliveryState = mybatis.insert("customerOrderDAO.insertDeliveryInfo",vo);
+			stateMap.put("payState", payState);
+			stateMap.put("deliveryState", deliveryState);
+		}
 		
 		return stateMap;
 	}

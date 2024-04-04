@@ -137,7 +137,7 @@ $(function() {
 						</div>
 						<!-- 이미지 불러오기 -->
 						<!-- 요청사항 전송 -->
-						<form id="etcStoreInsert" action="insertStoreEtc.do" enctype="multipart/form-data">
+						<form id="etcStoreInsert" enctype="multipart/form-data">
 							<div>
 								<textarea class="etcContent" name="etc_content"></textarea>
 								<input type="submit" value="전송" />

@@ -54,7 +54,7 @@
 </select>
 
 
-
+<!-- 유승민 처리 쿼리 -->
 <sql id="storeCateList">
 
 	with
@@ -120,7 +120,7 @@
 		from store s, cateStoreList  cateList, reviewStoreList review 
 		where  s.s_id = review.s_id and s.s_id = cateList.s_id 
 		<if test="orderBy == 1">
-			order by s_name 
+			order by convert(s_name,'ISO2022-KR') 
 		</if>
 		<if test="orderBy == 2">
 			order by avgRvStar desc 
@@ -135,7 +135,7 @@
 		from store s, cateStoreList  cateList, reviewStoreList review 
 		where  s.s_id = review.s_id and s.s_id = cateList.s_id 
 		<if test="orderBy == 1">
-			order by s_name 
+			order by convert(s_name,'ISO2022-KR') 
 		</if>
 		<if test="orderBy == 2">
 			order by avgRvStar desc
@@ -150,7 +150,7 @@
 		from store s, cateStoreList  cateList, reviewStoreList review 
 		where  s.s_id = review.s_id and s.s_id = cateList.s_id 
 		<if test="orderBy == 1">
-			order by s_name 
+			order by convert(s_name,'ISO2022-KR') 
 		</if>
 		<if test="orderBy == 2">
 			order by avgRvStar desc

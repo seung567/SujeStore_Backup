@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.suje.domain.customer.PayVO;
 import com.suje.domain.customer.ReviewVO;
 import com.suje.service.customer.CustomerReviewServiceImpl;
 
@@ -25,7 +24,7 @@ public class CustomerReviewDAOImpl implements CustomerReviewDAO {
 	@Override
 	public int getCountPageTotal(String id) {
 		logger.info("getCountPageTotal // Repository");
-		return mybatis.selectOne("CustomerDAO.getCountPageTotal", id);
+		return mybatis.selectOne("CustomerReviewDAO.getTotalPageCount", id);
 	}
 	
 	@Override
@@ -34,7 +33,7 @@ public class CustomerReviewDAOImpl implements CustomerReviewDAO {
 
 		Map<String,Object> finalResultMap = new HashMap<String, Object>();
 
-		List<ReviewVO> customerReview = mybatis.selectList("CustomerDAO.getCustomerReview", resultMap);
+		List<ReviewVO> customerReview = mybatis.selectList("CustomerReviewDAO.getCustomerReview", resultMap);
 	
 		// 맵에 저장 하여 return
 		finalResultMap.put("customerReview", customerReview);
@@ -43,21 +42,17 @@ public class CustomerReviewDAOImpl implements CustomerReviewDAO {
 	}
 	
 	@Override
-	public void insertReview(ReviewVO vo) {
-		logger.info("insertReview 실행");
-		mybatis.insert("CustomerDAO.insertReview", vo);
-		System.out.println("insertReview vo : " + vo);	
+	public Map <String,Integer> reviewInsert(ReviewVO reviewVO) {
+		
+		int reviewMainState = mybatis.insert("CustomerReviewDAO.reviewInsertMain",reviewVO);
+		int reviewSubState = mybatis.insert("CustomerReviewDAO.reviewInsertSub",reviewVO);
+		
+		Map <String,Integer> stateMap = new HashMap<String, Integer>();
+		
+		stateMap.put("reviewMainState", reviewMainState);
+		stateMap.put("reviewSubState", reviewSubState);
+		
+		return stateMap;
 	}
-	
-	@Override
-	public int getTotalCountPage(String id) {
-		logger.info("getTotalCountPage 실행");
-		return mybatis.selectOne("CustomerDAO.getTotalCountPage",id);
-	}
-	
-	@Override
-	public List<ReviewVO> getPageList(ReviewVO vo) {
-		// TODO Auto-generated method stub
-		return mybatis.selectList("CustomerDAO.getPageList",vo);
-	}
+
 }

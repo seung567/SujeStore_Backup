@@ -54,7 +54,10 @@ public class MainLoginController {
 			model.addAttribute("storeAvail", login.getSa_ck());
 			return "main";
 		}
-		else {   
+		else {  
+			/*
+			session.setAttribute("accountProfileImg", mainloginService.getAccountProfileImg(login.getS_id()));   
+			*/
 			session.setAttribute("mainId", login.getS_id());   
 			/* return "storeAdmin/storeProfile"; */
 			return "forward:/storeProfile.do?id=" + vo.getS_id();

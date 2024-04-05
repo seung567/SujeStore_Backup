@@ -33,9 +33,10 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 	
 	@Override
 	public void insertFleaPayCancel(PayVO vo) {
-		System.out.println("=> flea 결제취소요청 Service 실행");
+		System.out.println("=> flea결제취소요청 Service 실행");
 		dao.insertFleaPayCancel(vo);
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public void insertOrderPayReturn(PayVO vo) {
@@ -55,5 +56,8 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 		logger.info("insertPurchConfirm // Service");
 		return dao.insertPurchConfirm(id,payNo);
 	}
+=======
+
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 	
 }

@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.suje.domain.category.CategoryVO;
 import com.suje.domain.fleaMarket.FleaGoodsVO;
-import com.suje.service.category.CategoryMainService;
 import com.suje.service.felaMarket.FleaGoodsSUService;
 
 
@@ -28,22 +26,16 @@ public class fleaGoodsSUController {
 	@Autowired
 	FleaGoodsSUService goodsService;
 	
-	@Autowired
-	CategoryMainService categoryService;
-	
-	// 플리마켓 전체 상품 리스트 조회
+	// 플리마켓 상품 리스트 출력
 	@RequestMapping(value = "fleaGoodsListAll")
 	public String fleaGoodsListAll(@RequestParam("id") String id, FleaGoodsVO vo, Model model) {
 		
 		logger.info("/////////////////////////////  fleaGoodsListAll 실행");
 
 		vo.setS_id(id);
+		List<FleaGoodsVO> goodsList = goodsService.fleaGoodsListAll(vo);
 		
-		List<FleaGoodsVO> getFleaListAllVO = goodsService.fleaGoodsListAll(vo);
-		List<CategoryVO> cateMainList = categoryService.getCateMain();
-		
-		model.addAttribute("cateMainList", cateMainList);
-		model.addAttribute("fleaGoodsListAll", getFleaListAllVO);
+		model.addAttribute("fleaGoodsListAll", goodsList);
 
 		return "/fleaMarket/fleaGoodsSearchUpdate";
 	}
@@ -57,23 +49,16 @@ public class fleaGoodsSUController {
 		logger.info("/////////////////////////////  getFleaInfo 실행");
 		
 		vo.setS_id(valueMap.get("id"));
-		vo.setF_code(valueMap.get("fleaNum"));
+		vo.setF_code(Integer.parseInt(valueMap.get("fleaNum")));
 		
+		// 상품 리스트 불러오기
+		List<FleaGoodsVO> list = goodsService.fleaGoodsListAll(vo);
 		// 상품 상세 정보 불러오기
-		FleaGoodsVO getFleaListVO = goodsService.getFleaInfo(vo);
-		System.out.println("/////////////////////////////  상품 상세 정보 불러오기 실행");
-		logger.info("getFleaListVO ===>"  + getFleaListVO);
-		logger.info("중분류 ===>"  + getFleaListVO.getCatemm_code());
-		logger.info("소분류 ===>"  + getFleaListVO.getCates_code());
-		
-		// 상품 서브 이미지 불러오기
-		List<FleaGoodsVO> getSubImgListVO = goodsService.getFleaSubImgInfo(vo);
-		System.out.println("/////////////////////////////  상품 서브 이미지 불러오기 실행");
-		
-		
+		FleaGoodsVO getListVO = goodsService.getFleaInfo(vo);
 		Map<String,Object> resultMap = new HashMap<String, Object>();
-		resultMap.put("getFleaListVO", getFleaListVO);
-		resultMap.put("getSubImgListVO", getSubImgListVO);
+		
+		resultMap.put("fleaList", list);
+		resultMap.put("getListVO", getListVO);
 
 		return resultMap;
 	}
@@ -82,14 +67,19 @@ public class fleaGoodsSUController {
 	@RequestMapping(value = "modifyGoodsSU", method = RequestMethod.POST)
 	@ResponseBody
 	public String modifyGoodsSU(FleaGoodsVO vo, Model model) {
-		System.out.println("스토어 작품 수정///////////////");
+		
 		logger.info("/////////////////////////////   modifyGoodsSU 실행");
 
 		int result = goodsService.modifyGoodsSU(vo);
 		model.addAttribute("result", result);
-		model.addAttribute("fleaInfoSuccess", "플리마켓 상품이 수정되었습니다.");
-		
-		return "forward:/fleaGoodsListAll.do?id="+vo.getS_id();
+
+		// 상품 리스트 불러오기
+		List<FleaGoodsVO> list = goodsService.fleaGoodsListAll(vo);
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+		resultMap.put("fleaList", list);
+
+		return "/fleaMarket/fleaGoodsSearchUpdate";
 	}
 	
 	
@@ -97,12 +87,13 @@ public class fleaGoodsSUController {
 	public String deleteGoodsSU(FleaGoodsVO vo, Model model) {
 		
 		logger.info("/////////////////////////////   deleteGoodsSU 실행");
-		System.out.println("delete VO      :    " + vo.getS_id());
+		System.out.println("delete VO      :    " + vo);
+		
+		
 		int result = goodsService.deleteGoodsSU(vo);
 		model.addAttribute("result", result);
-		model.addAttribute("fleaInfoSuccess", "플리마켓 상품이 삭제되었습니다.");
 		
-		return "forward:/fleaGoodsListAll.do?id="+vo.getS_id();
+		return "redirect:/fleaGoodsListAll.do?id=" + vo.getS_id();
 	}
 	
 

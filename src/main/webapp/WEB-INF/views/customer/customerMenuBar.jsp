@@ -22,7 +22,8 @@
 <title>메뉴바</title>
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
 <link rel="stylesheet" href="./resources/css/customer/customerMenuBar.css" />
-<script type="text/javascript" src="./resources/js/customer/customerMenuBar.js"></script>
+<script type="text/javascript"
+	src="./resources/js/customer/customerMenuBar.js"></script>
 </head>
 <body>
 		<div class="mainContentleft">
@@ -30,25 +31,32 @@
 				<img width=120px height=120px alt="" src="./resources/img/basicProfileIconBig.png">
 			</div>
 			<div><%=user %></div>
-		
+
+			
 			<div class="subTitle mypagebtn">
 				<a href="customerMyPage.do?id=<%=user %>">마이페이지</a>
 			</div><!-- 마이페이지 연결 -->
-					
+			
+			
 			<div class="subTitle cardInsert">
-				<a href="customerCard.do?id=<%=user %>">카드 등록/수정</a>
+				<a href="cardInfomation.do?id=<%=user %>">카드 등록/수정</a>
 			</div><!-- 카드 등록/ 수정 -->
 			
 			<div class="subTitle accountInsert">
 				<a href="customerAccount.do?id=<%=user %>">계좌 등록/수정</a>
 			</div><!-- 계좌 등록/ 수정 -->
 			
+<<<<<<< HEAD
 			<div class="subTitle orderListMenubar">
 				<a href="getPayList.do?id=<%=user %>&orderPage=1&fleaPage=1&cancelPage=1&returnPage=1">주문 내역 조회</a>
+=======
+			<div class="subTitle orderList">
+				<a href="getPayList.do?id=<%=user %>&orderPage=1&fleaPage=1">주문 내역 조회</a>
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 			</div><!-- 주문 내역 조회-->
 			
 			<div class="subTitle reviews">
-				<a href="getCustomerReview.do?id=<%=user%>&page=1">후기 작성</a>
+				<a href="customerReview.do?id=<%=user%>&page=1">후기 작성</a>
 			</div><!-- 후기 작성 -->
 			
 			<div class="subTitle sujeTalk">

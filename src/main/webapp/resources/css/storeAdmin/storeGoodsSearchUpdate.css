@@ -27,16 +27,6 @@ hr {
 	
 }
 
-.subImgTitle{
-	display: block;
-	float: left;
-	line-height: 50px;
-	font-size: 20px;
-	margin-left: 20px;
-	width: 200px;
-	height: 50px; 
-}
-
 .goodsInfo_selectBox_First {
 	font-size: 20px;
 	width: 200px;
@@ -110,27 +100,26 @@ hr {
     background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
 }
 
-
-.goodsMainImg .goodsImg {
-	
-	margin-left: 100px;
-	width: 120px;
-	height: 120px;
-	s
+.uploadBtn {
+	background-color: #ADEFD1;
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
+	font-size: 15px;
+	margin-left: 30px;
 }
 
 
-.goodsSubImg {
-	width: 200px;
-	float: left;
-	margin-left: 10px;
+.uploadBtn:hover {
+    background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
 }
 
-.goodsSubImg .goodsImg img{
+.goodsImg {
 	margin-left: 100px;
-	margin-bottom: 20px;
-	width: 120px;
-	height: 120px;
+}
+
+.goodsImgSub {
+	margin-left: 50px;
 }
 
 .topLine_imgColumn-container {
@@ -195,11 +184,7 @@ hr {
 	cursor: text;
 }
 	
-.cateMainCaption{
-    margin-top: 10px;
-    margin-left: 318px;
-    color : #999999;
-}
+	
 
 
 

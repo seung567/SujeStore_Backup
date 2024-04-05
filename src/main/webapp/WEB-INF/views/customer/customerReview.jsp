@@ -33,16 +33,6 @@
 
 <!-- JS 연결 -->
 <script type="text/javascript"	src="./resources/js/customer/customerReview.js"></script>
-<script type="text/javascript">
-
-$(function(){
-    
-    
-    $('.reviews').addClass('selectMenu');
-    
-});
-
-</script>
 </head>
 <body>
 
@@ -74,37 +64,17 @@ $(function(){
 						<td>후기작성</td>
 						<td>후기작성일자</td>
 					</tr>
-					
-					<c:forEach items="${mapValue}" var="vo">
+					<c:forEach items="${listVO}" var="vo">
 						<tr>
 							<td>${vo.p_code }</td>
-							<td>${vo.fo_code }</td>
-							<td>${vo.o_date }</td>
+							<td></td>
+							<td>${vo.rv_code }</td>
 							<td>${vo.p_date }</td>
 							<td>${vo.p_sum }</td>
-							<td>${vo.p_ck }</td>
-							<td>${vo.p_ck_date }</td>
-							<td>
-							<c:if test="${vo.p_ck eq 'Y'}">
-								<c:if test="${vo.rv_code eq 0}">
-									<input class="regit" type="button" value="작성">
-								</c:if>
-								<c:if test="${vo.rv_code ne 0}">
-									작성완료
-								</c:if>
-							</c:if>
-							<c:if test="${vo.p_ck eq 'N'}">
-								구매미확정
-							</c:if>
-							</td>
-							<td>
-							<c:if test="${vo.rv_code eq 0}">
-								
-							</c:if>
-							<c:if test="${vo.rv_code ne 0}">
-								${vo.rv_date }
-							</c:if>
-							</td>
+							<td>Y</td>
+							<td>2024/03/01</td>
+							<td><input class="regit" type="button" value="작성"></td>
+							<td>2024/03/01</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -118,41 +88,33 @@ $(function(){
 	</div>
 
 	<!-- Modal 출력 부분 -->
-	<div class="modalWrap">
-		<div class="reviewModalView">
-			<jsp:include page="Modal/review.jsp"></jsp:include>
-		</div>
+	<div class="reviewModalView">
+		<jsp:include page="Modal/review.jsp"></jsp:include>
 	</div>
+
 </body>
 
 <script type="text/javascript">
 
 /* 후기 작성하기 */
 $(function() {
-    
-    // 최종 주문서 조회 취소 이벤트
-    $('.viewCancel').click(function(){
-		
-		$(".reviewModalView").slideUp(200);
-		$(".modalWrap").fadeOut(200);
-    	
-    });
-    
-    // 버튼 이벤트 등록
-    $(".regit").click(reviewRegitBtnEvent);
-    
-    // 이미지 파일명 텍스트박스 입력 이벤트
-	$('#reviewImg').change(function(){
-		$(".fileName").val($(this).val());
+	$(".regit").click(regit);
+	$(".UrlMove").click(function() {
+		location.href = "customerReview.do?id=<%= request.getParameter("id")%>"				
 	});
 });
 
+<<<<<<< HEAD
 function reviewRegitBtnEvent(){
     $(".modalWrap").fadeIn(200);
     $(".reviewModalView").slideDown(200);
     
     let orderReturn = $(this).parent().parent().children().eq(0).text(); // 결제번호
     $(".orderPayNO").val(orderReturn);
+=======
+function regit() {
+	$(".review").slideDown(200);
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 }
 
 </script>

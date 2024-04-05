@@ -110,20 +110,6 @@ label[for="title"] {
 	margin-top: 30px;
 	margin-left: 20px;
 }
-.inputBox {
-	display: flex;
-	width: 880px;
-	height: auto;
-	margin-bottom: 20px;
-}
-.inputBox img {
-	float: left;
-	width: 150px;
-	margin-right: 20px;
-}
-.inputBox input, .inputBox button {
-	margin: auto 0;
-}
 
 .nonebox {
 	width: 100%;

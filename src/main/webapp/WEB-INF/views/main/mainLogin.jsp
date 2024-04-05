@@ -20,7 +20,7 @@ $(function() {
 		$('.loginIdInput').attr('name', 'm_id').val(${m_id});
 		$('.loginPwInput').attr('name', 'm_pass').val(${m_pass});
 		$('.loginArea').attr('action', 'mainMemberLogin.do');
-		$('.loginArea').off('submit').submit();
+		$('.loginArea').submit();
 	});
 	// 스토어 회원 로그인
 	$('.storeLoginBtn').click(function(event) {
@@ -28,7 +28,8 @@ $(function() {
 		$('.loginIdInput').attr('name', 's_id').val(${s_id});
 		$('.loginPwInput').attr('name', 's_pass').val(${s_pass});
 		$('.loginArea').attr('action', 'mainStoreLogin.do');
-		$('.loginArea').off('submit').submit();
+		$('.loginArea').submit();
+		console.log("1");
 	});
 	// 관리자 회원 로그인
 	$('.adminLoginBtn').click(function(event) {
@@ -36,7 +37,7 @@ $(function() {
 		$('.loginIdInput').attr('name', 'ma_id').val(${ma_id});
 		$('.loginPwInput').attr('name', 'ma_pass').val(${ma_pass});
 		$('.loginArea').attr('action', 'mainAdminLogin.do');
-		$('.loginArea').off('submit').submit();
+		$('.loginArea').submit();
 	});
 
 <% if (request.getAttribute("errorMessage") != null) { %>

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.suje.dao.storeOrder.FleaOrderCheckDAO;
 import com.suje.domain.storeOrder.FleaOrderCheckVO;
-import com.suje.domain.storeOrder.StoreOrderCheckVO;
 @Service
 public class FleaOrderCheckServiceImpl implements FleaOrderCheckService {
 	@Autowired
@@ -19,14 +18,6 @@ public class FleaOrderCheckServiceImpl implements FleaOrderCheckService {
 		 List<FleaOrderCheckVO> fleaorderCheck = dao.getFleaOrderCheck(id); // 단일 객체 대신 리스트로 받기
 	        
 	        return fleaorderCheck;
-	}
-	@Override
-	public FleaOrderCheckVO getFleaDelivery(int fpCode) { 
-		return dao.getFleaDelivery(fpCode);
-	}
-	@Override
-	public void fleadeliverycomplete(int fpCode) {
-		dao.fleadeliverycomplete(fpCode);
-	}
+	}	
 
 }

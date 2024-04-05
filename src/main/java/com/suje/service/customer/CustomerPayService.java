@@ -12,6 +12,7 @@ public interface CustomerPayService {
 	public Map<String,Object> getPayList(Map<String,Object> resultMap);
 	
 	public void insertFleaPayCancel(PayVO vo);
+<<<<<<< HEAD
 	
 	public void insertOrderPayReturn(PayVO vo);
 	
@@ -19,4 +20,6 @@ public interface CustomerPayService {
 	
 	public int insertPurchConfirm(String id, int payNo); // 구매 확정 입력
 	
+=======
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 }

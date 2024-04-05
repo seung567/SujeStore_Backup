@@ -29,8 +29,7 @@
 <body>
 	<!-- Modal 출력 부분 -->
 	<!-- Order join content 부분 -->
-	<!-- <form id="payDeliveryForm" action="payDeliveryInsert.do" method="post"> -->
-	<form id="payDeliveryForm" method="post">
+	<form action="payDeliveryInsert.do" method="post">
 	<div class="payMent">
 		<div class="payMentListModalBody">
 			<!-- 상단 제목 부분 -->
@@ -63,7 +62,7 @@
 					<!-- Content 2번째 라인 -->
 					<div>
 						<div>
-							<select class="cateFirst" disabled="disabled"><!-- 상품 카테고리 1 -->
+							<select class="cateFirst" readonly><!-- 상품 카테고리 1 -->
 								<option>베이커리</option>
 								<option >케이크</option>
 								<option>마카롱</option>
@@ -73,7 +72,7 @@
 						</div>
 
 						<div>
-							<select class="cateSecond" disabled="disabled"><!-- 상품 카테고리 1 -->
+							<select class="cateSecond" readonly><!-- 상품 카테고리 1 -->
 								<option>롤케이크</option>
 								<option>버터크림빵</option>
 								<option>마늘빵</option>
@@ -108,7 +107,7 @@
 
 						<div>배송 형태</div>
 						<div>
-							<select disabled="disabled"><!-- 배송형태 -->
+							<select ><!-- 배송형태 -->
 								<option id="payDelivery" selected="selected">배송</option>
 								<option id="payPickup">픽업</option>
 							</select>
@@ -121,15 +120,7 @@
 				</div>
 			</div>
 
-			<div class="payMentsubtitle">
-				<div>결제정보</div>
-				<div>
-					<a href="customerCard.do?id=<%=request.getParameter("id") %>">
-						<input type="button" value="결제정보 수정하기"/>
-					</a>
-				</div>
-			</div>
-			
+			<div class="payMentsubtitle">결제정보</div>
 			<hr />
 
 			<!-- MainContent 부분(2) -->
@@ -144,13 +135,10 @@
 				<div class="payMentContentRight2">
 					<!-- Content 1번째 라인 -->
 					<div>
-						<select class="paySelect" name="pt_code"><!-- 결제방식 -->
-							<option value="">=선택=</option>
+						<select name="pt_code"><!-- 결제방식 -->
 							<option value="1">카드</option>
 							<option value="2">계좌이체</option>
 						</select>
-						<input type="text" value="" readonly required><!-- 계좌번호 or 카드번호 표시 -->
-						<input type="text" value="" readonly required><!-- 계좌번호 or 카드번호 표시 -->
 					</div>
 
 					<!-- Content 2번째 라인 -->
@@ -189,15 +177,15 @@
 				<div class="payMentContentRight3">
 					<!-- Content 1번째 라인 -->
 					<div>
-						<input id="deliName" name="d_name" type="text" required/><!-- 수령자명 -->
+						<input id="deliName" name="d_name" type="text" /><!-- 수령자명 -->
 					</div>
 					<!-- Content 2번째 라인 -->
 					<div>
-						<input id="deliTel" name="d_tel" type="text" required/><!-- 수령자 전화번호 -->
+						<input id="deliTel" name="d_tel" type="text" /><!-- 수령자 전화번호 -->
 					</div>
 					<!-- Content 3번째 라인 -->
 					<div>
-						<input id="deliAddr" name="d_addr" type="text" required/><!-- 배송주소 -->
+						<input id="deliAddr" name="d_addr" type="text" /><!-- 배송주소 -->
 					</div>
 					<!-- Content 4번째 라인 -->
 					<div>
@@ -208,7 +196,7 @@
 			</div>
 			<div class="payMentinsertbtn">
 				<div>
-					<input class="payment" type="button" value="결제하기">
+					<input type="submit" value="결제하기">
 				</div>
 				<div>
 					<input class="viewCancel" type="button" value="취소">

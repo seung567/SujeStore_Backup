@@ -104,22 +104,12 @@ body {
 .eachRankStorePortfolioTr td div {
 	width: 120px;
 	height: 120px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	border-radius: 10px;
 	overflow: hidden;
-	background-color: #eee;
 }
 .eachRankStorePortfolioTr img {
-	max-height: 100%;
-	width: auto;
-	height: auto;
-	display: block;
-	margin: auto;
+	height: 100%;
 }
-
-
 .eachRankStoreBtnTd a {
 	width: 150px;
 	height: 30px;
@@ -139,15 +129,6 @@ body {
 }
 .eachRankStorePortfolioTr {
 	margin: 0 auto;
-}
-
-.noneItemArea {
-	width: 1260px;
-	height: auto;
-	margin: 100px 0 100px 0;
-	font-size: 30px;
-	font-weight:bold;
-	text-align: center;
 }
 
 .moreStoreBtn {

@@ -27,6 +27,7 @@ public class CustomerPayController {
 
 	// 1. 주문제작 결제내역 페이지 연결(초기 페이징)
 	@RequestMapping(value= "getPayList")
+<<<<<<< HEAD
 	public String payList(
 			@RequestParam("id") String id, 
 			@RequestParam("orderPage") int orderPage,
@@ -35,6 +36,10 @@ public class CustomerPayController {
 			@RequestParam("returnPage") int returnPage, 
 			Model model, 
 			PayVO vo) {
+=======
+	public String payList(@RequestParam("id") String id, @RequestParam("orderPage") int orderPage,
+			@RequestParam("fleaPage") int fleaPage, Model model, PayVO vo) {
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 		logger.info("getPayList");
 		
 		// 각 항목 전체 페이지 수
@@ -122,14 +127,23 @@ public class CustomerPayController {
 	// 플리마켓 결제내역 결제취소 요청하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertFleaPayCancel", method = RequestMethod.POST)
 	public String insertFleaPayCancel(@ModelAttribute("vo") PayVO vo, Model model) {
+<<<<<<< HEAD
 		
 		logger.info("insertFleaPayCancel 실행 = {}",vo.getM_id());
+=======
+		System.out.println(vo.getM_id());
+		System.out.println(vo.getPc_code());
+		System.out.println(vo.getFp_code());
+		System.out.println(vo.getPc_date());
+		System.out.println(vo.getPc_why());
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 		
 		service.insertFleaPayCancel(vo);
 		model.addAttribute("vo", vo);
 		
-		logger.info("insertFleaPayCancel 컨트롤러 실행");
+		System.out.println("insertFleaPayCancel 컨트롤러 실행");
 		
+<<<<<<< HEAD
 		return "redirect:getPayList.do?id=" + vo.getM_id() + "&orderPage=1&fleaPage=1";
 	}
 	
@@ -161,6 +175,9 @@ public class CustomerPayController {
 		model.addAttribute("vo", vo);
 		
 		return "redirect:getPayList.do?id=" + vo.getM_id() + "&orderPage=1&fleaPage=1";
+=======
+		return "redirect:getFleaPayList.do?id=" + vo.getM_id() + "&page=1";
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 	}
 	
 	

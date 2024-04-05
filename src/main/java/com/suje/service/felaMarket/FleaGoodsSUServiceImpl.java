@@ -20,14 +20,8 @@ public class FleaGoodsSUServiceImpl implements FleaGoodsSUService{
 		return dao.fleaGoodsListAll(vo); 
 	}
 	
-	@Override
 	public FleaGoodsVO getFleaInfo(FleaGoodsVO vo) {
 		return dao.getFleaInfo(vo);
-	}
-	
-	@Override
-	public List<FleaGoodsVO> getFleaSubImgInfo(FleaGoodsVO vo) {
-		return dao.getFleaSubImgInfo(vo);
 	}
 	
 	

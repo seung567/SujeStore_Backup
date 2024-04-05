@@ -20,12 +20,6 @@ public class CategoryMainDAOImpl  implements CategoryMainDAO{
 		return mybatis.selectList("categoryDAO.getCateMain");
 	}
 	
-	// 중분류 카테고리 리스트
-	@Override
-	public List<CategoryVO> getCateMidList() {
-		return mybatis.selectList("categoryDAO.getCateMidList");
-	}
-	
 	// 조건에 맞는 중분류 카테고리 리스트 가져오기
 	@Override
 	public List<CategoryVO> getCateMid(int cateCode) {
@@ -35,8 +29,7 @@ public class CategoryMainDAOImpl  implements CategoryMainDAO{
 	// 조건에 맞는 소분류 카테고리 리스트 가져오기
 	@Override
 	public List<CategoryVO> getCateSub(int cateCode) {
-		return mybatis.selectList("categoryDAO.getCateSub",cateCode);
+		return mybatis.selectList("categoryDAO.getCateMid",cateCode);
 	}
-
 }
  

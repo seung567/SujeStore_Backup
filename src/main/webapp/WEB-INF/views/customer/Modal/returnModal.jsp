@@ -1,16 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>반품 요청</title>
+<title>Insert title here</title>
 
 <!-- css 파일 연결 -->
 <link rel="stylesheet" href="./resources/css/resetStyle.css" />
@@ -19,7 +13,6 @@
 </head>
 <body>
 	<div class="returnModal">
-		<form id="formSubmit" action="insertOrderPayReturn.do" method="post">
 		<div class="returnBody">
 			<!-- 상단 제목 부분 -->
 			<div class="returnTitle">
@@ -28,7 +21,7 @@
 				</div>
 				<div>반품 요청</div>
 				<div>
-					결제번호 <input class="orderPayNo" type="text" name="p_code"/>
+					결제번호 <input type="text" />
 				</div>
 			</div>
 
@@ -36,6 +29,7 @@
 			<div class="modalMainContent">
 				<!-- 메인 좌측 Content Title -->
 				<div class="returnContentLefit">
+					<div>반품일자</div>
 					<div>반품사유</div>
 				</div>
 
@@ -44,25 +38,30 @@
 					<!-- Content 첫번째 라인 -->
 					<div>
 						<div>
-							<input type="text" name="rt_why"/>
+							<input type="text" />
 						</div>
-						<input type="hidden" value="<%=request.getParameter("id")%>" name="m_id"/>
 					</div>
+					<!-- Content 두번째 라인 -->
+					<div>
+						<div>
+							<input type="text" />
+						</div>
 
+					</div>
 				</div>
 			</div>
 
 			<div class="returninsertbtn">
 				<div>
-					<input class="demandPayReturn" type="submit" value="요청하기">
+					<input type="button" value="요청하기">
 				</div>
 				<div>
 						<input class="viewCancel" type="button" value="취소">
 				</div>
 			</div>
 		</div>
-		</form>
 	</div>
-
+	-->
+	<!-- Order join content 부분 -->
 </body>
 </html>

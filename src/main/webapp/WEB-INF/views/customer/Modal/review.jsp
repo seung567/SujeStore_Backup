@@ -31,7 +31,7 @@
 				<div>SUJE</div>
 				<div>주문제작 후기 작성</div>
 				<div>
-					제작주문결제번호 <input class="orderPayNO" type="text" name="p_code" readonly/>
+					제작주문결제번호 <input type="text" />
 				</div>
 			</div>
 			<!-- Modal 메인 Content -->
@@ -46,40 +46,38 @@
 				</div>
 
 				<!-- 메인 우측 Content -->
-				<form id="formSubmit" action="reviewInsert.do" method="post" enctype="multipart/form-data">
-					<div class="ContentRight">
-						<!-- Content 첫번째 라인 -->
+				<form id="formSubmit" action="insertReview.do" method="post">
+				<div class="ContentRight">
+					<!-- Content 첫번째 라인 -->
+					<div>
 						<div>
-							<div>
-								<select name="rv_star" name="rv_star">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5" selected="selected">5</option>
-								</select>
-							</div>
-							<div>점</div>
+							<select name="rv_star">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5" selected="selected">5</option>
+							</select>
 						</div>
-						<!-- Content 두번째 라인 -->
-						<div>
-							<div>
-								<input class="fileName" type="text"  readonly/>
-							</div>
-							<div class="filebox">
-								<label for="reviewImg">불러오기</label>
-								<input type="file" value="불러오기" accept=".jpg,.png,.gif" id="reviewImg" name="reviewImg"/>
-							</div>
-						</div>
-						<!-- Content 세번째 라인 -->
-						<div>
-							<div>
-								<textarea name="rv_content"></textarea>
-							</div>
-						</div>
-						<input type="hidden" value="<%=request.getParameter("id")%>" name="m_id" />
-						<input type="hidden" class="orderPayNO" name="p_code" />
+						<div>점</div>
 					</div>
+					<!-- Content 두번째 라인 -->
+					<div>
+						<div>
+							<input type="text"  />
+						</div>
+						<div>
+							<input type="button" value="불러오기" />
+						</div>
+					</div>
+					<!-- Content 세번째 라인 -->
+					<div>
+						<div>
+							<input type="text" name="rv_content"/>
+						</div>
+					</div>
+					<input type="hidden" value="<%=request.getParameter("id")%> name="m_id"/>
+				</div>
 			</form>
 			</div>
 
@@ -90,7 +88,10 @@
 				</div>
 				
 				<div>
-						<input class="viewCancel" type="button" value="취소" />
+					<a class="UrlMove" href="#"> 
+						<input type="submit" value="취소" />
+					</a>
+					
 				</div>
 			</div>
 		</div>

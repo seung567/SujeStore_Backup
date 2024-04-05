@@ -26,8 +26,8 @@ String orderId = (String)session.getAttribute("mainId");
 %>
 <!-- 상단 제목 부분 -->
 <div class="customerOrderListTitle">
-	<div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
-	<div>주문요청서 작성</div>
+   <div><img width=62px height=20px src="./resources/img/sujeLogo.png"/></div>
+   <div>주문요청서 작성</div>
 </div>
 <form action="orderSend.do" method="post">
 	<input type="hidden" readonly="readonly" name="s_id" value="${storeInfoDetail.s_id}"/>

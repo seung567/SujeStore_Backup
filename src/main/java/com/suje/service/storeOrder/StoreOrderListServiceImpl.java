@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.suje.dao.storeOrder.StoreOrderListDAO;
-import com.suje.domain.category.CategoryVO;
 import com.suje.domain.customer.EtcVO;
 import com.suje.domain.customer.FinalOrderVO;
 import com.suje.domain.storeOrder.StoreOrderListVO;
@@ -59,11 +58,5 @@ public class StoreOrderListServiceImpl implements StoreOrderListService {
 	@Override
 	public int insertStoreEtc(EtcVO etcVO) {
 		return storeOrderListDao.insertStoreEtc(etcVO);
-	}
-	
-	// 대분류 카테고리 가져오기
-	@Override
-	public CategoryVO getCateMainName(String id) {
-		return storeOrderListDao.getCateMainName(id);
 	}
 }

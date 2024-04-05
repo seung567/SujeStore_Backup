@@ -40,7 +40,7 @@ public class AdminManageDaoImpl implements AdminManageDao {
 	@Override
 	public void storeAvailInsert(AdminManageVO vo) {
 		logger.info("스토어 입점 여부 Insert 마이바티스"+vo.getS_id()+vo.getSa_content()+vo.getSa_ck()+vo.getMa_id());
-		mybatis.update("AdminManageDao.storeAvailInsert", vo);
+		mybatis.insert("AdminManageDao.storeAvailInsert", vo);
 	}
 
 }

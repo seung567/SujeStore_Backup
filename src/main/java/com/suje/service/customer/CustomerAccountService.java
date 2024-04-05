@@ -4,10 +4,7 @@ import com.suje.domain.customer.AccountVO;
 
 public interface CustomerAccountService {
 	
-	public AccountVO getAccount(String id);
-	
-	public void updateCAccount(AccountVO updateCAccount);
-	
-	public void insertAccount(AccountVO vo);
+	public AccountVO getCustomerAccount(String id);
+	public int accountUpdate(AccountVO accountVO);
 	
 }

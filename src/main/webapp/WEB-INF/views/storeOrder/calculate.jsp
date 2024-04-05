@@ -20,14 +20,64 @@
 <body>
 	<%@ include file="../../views/headerHtml/storeHeader.jsp"%>
 	<div class="storeContentsWrap">
-   <jsp:include page="../../views/storeAdmin/storeSubMenuBar.jsp"></jsp:include>
+		<div class="storeSubMenuBox">
+			<a href="#" class="storeProfileBox"><img
+				src="./resources/img/basicProfileIconBig.png" /></a>
+			<textarea rows="2" disabled="disabled" class="storeNameBox">STORE NAME AREA</textarea>
+			<ul class="storeCategoryArea">
+				<li class="storeFirstCategoryArea"><a href="#"
+					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;스토어 관리</a>
+					<ul class="storeSecondCategoryArea">
+						<li class="storeSecondCategoryBtn "><a href="#"> <span>스토어
+									페이지 관리</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
+									공지 조회/수정</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
+									공지 등록</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
+									작품 조회/수정</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
+									작품 등록</span>
+						</a></li>
+					</ul></li>
+				<li class="storeFirstCategoryArea"><a href="#"
+					class="storeFirstCategoryBtn">&nbsp;&nbsp;&nbsp;플리마켓 관리</a>
+					<ul class="storeSecondCategoryArea">
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
+									상품 조회/수정</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
+									상품 등록</span>
+						</a></li>
+					</ul></li>
+				<li class="storeFirstCategoryArea"><a href="#"
+					class="storeFirstCategoryBtn ">&nbsp;&nbsp;&nbsp;주문
+						관리</a>
+					<ul class="storeSecondCategoryArea">
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>스토어
+									주문요청 관리</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a
+							href="#"> <span>스토어 최종주문 조회</span>
+						</a></li>
+						<li class="storeSecondCategoryBtn"><a href="#"> <span>플리마켓
+									주문 조회</span>
+						</a></li>
+					</ul></li>
+				<li class="storeFirstCategoryArea"><a href="#"
+					class="storeFirstCategoryBtn checkedStateFirstCategory">&nbsp;&nbsp;&nbsp;정산 관리</a></li>
+			</ul>
+		</div>
 		<!-- storeSubMenuBox -->
 		<div class="storeContentsBox">
 			<h1 class="title">정산 관리</h1>
 			<hr class="hr">
 			<div class="month-selector" style="display: inline-block;">
-				<label for="month">월별 조회</label>
-				<select id="month" name="month">
+				<label for="month">월별 조회</label> <select id="month" name="month">
 					<option value="01">1월</option>
 					<option value="02">2월</option>
 					<option value="03">3월</option>

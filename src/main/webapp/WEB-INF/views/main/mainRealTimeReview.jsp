@@ -20,37 +20,53 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $(".thumbsUp").click(function(event) {
-    	var mainId = '<%=session.getAttribute("mainId")%>';
-	
-			var reviewId = $(this).data("review-id");
-			var $likeCount = $(this).siblings(".likeCount");
+        var mainId = '<%=session.getAttribute("mainId")%>';
+        var icon = $(this).find('img');    
+        var reviewId = $(this).data("review-id");   
+        var $likeCount = $(this).siblings(".likeCount");
 
-			if (!mainId || mainId === "null") {
-				alert("로그인 후 이용 가능합니다.");
-				location.href = "mainLogin.do";
-				return false;
-			} else {
-				$.ajax({
-					url : 'reviewUpdate.do',
-					type : 'POST',
-					dataType : 'json',
-					data : {
-						reviewId : reviewId
-					},
-					success : function(response) {
-						// 좋아요 클릭 후 화면에 즉시 반영
-						$likeCount.text(response.updatedLikes);
-						alert("좋아요가 업데이트 되었습니다!");
-					},
-					error : function() {
-						alert("에러 발생");
-					}
-				});
-			}
-		});
-	});
+        if (!mainId || mainId === "null") {
+            alert("로그인 후 이용 가능합니다.");
+            location.href = "mainLogin.do";
+            return false;
+        } else if (mainId === reviewId) {
+            alert("본인의 게시물에는 좋아요를 누를 수 없습니다.");
+            return false;
+        } else {
+           
+            icon.attr('src','./resources/img/mainReviewThumbsUpAfterImg.png')
+                .animate({ 
+                    width: '+=20%',
+                    height: '+=20%'
+                }, 'fast')
+                .animate({ 
+                    width: '-=20%',
+                    height: '-=20%'
+                }, 'fast', function() {
+                    
+                    icon.attr('src','./resources/img/mainReviewThumbsUpImg.png'); 
+                });
+
+            $.ajax({
+                url : 'reviewUpdate.do',
+                type : 'POST',
+                dataType : 'json',
+                data : {
+                    reviewId : reviewId
+                },
+                success: function(response) {
+                    // 좋아요 클릭 후 화면에 즉시 반영
+                    $likeCount.text(response.updatedLikes);
+                    alert("좋아요가 업데이트 되었습니다!");
+                },
+                error : function() {
+                    alert("에러 발생");
+                }
+            });
+        }
+    });
+});
 </script>
-
 </head>
 <body>
 	<%@ include file="../headerHtml/memberHeader.jsp"%>
@@ -92,12 +108,12 @@ $(document).ready(function() {
 
 		</div>
 		<div class="pageingArea">
-					<a href="#"><img src="././resources/img/pageLeftBtn.png" /></a>
-					<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
-						<a href="viewRealTimeReview.do?page=${i}">${i}</a>
-					</c:forEach>
-					<a href="#"><img src="././resources/img/pageRightBtn.png" /></a>
-				</div>
+			<a href="#"><img src="././resources/img/pageLeftBtn.png" /></a>
+			<c:forEach var="i" begin="1" end="${pageTotalCount}" step="1">
+				<a href="viewRealTimeReview.do?page=${i}">${i}</a>
+			</c:forEach>
+			<a href="#"><img src="././resources/img/pageRightBtn.png" /></a>
+		</div>
 	</div>
 	<!-- contentsWrap -->
 	<footer></footer>

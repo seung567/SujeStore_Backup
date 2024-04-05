@@ -1,6 +1,7 @@
 package com.suje.controller.main;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -38,10 +39,10 @@ public class MainRealTimeReviewController {
         logger.info("실시간 후기 view 실행 컨트롤러");
         
         // 전체 레코드 수 가져오기
-         totalRowCount = mainRealTimeReviewService.getTotalCountPage();
+        totalRowCount = mainRealTimeReviewService.getTotalCountPage();
         
         // 전체 페이지 수 
-         pageTotalCount = totalRowCount / countPerPage;
+        pageTotalCount = totalRowCount / countPerPage;
         if (totalRowCount % countPerPage > 0) pageTotalCount++;
         
         // 부분 페이지 수 계산
@@ -57,11 +58,13 @@ public class MainRealTimeReviewController {
         
         model.addAttribute("mainId", mainId);
         model.addAttribute("pageTotalCount", pageTotalCount);
-        model.addAttribute("reviewList", mainRealTimeReviewService.getreviewList(vo));
+        
+        // 후기 목록 가져오기
+        List<MainRealTimeReviewVO> reviewList = mainRealTimeReviewService.getreviewList(vo);
+        model.addAttribute("reviewList", reviewList);
         
         return "main/mainRealTimeReview";
     }
-
     
     @RequestMapping(value="reviewUpdate.do", method=RequestMethod.POST)
     @ResponseBody

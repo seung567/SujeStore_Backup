@@ -94,10 +94,6 @@
 				return false;
 			});
 		});
-		
-		
-		// 결제완료건 - 확인 버튼 이벤트 // 주문 내역 조회로 이동
-		
 	});
 	
 // 최초 주문 요청서 출력 함수
@@ -242,18 +238,6 @@ function finalOroderCheck(){
 		    //요구사항
 		    $('#content').val(data.fo_etc);
 		    
-<<<<<<< HEAD
-		    if(data.p_code != 0) {
-		    	$('.OrderInfoinsertbtn div').remove();
-		    	$('.OrderInfoinsertbtn').text('결제완료건 입니다 ! 주문 내역 조회에서 확인 하여주세요 ~');
-		    	$('.OrderInfoinsertbtn').css('font-weight','bold');
-		    	$('.OrderInfoinsertbtn').css('flex-direction','column');
-		    	$('.OrderInfoinsertbtn').css('align-items','center');
-		    	$('.OrderInfoinsertbtn').append("<input class='orderListRedirectBtn' type='button' value='확인' onclick='orderListRedirect()' />");
-		    }
-		    
-=======
->>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 		    $('.insertBtnRes').val("결제하기");
 		    
 		    $('.insertBtnRes').click(function(){
@@ -323,13 +307,8 @@ function payMent(orderInfoList){
 	
     });
     
-
-}
-     function orderListRedirect(){
-    	var customerID = $(".m_id").val();
-    	console.log(customerID);
-    	location.href = "getPayList.do?id=" + customerID + "&orderPage=1&fleaPage=1";
-	}
+};
+ 
 
  
  

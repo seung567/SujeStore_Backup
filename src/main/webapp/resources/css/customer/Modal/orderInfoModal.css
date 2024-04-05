@@ -225,8 +225,9 @@
 
 /* 등록하기 버튼 CSS */
 .OrderInfoinsertbtn {
-	margin-top: 30px;
+	margin-top: 30px; display : flex;
 	justify-content: center;
+	display: flex;
 	display: flex;
 }
 
@@ -254,12 +255,4 @@
 
 .OrderInfoinsertbtn input[type=button]{
 	font-weight: bold;
-}
-
-.orderListRedirectBtn{
-	width: 200px;
-	height: 30px;
-	background-color: #ADEFD1;
-	border-radius: 5px;
-	margin-top: 20px;
 }

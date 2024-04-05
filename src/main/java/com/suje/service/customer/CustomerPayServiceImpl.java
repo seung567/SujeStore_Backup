@@ -20,9 +20,15 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 	CustomerPayDAO dao;
 
 	@Override
-	public Map<String,Integer> getCountPageTotal(String id) {
+	public int getCountPageTotal(String id) {
 		logger.info("getCountPageTotal // Service");
 		return dao.getCountPageTotal(id);
+	}
+	
+	@Override
+	public int getFleaCountPageTotal(String id) {
+		logger.info("getFleaCountPageTotal // Service");
+		return dao.getFleaCountPageTotal(id);
 	}
 	
 	@Override
@@ -36,28 +42,6 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 		System.out.println("=> flea결제취소요청 Service 실행");
 		dao.insertFleaPayCancel(vo);
 	}
-<<<<<<< HEAD
-	
-	@Override
-	public void insertOrderPayReturn(PayVO vo) {
-		System.out.println("=> order 반품요청 Service 실행");
-		dao.insertOrderPayReturn(vo);
-	}
-	
-	@Override
-	public void insertOrderPayCancel(PayVO vo) {
-		System.out.println("=> order 결제취소요청 Service 실행");
-		dao.insertOrderPayCancel(vo);
-	}
-	
-	// 구매 확정 입력
-	@Override
-	public int insertPurchConfirm(String id, int payNo) {
-		logger.info("insertPurchConfirm // Service");
-		return dao.insertPurchConfirm(id,payNo);
-	}
-=======
 
->>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 	
 }

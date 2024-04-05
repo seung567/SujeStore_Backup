@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.suje.domain.customer.AccountVO;
-import com.suje.domain.customer.CardVO;
 import com.suje.service.customer.CustomerAccountService;
 
 @Controller
@@ -30,34 +29,31 @@ public class CustomerAccountController {
 	private CustomerAccountService service;
 	
 	@RequestMapping(value = "customerAccount")
-	public String selectAccount(@RequestParam String id, Model model)  {
-		logger.info("getAccount Controller 실행");
-		AccountVO vo = service.getAccount(id);
+	public String getCustomerAccount(@RequestParam String id, Model model)  {
+		logger.info("accountUpdate");
+		AccountVO vo = service.getCustomerAccount(id);
 		model.addAttribute("vo", vo);
-		model.addAttribute("id", id);
+
 		return "/customer/customerAccount";
 	}
 	
-	@RequestMapping(value = "updateCAccount", method = RequestMethod.POST)
-	public String updateCAccount(@ModelAttribute AccountVO updateCAccount) {
-		logger.info("updateCAccount Controller 실행");
+	@RequestMapping(value = "AccountUpdate", method = RequestMethod.POST)
+	public String accountUpdate(@ModelAttribute("vo") AccountVO vo, Model model, HttpServletRequest servlet) {
+		logger.info("accountUpdate");
 		
-		  if (updateCAccount.getM_acc_code() == 0) {
-			  service.insertAccount(updateCAccount);
-		  }else {
-			  service.updateCAccount(updateCAccount);
-		  }
-		logger.info(updateCAccount.getM_id());
+		int result = service.accountUpdate(vo);
+		String id = servlet.getParameter("id");
+		String state;
 		
-		return "redirect:/customerAccount.do?id=" + updateCAccount.getM_id();	  
+		if(result > 0) {
+			state = "수정이 되었습니다 !";
+		}else {
+			state = "수정이 실패 하였습니다. - 관리자 문의 하여 주세요 !";
+		}
+		
+		model.addAttribute("id",id);
+		model.addAttribute("state",state);
+		return "/customer/customerAccount";
+		
 	}
-	
-	@RequestMapping(value = "insertAccount", method=RequestMethod.POST) 
-	  public String insertAccount(@ModelAttribute AccountVO insertAccount) {
-		  logger.info("insertAccount Controller 실행");
-		  logger.info(insertAccount.getM_id());
-		  service.insertAccount(insertAccount);
-		  return "redirect:/customerAccount.do?id=" + insertAccount.getM_id();		  
-	  }
-	
 }

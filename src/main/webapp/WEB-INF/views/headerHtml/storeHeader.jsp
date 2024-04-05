@@ -21,16 +21,16 @@ String mainId = (String)session.getAttribute("mainId");
 <header>
 <div class="storeHeader">
 	<div class="firstHeaderNavi">
-		<div class="storeHeaderLogo"><a href="storeProfile.do?id=<%=mainId%>"><img src="./resources/img/sujeStoreLogo.png"/></a></div>
-		<a href="viewStoreEach.do?sId=<%=mainId %>" class="storeHeaderCommunityPageBtn" target="_blank">스토어페이지</a>
-		<a href="viewFleaMarket.do" class="storeHeaderFleaMarketPageBtn" target="_blank">플리마켓</a>
+		<div class="storeHeaderLogo"><a href="storeMain.do"><img src="./resources/img/sujeStoreLogo.png"/></a></div>
+		<a href="#" class="storeHeaderCommunityPageBtn">커뮤니티</a>
+		<a href="#" class="storeHeaderFleaMarketPageBtn">플리마켓</a>
 		
 		<!-- 세션에 계정정보가 존재할 시 계정 영역(afterLogin) 호출 -->
 		<c:if test="${mainId ne null}">
 			<div class="afterLoginArea">
 				<input type="text" disabled="disabled" value="${mainId}" class="headerId"/>
 				<span>님</span>
-				<a href="storeAccountInfo.do?id=<%=mainId %>" class="headerMypageBtn"><img src="./resources/img/DBServer/${vo.s_spname}"/></a>
+				<a href="#" class="headerMypageBtn"><img src="./resources/img/basicProfileIcon.png"/></a>
 				<a href="mainLogout.do" class="headerLogoutBtn">로그아웃</a>
 			</div>
 		</c:if>

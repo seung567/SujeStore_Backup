@@ -182,13 +182,13 @@ public class MainCommController {
 		vo.setComup_code(mainCommService.getComuPostSeq());
 		mainCommService.postInsert(vo);
 		
-		if (vo.getComup_img() != null && !vo.getComup_img().isEmpty()) { //file객체가 비어있지 않다면
+		if (!files.isEmpty()) { //file객체가 비어있지 않다면
 			for(MultipartFile file : files) {
 				originalFileName = file.getOriginalFilename().substring(0, file.getOriginalFilename().lastIndexOf(".")); //파일의 실제 이름
 				String ext = FilenameUtils.getExtension(file.getOriginalFilename()); //파일의 확장자
 				UUID uuid = UUID.randomUUID(); //파일의 새로운 닉네임
 				fileName = uuid+"."+ext; //파일의 실제 이름+랜덤값+파일의 확장자 >> 새로운 파일명 지정
-				file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\img\\DBServer\\"+fileName));
+				file.transferTo(new File("C:\\workspaces\\SujeWebProject\\src\\main\\webapp\\resources\\DB\\"+fileName));
 				
 				vo.setCpp_pname(originalFileName);
 				vo.setCpp_spname(fileName);

@@ -22,13 +22,7 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/storeOrder/storeSujeTalk.js"></script>
-<script type="text/javascript">
-$(function() {
-	// 서브 메뉴바 클래스명 추가 // CSS 적용
-	$(".storeCategoryArea>li:nth-child(3)>a").addClass("checkedStateFirstCategory");	
-	$(".storeCategoryArea>li:nth-child(3) .storeSecondCategoryArea li:nth-child(1)").addClass("checkedStateSecondCategory");
-})
-</script>
+
 <title>SUJE</title>
 </head>
 <body>
@@ -63,10 +57,10 @@ $(function() {
 						<div>
 							
 							<c:forEach items="${storeOrderList }" var="storeVO">
-							<div class="eachCustomer">
+							<div>
 								<div class="customerInfoList">
 									<img alt="" src="./resources/img/custmerLogo.png" />
-									<div>${storeVO.m_name}</div>
+									<div>${storeVO.m_id}</div>
 								</div> 
 								<div>${storeVO.o_date}</div>
 								<input type="hidden" value="${storeVO.o_code }" />
@@ -137,13 +131,13 @@ $(function() {
 						</div>
 						<!-- 이미지 불러오기 -->
 						<!-- 요청사항 전송 -->
-						<form id="etcStoreInsert" enctype="multipart/form-data">
+						<form id="etcStoreInsert" action="insertStoreEtc.do" enctype="multipart/form-data">
 							<div>
-								<textarea class="etcContent" name="etc_content"></textarea>
+								<textarea name="etc_content"></textarea>
 								<input type="submit" value="전송" />
 								<input type="hidden" class="orderNum" name="o_code"/>
 								<input type="hidden" value="77001" name="etc_type_code"/>
-								<input type="hidden" value=${id } name="s_id" class="s_id"/>
+								<input type="hidden" value=${id } name="s_id" />
 							</div>
 						</form>
 						<!-- 요청사항 전송 -->
@@ -157,30 +151,32 @@ $(function() {
 	<!-- storeContentsBox -->
 	<!-- storeContentsWrap -->
 	<div class="modalWrap">
+
 		<div class="storeOrderInsertModal">
 			<jsp:include page="./Modal/storeSujeTalkModal.jsp"></jsp:include>
 		</div>
+
 		<input type="hidden" class="idInfo" value="${id }"/>
 	</div>
 	<footer></footer>
 </body>
 
 <script type="text/javascript">
-    $(function() {
-	// 최종 주문서 조회 취소 버튼 이벤트
-	$('.viewCancel').click(function() {
-	    $(".storeOrderInsertModal").slideUp(200);
-	    $(".modalWrap").fadeOut(200);
-	});
-	// 이미지 파일명 불러오기
-	$('#talkImgUpload').change(function() {
-	    $(".filebox input[type='text']").val($(this).val());
-	});
 
-   });
-    
-    
+	$(function() {
+		// 최종 주문서 조회 취소 버튼 이벤트
+		$('.viewCancel').click(function() {
+			$(".storeOrderInsertModal").slideUp(200);
+			$(".modalWrap").fadeOut(200);
+		});
+		// 이미지 파일명 불러오기
+		$('#talkImgUpload').change(function() {
+			$(".filebox input[type='text']").val($(this).val());
+		});
 		
 
+		
+	});
+	
 </script>
 </html>

@@ -53,16 +53,4 @@ public class MainStoreCategoryDaoImpl implements MainStoreCategoryDao {
 		logger.info("리뷰 전체 리뷰 마이바티스");
 		return mybatis.selectList("MainStoreCategoryDao.getStoreReviewList", vo);
 	}
-	
-	@Override
-	public void updateReviewLike(MainStoreCategoryVO vo) {
-		logger.info("리뷰추천 마이바티스 "+vo.getRv_code());
-		mybatis.update("MainStoreCategoryDao.updateReviewLike", vo);
-	}
-	
-	@Override
-	public String reviewLikeView(MainStoreCategoryVO vo) {
-		logger.info("리뷰추천수 불러오기 컨트롤러 "+vo.getRv_code());
-		return mybatis.selectOne("MainStoreCategoryDao.reviewLikeView", vo);
-	}
 }

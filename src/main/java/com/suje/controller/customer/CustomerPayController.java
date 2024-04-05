@@ -27,12 +27,8 @@ public class CustomerPayController {
 
 	// 1. 주문제작 결제내역 페이지 연결(초기 페이징)
 	@RequestMapping(value= "getPayList")
-	public String payList(
-			@RequestParam("id") String id, 
-			@RequestParam("orderPage") int orderPage,
-			@RequestParam("fleaPage") int fleaPage, 
-			Model model, 
-			PayVO vo) {
+	public String payList(@RequestParam("id") String id, @RequestParam("orderPage") int orderPage,
+			@RequestParam("fleaPage") int fleaPage, Model model, PayVO vo) {
 		logger.info("getPayList");
 
 		// 주문제작 리스트 반환 부분
@@ -83,52 +79,18 @@ public class CustomerPayController {
 	// 플리마켓 결제내역 결제취소 요청하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertFleaPayCancel", method = RequestMethod.POST)
 	public String insertFleaPayCancel(@ModelAttribute("vo") PayVO vo, Model model) {
-		logger.info("insertFleaPayCancel 실행 = {}",vo.getM_id());
-		logger.info("insertFleaPayCancel 실행 = {}",vo.getPc_code());
-		logger.info("insertFleaPayCancel 실행 = {}",vo.getFp_code());
-		logger.info("insertFleaPayCancel 실행 = {}",vo.getPc_date());
-		logger.info("insertFleaPayCancel 실행 = {}",vo.getPc_why());
+		System.out.println(vo.getM_id());
+		System.out.println(vo.getPc_code());
+		System.out.println(vo.getFp_code());
+		System.out.println(vo.getPc_date());
+		System.out.println(vo.getPc_why());
 		
 		service.insertFleaPayCancel(vo);
 		model.addAttribute("vo", vo);
 		
-		logger.info("insertFleaPayCancel 컨트롤러 실행");
+		System.out.println("insertFleaPayCancel 컨트롤러 실행");
 		
-		return "redirect:getPayList.do?id=" + vo.getM_id() + "&orderPage=1&fleaPage=1";
-	}
-	
-	// 주문제작 결제내역 반품 요청하기 (insert = 신규 글 저장 처리 요청)
-	@RequestMapping(value = "insertOrderPayReturn", method = RequestMethod.POST)
-	public String insertOrderPayReturn(@ModelAttribute("vo") PayVO vo, Model model) {
-		logger.info("insertOrderPayReturn 실행 = {}",vo.getM_id());
-		logger.info("insertOrderPayReturn 실행 = {}",vo.getP_code());
-		logger.info("insertOrderPayReturn 실행 = {}",vo.getRt_code());
-		logger.info("insertOrderPayReturn 실행 = {}",vo.getRt_date());
-		logger.info("insertOrderPayReturn 실행 = {}",vo.getRt_why());
-		
-		service.insertOrderPayReturn(vo);
-		model.addAttribute("vo", vo);
-		
-		logger.info("insertOrderPayReturn 컨트롤러 실행");
-		
-		return "redirect:getPayList.do?id=" + vo.getM_id() + "&orderPage=1&fleaPage=1";
-	}
-	
-	// 주문제작 결제내역 결제취소 요청하기 (insert = 신규 글 저장 처리 요청)
-	@RequestMapping(value = "insertOrderPayCancel", method = RequestMethod.POST)
-	public String insertOrderPayCancel(@ModelAttribute("vo") PayVO vo, Model model) {
-		logger.info("insertOrderPayCancel 실행 = {}",vo.getM_id());
-		logger.info("insertOrderPayCancel 실행 = {}",vo.getP_code());
-		logger.info("insertOrderPayCancel 실행 = {}",vo.getCan_code());
-		logger.info("insertOrderPayCancel 실행 = {}",vo.getCan_date());
-		logger.info("insertOrderPayCancel 실행 = {}",vo.getCan_why());
-		
-		service.insertOrderPayCancel(vo);
-		model.addAttribute("vo", vo);
-		
-		logger.info("insertOrderPayCancel 컨트롤러 실행");
-		
-		return "redirect:getPayList.do?id=" + vo.getM_id() + "&orderPage=1&fleaPage=1";
+		return "redirect:getFleaPayList.do?id=" + vo.getM_id() + "&page=1";
 	}
 	
 	

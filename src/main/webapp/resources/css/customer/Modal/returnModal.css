@@ -59,7 +59,7 @@
 
 /* 제작주문번호 입력부분*/
 .returnTitle div:nth-child(3) {
-	margin-left: 120px;
+	margin-left: 100px;
 	font-size: 12px;
 }
 
@@ -71,7 +71,7 @@
 	border: 2px solid #ADEFD1;
 	width: 100px;
 	height: 30px;
-	margin-left: 43px;
+	margin-left: 30px;
 	border-radius: 5px;
 }
 
@@ -132,8 +132,8 @@
 
 .returnContentRight>div:nth-child(1)>div:nth-child(1) input {
 	margin-right: 40px;
-	width: 450px;
-	height: 200px;
+	width: 100px;
+	height: 30px;
 	text-align: center;
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
@@ -170,7 +170,7 @@
 
 /* 등록하기 버튼 CSS */
 .returninsertbtn {
-	margin-top: 180px; 
+	margin-top: 110px; 
 	justify-content: center;
 	display: flex;
 	font-weight: bold;

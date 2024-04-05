@@ -14,9 +14,4 @@ public interface CustomerPayService {
 	public Map<String,Object> getPayList(Map<String,Object> resultMap);
 	
 	public void insertFleaPayCancel(PayVO vo);
-	
-	public void insertOrderPayReturn(PayVO vo);
-	
-	public void insertOrderPayCancel(PayVO vo);
-	
 }

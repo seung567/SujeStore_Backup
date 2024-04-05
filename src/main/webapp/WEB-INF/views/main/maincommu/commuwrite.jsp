@@ -18,11 +18,7 @@ $(function() {
 	//input file 추가
 	$('.imgPlusBtn').click(function() {
 		event.preventDefault();
-		var inputField = '<div class="inputBox">'
-							+'<img src="././resources/img/cummuupload.png" alt="Uploaded Image">'
-							+'<input type="file" name="comup_img" class="loadButton" accept=".jpg, .png"/>'
-							+'<button class="imgMinusBtn">-</button>'
-						+'</div>';
+		var inputField = '<div class="inputBox"><input type="file" name="comup_img" class="loadButton" accept=".jpg, .png"/><button class="imgMinusBtn">-</button></div>';
 		$('.comOpenArea').append(inputField);
 	});
 	
@@ -33,10 +29,17 @@ $(function() {
 	
 	//파일 이미지 불러오기
 	$(document).on('change', '.loadButton', function(event) {
-		var imgBox = $(this).closest(".inputBox").find("img");
 		var reader = new FileReader();
 		reader.onload = function() {
-			imgBox.attr("src", reader.result);
+			$('.imgPreview').append('<img src="' + reader.result + '" alt="Uploaded Image">');
+		};
+	});
+	
+	//파일 이미지 불러오기
+	$(document).on('change', '.loadButton', function(event) {
+		var reader = new FileReader();
+		reader.onload = function() {
+			$('.imgPreview').append('<img src="' + reader.result + '" alt="Uploaded Image">');
 		};
 		reader.readAsDataURL(event.target.files[0]);
 	});
@@ -130,7 +133,7 @@ $(function() {
 					<!-- 이미지 정보가 존재할시 호출 -->
 					<c:if test="${commContentImgList ne null}">
 						<c:forEach items="${commContentImgList}" var="MainCommVO">
-							<img alt="POST 사진" src="./resources/img/DBServer/${MainCommVO.cpp_spname}">
+							<img alt="POST 사진" src="./resources/DB/${MainCommVO.cpp_spname}">
 						</c:forEach>
 					</c:if>
 				</div>

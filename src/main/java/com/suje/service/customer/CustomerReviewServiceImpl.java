@@ -1,7 +1,6 @@
 package com.suje.service.customer;
 
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,21 +20,28 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
 	CustomerReviewDAO dao;
 	
 	@Override
-	public int getCountPageTotal(String id) {
-		logger.info("getCountPageTotal // Service");
-		return dao.getCountPageTotal(id);
+	public List<ReviewVO> getCustomerReview(String id) {	
+		System.out.println("=> CustomerReviewService 실행");
+		 List<ReviewVO> vo = dao.getCustomerReview(id);
+		return vo;
 	}
 	
 	@Override
-	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap) {
-		logger.info("getCustomerReview // Service");
-		return dao.getCustomerReview(resultMap);
+	public void insertReview(ReviewVO vo) {
+		System.out.println("=> Review작성 Service 실행");
+		dao.insertReview(vo);
 	}
-
+	
 	@Override
-	public Map<String,Integer> reviewInsert(ReviewVO reviewVO) {
-		logger.info("reviewInsert // Service");
-		return dao.reviewInsert(reviewVO);
+	public int getTotalCountPage(String id) {
+		logger.info("getTotalCountPage 실행");
+		return dao.getTotalCountPage(id);
+	}
+	
+	@Override
+	public List<ReviewVO> getPageList(ReviewVO vo) {
+		logger.info("getPageList 실행");
+		return dao.getPageList(vo);
 	}
 	
 }

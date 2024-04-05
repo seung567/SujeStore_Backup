@@ -135,9 +135,12 @@ body {
 }
 
 .pageingArea {
-	width: 150px;
-	height: 20px;
 	margin: 60px auto 40px;
+	width: auto;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-item: center;
 }
 .pageingArea a {
 	width: 20px;

@@ -49,9 +49,12 @@
 }
 
 .pageingArea {
-	width: 245px;
+	width: auto;
 	height: 20px;
 	margin: 0 auto 40px;
+	display: flex;
+	justify-content: center;
+	align-item: center;
 }
 .pageingArea a {
 	width: 20px;

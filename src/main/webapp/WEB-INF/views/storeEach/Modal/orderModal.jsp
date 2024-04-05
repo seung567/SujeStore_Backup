@@ -43,9 +43,9 @@ String orderId = (String)session.getAttribute("mainId");
 		<div class="ContentRight">
 			<!-- Content 첫번째 라인 -->
 			<div>
-				<div><input type="text" readonly="readonly" value="${storeInfoDetail.s_name}"/></div>	
+				<div><input type="text" readonly="readonly" value="<%= orderId %>"/></div>	
 				<div>주문요청스토어</div>
-				<div><input type="text" readonly="readonly" name="m_id" value="<%= orderId %>"/></div>					
+				<div><input type="text" readonly="readonly" name="m_id" value="${storeInfoDetail.s_name}"/></div>					
 			</div>
 			<!-- Content 두번째 라인 -->
 				<div><input type="text" readonly="readonly"/></div>

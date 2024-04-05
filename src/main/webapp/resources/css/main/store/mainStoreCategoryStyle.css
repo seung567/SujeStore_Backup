@@ -177,9 +177,13 @@ body {
 
 /*페이징 처리*/
 .pageingArea {
-	width: 210px;
 	height: 20px;
 	margin: 40px auto 0;
+	width: auto;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-item: center;
 }
 .pageingArea a {
 	width: 20px;

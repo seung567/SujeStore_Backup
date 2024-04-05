@@ -23,11 +23,6 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 	@Autowired
 	SqlSessionTemplate mybatis;
 	
-	
-	
-	
-	// ===========================SUJE TalkTalk 관련 부분 ==================
-	
 	// 전체 페이지 구하는 메소드
 	@Override
 	public int getCountPageTotal(String id) {

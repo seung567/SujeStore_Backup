@@ -1,16 +1,17 @@
 package com.suje.service.customer;
 
 import java.util.List;
-import java.util.Map;
 
 import com.suje.domain.customer.ReviewVO;
 
 public interface CustomerReviewService {
 	
-	public int getCountPageTotal(String id);
+	public List<ReviewVO> getCustomerReview(String id);
 	
-	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap);
+	public void insertReview(ReviewVO vo);
 	
-	public Map<String,Integer> reviewInsert(ReviewVO reviewVO); // 리뷰 등록
+	public int getTotalCountPage(String id); // 전체 페이지 수 계산
+	
+	public List<ReviewVO> getPageList(ReviewVO vo); // 페이지에 맞는 리스트 가져오기
 
 }

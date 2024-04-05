@@ -46,26 +46,5 @@
 	and cs.catemm_code = cm.catemm_code
 	and fo.deli_code = d.deli_code
 </select>
-	<select id="getStoreDelivery" parameterType="Integer" resultType="storeDelivery">
-	select 
-	fo.fo_code,
-	p.p_code,
-	d.d_name,
-	d.d_tel,
-	d.d_addr,
-	d.d_memo,
-	d.d_date,
-	d.d_state
-	from final_order fo, delivery d, pay p
-	where fo.fo_code = #{fo_code}
-	and fo.fo_code = p.fo_code 
-	and p.p_code = d.p_code
-</select>
-
-<update id="deliverycomplete" parameterType="Integer">
-	update delivery
-	set d_state='발송완료', d_date=sysdate
-	where p_code=#{p_code}
-</update>
 
 </mapper>

@@ -13,22 +13,12 @@ public class StoreGoodsInfoDAOImpl implements StoreGoodsInfoDAO{
 	SqlSessionTemplate mybatis;
 	
 	@Override
-	public void insertStoreInfo(StoreGoodsSUVO vo) {
-		System.out.println("=> 스토어 상품 등록 Service");
-		mybatis.insert("StoreGoodsInfoDAO.insertStoreInfo", vo);
-	}
-	
+	public void insertStoreGoodsInfo(StoreGoodsSUVO vo) {
+		System.out.println("=> 스토어 공지등록 Repository");
+		
+		mybatis.insert("StoreGoodsInfoDAO.insertStoreGoodsInfo", vo);
 
-	@Override
-	public void insertStoreSubInfo(StoreGoodsSUVO vo) {
-		System.out.println("=> 스토어 서브이미지 등록 Service");
-		mybatis.insert("StoreGoodsInfoDAO.insertStoreSubInfo", vo);
+		System.out.println("insertStoreGoodsInfo vo :"+ vo);
+
 	}
-	
-	@Override
-	public String getGcodeSeq() {
-		System.out.println("=> getGcodeSeq Service");
-		return mybatis.selectOne("StoreGoodsInfoDAO.getGcodeSeq");
-	}
-	
 }

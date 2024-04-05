@@ -12,7 +12,7 @@
 </head>
 <body>
 	<!-- Modal 출력 부분 -->
-	<!-- <div class="storeOrderModal"> -->
+	<div class="storeOrderModal">
 		<div class="storeOrderModalBody">
 			<!-- 상단 제목 부분 -->
 			<div class="storeOrderModalTitle">
@@ -30,7 +30,7 @@
 				<!-- Content 첫번째 열 -->
 				<div class="first">
 					<label class="categoryLabel" for="Cartegory">상품 카테고리</label> 
-					<select class="opFirst" disabled>
+					<select class="opFirst">
 						<option>베이커리</option>
 						<option>케이크</option>
 						<option>마카롱</option>
@@ -59,14 +59,14 @@
 						<option>패브릭</option>
 						<option>방향제</option>
 					</select>
-					<select class="opSecond" disabled>
+					<select class="opSecond">
 						<option>롤케이크</option>
 						<option>버터크림빵</option>
 						<option>마늘빵</option>
 						<option>슈크림빵</option>
 						<option>프레지에</option>
 						<option>생크림케이크</option>
-						<option>쉬폰케이크</option>
+						<option">쉬폰케이크</option>
 						<option>치즈케이크</option>
 						<option>티라미수</option>
 						<option>일반마카롱</option>
@@ -134,16 +134,16 @@
 				<!-- Content 두번째 열 -->
 				<div class="secound">
 					<label class="orderCountLabel" for="orderCount">주문 수량</label>
-					<input type="text" id="orderCount"class="modal_textbox" readonly="readonly" /> 
+					<input type="text" id="orderCount"class="modal_textbox" /> 
 					<label class="orderSizeLabel" for="orderSize">주문 사이즈</label>
-					<input type="text"id="orderSize" class="modal_textbox" readonly="readonly"/>
+					<input type="text"id="orderSize" class="modal_textbox" />
 				</div>
 				<!-- Content 세번째 열 -->
 				<div class="third">
 					<label class="orderAmountLabel" for="orderAmount">주문 금액</label>
-					<input type="text" class="modal_textbox" id="orderAmount" readonly="readonly"/>
+					<input type="text" class="modal_textbox" id="orderAmount"/>
 					<label class="deliveryLabel" for="delivery">배송형태</label>
-					<select disabled>
+					<select>
 						<option id="delivery">배송</option>
 						<option id="pickup">픽업</option>
 					</select>
@@ -151,7 +151,7 @@
 				<!-- Content 네번째 열 -->
 				<div class="fourth">
 					<label class="requirementsLabel" for="requirements">요구 사항</label>
-					<textarea id="requirements" name="requirements" readonly="readonly"></textarea>
+					<textarea id="requirements" name="requirements"></textarea>
 				</div>
 				<!-- 확인 버튼 -->
 				<div class="modalBtnBox">
@@ -161,7 +161,7 @@
 			<!-- modalMainContent -->
 		</div>
 		<!-- storeOrderModalBody -->
-	<!-- </div> -->
+	</div>
 	<!-- storeOrderModal -->
 </body>
 </html>

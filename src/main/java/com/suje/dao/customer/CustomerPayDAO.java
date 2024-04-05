@@ -15,8 +15,4 @@ public interface CustomerPayDAO {
 	
 	public void insertFleaPayCancel(PayVO vo);
 	
-	public void insertOrderPayReturn(PayVO vo);
-	
-	public void insertOrderPayCancel(PayVO vo);
-	
 }

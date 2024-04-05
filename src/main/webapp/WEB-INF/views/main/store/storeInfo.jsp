@@ -15,9 +15,6 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=27b7b792b159f35aa7d22b2aef2ebf14&libraries=services"></script>
 <script>
 $(function() {
-	
-<% String customerId = (String)session.getAttribute("mainId"); %>
-	
 	var mapContainer = document.getElementById('mapArea'), // 지도를 표시할 div 
 	    mapOption = { 
 			center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -53,60 +50,6 @@ $(function() {
 	        map.setCenter(coords);
 	    } 
 	});
-	
-	//후기 추천 버튼 클릭 이벤트
-	$('.thumbsUpBtn').click(function() {
-		
-		var icon = $(this).find('img');
-		var rvId = $(this).closest(".eachReview").find(".reviewWriterTd").text();
-		var rvCode = $(this).closest(".eachReview").find(".rvCode").text();
-		var rvLike = $(this).siblings();
-		
-		if("<%= customerId %>" == "null" ) {
-			alert("로그인 후 이용 가능합니다.");
-			location.href="mainLogin.do";
-		} else if("<%= customerId %>" == rvId) {
-			alert("본인의 후기는 추천할 수 없습니다.");
-		} else {
-			$.ajax({
-				url : "reviewLike.do",
-				type : "post",
-				data: { rv_code : rvCode },
-				success : function(){
-					icon.attr('src', './resources/img/mainReviewThumbsUpAfterImg.png');
-					icon.animate({ 
-						width: '+=20%',
-						height: '+=20%'
-					}, 'fast', function() {
-						icon.attr('src', './resources/img/mainReviewThumbsUpImg.png');
-						icon.animate({ 
-							width: '-=20%',
-							height: '-=20%'
-						}, 'fast');
-					});
-					$.ajax({
-						url : "reviewLikeView.do",
-						type : "post",
-						data: { rv_code : rvCode },
-						dataType : "json",
-						success : function(result){
-							rvLike.text(result);
-							setTimeout(function() {alert("게시물에 공감하였습니다.");}, 500);
-						},
-						error: function(request, status, error) {
-							alert("통신 에러가 발생했습니다22 : "+request+"/"+status+"/"+error);
-						}
-					});
-				},
-				error: function(request, status, error) {
-					alert("통신 에러가 발생했습니다11 : "+request+"/"+status+"/"+error);
-				}
-			});
-		}
-		
-	});
-	
-	
 });
 </script>
 </head>
@@ -125,11 +68,10 @@ $(function() {
 	<c:if test="${pageTotalCount ne 0}">
 		<c:forEach items="${storeReviewList}" var="review">
 			<table class="eachReview">
-				<tr style="display:none;"><td class="rvCode">${ review.rv_code }</td></tr>
 				<tr>
 					<td colspan="2" class="reviewImgTd">
 						<c:if test="${ review.rvp_spname ne null }">
-							<div class="reviewImgArea"><img src="././resources/img/DBServer/${ review.rvp_spname }"></div>
+							<div class="reviewImgArea"><img src="././resources/DB/${ review.rvp_spname }"></div>
 						</c:if>
 					</td>
 				</tr>
@@ -181,7 +123,7 @@ $(function() {
 				<span>${ storeInfo.countRvCode }</span>
 			</div>
 			<div class="storeName">${ storeInfo.s_name }</div>
-			<a href="viewStoreEach.do?sId=${storeInfo.s_id}" class="storePageBtn">스토어 페이지 보러가기</a>
+			<a href="#" class="storePageBtn">스토어 페이지 보러가기</a>
 			<div class="storeInfo">${ storeInfo.s_text }</div>
 			<div class="storeDetailInfoTitle">주소</div>
 			<div class="storeDetailInfo">${ storeInfo.s_addr }</div>

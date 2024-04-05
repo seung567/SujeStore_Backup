@@ -27,17 +27,6 @@
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/customer/customerSujeTalk.js"></script>
-<script type="text/javascript">
-
-$(function(){
-    
-    $('.sujeTalk').addClass('selectMenu');
-    
-    
-});
-
-
-</script>
 
 </head>
 <body>
@@ -72,7 +61,7 @@ $(function(){
 								<div>
 									<div class="storeSimpleInfo">
 										<img alt="" src="./resources/img/sujetalkstoreimg.png">
-										<div>${orderList. s_name}</div>
+										<div>${orderList. s_id}</div>
 									</div>
 									<div>${orderList. o_date}</div>
 									<input type="hidden" value="${ orderList. o_code}" readonly="readonly" />
@@ -146,7 +135,7 @@ $(function(){
 							
 							<!-- 요청사항 입력 -->
 							<div>
-								<textarea  class="etcContent" name="etc_content" ></textarea><!-- 요청내용 -->
+								<textarea  name="etc_content" ></textarea><!-- 요청내용 -->
 								<!-- <button value="요청사항전송" onclick="">전송</button> -->
 								<input type="submit" value="전송" />
 							</div><!-- 요청사항 입력 -->
@@ -197,12 +186,6 @@ $(function(){
 	$('#talkImgUpload').change(function(){
 		$(".filebox input[type='text']").val($(this).val());
 	});
-	
-	// 텍스트 area
-	function resize(obj) {
-    obj.style.height = '1px';
-    obj.style.height = (12 + obj.scrollHeight) + 'px';
-}
 });
 
 </script>

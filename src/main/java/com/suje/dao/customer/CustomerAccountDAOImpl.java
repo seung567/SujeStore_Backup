@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.suje.domain.customer.AccountVO;
-import com.suje.domain.customer.CardVO;
+import com.suje.domain.customer.CardInfoVO;
 
 @Repository
 public class CustomerAccountDAOImpl implements CustomerAccountDAO {
@@ -14,18 +14,16 @@ public class CustomerAccountDAOImpl implements CustomerAccountDAO {
 	SqlSessionTemplate mybatis;
 
 	@Override
-	public AccountVO getAccount(String id) {
-		return mybatis.selectOne("CustomerAccountDAO.getAccount", id);
+	public AccountVO getCustomerAccount(String id) {
+		// TODO Auto-generated method stub
+		System.out.println("=> CustomerAccountDAOImpl  => getCustomerAccount 실행");
+		return mybatis.selectOne("CustomerAccountDAO.getCustomerAccount", id);
 	}
 
 	@Override
-	public void updateCAccount(AccountVO updateCAccount) {
-		mybatis.update("CustomerAccountDAO.updateCAccount", updateCAccount);
+	public int accountUpdate(AccountVO accountVO) {
+		// TODO Auto-generated method stub
+		System.out.println("=> CustomerAccountDAOImpl  => accountUpdate 실행");
+		return mybatis.update("CustomerAccountDAO.updateAccount",accountVO);
 	}
-	
-	@Override
-	public void insertAccount(AccountVO vo) {
-		mybatis.insert("CustomerAccountDAO.insertAccount", vo);
-	}
-	
 }

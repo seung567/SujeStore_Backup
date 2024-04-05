@@ -1,22 +1,27 @@
 @charset "UTF-8";
 
 hr {
-	border-top: 5px solid #d9d9d9; /* 위쪽 테두리 설정 */
+	border-top: 5px solid #ddd; /* 위쪽 테두리 설정 */
 	margin-top: 30px; /* 위쪽 여백 설정 */
 	margin-bottom: 20px; /* 아래쪽 여백 설정 */
 }
 
-.store_mainTitle {
-	font-size: 30px;
-	margin-top: 40px;
-	margin-left: 30px;
+.store_mainFistTitle {
+	font-size: 30px !important;
+	margin-top: 40px !important;
+	margin-left: 30px !important;
+}
+.storeContentsBox .store_maintitle {
+	font-size: 30px !important;
+	margin-top: 40px !important;
+	margin-left: 30px !important;
 }
 
 .store_mainInfo {
 	margin-top: 50px;
 }
 
-.store_subTitle {
+.store_subCategory .store_subTitle, .store_TextBox .store_subTitle {
 	display: block;
 	float: left;
 	line-height: 50px;
@@ -24,6 +29,25 @@ hr {
 	margin-left: 20px;
 	width: 200px;
 	height: 50px; 
+}
+.store_Box .store_subTitle {
+	display: block;
+	float: left;
+	line-height: 150px;
+	font-size: 20px;
+	margin-left: 20px;
+	width: 200px;
+	height: 150px; 
+}
+
+.subImgTitle {
+	display: block;
+	float: left;
+	line-height: 150px;
+	font-size: 20px;
+	margin-left: 20px;
+	width: 200px;
+	height: 150px; 
 	
 }
 
@@ -69,6 +93,7 @@ hr {
 	margin-top: 10px;
 	margin-left: 20px;
 	font-size: 20px;
+	padding: 10px;
 }
 
 .goodsInfo_content:focus {
@@ -79,6 +104,20 @@ hr {
 
 .store_subCategory {
 	margin-top: 50px;
+	width: 100%;
+	height: 50px;
+}
+
+.store_Box {
+	margin-top: 50px;
+	width: 100%;
+	height: 150px;
+}
+.store_TextBox {
+	margin-top: 50px;
+	width: 100%;
+	height: 250px;
+	
 }
 
 .submitBtn {
@@ -98,28 +137,34 @@ hr {
     background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
 }
 
-.uploadBtn {
-	background-color: #ADEFD1;
-	width: 100px;
-	height: 30px;
-	border-radius: 10px;
-	font-size: 15px;
-	margin-left: 30px;
-}
-
-.uploadBtn:hover {
-    background-color: #7cb8a5; /* 호버 상태 배경색 변경 */
-}
-
-.goodsMainImg {
+.store_Box>div:nth-child(2) {
 	margin-left: 100px;
-
 }
 
+.goodsImg {
+	float: left;
+	width: 150px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+}
+.goodsImg img {
+	max-height: 100%;
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: auto;
+}
+/* 
 .goodsSubImg {
-	margin-left: 50px;
-
+	margin-left: 100px;
+	margin-bottom: 20px;
+	width: 120px;
+	height: 120px;
 }
+ */
 
 .text-box {
 	border: 5px solid #ADEFD1;

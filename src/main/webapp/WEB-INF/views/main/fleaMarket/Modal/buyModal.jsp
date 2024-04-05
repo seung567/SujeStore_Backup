@@ -96,7 +96,7 @@
 			<!-- Content 2번째 라인 -->
 			<div><input name="fd_tel" type="text" /><!-- 전화번호 --></div>			
 			<!-- Content 3번째 라인 -->
-			<div><input name="fd_addr" type="text" /><!-- 배송주소 --></div>
+			<div><input id="addr" name="fd_addr" type="text" readonly="readonly"/><!-- 배송주소 --></div>
 			<!-- Content 4번째 라인 -->
 			<div><input name="fd_memo" type="text" /><!-- 배송메모 --></div>
 		</div>

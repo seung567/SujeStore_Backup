@@ -96,13 +96,13 @@ tbody>tr>td {
 }
 
 /* 테이블 공통 속성 end*/
-.storeOrderModal{
+/* .storeOrderModal{
 	display: none;
 }
 
 .deliveryModal{
 	display: none; 
-}
+} */
 
 .pageing {
     display: flex;
@@ -110,5 +110,26 @@ tbody>tr>td {
 }
 .pageing button {
     margin: 10px; /* 좌우 여백을 5px로 설정합니다. */
+}
+
+/* Modal */
+.storeMoreInfoModalWrap {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(50,50,50,.5);
+	position: fixed; top: 0; left: 0; z-index: 999;
+	display: none;
+}
+.storeOrderModal {
+	width: 700px;
+	height: 400px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px 20px 40px 40px;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 999; 
+	display: none;
 }
 

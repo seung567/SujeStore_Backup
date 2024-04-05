@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,21 +25,22 @@
 <!-- 자바스크립트 연결 -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./resources/js/customer/customerCard.js"></script>
-
 <script type="text/javascript">
 
-$(function() {
+$(function(){
+	
+    // 버튼 이벤트
+    $('.cardInsert').addClass('selectMenu');
     
-	$('#bankselect option').each(function() {
-	    if ($(this).text() == "${infoVO.card_company}" + "카드") {
-			$(this).prop('selected', true);
-	    }
-	    
-	});
+	var selectcard="${vo.card_company}"
+	    $('#cardselect option').each(function() {
+		    if ($(this).text() == selectcard ) {
+				$(this).prop('selected', true);
+		    }
+		});	
 });
 
 </script>
-
 </head>
 <body>
 
@@ -51,7 +56,8 @@ $(function() {
 			<div class="subtitle">카드 등록/수정</div>
 			<div class="myPageLine"></div>
 			
-			<form action="cardModify.do?id=123" method="post">
+			<form id="submitForm" action="updateCard.do" method="post">
+			
 			<div class="mainInputFormTitle">
 				<!-- 각 입력부분 제목 -->
 				<div>
@@ -65,45 +71,56 @@ $(function() {
 				<div>
 					<!-- 카드사 선택부분 -->
 					<div>
-						<select id="bankselect" name="card_company">
-							<option value="woori">우리카드</option>
-							<option value="hyundai">현대카드</option>
-							<option value="shinhan">신한카드</option>
-							<option value="kakao">카카오카드</option>
+						<select id="cardselect" name="card_company">
+						<option value=" ">카드 선택</option>
+							<option value="우리카드">우리카드</option>
+							<option value="국민카드">국민카드</option>
+							<option value="현대카드">현대카드</option>
+							<option value="신한카드">신한카드</option>
+							<option value="카카오카드">카카오카드</option>
 						</select>
 					</div>
 					
 					<!-- 카드번호 입력부분 -->
 					<div>
-						<input type="text" value="${infoVO.cardNum}" name="cardNum"/>
+						<input type="text" value="${vo.card_num}" name="card_num" 
+						placeholder="예시) 1234-5678-9012-3456"/>
 					</div>
 					
 					<!-- 유효기간 입력부분 -->
 					<div>
-						<input type="text" value="${infoVO.cardAdateResult}" name="cardAdateResult"/>
+						<input type="text" value="${vo.card_adate}" name="card_adate"
+						placeholder="예시) 2024-04-01"/>
 					</div>
 					
 					<!-- CVC 입력부분 -->
 					<div>
-						<input type="text" value="${infoVO.card_cvc}" name="card_cvc"/>
+						<input type="text" value="${vo.card_cvc}" name="card_cvc"
+						placeholder="예시) 123"/>						
 					</div>
 					
 					<!-- 비밀번호 입력부분 -->
 					<div>
-						<input type="text" name="card_pass"/> ● ●
+						<input type="text" value="${vo.card_pass}" name="card_pass"
+						placeholder="예시) 12"/> ● ●
 					</div>
 				</div>
 			</div>
+			<input type="hidden" value="${id}" name="m_id"/>		
+			
 			<div class="modifyBtn">
-				<input type="submit" value="등록 / 수정하기" />
-				<input type="hidden" value="${infoVO.m_id}" name="m_id"/>
+				<input type="submit" class ="submitBtn" name="submitBtn" value="등록/수정하기"></input>	
 			</div>
 			<div class="myPageLine"></div>
+			
+			<c:if test="${vo.card_code eq null}">
+					<input type="hidden" value="0" name="card_code">
+			</c:if>
+			<c:if test="${vo.card_code ne null}">
+					<input type="hidden" value="${vo.card_code}" name="card_code">
+			</c:if>
 			</form>
-		</div>
-		
-		
-		
+		</div>			
 	</div>
 	
 </body>

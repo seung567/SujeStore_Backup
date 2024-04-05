@@ -1,6 +1,8 @@
 package com.suje.dao.customer;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -20,27 +22,37 @@ public class CustomerReviewDAOImpl implements CustomerReviewDAO {
 	SqlSessionTemplate mybatis;
 	
 	@Override
-	public List<ReviewVO> getCustomerReview(String id) {
-		logger.info("getCustomerReview 실행");
-		return mybatis.selectList("CustomerDAO.getCustomerReview", id);
+	public int getCountPageTotal(String id) {
+		logger.info("getCountPageTotal // Repository");
+		return mybatis.selectOne("CustomerReviewDAO.getTotalPageCount", id);
 	}
 	
 	@Override
-	public void insertReview(ReviewVO vo) {
-		logger.info("insertReview 실행");
-		mybatis.insert("CustomerDAO.insertReview", vo);
-		System.out.println("insertReview vo : " + vo);	
+	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap) {
+		logger.info("getCustomerReview // Repository");
+
+		Map<String,Object> finalResultMap = new HashMap<String, Object>();
+
+		List<ReviewVO> customerReview = mybatis.selectList("CustomerReviewDAO.getCustomerReview", resultMap);
+	
+		// 맵에 저장 하여 return
+		finalResultMap.put("customerReview", customerReview);
+		
+		return finalResultMap;
 	}
 	
 	@Override
-	public int getTotalCountPage(String id) {
-		logger.info("getTotalCountPage 실행");
-		return mybatis.selectOne("CustomerDAO.getTotalCountPage",id);
+	public Map <String,Integer> reviewInsert(ReviewVO reviewVO) {
+		
+		int reviewMainState = mybatis.insert("CustomerReviewDAO.reviewInsertMain",reviewVO);
+		int reviewSubState = mybatis.insert("CustomerReviewDAO.reviewInsertSub",reviewVO);
+		
+		Map <String,Integer> stateMap = new HashMap<String, Integer>();
+		
+		stateMap.put("reviewMainState", reviewMainState);
+		stateMap.put("reviewSubState", reviewSubState);
+		
+		return stateMap;
 	}
-	
-	@Override
-	public List<ReviewVO> getPageList(ReviewVO vo) {
-		// TODO Auto-generated method stub
-		return mybatis.selectList("CustomerDAO.getPageList",vo);
-	}
+
 }

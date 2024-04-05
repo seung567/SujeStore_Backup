@@ -34,4 +34,13 @@ public class StoreOrderCheckDAOImpl implements StoreOrderCheckDAO {
 	public StoreOrderCheckVO getStoreFinalOrder(int foCode) {
 		return mybatis.selectOne("StoreOrderCheckDAO.getStoreFinalOrder",foCode);
 	}
+	@Override
+	public StoreOrderCheckVO getStoreDelivery(int foCode) {
+		return mybatis.selectOne("StoreOrderCheckDAO.getStoreDelivery",foCode);
+	}
+	
+	@Override
+	public void deliverycomplete(int pCode) {
+		mybatis.update("StoreOrderCheckDAO.deliverycomplete", pCode);
+	}
 }

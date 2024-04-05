@@ -28,7 +28,7 @@ public class CustomerQnAController {
 	// Q&A 작성하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertQnA", method = RequestMethod.POST)
 	public String insertQnA(@ModelAttribute("vo") QnAVO vo, Model model) {
-		System.out.println(vo.getM_id());
+		
 		System.out.println(vo.getQna_title());
 		System.out.println(vo.getQna_content());
 

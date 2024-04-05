@@ -9,4 +9,6 @@ public interface StoreOrderCheckService {
 	public List<StoreOrderCheckVO> getCancelOrderCheck(String id);
 	public List<StoreOrderCheckVO> getReturnOrderCheck(String id);
 	public StoreOrderCheckVO getStoreFinalOrder(int foCode);
+	public StoreOrderCheckVO getStoreDelivery(int foCode);
+	public void deliverycomplete(int pCode);
 }

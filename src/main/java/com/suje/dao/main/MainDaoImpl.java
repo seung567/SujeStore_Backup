@@ -20,8 +20,15 @@ public class MainDaoImpl implements MainDao {
 	
 	@Override
 	public List<MainVO> getRecentRealTimeReview() {
-		logger.info("인덱스 메인 호출 마이바티스");
-		return (List<MainVO>)(Object) mybatis.selectList("MainDao.getRecentRealTimeReview");
+		logger.info("인덱스 메인 실시간후기 호출 마이바티스");
+		return mybatis.selectList("MainDao.getRecentRealTimeReview");
 	}
+	
+	@Override
+	public List<MainVO> getRecentStoreFeed() {
+		logger.info("인덱스 메인 스토어피드 호출 마이바티스");
+		return mybatis.selectList("MainDao.getRecentStoreFeed");
+	}
+	
 	
 }

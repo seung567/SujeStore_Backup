@@ -49,5 +49,22 @@ public class StoreOrderCheckController {
 		
 		return storefinalVO;
 	}
-
+	@RequestMapping(value="storedelivery", method = RequestMethod.GET)
+	@ResponseBody
+	public StoreOrderCheckVO getStoreDelivery(@RequestParam Map<String,String> foCode) {
+		
+		logger.info("getStoreDelivery");
+		StoreOrderCheckVO storedeliVO = ordercheckService.getStoreDelivery(Integer.parseInt(foCode.get("foCode")));
+		
+		return storedeliVO;
+	}
+	
+	@RequestMapping(value="deliverycomplete", produces="application/text; charset=utf8")
+	@ResponseBody
+	public String deliverycomplete(@RequestParam Map<String,String> pCode) {
+		
+		logger.info("deliverycomplete");
+		ordercheckService.deliverycomplete(Integer.parseInt(pCode.get("pCode")));
+		return "발송 처리가 완료되었습니다.";
+	}
 }

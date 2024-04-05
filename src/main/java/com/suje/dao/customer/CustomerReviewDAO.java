@@ -1,17 +1,15 @@
 package com.suje.dao.customer;
 
 import java.util.List;
+import java.util.Map;
 
 import com.suje.domain.customer.ReviewVO;
 
 public interface CustomerReviewDAO {
 	
-	public List<ReviewVO> getCustomerReview(String id);
+	public int getCountPageTotal(String id); // 페이지 전체 행수 계산
 	
-	public void insertReview(ReviewVO vo);
+	public Map<String,Object> getCustomerReview(Map<String,Object> resultMap); // 페이지 조건에 맞는 리스트 출력
 	
-	public int getTotalCountPage(String id); // 전체 페이지 수 계산
-	
-	public List<ReviewVO> getPageList(ReviewVO vo); // 페이지에 맞는 리스트 가져오기
-
+	public Map <String,Integer> reviewInsert(ReviewVO reviewVO); // 리뷰 등록
 }

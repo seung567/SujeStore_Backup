@@ -42,9 +42,10 @@ $(function() {
 			<h1 class="store_mainTitle ">스토어 페이지 관리</h1>
 			<hr>
 
-			<form action="updateStoreProfile.do" method="post" class="form-container">
+			<form action="updateStoreProfile.do" method="post" class="form-container" enctype="multipart/form-data">
 				<label for="storeName">스토어명</label> 
-				<input type="text" id="s_id" name="s_id" class="text-box" value="${vo.s_id}" />
+				<input type="hidden" id="s_id" name="s_id" class="text-box" value="${vo.s_id}" />
+				<input type="text" id="s_name" name="s_name" class="text-box" value="${vo.s_name}" />
 				<br/>
 				<label for="storeCategory">스토어 카테고리</label> 
 				<select id="catem_code" name="catem_code" class="CatemSelecBox">
@@ -56,17 +57,19 @@ $(function() {
 				</select>
 
 
-			<div class="image-container">
-				<label for="storeProfile">스토어 프로필 이미지</label> 
-				<img id="profilePreview" src="#" alt="프로필 이미지 미리보기">
-				<button onclick="document.getElementById('storeProfile').click()">불러오기</button>
-			</div>
-
-			<div class="image-container">
-				<label for="storeBackimg">스토어 배경 이미지</label>
-					<img id="backimgPreview" src="#" alt="배경 이미지 미리보기">
-				<button onclick="document.getElementById('storeBackimg').click()">불러오기</button>
-			</div>
+            <div class="image-container">
+                <label for="storeProfile">스토어 프로필 이미지</label> 
+                <img id="profilePreview" src="./resources/img/DBServer/${vo.s_spname}" alt="프로필 이미지 미리보기">
+                <input type="file" name="profileImage" class="fileInput">
+                  <span class="fileLabel"></span>
+ 			</div>
+                
+             <div class="image-container">
+             <label for="storeBackimg">스토어 배경 이미지</label>
+                    <img id="backimgPreview" src="./resources/img/DBServer/${vo.s_back_spname}" alt="배경 이미지 미리보기">
+                <input type="file" name="backgroundImage" class="fileInput">
+                  <span class="fileLabel"></span>
+            </div>
 				<label for="storeDescription">스토어 소개문구</label> 
 				<input type="text" name="s_text" class="text-box2" value="${vo.s_text}" /> 
 				<span style="color: gray; font-size: 12px;" >(100자 이하)</span>
@@ -80,4 +83,20 @@ $(function() {
 	<!-- storeContentsWrap -->
 	<footer></footer>
 </body>
+<script type="text/javascript">
+$(function() {
+//파일 이미지 불러오기
+$(document).on('change', '.fileInput', function(event) {
+   var imgBox = $(this).siblings("img");
+   var reader = new FileReader();
+   reader.onload = function() {
+      imgBox.attr("src", reader.result);
+   };
+   reader.readAsDataURL(event.target.files[0]);
+   
+   var fileName = $(this).val().split('\\').pop(); // 파일 경로에서 파일명만 추출
+   $(this).siblings('.fileLabel').text(fileName); // 파일명 표시
+});
+})
+</script>
 </html>

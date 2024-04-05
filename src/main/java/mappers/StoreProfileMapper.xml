@@ -7,14 +7,17 @@
 	<select id="getStoreById" parameterType="String"
 		resultType="storeProfile">
 
-		select s.s_id, s.catem_code, c.catem_name, s.s_text from store s, cate_main
-		c where s_id = #{id} and s.catem_code=c.catem_code
+		select s.s_id,s.s_name, s.catem_code, c.catem_name, s.s_text,
+		s.s_pname, s.s_spname, s.s_ppath, s.s_psize,
+		s.s_back_pname,s.s_back_spname,s.s_back_ppath,s.s_back_psize
+		from store s, cate_main c 
+		where s_id = #{id} and s.catem_code=c.catem_code
 
 	</select>
 
 	<update id="updateStoreProfile" parameterType="storeProfile">
 		UPDATE store
-		SET s_text = #{s_text}, catem_code = #{catem_code}
+		SET s_name=#{s_name},s_text = #{s_text}, catem_code = #{catem_code}, s_spname = #{s_spname}, s_back_spname = #{s_back_spname}
 		WHERE s_id = #{s_id}
 	</update>
 

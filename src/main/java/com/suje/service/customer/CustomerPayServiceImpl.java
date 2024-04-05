@@ -39,8 +39,20 @@ public class CustomerPayServiceImpl implements CustomerPayService {
 	
 	@Override
 	public void insertFleaPayCancel(PayVO vo) {
-		System.out.println("=> flea결제취소요청 Service 실행");
+		System.out.println("=> flea 결제취소요청 Service 실행");
 		dao.insertFleaPayCancel(vo);
+	}
+	
+	@Override
+	public void insertOrderPayReturn(PayVO vo) {
+		System.out.println("=> order 반품요청 Service 실행");
+		dao.insertOrderPayReturn(vo);
+	}
+	
+	@Override
+	public void insertOrderPayCancel(PayVO vo) {
+		System.out.println("=> order 결제취소요청 Service 실행");
+		dao.insertOrderPayCancel(vo);
 	}
 
 	

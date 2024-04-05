@@ -25,7 +25,7 @@ String user = (String) obj;
 	<!-- <div class="storeContentsWrap"> -->
 	<div class="storeSubMenuBox">
 		<a href="#" class="storeProfileBox">
-		<img src="./resources/img/basicProfileIconBig.png" /></a>
+		<img src="./resources/img/DBServer/${vo.s_spname}" /></a>
 		<textarea rows="2" disabled="disabled" class="storeNameBox"><%=user%></textarea>
 		<ul class="storeCategoryArea">
 			<li class="storeFirstCategoryArea">

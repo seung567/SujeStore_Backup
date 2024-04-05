@@ -2,32 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cardInfoDAO">
+<mapper namespace="CustomerCardDAO">
 
-	<select id="getCardInfo" parameterType="customerCardInfo" resultType="customerCardInfo">
-	
+<select id="getCard" parameterType="String" resultType="customerCard">	
 		select 
-		 card_code,
-		 card_cvc,
-		 card_pass,
-		 substr(card_num,1,4)||'-'||substr(card_num,5,4)||'-'||substr(card_num,9,4)||'-'||substr(card_num,13,4) as cardNum,
-		 m_id,
-		 card_company,
-		 to_char(card_adate,'yyyy-mm-dd') as cardAdateResult from card where m_id = #{id}
-		 
-	</select>
-	
-		<update id="updateCardInfo" parameterType="updatedCardInfo" >  
-	
+		card_code,
+		m_id,
+		card_company,
+		card_num,
+		card_adate,
+		card_cvc,
+		card_pass
+		from card where m_id = #{m_id}
+</select>
+
+<update id="updateCard" parameterType="customerCard" >  
 		 update card set 
-		 card_company = #{card_company}, 
+		 card_company=#{card_company},
 		 card_num = #{card_num},
-		 card_adate = #{cardAdateResult},
+		 card_adate = #{card_adate},
 		 card_cvc = #{card_cvc},
 		 card_pass = #{card_pass}
-		 where m_id = #{m_id}
-		 
-	</update>
-
+		 where m_id = #{m_id}	 
+</update>
+	
+<insert id="insertCard" parameterType="customerCard">
+		insert  into card
+		(card_code, card_company, card_num, card_adate, card_cvc, card_pass, m_id) 
+		values 
+		(card_code_sqn.nextval, #{card_company}, #{card_num}, #{card_adate}, #{card_cvc}, #{card_pass}, #{m_id})
+</insert>
+ 
 </mapper>
 

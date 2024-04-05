@@ -126,6 +126,11 @@
 	outline: 1px solid #ADEFD1;
 }
 
+input[readonly]:focus {
+	outline: 0;
+	
+}
+
 /* 등록하기 버튼 CSS */
 .insertbtn {
 	margin-top: 15px; display : flex;

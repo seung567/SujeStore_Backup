@@ -54,9 +54,10 @@
 	</select>
 	
 	<!-- store_avail insert -->
-	<insert id="storeAvailInsert" parameterType="AdminManageVO" >
-		INSERT INTO store_avail(sa_code, s_id, sa_content, sa_ck, sa_date, ma_id) 
-		VALUES (sa_code_sqn.nextval, #{s_id}, #{sa_content}, #{sa_ck}, sysdate, #{ma_id})
-	</insert>
+	<update id="storeAvailInsert" parameterType="AdminManageVO" >
+		update store_avail
+		set ma_id=#{ma_id}, sa_date=sysdate, sa_content=#{sa_content}
+		where s_id=#{s_id}
+	</update>
 
 </mapper>

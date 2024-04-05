@@ -18,7 +18,7 @@ public class EtcVO {
 	
 	private int etc_code, o_code, etc_type_code;
 	private String etc_spname, etc_ppath, etc_pname, etc_psize,etc_content, etc_date, o_content; 
-	private String s_id,m_id;
+	private String s_id,m_id,s_name,m_name;
 	
 	// 요청사항 출력용
 	private String content, o_date;
@@ -26,7 +26,7 @@ public class EtcVO {
 	//컨트롤 이미지 정보 저장용
 	private MultipartFile uploadImgFile;
 	
-	@Setter(value = AccessLevel.NONE) private String saveDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/DB/";
+	@Setter(value = AccessLevel.NONE) private String saveDir = "C:/workspaces/SujeWebProject/src/main/webapp/resources/img/DBServer/";
 	
 	public void setUploadImgFile(MultipartFile uploadImgFile) {
 		
@@ -34,18 +34,17 @@ public class EtcVO {
 		
 		if(!uploadImgFile.isEmpty()) {
 			
-			this.etc_pname = uploadImgFile.getOriginalFilename();
-			this.etc_psize = String.valueOf(uploadImgFile.getSize());
+			this.etc_pname = uploadImgFile.getOriginalFilename(); //파일의 업로드직전 이름
+			this.etc_psize = String.valueOf(uploadImgFile.getSize()); // 파일의 용량
 			
-			UUID uuid = UUID.randomUUID();
+			UUID uuid = UUID.randomUUID(); // 무작위 36자리 이름 정하는 메소드 
 			this.etc_spname = uuid.toString() + "_" + etc_pname;
-			
-			File fPath = new File(saveDir + etc_spname);
-			this.etc_ppath = saveDir + etc_spname;
+			File fPath = new File(saveDir + etc_spname); // 파일의 경로정보 변경
+			this.etc_ppath = saveDir + etc_spname; // -- 
 			
 			// IO 입출력 관련 예외처리
 			try {
-				uploadImgFile.transferTo(fPath); // 변경된 경로에 저장 처리
+				uploadImgFile.transferTo(fPath); // DBServe 폴더에 이미지 업로드
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

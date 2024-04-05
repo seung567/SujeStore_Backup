@@ -343,4 +343,32 @@ table input {
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
 	margin-left: 20px;
+<<<<<<< HEAD
 }
+
+/* review 이미지 업로드 */
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none;
+}
+
+.filebox label{
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	background-color: #ADEFD1;
+	border-radius: 5px;
+}
+
+textarea {
+	resize: none;
+}
+
+
+=======
+}
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git

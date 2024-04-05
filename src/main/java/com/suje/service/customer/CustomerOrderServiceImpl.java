@@ -22,6 +22,14 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 	@Autowired
 	CustomerOrderDAO orderDAO;
 	
+	
+	
+	
+	
+	
+	// ===========================SUJE TalkTalk 관련 부분 ==================
+	
+	
 	// 전체 페이지 수를 구하는 메소드
 	@Override
 	public int getCountPageTotal(String id) {
@@ -42,7 +50,7 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		return  orderDAO.getEtcList(o_code);
 	}
 	
-	// 최종 주문서 리스트 조회
+	// 최종 주문서 정보 조회
 	@Override
 	public FinalOrderVO getFinalOrder(int storeOrderNO) {
 		logger.info("getFinalOrder // Service");

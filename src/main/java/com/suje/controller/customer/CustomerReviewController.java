@@ -61,6 +61,22 @@ public class CustomerReviewController {
 
 		return "/customer/customerReview";
 	}
+<<<<<<< HEAD
+	
+	// 리뷰 작성 등록
+	@RequestMapping(value = "reviewInsert", method = RequestMethod.POST)
+	public String reviewInsert(@ModelAttribute ReviewVO reviewVO, Model model) throws IOException {
+		
+		logger.info("////////////// reviewInsert ={}",reviewVO.getRv_code());
+		
+		
+		Map<String,Integer> state = service.reviewInsert(reviewVO);
+	 
+		model.addAttribute("reviewMain",state.get("reviewMainState"));
+		model.addAttribute("reviewSub",state.get("reviewSubState"));
+			
+		return "redirect:getCustomerReview.do?id=" + reviewVO.getM_id() +"&page=1";
+=======
 
 	// 리뷰 작성하기 (insert = 신규 글 저장 처리 요청)
 	@RequestMapping(value = "insertReview", method = RequestMethod.POST)
@@ -74,6 +90,7 @@ public class CustomerReviewController {
 		System.out.println("insertReview 컨트롤러 실행");
 
 		return "redirect:/customerReview.do?id=" + vo.getM_id();
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 	}
 
 	//

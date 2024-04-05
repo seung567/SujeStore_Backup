@@ -186,7 +186,20 @@ $(function(){
 	$('#talkImgUpload').change(function(){
 		$(".filebox input[type='text']").val($(this).val());
 	});
+<<<<<<< HEAD
+	
+	// 텍스트 area
+	function resize(obj) {
+    obj.style.height = '1px';
+    obj.style.height = (12 + obj.scrollHeight) + 'px';
+	}
+	
+	
+
+=======
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 });
+
 
 </script>
 </html>

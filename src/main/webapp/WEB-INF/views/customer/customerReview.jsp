@@ -104,8 +104,17 @@ $(function() {
 	});
 });
 
+<<<<<<< HEAD
+function reviewRegitBtnEvent(){
+    $(".modalWrap").fadeIn(200);
+    $(".reviewModalView").slideDown(200);
+    
+    let orderReturn = $(this).parent().parent().children().eq(0).text(); // 결제번호
+    $(".orderPayNO").val(orderReturn);
+=======
 function regit() {
 	$(".review").slideDown(200);
+>>>>>>> branch 'main' of https://github.com/seung567/SujeWebProject.git
 }
 
 </script>

@@ -149,7 +149,7 @@ body {
 
 
 .pageingArea {
-	width: 300px;
+	width: 150px;
 	height: 20px;
 	margin: 60px auto 40px;
 }
@@ -166,7 +166,6 @@ body {
 .pageingArea a img {
 	width: 20px;
 	height: 20px;
-	
 }
 
 /*Footer*/
@@ -330,7 +329,4 @@ footer {
     transform: translate(-50%, -50%);
     z-index: 999; 
 	display: none;
-}
-.thumbsUp {
-	cursor: pointer;
 }

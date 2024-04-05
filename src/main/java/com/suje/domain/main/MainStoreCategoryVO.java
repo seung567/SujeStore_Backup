@@ -21,7 +21,7 @@ public class MainStoreCategoryVO {
 				  s_back_pname, s_back_spname, s_back_ppath, s_back_psize;
 
 	//review
-	public String rv_code, rv_content, m_id, rv_star, rv_like, rvp_spname;
+	public String rv_content, m_id, rv_star, rv_like, rvp_spname;
 	
 	
 	//Page
@@ -31,5 +31,5 @@ public class MainStoreCategoryVO {
 	public String orderBy;
 	
 	//통계
-	public int avgRvStar, countRvCode;
+	public String avgRvStar, countRvCode;
 }

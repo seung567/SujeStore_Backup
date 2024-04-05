@@ -25,20 +25,11 @@
 	href="./resources/css/customer/customerOrderList.css" />
 
 <!-- 자바스크립트 연결 -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="./resources/js/customer/customerOrderList.js"></script>
-<script type="text/javascript">
-
-$(function(){
-    
-    $('.orderListMenubar').addClass('selectMenu');
-    
-    
-});
-
-
-</script>
+<script type="text/javascript"
+	src="./resources/js/customer/customerOrderList.js"></script>
 
 </head>
 <body>
@@ -58,7 +49,7 @@ $(function(){
 
 			<div class="mainInputFormTitle">
 				<!-- 주문제작 결제 내역 테이터 테이블 -->
-				<table class="List orderList">
+				<table class="List">
 					<tr class="orderListTitle">
 						<td>결제 번호</td>
 						<td>최종주문번호</td>
@@ -83,7 +74,7 @@ $(function(){
 							<td>${vo.p_ck_date}</td>
 							<td><input class="joinCheck" type="button" value="조회"></td>
 							<td><input class="payBackCall" type="button" value="요청"></td>
-							<td><input class="returnCall" type="button" value="요청"></td>
+							<td><input type="button" value="요청"></td>
 						</tr>
 					</c:forEach>
 					
@@ -100,7 +91,7 @@ $(function(){
 			<!-- 플리마켓 결제 내역 부분 -->
 			<div class="subtitle2">플리마켓 결제 내역</div>
 			<div class="myPageLine"></div>
-			<table class="List fleaList">
+			<table class="List">
 				<!-- 플리마켓 결제 내역 테이터 테이블 -->
 				<tr class="orderListTitle">
 					<td>결제 번호</td>
@@ -123,9 +114,9 @@ $(function(){
 					<td>${vo.fp_date}</td>
 					<td>${vo.fp_sum}</td>
 					<td>${vo.fp_ck}</td>
-					<td >${vo.fp_ckdate}</td>
+					<td>${vo.fp_ckdate}</td>
 					<td>
-						<input class="payCancelBtn" type="button" value="요청">
+						<input class="demand" type="button" value="요청">
 					</td>
 				</tr>
 			</c:forEach>
@@ -141,7 +132,7 @@ $(function(){
 			<!-- 결제 취소 부분 -->
 			<div class="subtitle2">결제취소 내역</div>
 			<div class="myPageLine"></div>
-			<table class="List payCancel">
+			<table class="List">
 				<tr class="orderListTitle">
 					<td>결제취소번호</td>
 					<td>최종주문번호</td>
@@ -161,7 +152,7 @@ $(function(){
 			<!-- 반품 요청 내역 -->
 			<div class="subtitle2">반품 요청 내역</div>
 			<div class="myPageLine"></div>
-			<table class="List returnList">
+			<table class="List">
 				<tr class="orderListTitle">
 					<td>반품번호</td>
 					<td>최종주문번호</td>
@@ -183,105 +174,76 @@ $(function(){
 	<!-- Modal 출력 부분 -->
 	<div class="orderListWrap">
 	
-		<!-- 주문제작결제내역 주문상세정보 보기 부분 -->
+		<!-- 주문상세정보 보기 부분 -->
 		<div class="orderInfoModal">
 			<jsp:include page="Modal/orderInfoModal.jsp"></jsp:include>
 		</div>
-	
-		<!-- 주문제작결제내역 결제취소 부분 -->
+		
+		<!-- 결제취소 부분 -->
 		<div class="payCancelModalView">
-			<jsp:include page="Modal/orderPayCancelModal.jsp"></jsp:include>
+			<jsp:include page="Modal/orderListModal2.jsp"></jsp:include>
 		</div>
 		
+		<!-- 결제취소 부분 -->
 		<div class="returnModalView">
 			<jsp:include page="Modal/returnModal.jsp"></jsp:include>
 		</div>
- 		
-		<!-- 플리마켓결제내역 결제취소 부분 -->
-		<div class="fleaPayCancelModalView">
-			<jsp:include page="Modal/fleaPayCancelModal.jsp"></jsp:include>
-		</div> 
 		
 	</div>
 </body>
 <script type="text/javascript">
 
+    $(function() {
+		$(".joinCheck").click(setAjex);
+		$(".payBackCall").click(payback);
+		 //플리마켓 요청 버튼 이벤트
+		$(".demand").click(demandClick);
+    });
 
-	$(function() {
-		
-		// 취소 버튼 이벤트
-		$(".viewCancel").click(function() {
-			$(".orderInfoModal").slideUp(200);
-			$(".returnModalView").slideUp(200);
-			$(".payCancelModalView").slideUp(200);
-			$(".orderListWrap").fadeOut(200);
-		});
-	
-		// 플리마켓 결제취소 버튼 이벤트
-		$(".payCancelBtn").click(function() {
-			$(".orderListWrap").fadeIn(200);
-			$(".fleaPayCancelModalView").slideDown(200);
-			let fleaResultVal = $(this).parent().parent().children().eq(0).text();
-			$(".payNO").val(fleaResultVal);
-
-		});
-		
-		// 주문제작결제내역 반품 요청 버튼 이벤트
-		$(".returnCall").click(function(){
-			$(".orderListWrap").fadeIn(200);
-			$(".returnModalView").slideDown(200);
-			let orderReturn = $(this).parent().parent().children().eq(0).text();
-			$(".orderPayNo").val(orderReturn);
-			
-		});
-		
-		$(".payBackCall").click(function(){
-			$(".orderListWrap").fadeIn(200);
-			$(".payCancelModalView").slideDown(200);
-			let cancelNO = $(this).parent().parent().children().eq(0).text();
-			$(".orderPayCancelNO1").val(cancelNO);
-			
-		});
-
-	});
-
-	function setAjex() {
+    function setAjex() {
 		sandPage();
 		return false;
-	}
+    }
 
-	function sandPage() {
+    function sandPage() {
 
 		$.ajax({
-			url : "modaltest.do",
-			type : "get",
-			dataType : "json",
-			contentType : 'application/json; charset=utf-8',
-			beforeSend : function() {
+		    url : "modaltest.do",
+		    type : "get",
+		    dataType : "json",
+		    contentType : 'application/json; charset=utf-8',
+		    beforeSend : function(){
 				$(".orderListWrap").fadeIn(200);
-				$(".orderInfoModal").slideDown(200);
-			},
-			success : function(data) {
-
+				$(".orderInfoModal").slideDown(200);				
+		    },
+		    success : function(data) {
+					
 				var dataList = data;
 				$('#testinput').val(dataList[0]);
 				$('#sizeInput').val(dataList[1]);
-
-			}
+	
+		    }
 		});
-	}
-
-	function payback() {
+    }
+    
+    function payback(){
 		$.ajax({
-			url : "insert.do",
-			type : "get",
-			dataType : "json",
-			contentType : 'application/json; charset=utf-8',
-			beforeSend : function() {
-				$(".orderListWrap").fadeIn(200);
-				$(".orderInfoModal").slideDown(200);
-			},
+		     url : "insert.do", 
+		    type : "get",
+		    dataType : "json",
+		    contentType : 'application/json; charset=utf-8',
+		    beforeSend : function(){
+			$(".orderListWrap").fadeIn(200);
+			$(".orderInfoModal").slideDown(200);				
+	    },   	    
 		});
+    }
+    	 
+	function demandClick() {
+		var resultAnserNo = $(this).parent().parent().children().eq(0).text();
+		$('.payNO').val(resultAnserNo);
 	}
+    
+    
 </script>
 </html>

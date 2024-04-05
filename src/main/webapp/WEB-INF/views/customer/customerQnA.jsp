@@ -30,17 +30,7 @@
 
 <!-- JS 연결 -->
 <script type="text/javascript" src="./resources/js/customer/customerQnA.js"></script>
-<script type="text/javascript">
 
-$(function(){
-    
-    $('.qna').addClass('selectMenu');
-    
-    
-});
-
-
-</script>
 </head>
 <body>
 

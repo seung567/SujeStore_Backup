@@ -20,14 +20,8 @@ public class MainServiceImpl implements MainService {
 	
 	@Override
 	public List<MainVO> getRecentRealTimeReview() {
-		logger.info("인덱스 메인 실시간후기 호출 서비스");
+		logger.info("인덱스 메인 호출 서비스");
 		return mainDao.getRecentRealTimeReview();
-	}
-	
-	@Override
-	public List<MainVO> getRecentStoreFeed() {
-		logger.info("인덱스 메인 스토어피드 호출 서비스");
-		return mainDao.getRecentStoreFeed();
 	}
 	
 }

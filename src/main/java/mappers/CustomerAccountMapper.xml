@@ -4,26 +4,14 @@
 
 <mapper namespace="CustomerAccountDAO">
 
-<select id="getAccount" parameterType="String" resultType="customerAccount">
-	select 
-	m_acc_code,
-	m_id, 
-	m_acc_num, 
-	m_acc_bank 
-	from member_acc 
-	where m_id = #{m_id}
-</select> 
+<!-- 계좌정보 조회 -->
+<select id="getCustomerAccount" parameterType="String" resultType="customerAccount">
+	select m_id,m_acc_num,m_acc_bank from member_acc where m_id = #{id}
+</select>
 
-<update id="updateCAccount" parameterType="customerAccount">	
-	update member_acc set m_acc_bank = #{m_acc_bank}, m_acc_num = #{m_acc_num}
+<update id="updateAccount" parameterType="customerAccountInfo">	
+	update member_acc set m_acc_bank = #{m_acc_bank} ,m_acc_num = #{m_acc_num}
 	where m_id = #{m_id}
 </update>
-
-<insert id="insertAccount" parameterType="customerAccount">
-	insert into member_acc
-	(m_acc_code, m_acc_bank, m_acc_num, m_id)
-	values
-	(m_acc_code_sqn.nextval, #{m_acc_bank}, #{m_acc_num}, #{m_id})
-</insert>
 
 </mapper>

@@ -74,15 +74,7 @@ body {
 	border-radius: 10px;
 	margin-left : 680px;
 	background-color: #ADEFD1;
-	cursor: pointer;
-	transition: background-color 0.2s ease, border 0.2s ease;
 }
-
-.mainContentright div:nth-child(2) input:hover {
-   border: 2px solid #ADEFD1;
-   background-color: #fff;
-}
-
 
 
 .subtitle, .subtitle2 {
@@ -98,7 +90,15 @@ body {
 	background-color: #D9D9D9;
 }
 
+.mypagebtn {
+	background-color: #ADEFD1;
+	border: 2px solid #ADEFD1;
+	border-radius: 10px;
+}
 
+.mypagebtn>a {
+	color: white;
+}
 
 /* 기본 css 속성 end */
 
@@ -128,13 +128,6 @@ table input {
 	background-color: #ADEFD1;
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.2s ease, border 0.2s ease;
-}
-
-table input:hover {
-   border: 2px solid #ADEFD1;
-   background-color: #fff;
 }
 
 .List {

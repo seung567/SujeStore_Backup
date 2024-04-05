@@ -1,25 +1,31 @@
 package com.suje.controller.storeOrder;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.suje.domain.category.CategoryVO;
 import com.suje.domain.customer.EtcVO;
 import com.suje.domain.customer.FinalOrderVO;
+import com.suje.domain.customer.OrderListVO;
 import com.suje.domain.storeOrder.StoreOrderListVO;
-import com.suje.service.category.CategoryMainService;
 import com.suje.service.storeOrder.StoreOrderListService;
 
 
@@ -30,10 +36,6 @@ public class StoreOrderListController {
 	
 	@Autowired
 	private StoreOrderListService storeService;
-	
-	@Autowired
-	private CategoryMainService cateService;
-	
 	private final int  pageCountNum = 5; // 각 페이지별 출력되는 목록의 수
 	
 	// Store SUJE 톡톡 페이지 연결(초기 페이징)
@@ -45,7 +47,7 @@ public class StoreOrderListController {
 			StoreOrderListVO vo) {
 		
 		logger.info("getStoreOrderList");
-		System.out.println(storeID);
+		
 		// 전체 페이지 수 계산
 		int totalCountPage = storeService.getStoreOrderListCount(storeID);		
 		
@@ -132,23 +134,7 @@ public class StoreOrderListController {
 		return"redirect: storeSujeTalk.do?id="+ vo.getStoreID() +"&page=1";
 	}
 	
-	// 스토어 카테고리 대분류 가져오기
-	@RequestMapping(value = "getCateMainName", method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String,Object> getCateMainName(@RequestParam Map<String,String> sId){
-		
-		logger.info("getCateMainName 실행");
-		// 대분류 이름, 코드 가져오기
-		CategoryVO cateMainVO = storeService.getCateMainName(sId.get("storeId"));
-		List<CategoryVO> cateMidList = cateService.getCateMid(cateMainVO.getCatem_code());
-		
-		Map<String,Object> resultMap = new HashMap<String, Object>();
-		
-		resultMap.put("cateMainVO", cateMainVO);
-		resultMap.put("cateMidList", cateMidList);
-		
-		return resultMap;
-	}
+	
 	// ================================================= Controller 내부 사용 메소드 ==============
 	// 주문 요청사항 , 최종 주문서 정보 불러오는 메소드
 	private Map<String, Object> getOrderEtcList(int storeOrderNO,int state) {

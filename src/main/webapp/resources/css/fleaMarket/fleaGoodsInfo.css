@@ -30,18 +30,6 @@ hr {
 	
 }
 
-.subImgTitle{
-	display: block;
-	float: left;
-	line-height: 50px;
-	font-size: 20px;
-	margin-left: 20px;
-	margin-bottom: 350px;
-	width: 200px;
-	height: 50px; 
-	
-}
-
 .goodsInfo_selectBox_First {
 	font-size: 20px;
 	width: 200px;
@@ -86,7 +74,6 @@ hr {
 	margin-top: 10px;
 	margin-left: 20px;
 	font-size: 20px;
-	padding: 10px;
 	
 }
 
@@ -112,20 +99,15 @@ hr {
 }
 
 
-.goodsMainImg .goodsImg {
+.goodsMainImg {
 	margin-left: 100px;
-	width: 120px;
-	height: 120px;
+
 }
 
+.goodsSubImg {
+	margin-left: 50px;
 
-.goodsSubImg .goodsImg {
-	margin-left: 100px;
-	margin-bottom: 20px;
-	width: 120px;
-	height: 120px;
 }
-
 
 .text-box {
 	border: 5px solid #ADEFD1;

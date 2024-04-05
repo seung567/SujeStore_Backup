@@ -30,12 +30,6 @@ public class HeaderController {
 		return "forward:/adminmanage.do?page=1";
 	}
 	
-	//인기 랭킹 페이지 이동
-	@RequestMapping("viewPopularRank.do")
-	public String viewPopularRank() {
-		return "forward:/popularRank.do?cate=0";
-	}
-	
 	//커뮤니티 페이지 이동
 	@RequestMapping("viewMainComm.do")
 	public String viewMainComm() {

@@ -20,12 +20,5 @@ public class PayVO {
 	int pc_code;
 	String pc_date, pc_why;
 	
-	// 주문제작 결제내역 반품 VO
-	int rt_code;
-	String rt_date, rt_why;
-	
-	// 주문제작 결제내역 결제취소 VO
-	int can_code;
-	String can_date, can_why;
 	
 }

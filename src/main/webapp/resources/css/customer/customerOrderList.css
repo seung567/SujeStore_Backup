@@ -76,7 +76,15 @@ body {
 	background-color: #D9D9D9;
 }
 
+.mypagebtn {
+	background-color: #ADEFD1;
+	border: 2px solid #ADEFD1;
+	border-radius: 10px;
+}
 
+.mypagebtn>a {
+	color: white;
+}
 
 /* 기본 css 속성 end */
 
@@ -107,13 +115,6 @@ table input {
 	background-color: #ADEFD1;
 	border: 2px solid #ADEFD1;
 	border-radius: 5px;
-	cursor: pointer;
-   transition: background-color 0.2s ease, border 0.2s ease;
-}
-
-table input:hover {
-   border: 2px solid #ADEFD1;
-   background-color: #fff;
 }
 
 .List {
@@ -135,10 +136,6 @@ table input:hover {
 }
 
 .returnModalView {
-	display: none; 
-}
-
-.fleaPayCancelModalView {
 	display: none; 
 }
 

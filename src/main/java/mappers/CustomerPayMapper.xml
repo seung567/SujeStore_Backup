@@ -138,19 +138,8 @@ order by
 </select>
 	
 <!-- 플리마켓 결제내역 결제취소 요청하기 insert -->
-<insert id="insertFleaPayCancel" parameterType="customerPay">
+<insert id="insertFleaPayCancel" parameterType="String">
 	insert into pay_cancel(fp_code, pc_code, pc_date, pc_why) values (#{fp_code}, pc_code_sqn.nextval, sysdate, #{pc_why})
 </insert>
-
-<!-- 주문제작 결제내역 반품 요청하기 insert -->
-<insert id="insertOrderPayReturn" parameterType="customerPay">
-	insert into return(p_code, rt_code, rt_date, rt_why) values (#{p_code}, rt_code_sqn.nextval, sysdate, #{rt_why})
-</insert>
-
-<!-- 주문제작 결제내역 결제취소 요청하기 insert -->
-<insert id="insertOrderPayCancel" parameterType="customerPay">
-	insert into cancel(p_code, can_code, can_date, can_why) values (#{p_code}, can_code_sqn.nextval, sysdate, #{can_why})
-</insert>
-
 
 </mapper>

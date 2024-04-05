@@ -64,12 +64,7 @@ public class CustomerReviewController {
 	@RequestMapping(value = "reviewInsert", method = RequestMethod.POST)
 	public String reviewInsert(@ModelAttribute ReviewVO reviewVO, Model model) throws IOException {
 		
-		logger.info("////////////// getRv_code ={}",reviewVO.getRv_code());
-		logger.info("////////////// getRvp_code ={}",reviewVO.getRvp_code());
-		logger.info("////////////// getRvp_ppath ={}",reviewVO.getRvp_ppath());
-		logger.info("////////////// getRvp_spname ={}",reviewVO.getRvp_spname());
-		logger.info("////////////// getRvp_pname ={}",reviewVO.getRvp_pname());
-		logger.info("////////////// getRvp_psize ={}",reviewVO.getRvp_psize());
+		logger.info("////////////// reviewInsert ={}",reviewVO.getRv_code());
 		
 		
 		Map<String,Integer> state = service.reviewInsert(reviewVO);

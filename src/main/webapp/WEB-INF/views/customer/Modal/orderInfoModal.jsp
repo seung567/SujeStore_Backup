@@ -103,6 +103,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="hidden" class="m_id" value=<%=request.getParameter("id") %> />
 	<!-- Order join content 부분 -->
 </body>
 

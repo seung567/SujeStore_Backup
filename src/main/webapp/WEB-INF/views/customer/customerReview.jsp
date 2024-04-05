@@ -153,7 +153,6 @@ function reviewRegitBtnEvent(){
     
     let orderReturn = $(this).parent().parent().children().eq(0).text(); // 결제번호
     $(".orderPayNO").val(orderReturn);
-    console.log(orderReturn);
 }
 
 </script>

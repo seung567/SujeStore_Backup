@@ -44,6 +44,8 @@ public class CustomerOrderController {
 		return "/customer/customerOrderList";
 	}
 	
+	// ===========================SUJE TalkTalk 관련 부분 ==================
+	
 	// 고객 SUJE 톡톡 페이지 연결(초기 페이징)
 	@RequestMapping(value = "customerSujeTalk")
 	public String sujeTalkTalk(
@@ -128,7 +130,7 @@ public class CustomerOrderController {
 		
 	}
 	
-	// 요청 사항 리스트 , 최종 주문서 리스트 불러오는 메소드
+	// 주문 요청 사항 리스트 , 최종 주문서 정보 불러오는 메소드
 	public Map<String,Object> getListInfomation(String oCode,String state) {
 		
 		logger.trace("orderEtcContext");
